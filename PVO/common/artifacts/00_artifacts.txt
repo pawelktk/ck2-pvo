@@ -139,7 +139,7 @@ iron_crown_of_lombardy = {
 	monthly_character_prestige = 1
 	vassal_opinion = 10
 	diplomacy = 1
-	active = { religion_group = christian }
+	#active = { religion_group = christian }
 	allowed_gift = {
 		religion_group = christian
 	}
@@ -178,7 +178,7 @@ spear_of_destiny = {
 		morale_offence = 0.2
 		morale_defence = 0.2
 	}
-	active = { religion_group = christian }
+	#active = { religion_group = christian }
 	allowed_gift = {
 		religion_group = christian
 	}
@@ -193,7 +193,7 @@ holy_grail = {
 	monthly_character_prestige = 0.5
 	health = 4
 	same_religion_opinion = 5
-	active = { religion_group = christian }
+	#active = { religion_group = christian }
 	allowed_gift = {
 		religion_group = christian
 	}
@@ -208,7 +208,7 @@ holy_chalice = {
 	monthly_character_prestige = 2
 	health = 1
 	same_religion_opinion = 10
-	active = { religion_group = christian }
+	#active = { religion_group = christian }
 	allowed_gift = {
 		religion_group = christian
 	}
@@ -225,7 +225,7 @@ bones_of_st_peter = {
 	build_cost_modifier = -0.1
 	build_time_modifier = -0.1
 	stewardship = 1
-	active = { religion_group = christian }
+	#active = { religion_group = christian }
 	allowed_gift = {
 		religion_group = christian
 	}
@@ -241,7 +241,7 @@ crown_of_thorns = {
 	same_religion_opinion = 5
 	global_revolt_risk = -0.03
 	diplomacy = 1
-	active = { religion_group = christian }
+	#active = { religion_group = christian }
 	allowed_gift = {
 		religion_group = christian
 	}
@@ -274,9 +274,9 @@ fragment_of_true_cross = {
 	monthly_character_piety = 0.5
 	diplomacy = 2
 	active = { religion_group = christian }
-	allowed_gift = {
-		religion_group = christian
-	}
+	#allowed_gift = {
+	#	religion_group = christian
+	#}
 	quality = 3
 	flags = { religious christian rare crucifixion }
 	stacking = no
@@ -287,9 +287,9 @@ holy_foreskin = {
 	monthly_character_prestige = 0.1
 	fertility = 0.15
 	health = 0.5
-	active = { 
-		religion_group = christian
-	}
+	#active = { 
+	#	religion_group = christian
+	#}
 	allowed_gift = {
 		religion_group = christian
 	}
@@ -331,9 +331,9 @@ chains_of_st_peter = {
 	monthly_character_prestige = 0.1
 	learning = 2
 	active = { religion_group = christian }
-	allowed_gift = {
-		religion_group = christian
-	}
+	#allowed_gift = {
+	#	religion_group = christian
+	#}
 	quality = 2
 	flags = { religious christian chains saint }
 	stacking = no
@@ -344,9 +344,9 @@ right_hand_st_demetrius = {
 	monthly_character_prestige = 0.1
 	martial = 2
 	active = { religion_group = christian }
-	allowed_gift = {
-		religion_group = christian
-	}
+	#allowed_gift = {
+	#	religion_group = christian
+	#}
 	quality = 2
 	flags = { religious christian hand saint bodypart }
 	stacking = no
