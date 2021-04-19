@@ -1,0 +1,127 @@
+namespace = gonzo
+
+character_event = {
+	
+	id = gonzo.020
+	desc = OK
+	
+	min_age = 16
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		tier = baron
+		is_republic = yes
+		independent = no
+		war = no
+		capital_scope = { port = yes }
+		liege = {
+			ai = yes
+			NOT = { character = ROOT }
+			de_jure_vassal_or_below = ROOT
+			religion = ROOT
+			higher_tier_than = DUKE
+			OR = {
+				over_max_demesne_size = 1
+				demesne_size = 10
+			}
+			NOT = {
+				num_of_government_vassals = {
+					government = merchant_republic_government
+					value = 1
+				}
+			}
+			any_demesne_title = {
+				can_be_given_away = yes
+				AND = {
+					tier = count
+					is_feudal = yes
+					location = {
+						is_capital = no
+					}						
+				}
+			}
+			NOT = { has_character_flag = created_free_city }
+			NOT = { has_character_flag = denied_free_city }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		random = 3
+	}
+	
+	option = {
+		name = OK # Ask for county
+		liege = { character_event = { id = gonzo.021 days = 3 } }
+		set_character_flag = 60899
+	}
+}
+
+# Liege responds to the request
+character_event = {
+	id = gonzo.021
+	desc = OK
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK # Promise that you'll arrange it
+		
+		random_demesne_title = {
+			limit = {
+				can_be_given_away = yes
+				de_jure_vassal_or_below = FROM
+				AND = {
+					tier = count
+					is_feudal = yes
+					location = {
+						is_capital = no
+					}
+				}
+			}
+			grant_title = FROM
+		}
+		hidden_tooltip = {
+			FROM = { letter_event = { id = gonzo.022 days = 1 } }
+		}
+		ai_chance = { 
+			factor = 1000
+		}
+		set_character_flag = created_free_city
+	}
+	
+	option = {
+		name = OK # No
+		set_character_flag = denied_free_city
+		FROM = { 
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				months = 120
+			}
+		}
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
+
+character_event = {
+	id = gonzo.022
+	desc = OK
+	
+	is_triggered_only = yes
+		
+	option = {
+		name = OK
+		set_character_flag = given_free_city
+	}
+}
+
+
+
+
+
+

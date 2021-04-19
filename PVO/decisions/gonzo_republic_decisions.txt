@@ -1,0 +1,113 @@
+decisions = {
+	reestablish_venice = {
+		
+		is_high_prio = yes
+		
+		potential = {
+			ai = yes
+			OR = {	
+				primary_title = {
+					title = k_venice
+				}
+				primary_title = {
+					title = d_venice
+				}
+			}
+			has_landed_title = c_venezia
+			is_republic = no
+			is_female = no
+			prisoner = no
+			age = 16
+		}
+		allow = {
+			prestige = 500
+			wealth = 300
+		}
+		effect = {
+			b_venezia = {
+				gain_title = FROM 
+				ROOT = { make_capital_holding = yes }
+			}
+			set_government_type = merchant_republic_government
+			create_family_palace = yes 
+			set_character_flag = formed_venice
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	reestablish_genoa = {
+		
+		is_high_prio = yes
+		
+		potential = {
+			ai = yes
+			OR = {	
+				primary_title = {
+					title = k_genoa
+				}
+				primary_title = {
+					title = d_genoa
+				}
+			}
+			has_landed_title = c_genoa
+			is_republic = no
+			is_female = no
+			prisoner = no
+			age = 16
+		}
+		allow = {
+			prestige = 500
+			wealth = 300
+		}
+		effect = {
+			b_genoa = {
+				gain_title = FROM 
+				ROOT = { make_capital_holding = yes }
+			}
+			set_government_type = merchant_republic_government
+			create_family_palace = yes
+			set_character_flag = formed_genoa
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	reestablish_pisa = {
+		
+		is_high_prio = yes
+		
+		potential = {
+			ai = yes
+			OR = {	
+				primary_title = {
+					title = k_pisa
+				}
+				primary_title = {
+					title = d_pisa
+				}
+			}
+			has_landed_title = c_pisa
+			is_republic = no
+			is_female = no
+			prisoner = no
+			age = 16
+		}
+		allow = {
+			prestige = 500
+			wealth = 300
+		}
+		effect = {
+			b_pisa = {
+				gain_title = FROM 
+				ROOT = { make_capital_holding = yes }
+			}
+			set_government_type = merchant_republic_government
+			create_family_palace = yes 
+			set_character_flag = formed_pisa
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
