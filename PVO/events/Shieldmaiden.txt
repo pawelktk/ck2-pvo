@@ -1,0 +1,690 @@
+####################################################################################
+#### Tombola for battle events - fires for a commander leading a unit in battle ####
+####################################################################################
+character_event = {
+    id = HFP.11000
+    is_triggered_only = yes
+	hide_window = yes
+
+    trigger = {
+    	is_alive = yes
+    	NOT = { has_character_flag = battle_event_in_progess }
+    	OR = { #you can't be fighting null-character
+    		FROM = { always = yes }
+    		FROMFROM = { always = yes }
+
+#    		location = { #An attempt to combat the "null-character" fights
+#    			ROOT = {
+#    				any_current_enemy = {
+#    					any_unit = {
+#    						location = {
+#    							province = PREVPREVPREVPREV
+#    						}
+#    					}
+#    				}
+#    			}
+#    		}
+    	}
+#    	log = "BATTLE EVENT: FROM yields enemy commander: [From.GetBestName] "
+#    	log = "BATTLE EVENT: FROMFROM yields enemy liege: [FromFrom.GetBestName] "
+#    	log = "BATTLE EVENT: ROOT is: [Root.GetBestName]"
+    }
+    fail_trigger_effect = {
+#    	log = "BATTLE EVENT: FROM and FROMFROM are both empty."
+#    	log = "BATTLE EVENT: ROOT was: [Root.GetBestName]"
+    	change_variable = { which = global_combat_pulse_failed_to_find_leader value = 1 }
+#		if = {
+#			limit = {
+#				NOR = {
+#					FROM = { always = yes }
+#	    			FROMFROM = { always = yes }
+#	    			location = { #An attempt to combat the "null-character" fights
+#		    			ROOT = {
+#		    				any_current_enemy = {
+#		    					any_unit = {
+#		    						location = {
+#		    							province = PREVPREVPREVPREV
+#		    						}
+#		    					}
+#		    				}
+#		    			}
+#		    		}
+#				}
+#			}
+#			change_variable = { which = global_combat_pulse_failed_to_find_leader value = 1 }
+#		}
+#		else_if = {
+#			limit = {
+#				NOR = {
+#					FROM = { always = yes }
+#	    			FROMFROM = { always = yes }
+#				}
+#    			location = { #An attempt to combat the "null-character" fights
+#	    			ROOT = {
+#	    				any_current_enemy = {
+#	    					any_unit = {
+#	    						location = {
+#	    							province = PREVPREVPREVPREV
+#	    						}
+#	    					}
+#	    				}
+#	    			}
+#	    		}
+#			}
+#			change_variable = { which = global_combat_pulse_found_back_up value = 1 }		
+#		}
+    }
+
+    immediate = {
+    	if = { #Quick fix to reduce the amount of time the AI gets the events
+    		limit = { ai = yes }
+    		random = {
+    			chance = 75
+    			break = yes
+    		}
+    	}
+
+    	disallow_new_battle_events_effect = yes #to keep the tombola from spamming you...
+
+    	# To keep scopes straight...
+    	save_event_target_as = home_commander
+    	if = {  #work around: in rare edge cases, the flank leader will belong to a flank which has fled, while the commander already *died* and code fails to update this.
+    		limit = {
+    			FROM = {
+    				character = yes
+    				is_alive = yes
+    				is_dying = no
+    			}
+    		}
+			FROM = { save_event_target_as = enemy_commander } #note: might not always exist
+    	}
+		FROMFROM = { save_event_target_as = enemy_liege } #note: might be the same character as enemy_commander
+		location = {
+			save_event_target_as = battlefield_location
+		}
+		capital_scope = {
+			save_event_target_as = home_capital_province
+		}
+		if = { #In case the enemy-liege is not found (hacky work-around): 
+			limit = { NOT = { event_target:enemy_liege = { always = yes } } }
+			FROM = { save_event_target_as = enemy_liege } #note: FROM is saved twice, as different targets, for sake of loc.
+			log = "BATTLE EVENT: Retargeting: [enemy_liege.GetTitledFirstName] is the 'enemy liege' AND commander."
+			log = "BATTLE EVENT: Retargeting: [Root.GetBestName] is ROOT."
+		}
+		if = { #In case the enemy-liege is STILL not found: an attempt to combat the "null-character" fights...
+			limit = { NOT = { event_target:enemy_liege = { always = yes } } }
+			location = {
+    			ROOT = {
+    				random_current_enemy = {
+    					preferred_limit = {
+	    					any_unit = {
+	    						location = {
+	    							province = PREVPREVPREVPREV
+	    						}
+	    					}
+    					}
+						save_event_target_as = enemy_liege #for sake of loc.
+    				}
+    			}
+    		}
+    		log = "BATTLE EVENT: Retargeting: [enemy_liege.GetTitledFirstName] is the new RANDOMLY PICKED ALMOST 'enemy liege'. [Root.GetTitledFirstName] is ROOT."
+		}
+
+		#Special handling for loc:
+		#REQUIRED event targets for setting up duel evaluation! NOTE: not strictly duels here, but used for loc. [Don't copy this to anywhere else].
+    	save_event_target_as = combatant_1 #the person receiving the first event...
+    	event_target:enemy_commander = { save_event_target_as = combatant_2 } #the target of the battle...
+
+    	random_list = {
+			##### Warrior Lodge exclusive ######
+			10 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+					is_member_of_any_warrior_lodge_trigger = yes
+					NOT = { any_artifact = { has_artifact_flag = battlefield_loot } }
+				}
+				good_soldier_outcome_score = yes
+
+				character_event = { id = HFP.11026 }  # Find a weapon on the battlefield
+			}
+			10 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+					is_member_of_any_warrior_lodge_trigger = yes
+					has_nickname = no
+				}
+				good_soldier_outcome_score = yes
+				character_event = { id = HFP.11027 } # Pick a nickname!
+			}
+			
+			5 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+					is_member_of_any_warrior_lodge_trigger = yes
+					event_target:enemy_commander = { always = yes } #There has to be an opponent...
+					NOT = { has_character_modifier = battle_events_1_cooldown }
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_1_cooldown duration = 365 hidden = yes }				
+				character_event = { id = HFP.11028 } # You decapitate your enemy, and take their skull as a trophy.
+			}
+			10 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+					is_member_of_any_warrior_lodge_trigger = yes
+					NOT = { trait = robust }
+				}
+				good_soldier_outcome_score = yes
+				character_event = { id = HFP.11034 } # You become Brawny.
+			}
+			10 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+					is_member_of_any_warrior_lodge_trigger = yes
+					any_unit_leader = {
+			       		always = yes
+			       		NOT = { character = ROOT }
+			       		root_potentially_interested_in_rivaling_this_trigger = no
+			    	}
+			    	NOT = { has_character_modifier = battle_events_2_cooldown }
+				}
+				bad_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_2_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11036 }  # You are impressed by fellow commander
+			}
+			10 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+					is_member_of_any_warrior_lodge_trigger = yes
+					event_target:home_capital_province = { #If something cool happened at your capital once and you haven't already addressed it...
+						OR = {
+							AND = {
+								persistent_event_target:local_dead_commander_target = { always = yes }
+								ROOT = { NOT = { has_character_modifier = glory_days } }
+							}
+							AND = {
+								persistent_event_target:local_inspiring_commander_target = { always = yes }
+			        			ROOT = { NOT = { has_character_modifier = proud_role_model } }
+							}
+							AND = {
+								persistent_event_target:local_fearsome_commander_target = { always = yes }
+			        			ROOT = { NOT = { has_character_modifier = center_of_attention } }
+							}
+						}
+					}
+					NOT = { has_character_modifier = battle_events_3_cooldown }
+				}
+
+				add_character_modifier = { name = battle_events_3_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11037 } # You reminisce about previous battles (hooked from previous events)
+			}
+			3 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+					is_member_of_any_warrior_lodge_trigger = yes
+					OR = {
+						has_nickname = no
+						trait = depressed
+						trait = stressed
+					}
+				}
+				good_soldier_outcome_score = yes
+				character_event = { id = HFP.11038 }  # An event where you gain a nickname/lose stressed/depressed
+			}
+
+    		#### INJURIES...
+			10 = {
+				trigger = {
+					NOT = { trait = berserker }
+					NOT = { is_indomitable_trigger = yes }  #The "Indomitable" power blocks "very bad stuff"
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+
+				random = { #Fix to the quick fix
+	    			chance = 75
+	    			break = yes
+	    			allow_new_battle_events_effect = yes
+	    		}
+
+				character_event = { id = HFP.11001 } # Killed (remake of 242)
+			}
+			15 = {
+				trigger = {
+					NOT = { trait = wounded }
+					NOT = { trait = berserker }
+					is_alive = yes
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+				character_event = { id = HFP.11010 } # Become Wounded/Bruised (choose injury or gain Craven/lose Brave + lose prestige)
+			}
+			15 = {
+				trigger = {
+					NOT = { trait = maimed }
+					NAND = { 
+						trait = one_eyed
+						trait = one_handed 
+						trait = one_legged 
+						trait = disfigured 
+					}
+					NOT = { trait = berserker }
+					is_alive = yes
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+				character_event = { id = HFP.11011 } # Maimed (randomly selected maiming, if has RIP. Otherwise, Maimed.)
+			}
+			10 = {
+				trigger = {
+					NOT = { trait = incapable }
+					immortal = no
+					is_alive = yes
+					NOT = { is_indomitable_trigger = yes } #The "Indomitable" power blocks "very bad stuff"
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+				random = { #Fix to the quick fix
+	    			chance = 75
+	    			break = yes
+	    			allow_new_battle_events_effect = yes
+	    		}
+				character_event = { id = HFP.11012 } # Serious head-injury (remake of 245). Chance to become Disfigured (if has RIP) or Incapable.
+			}
+			15 = {
+				trigger = {
+					event_target:enemy_commander = {
+						is_alive = yes
+						NOT = { has_character_flag = about_to_challenge_enemy_commander } #So this isn't about to fire the other way around
+					}
+					NOT = { has_character_modifier = battle_events_4_cooldown }
+					NAND = {
+						NOT = { has_pet_animal_trigger = yes } #the event is purely negative without the pet to sacrifice
+						is_indomitable_trigger = yes
+					}
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+
+				additive_modifier = { #For the more varied versions...
+					has_pet_animal_trigger = yes
+					value = 5
+				}
+
+				add_character_modifier = { name = battle_events_4_cooldown duration = 365 hidden = yes }
+				set_character_flag = about_to_challenge_enemy_commander
+
+				character_event = { id = HFP.11025 } # Your pet to the rescue (otherwise something else)!
+			}
+
+			####  GENERAL IMPROVEMENTS (traits/tech/skill)...			
+			25 = {
+				trigger = {
+					event_target:enemy_commander = { is_alive = yes ai = yes } #There has to be an opponent (who is AI)...
+					NOT = { has_character_modifier = battle_events_9_cooldown }
+					ai = no
+				}
+				good_soldier_outcome_score = yes
+				bad_soldier_outcome_enemy_commander_score = yes
+
+				add_character_modifier = { name = battle_events_9_cooldown duration = 365 hidden = yes }				
+				character_event = { id = HFP.11050 } # You spot an enemy (likely to be way worse than you): easy pickings!
+			}
+
+			25 = {
+				trigger = {
+					is_alive = yes
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+					}
+					NOT = { has_character_modifier = battle_events_5_cooldown }
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_5_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11013 } # Improves martial education (remake of 246)
+			}
+			20 = {
+				trigger = {
+					is_alive = yes
+					NOT = { martial = 10 }
+					NOT = { has_character_modifier = battle_events_6_cooldown }
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_6_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11014 } # Flat improvement to martial skill or province modifier
+			}
+			20 = {
+				trigger = {
+					is_alive = yes
+					is_landed = yes
+					OR = {
+						trait = brilliant_strategist
+						trait = skilled_tactician
+					}
+					event_target:home_capital_province = {
+						NOT = { has_province_modifier = war_knowledge }
+					}
+				}
+				good_soldier_outcome_score = yes
+				character_event = { id = HFP.11016 } # Knowledge boost in capital from battle or tech points
+			}
+			30 = {
+				trigger = { 
+					can_have_more_leadership_traits = yes
+					is_alive = yes
+					NOT = { has_character_modifier = battle_events_7_cooldown } #all commander traits-giving events are set to need a year in between firing...
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_7_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11017 } # Gain Combat Trait 1
+			}
+			20 = {
+				trigger = {
+					is_alive = yes
+					can_have_more_leadership_traits = yes
+					NOT = { has_character_modifier = battle_events_7_cooldown } #all commander traits-giving events are set to need a year in between firing...
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_7_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11020 } # # Gain Combat Trait 2
+			}
+			20 = {
+				trigger = {
+					is_alive = yes
+					can_have_more_leadership_traits = yes
+					NOT = { has_character_modifier = battle_events_7_cooldown } #all commander traits-giving events are set to need a year in between firing...
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_7_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11021 } # # Gain Combat Trait 3
+			}
+			20 = {
+				trigger = {
+					is_alive = yes
+					can_have_more_leadership_traits = yes
+					NOT = { has_character_modifier = battle_events_7_cooldown } #all commander traits-giving events are set to need a year in between firing...
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_7_cooldown duration = 365 hidden = yes }
+				character_event = { id = HFP.11022 } # # Gain Combat Trait 4
+			}
+			10 = {
+				trigger = {
+					is_alive = yes
+					OR = { #Either you have a child, or you have a friend...
+						any_child_even_if_dead = {
+							age = 10
+							NOT = { age = 40 }
+							NOT = { at_location = ROOT }
+						}
+						any_friend = {
+							age = 10
+							NOT = { at_location = ROOT }
+						}
+					}
+					NOT = { trait = patient }
+					NOT = { trait = wroth }
+					NOT = { trait = blinded } #Because you *see* something. Uh, yeah.
+					NOT = { has_character_modifier = battle_events_8_cooldown } #all commander traits-giving events are set to need a year in between firing...
+				}
+				good_soldier_outcome_score = yes
+
+				add_character_modifier = { name = battle_events_8_cooldown duration = 3650 hidden = yes }
+				character_event = { id = HFP.11049 } # See someone you recognize (?). Gain Wroth/Patient
+			}
+
+			#### GAIN TRAITS/MISC...
+			
+			10 = {
+				trigger = {
+					has_dlc = "Holy Fury"
+			    	any_owned_bloodline = { has_bloodline_flag = bloodline_battle_bards }
+					NOR = {
+			    		has_character_modifier = inspired_singer
+			    		has_character_modifier = inspired_drummer
+			    	}
+				}
+				good_soldier_outcome_score = yes
+				character_event = { id = HF.12405 } # BATTLE BARDS: Bonus event for any *battle bard bloodline*
+			}
+
+			10 = {
+				trigger = {
+					is_alive = yes
+					has_job_title = job_marshal
+					trait = cruel
+				}
+				character_event = { id = HFP.11023 } # Marshal: Unnecessary violence (fires for marshal, then liege might gain Cruel)
+			}
+			25 = {
+				trigger = {
+					primary_title = {
+						NOT = { has_title_flag = ze_dyn_merc }
+						mercenary = yes
+					}
+					has_character_flag = is_mercenary_leader
+					OR = {
+						NOT = { has_character_flag = fought_great_commander }
+						had_character_flag = { flag = fought_great_commander days = 180 }
+					}
+
+					FROM = {
+						OR = {
+							martial = 15
+							has_nickname = yes
+							higher_tier_than = DUKE
+							prestige = 2500
+						}
+					}
+				}
+				character_event = { id = HL.10300 } # Fighting a great commander (AI only, then notifies liege)
+			}
+
+			# LOSE TRAITS
+			25 = {
+				trigger = {
+					primary_title = {
+						NOT = { has_title_flag = ze_dyn_merc }
+						mercenary = yes
+					}
+					has_character_flag = is_mercenary_leader
+					trait = craven
+				}
+				character_event = { id = HL.10200 } # Lose Craven (Old Horse Lords event)
+			}
+
+			#MISC: Old events
+			50 = {
+				trigger = {
+					has_dlc = "The Old Gods"
+					culture_group = north_germanic
+					OR = {
+						religion = norse_pagan
+						religion = norse_pagan_reformed
+					}
+					is_alive = yes
+					NOT = { trait = berserker }
+					OR = {
+						NOT = { age = 50 }
+						immortal = yes
+					}
+					OR = {
+						trait = wroth
+						trait = aggressive_leader
+					}
+				}
+				character_event = { id = TOG.3000 } # Becomes Berserker
+				log = "fired OLD battle EVENT TOG.3000"
+			}
+			50 = {
+				trigger = {
+					has_dlc = "The Old Gods"
+					trait = berserker
+					NOT = { trait = maimed }
+					NOT = { trait = one_legged }
+					is_alive = yes
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+				character_event = { id = TOG.3001 } # Berserker Maimed
+				log = "fired OLD battle EVENT TOG.3001"
+			}
+			50 = {
+				trigger = {
+					has_dlc = "The Old Gods"
+					trait = berserker
+					NOT = { trait = wounded }
+					NOT = { is_maimed_trigger = yes }
+					is_alive = yes
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+				character_event = { id = TOG.3002 } # Berserker Wounded
+				log = "fired OLD battle EVENT TOG.3002"
+			}
+			50 = {
+				trigger = {
+					has_dlc = "The Old Gods"
+					trait = berserker
+				}
+				bad_soldier_outcome_score = yes
+				warrior_lodge_risk_reduction_score = yes
+				character_event = { id = TOG.3003 } # Berserker Killed - Updated with new notification events
+				log = "fired OLD battle EVENT TOG.3003"
+			}
+			50 = {
+				trigger = {
+					has_dlc = "The Old Gods"
+					trait = berserker
+				}
+				good_soldier_outcome_score = yes
+				character_event = { id = TOG.3004 } # Berserker Kills Many
+				log = "fired OLD battle EVENT TOG.3004"
+			}
+
+			15 = {
+				trigger = {
+					OR = {
+						religion = norse_pagan
+						religion = norse_pagan_reformed
+						liege = { is_member_of_any_warrior_lodge_trigger = yes }
+					}
+					trait = shieldmaiden
+
+					liege = {
+						at_location = ROOT
+						age = 16
+						prisoner = no
+						NOT = { has_character_modifier = lucky_to_be_alive }
+					}
+					NOT = {
+						trait = incapable
+						prisoner = no
+						has_character_modifier = favored_shieldmaiden
+						has_character_modifier = bad_shieldmaiden
+						has_character_modifier = clumsy_shieldmaiden
+						has_character_modifier = inattentive_soldier
+					}
+				}
+				character_event = { id = 79009 } # Shieldmaiden can save liege on battlefield (choice for Shieldmaiden who is ROOT)
+				log = "fired OLD battle EVENT 79009"
+			}
+			15 = {
+				trigger = {
+				
+    	is_alive = yes
+    	NOT = { has_character_flag = battle_event_in_progess }
+    	OR = { #you can't be fighting null-character
+    		FROM = { always = yes }
+    		FROMFROM = { always = yes }
+			}
+
+					OR = {
+						religion = norse_pagan
+						religion = norse_pagan_reformed
+						is_member_of_any_warrior_lodge_trigger = yes
+					}
+					age = 16
+					NOT = { trait = incapable }
+					liege = {
+						at_location = ROOT
+						age = 16
+						prisoner = no
+						NOT = { has_character_modifier = lucky_to_be_alive }
+					}
+
+					any_courtier_or_vassal = {
+						trait = shieldmaiden
+						NOT = { trait = incapable }
+						prisoner = no
+						has_minor_title = title_commander
+					}
+				}
+				character_event = { id = 79001 } # Shieldmaiden saves liege, but she is injured (small chain, fired for liege who is ROOT)
+				log = "fired OLD battle EVENT 79001"
+			}						
+
+			# SCRYING VISIONS (2)
+			50 = {
+				trigger = {
+			    	has_dlc = "Mystics"
+			    	is_alive = yes
+			    	can_have_more_leadership_traits = yes
+			    	OR = {
+			    		NOT = { trait = experimenter }
+			    		NOT = { trait = unyielding_leader }
+			    		NOT = { trait = inspiring_leader }
+			    	}    	
+					has_battle_omen_modifier_trigger = yes
+			    }
+			    good_soldier_outcome_score = yes
+			    modifier = {
+					factor = 2.5
+					has_character_modifier = good_battle_omen
+				}
+			    modifier = {
+					factor = 0.9
+					has_character_modifier = bad_battle_omen
+				}
+				character_event = { id = MNM.1202 }  # Scrying vision inspires greatness
+				log = "fired OLD battle EVENT MNM.1202"
+			}
+			50 = {
+				trigger = {
+			    	has_dlc = "Mystics"
+			    	is_alive = yes
+			    	has_battle_omen_modifier_trigger = yes
+			    }
+				bad_soldier_outcome_score = yes
+			    modifier = {
+					factor = 2.5
+					has_character_modifier = bad_battle_omen
+				}
+			    modifier = {
+					factor = 0.9
+					has_character_modifier = good_battle_omen
+				}
+				character_event = { id = MNM.1203 } # Scrying vision injury
+				log = "fired OLD battle EVENT MNM.1203"
+			}
+			
+			1 = {
+				trigger = {
+					is_alive = yes
+					NOT = { is_indomitable_trigger = yes }
+				}
+				character_event = { id = HFP.30200 }
+			}
+		}
+    }
+}

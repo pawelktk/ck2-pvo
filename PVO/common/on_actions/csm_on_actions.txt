@@ -1,0 +1,76 @@
+on_startup = {
+	events = {
+		csmm.000 #initialization
+		csmm.300 #info event
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		csmm.016 #mount upkeep
+	}
+}
+
+
+on_bi_yearly_pulse = {
+	events = {
+		csmm.004 #province mounts fluctuation
+		csmm.010 #master maintenance event
+		csm.213 #mongol horde horses
+	}
+	random_events = {
+		80 = csm.400 #flavor tombola
+	}
+}
+
+on_artifact_inheritance = {
+	events = {
+		csmm.005 #mount inheritance
+	}
+}
+
+#3365
+on_combat_pulse = {
+	random_events = { 
+		#125 = csmc.000 #combat start, disabled as of holy fury
+		#10000 = csmc.000 #combat start
+		100 = csm.211 #stray arrow
+	}
+}
+
+on_death = {
+	events = {
+		csm.205 #bucephalus spawn failsafe
+	}
+}
+
+
+# For characters older than AGE_CHILDHOOD_PULSE but not an adult as defined by ADULT_AGE_FEMALE and ADULT_AGE_MALE
+# Ages 2-16
+on_yearly_childhood_pulse = {
+	random_events = {
+		55 = csm.206 #wants to see stables
+	}
+}
+
+# Fires for the owner of the winning unit (ROOT). The taken Holding title is in FROM.
+on_siege_over_winner = {
+	events = {
+		csmm.018 #return looted mount
+	}
+	random_events = {
+		100 = csm.209 #mount hurt
+	}
+}
+
+on_loot_settlement = {
+	events = {
+		csmm.018 #return looted mount
+	}
+}
+
+on_unlanded = {
+	events = {
+		csmm.006 #clean up
+	}
+}

@@ -1,0 +1,7 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_better_sea_king_bloodline"
+		texturefile = "gfx\\interface\\decision_icon_better_sea_king_bloodline.dds"
+	}
+}

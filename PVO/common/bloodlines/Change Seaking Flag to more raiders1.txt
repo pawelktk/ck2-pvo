@@ -1,0 +1,49 @@
+#This makes changes to common/bloodlines/02_earned_bloodlines. To make this compatible with other mods I changed
+#flag back to more_raiders_bloodline and added a new flag which I will add to PI_ER_looting_events
+seaking_bloodline = { #Spawned tribal raider troops are more numerous.
+	combat_rating = 3
+	seaking_opinion = 5
+	sea_queen_opinion = 5
+	same_religion_opinion = 10
+	inheritance = all_descendants
+	allow_bastards = yes
+	bloodline_effect_more_raiders = 1
+	picture = GFX_bloodlines_symbol_midgard
+	active = {
+		religion_same_as_bloodline_founder_trigger = yes
+#		custom_tooltip = {
+#			text = saintly_bloodline_same_religion_TT
+#			FROM = {
+#				founder = {
+#					religion = ROOT
+#				}
+#			}
+#		}
+	}
+	flags = { more_raiders_bloodline does_not_sow_bloodline  created_bloodline }
+	#flags = {does_not_sow_bloodline created_bloodline}
+}
+
+seaqueen_bloodline = {
+	combat_rating = 3
+	seaking_opinion = 5
+	sea_queen_opinion = 5
+	same_religion_opinion = 10
+	inheritance = all_descendants
+	allow_bastards = yes
+	bloodline_effect_more_raiders = 1
+	picture = GFX_bloodlines_symbol_midgard
+	active = {
+		religion_same_as_bloodline_founder_trigger = yes
+#		custom_tooltip = {
+#			text = saintly_bloodline_same_religion_TT
+#			FROM = {
+#				founder = {
+#					religion = ROOT
+#				}
+#			}
+#		}
+	}
+	flags = { more_raiders_bloodline does_not_sow_bloodline created_bloodline }
+	#flags = {does_not_sow_bloodline created_bloodline}
+}

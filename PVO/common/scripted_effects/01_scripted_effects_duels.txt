@@ -1604,16 +1604,16 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 			}
 			modifier = {
 				duel_result_score_low_group_trigger = yes #Score group: low (outmatched)
-				factor = 2
+				value = 2
 			}
 			modifier = {
 				duel_result_score_decent_trigger = yes #Score: fairly evenly matched
-				factor = 2
+				value = 2
 			}
 			modifier = { #Both have highest skill
 				is_the_best_duelist_trigger = yes
 				event_target:combatant_2 = { is_the_best_duelist_trigger = yes }
-				factor = 2
+				value = 2
 			}
 			modifier = { #Both have the worst skill
 				is_the_worst_duelist_trigger = yes

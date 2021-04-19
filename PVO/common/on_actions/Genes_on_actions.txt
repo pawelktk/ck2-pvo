@@ -5,3 +5,8 @@ on_birth = {
 	MT.9000 
 }
 }
+on_startup = {
+	events = {
+		MT.1000
+	}
+}

@@ -1,0 +1,718 @@
+namespace = KEK
+
+# Seduce Decision event start - Normal
+character_event = {
+	id = KEK.100
+	title = EVTTITLE_WOL_100
+	desc = EVTDESC_WOL_100
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_seduced
+		}
+		save_event_target_as = target_seducer
+		set_character_flag = seduction_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_100
+		character_event = { id = KEK.110 days = 20 random = 20 tooltip = EVTTOOLTIP_WoL_110 }
+#		log = "WoL.100: [Root.GetTitledName] begins seduction of [From.GetTitledName]"
+	}
+}
+
+# Seduce Decision event start - Age scandal risk
+character_event = {
+	id = KEK.101
+	title = EVTTITLE_WOL_100
+	desc = EVTDESC_WOL_101
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_seduced
+		}
+		save_event_target_as = target_seducer
+		set_character_flag = seduction_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_101
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			NOT = { is_older_than = FROM }
+		}
+		character_event = { id = KEK.110 days = 20 random = 20 tooltip = EVTTOOLTIP_WoL_110 }
+#		log = "WoL.101: [Root.GetTitledName] begins seduction of [From.GetTitledName]"
+	}
+	option = {
+		name = EVTOPTB_WOL_101
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			is_older_than = FROM
+		}
+		character_event = { id = KEK.110 days = 20 random = 20 tooltip = EVTTOOLTIP_WoL_110 }
+#		log = "WoL.101: [Root.GetTitledName] begins seduction of [From.GetTitledName]"
+	}
+	option = {
+		name = EVTOPTC_WOL_101
+		ai_chance = {
+			factor = 0
+		}
+		hidden_tooltip = {
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_seducing
+			}
+		}
+	}
+}
+
+# Seduce Decision event start - Incest scandal risk
+character_event = {
+	id = KEK.102
+	title = EVTTITLE_WOL_102
+	desc = EVTDESC_WOL_102
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_seduced
+		}
+		save_event_target_as = target_seducer
+		set_character_flag = seduction_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_102
+		ai_chance = {
+			factor = 100
+		}
+		character_event = { id = KEK.110 days = 20 random = 20 tooltip = EVTTOOLTIP_WoL_110 }
+#		log = "WoL.102: [Root.GetTitledName] begins seduction of [From.GetTitledName]"
+	}
+	option = {
+		name = EVTOPTB_WOL_102
+		ai_chance = {
+			factor = 0
+		}
+		hidden_tooltip = {
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_seducing
+			}
+		}
+	}
+}
+
+# Seduce Decision event start - Priest scandal risk
+character_event = {
+	id = KEK.103
+	title = EVTTITLE_WOL_100
+	desc = EVTDESC_WOL_103
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_seduced
+		}
+		save_event_target_as = target_seducer
+		set_character_flag = seduction_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_103
+		ai_chance = {
+			factor = 100
+		}
+		character_event = { id = KEK.110 days = 20 random = 20 tooltip = EVTTOOLTIP_WoL_110 }
+#		log = "WoL.103: [Root.GetTitledName] begins seduction of [From.GetTitledName]"
+	}
+	option = {
+		name = EVTOPTB_WOL_103
+		ai_chance = {
+			factor = 0
+		}
+		hidden_tooltip = {
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_seducing
+			}
+		}
+	}
+}
+
+# Seduce Decision event start - Homo scandal risk
+character_event = {
+	id = KEK.104
+	title = EVTTITLE_WOL_100
+	desc = EVTDESC_WOL_104
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_seduced
+		}
+		save_event_target_as = target_seducer
+		set_character_flag = seduction_confirmed
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_104
+		ai_chance = {
+			factor = 100
+		}
+		character_event = { id = KEK.110 days = 20 random = 20 tooltip = EVTTOOLTIP_WoL_110 }
+#		log = "WoL.104: [Root.GetTitledName] begins seduction of [From.GetTitledName]"
+	}
+	option = {
+		name = EVTOPTB_WOL_104
+		ai_chance = {
+			factor = 0
+		}
+		hidden_tooltip = {
+			remove_opinion = {
+				who = FROM
+				modifier = opinion_seducing
+			}
+		}
+	}
+}
+# Hidden 'outcome tombola' event
+character_event = {
+	id = KEK.110
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				FROMFROM = { has_character_modifier = dismissed_proposal } # My target is known to refuse seduction
+			}
+			character_event = { id = WoL.119 }
+			character_event = { id = WoL.118 }
+			break = yes # Stop execution here
+		}
+
+		if = {
+			limit = {
+				prisoner = yes # I have become imprisoned
+			}
+			character_event = { id = WoL.118 }
+			break = yes # Stop execution here
+		}
+		
+		if = {
+			limit = {
+				trait = incapable # I have become incapable
+			}
+			character_event = { id = WoL.118 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_focus = focus_seduction } # I have changed my focus
+			}
+			character_event = { id = WoL.118 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROMFROM
+						modifier = opinion_seducing
+					}
+				}
+			}
+			break = yes # I have stopped trying to seduce this character
+		}
+				
+		if = {
+			limit = {
+				FROMFROM = {
+					is_alive = no
+				}
+			}
+			character_event = { id = WoL.111 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				FROMFROM = {
+					prisoner = yes
+				}
+			}
+			character_event = { id = WoL.112 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				FROMFROM = {
+					trait = incapable
+				}
+			}
+			character_event = { id = WoL.113 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					has_regent = yes
+					in_command = yes
+					FROMFROM = {
+						OR = {
+							trait = on_hajj
+							trait = on_pilgrimage
+							trait = in_hiding
+							in_command = yes
+							has_character_modifier = in_meditation
+							has_character_modifier = doing_penance
+							AND = {
+								OR = {
+									has_character_modifier = in_seclusion
+									ROOT = { has_character_modifier = in_seclusion }
+								}
+								NOT = { at_location = ROOT }
+							}
+						}
+					}
+				}
+			}
+			repeat_event = { id = WoL.110 days = 20 random = 20 } # Fire again with no scope changes
+			
+			random = {
+				chance = 80
+				character_event = { id = WoL.115 } # Time to give up?
+			}
+			
+			break = yes
+		}
+		
+		# Slow this down versus distant targets
+		if = {
+			limit = {
+				distance = {
+					who = FROMFROM
+					value = 200
+				}
+			}
+			random_list = {
+				100 = {
+					modifier = {
+						factor = 2.0
+						distance = {
+							who = FROMFROM
+							value = 300
+						}
+					}
+					modifier = {
+						factor = 2.0
+						distance = {
+							who = FROMFROM
+							value = 400
+						}
+					}
+					modifier = {
+						factor = 2.0
+						distance = {
+							who = FROMFROM
+							value = 500
+						}
+					}
+					repeat_event = { id = WoL.110 days = 20 random = 20 } # Fire again with no scope changes
+					
+					random = {
+						chance = 66
+						character_event = { id = WoL.115 } # Time to give up?
+					}
+					
+					break = yes
+				}
+				100 = {
+				}
+			}
+		}
+		
+		if = {
+			# The target likes me
+			limit = {
+				FROMFROM = {
+					personal_opinion = {
+						who = ROOT
+						value = 40
+					}
+				}
+			}
+			random_list = {
+				100 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_dance }
+						}
+						FROMFROM = { character_event = { id = WoL.300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_chance_meeting }
+						}
+						FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_picnic }
+						}
+						FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.300 } } # Dance
+				}
+				100 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_chance_meeting }
+						}
+						FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_picnic }
+						}
+						FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_dance }
+						}
+						FROMFROM = { character_event = { id = WoL.300 } } # Dance
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+				}
+				100 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_picnic }
+						}
+						FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_dance }
+						}
+						FROMFROM = { character_event = { id = WoL.300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_chance_meeting }
+						}
+						FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+				}
+			}
+			break = yes
+		}
+		
+		if = {
+			# The target does not like me much
+			limit = {
+				FROMFROM = {
+					personal_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+			
+			random_list = {
+				# Seduction attempts
+				13 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_dance }
+						}
+						FROMFROM = { character_event = { id = WoL.300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_chance_meeting }
+						}
+						FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_picnic }
+						}
+						FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.300 } } # Dance
+				}
+				13 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_chance_meeting }
+						}
+						FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_picnic }
+						}
+						FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_dance }
+						}
+						FROMFROM = { character_event = { id = WoL.300 } } # Dance
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+				}
+				13 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_picnic }
+						}
+						FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_dance }
+						}
+						FROMFROM = { character_event = { id = WoL.300 } } # Dance
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_chance_meeting }
+						}
+						FROMFROM = { character_event = { id = WoL.350 } } # Chance Meeting
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.400 } } # Picnic
+				}
+				# Gifts/wooing
+				21 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_love_letter }
+						}
+						FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gift }
+						}
+						FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gossip }
+						}
+						FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+				}
+				20 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gift }
+						}
+						FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gossip }
+						}
+						FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_love_letter }
+						}
+						FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+				}
+				20 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gossip }
+						}
+						FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_love_letter }
+						}
+						FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gift }
+						}
+						FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+				}
+			}
+			
+			break = yes
+		}
+		
+		if = {
+			# The target dislikes me
+			limit = {
+				FROMFROM = {
+					NOT = {
+						personal_opinion = {
+							who = ROOT
+							value = 0
+						}
+					}
+				}
+			}
+			
+			random_list = {
+				# Gifts/wooing
+				34 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_love_letter }
+						}
+						FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gift }
+						}
+						FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gossip }
+						}
+						FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+				}
+				33 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gift }
+						}
+						FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gossip }
+						}
+						FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_love_letter }
+						}
+						FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+				}
+				33 = {
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gossip }
+						}
+						FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_love_letter }
+						}
+						FROMFROM = { character_event = { id = WoL.200 } } # Love letter
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_character_flag = wol_seduce_gift }
+						}
+						FROMFROM = { character_event = { id = WoL.210 } } # Necklace / Sword
+						break = yes
+					}
+					FROMFROM = { character_event = { id = WoL.220 } } # Gossiping Maid/Squire
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+# Yearly pulse (six months from on_yearly_pulse) intended for Focus events (only fires for characters with a Focus)
+#Junassa's edit: increase weights on rulership focus  
+on_focus_pulse = {
+	
+	random_events = {
+		1000 = 0
+		
+		
+		
+		# Rulership Focus
+		250 = WoL.12000 # The Architect
+		50 = WoL.12010 # Depressed
+		25 = WoL.12011 # Stressed
+		300 = WoL.12027 # Farm Fire
+		300 = WoL.12015 # The Murders
+		300 = WoL.12028 # Witch!
+		300 = WoL.12029 # Drunkard
+		300 = WoL.12025 # Noble Feud
+		300 = WoL.12030 # City brigands
+	}
+}

@@ -88,6 +88,7 @@ bright = {
 		slow
 		genius
 		dim
+		quick
 	}
 
 	diplomacy = 1
@@ -109,6 +110,7 @@ dim = {
 		slow
 		genius
 		bright
+		quick
 	}
 
 	diplomacy = -1
@@ -144,7 +146,7 @@ delicate = {
 	opposites =  {
 		weak
 		strong
-		sturdy
+		burly
 	}
 
 	health = -0.3

@@ -1,0 +1,417 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+
+
+EVTTOOLTIPSUCCESS;of §Gsuccess§!;;;;;;;;;;;;;x
+EVTTOOLTIPGREATSUCCESS;of §Ygreat success§!;;;;;;;;;;;;;x
+EVTTOOLTIPFAILURE;of §Rfailure§!;;;;;;;;;;;;;x
+
+
+#####################MAINTENANCE EVENTS#####################
+
+EVTDESAcsmm.007;You have inherited some artifacts that seem to be related to mounts, as you don't possess a mount to make use of them they are useless to you.;;;;;;;;;;;;;x
+EVTOPTAcsmm.007;Sell one of them;;;;;;;;;;;;;x
+EVTOPTBcsmm.007;Sell them all;;;;;;;;;;;;;x
+EVTOPTCcsmm.007;Keep them;;;;;;;;;;;;;x
+
+EVTDESAcsmm.008;[From.GetBestName] has become unlanded, thus [From.GetSheHe] is unable to make use of [From.GetHerHis] mounts. [From.GetSheHeCap] has decided to give them to you.;;;;;;;;;;;;;x
+EVTOPTAcsmm.008;I will make good use of them;;;;;;;;;;;;;x
+
+EVTDESAcsmm.009;It seems your Stable Master [From.GetFirstName] has passed away.;;;;;;;;;;;;;x
+EVTOPTAcsmm.009;Ok;;;;;;;;;;;;;x
+
+EVTDESAcsmm.011;Your [dying_mount.GetName] has sadly passed away.;;;;;;;;;;;;;x
+EVTOPTAcsmm.011;Oh no...;;;;;;;;;;;;;x
+
+EVTDESAcsmm.012;It seems your [breeding_mount_1.GetName] has taken a liking to your [breeding_mount_2.GetName]. The two horses have produced an offspring.;;;;;;;;;;;;;x
+EVTOPTAcsmm.012;Great;;;;;;;;;;;;;x
+EVTTOOLTIPAcsmm.012;The foal will take around 6 years to be rideable;;;;;;;;;;;;;x
+
+EVTDESAcsmm.013;One of your foals has grown up enough to ride.;;;;;;;;;;;;;x
+EVTOPTAcsmm.013;Excellent;;;;;;;;;;;;;x
+
+EVTDESAcsmm.015;Unfortunately none of the nearby Heartlands can supply you with a [csm_bought_item.GetName]. Your money has been refunded.;;;;;;;;;;;;;x
+EVTOPTAcsmm.015;I'll try later then;;;;;;;;;;;;;x
+
+EVTDESAcsmm.017;The upkeep cost of your mounts will now be deducted.\nIf you disable this notification, the upkeep will still be deducted yearly. You will be asked again when you switch characters.;;;;;;;;;;;;;x
+EVTOPTAcsmm.017;Ok;;;;;;;;;;;;;x
+EVTOPTBcsmm.017;Stop showing me this;;;;;;;;;;;;;x
+
+
+
+EVTDESAcsmm.300;Hello and welcome to Crusader Mounts. The mod is now setting up and will be ready in one ingame week. If you have either CK2Plus or HIP installed, the mod will autodetect them and make any neccessary adjustments.\nIf you want more info on how some of the mechanics work, please pick the first option to get the info book. Other than console commands, this is your only chance to obtain it.;;;;;;;;;;;;;x
+EVTOPTAcsmm.300;Give me knowledge;;;;;;;;;;;;;x
+EVTOPTBcsmm.300;I know enough;;;;;;;;;;;;;x
+
+EVTDESAcsmm.301;From here you can access more detailed information on all the mounts of the world, their care, and their uses.\nThere is a section on the Mount Heartlands as well, and another on Mounted Combat.\n\nThis book seems quite rare and is probably the only one in existence.;;;;;;;;;;;;;x
+EVTOPTAcsmm.301;Read about mounts;;;;;;;;;;;;;x
+EVTOPTBcsmm.301;Read about the mount heartlands;;;;;;;;;;;;;x
+EVTOPTCcsmm.301;Read about mounted combat;;;;;;;;;;;;;x
+
+
+EVTDESAcsmm.302;Mounts are divided into four types: Horses, Camels, Elephants, and Exotic.\nHorses are further categorized as Coursers, Destriers, and Chargers.\n Coursers are meant to be fast and light, while Chargers are slow and heavy, and Destriers being in between.\nA horse's type can be learned from either it's name, or by it's appearance.;;;;;;;;;;;;;x
+EVTOPTAcsmm.302;More about obtaining mounts;;;;;;;;;;;;;x
+EVTOPTBcsmm.302;More about lifespans;;;;;;;;;;;;;x
+EVTOPTCcsmm.302;More about breeding;;;;;;;;;;;;;x
+
+EVTDESAcsmm.303;Mounts are mainly obtained from the market decision, with more options appearing if you can reach the required provinces.\nThere are a couple of unique mounts obtained from various events, as well as decision to ask for a horse from China.\nThe last method is via breeding more horses yourself.\nMounts can also be sold with a self targeted decision;;;;;;;;;;;;;x
+
+EVTDESAcsmm.304;Each mount has a base health stat, usually five. Some harder to acquire mounts have six or seven.\nEvery two years all mounts have a 60% chance to lose one health. This can be lowered by the following factors: Being unique, having the Robust trait, and the ability of your Stable Master.\n Various events can also modify a mount's health.;;;;;;;;;;;;;x
+
+EVTDESAcsmm.305;Only non-unique horses can breed. As long as you have at least two horses that can breed. Every two years there is a chance they will produce an offspring, fertile horses increase that chance. Each horse can breed twice, fertile horses can breed thrice.\n The horses will pick their mate without human intervention.;;;;;;;;;;;;;x
+EVTOPTAcsmm.305;More on breeding results;;;;;;;;;;;;;x
+
+EVTDESAcsmm.306;The resulting foal's type depends on the first horse's type, as in a Courser will never produce a Destrier or Charger. Then the foal's breed is picked, this depends on both horses' breeds, their origins, and sometimes their owner's culture or location.\nTraits have a chance to be inherited, with much higher chances if both parents have the same trait.\n The foal will age over six years until it is ridable and gains a bonus to it's base health.;;;;;;;;;;;;;x
+
+
+EVTTITLEcsmm.310;The Mount Heartlands;;;;;;;;;;;;;x
+EVTDESAcsmm.310;These provinces act as the hub for all mount related trade in their regions. If a Heartland is empty, it cannot provide mounts or equipment to those nearby.\nIreland: [ireland_mount_province.GetName]                                            France: [france_mount_province.GetName]\nGermany: [germany_mount_province.GetName]                                          Slavic: [slavic_mount_province.GetName]\nItaly: [italy_mount_province.GetName]                                                    Spain: [spain_mount_province.GetName]\nAndalusia: [andalus_mount_province.GetName]                                     Steppes: [steppes_mount_province.GetName]\nArabia: [arabia_mount_province.GetName]                                                      Greece: [greece_mount_province.GetName]\nBactria: [bactria_mount_province.GetName]                                                    India: [india_mount_province.GetName]\nAfrica: [africa_mount_province.GetName]                                                       Tibet: [tibet_mount_province.GetName]\nScandinavia: [scandinavia_mount_province.GetName]                                Russia: [russia_mount_province.GetName]\nSoumi: [sami_mount_province.GetName];;;;;;;;;;;;;x
+EVTOPTAcsmm.310;Read about the natural fluctuation of the Heartlands;;;;;;;;;;;;;x
+
+EVTDESAcsmm.311;The Heartland's resources fluctuate over time. Animals die, craftsmen create more equipment, the area is looted, many things change the area's conditions.\nThe more prosperous the province, as well as the existence of various festivals and craftsmen will increase the Heartland's resources over time.\nOn the other hand, disease, depopulation, sieges, bandits and other nefarious organizations work to harm the resources present.;;;;;;;;;;;;;x
+
+
+EVTTITLEcsmm.320;Mounted Combat;;;;;;;;;;;;;x
+EVTDESAcsmm.320;Combat may occur when a mounted character enters a battle. Chances are increased for warlike characters.\n The tactics available to you depend on your current mount, if you can use horse archery, your opponents mount, and sometimes the terrain.;;;;;;;;;;;;;x
+EVTOPTAcsmm.320;Sources of Mounted Combat Rating;;;;;;;;;;;;;x
+
+EVTTITLEcsmm.321;Mounted Combat Rating;;;;;;;;;;;;;x
+EVTDESAcsmm.321;Other than mounts and their equipment, Mounted Combat Rating can be gained from the following sources.\nMisguided Warrior/Tough Soldier: 1\nSkilled Tactician/Brilliant Strategist: 2\nStrong/Weak: 1/-1\nQuick/Slow: 1/-1\nGenius/Imbecile: 2/-2\nBrawny/Frail: 1/-1\nBrave/Craven: 1/-1\nDuelist/Hunter/Strategist: 2\nCrusader or equivalent: 2\nCavalry Leader: 2\nHas a disease or maimed: -1 each;;;;;;;;;;;;;x
+
+
+#####################MARKET WINDOW#####################
+
+EVTOPTNEXT;Next;;;;;;;;;;;;;x
+EVTOPTBACK;Back;;;;;;;;;;;;;x
+EVTOPTEXIT;Exit;;;;;;;;;;;;;x
+
+
+EVTTITLEcsm.010;The Mount Market;;;;;;;;;;;;;x
+EVTDESAcsm.010;You have arrived at the Mount Market, a place where many merchants and nobles gather in order to find the best horses and other rideable beasts in the land. There are many things to see here, thus you decide to start with...;;;;;;;;;;;;;x
+EVTOPTAcsm.010;Mounts;;;;;;;;;;;;;x
+EVTOPTBcsm.010;Mount armor;;;;;;;;;;;;;x
+EVTOPTCcsm.010;Other mount equipment;;;;;;;;;;;;;x
+
+EVTTITLEcsm.020;Mounts;;;;;;;;;;;;;x
+EVTDESAcsm.020;From here you can find many types of horses. You may be able to buy camels and elephants if you can reach their home provinces. Other exotic beasts may also be available.;;;;;;;;;;;;;x
+EVTOPTAcsm.020;Horses;;;;;;;;;;;;;x
+EVTOPTBcsm.020;Camels and elephants;;;;;;;;;;;;;x
+EVTOPTCcsm.020;Something exotic;;;;;;;;;;;;;x
+
+####Horses####
+
+EVTTITLEcsm.021;Horses;;;;;;;;;;;;;x
+EVTDESAcsm.021;There are many types of horses in the world. From the cheap Rouncey to the heaviest of warhorses.;;;;;;;;;;;;;x
+EVTOPTAcsm.021;Low quality horses;;;;;;;;;;;;;x
+EVTOPTBcsm.021;Decent horses;;;;;;;;;;;;;x
+EVTOPTCcsm.021;Only the best horses;;;;;;;;;;;;;x
+
+EVTTITLEcsm.022;Low Quality P1;;;;;;;;;;;;;x
+EVTDESAcsm.022;There are many types of horses in the world. From the cheap Rouncey to the heaviest of warhorses.;;;;;;;;;;;;;x
+EVTOPTAcsm.022;The Dray Horse;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.022;§GDray Horses are generally used as pack animals§!;;;;;;;;;;;;;x
+EVTOPTBcsm.022;A Rouncey will do;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.022;§GRounceys are generic work horses, they provice no combat bonuses but are better than walking§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.023;Low Quality P2;;;;;;;;;;;;;x
+EVTDESAcsm.023;There are many types of horses in the world. From the cheap Rouncey to the heaviest of warhorses.;;;;;;;;;;;;;x
+EVTOPTAcsm.023;A Hobby;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.023;§GIrish Hobbys are light skirmishing horses which have a high chance of being fertile§!;;;;;;;;;;;;;x
+EVTOPTBcsm.023;A Jennet;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.023;§GThe Spanish Jennet is a small light warhorse with a high chance of being fertile§!;;;;;;;;;;;;;x
+EVTOPTCcsm.023;A noble Palfry;;;;;;;;;;;;;x
+EVTTOOLTIPCcsm.023;§GPalfrys are mostly ceromonial horses that are popular with nobles§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.024;Medium Quality;;;;;;;;;;;;;x
+EVTDESAcsm.024;There are many types of horses in the world. From the cheap Rouncey to the heaviest of warhorses.;;;;;;;;;;;;;x
+EVTOPTAcsm.024;A Courser;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.024;§GOriginally used as hunting horses, Coursers have become a common sight in the battlefield due to their speed§!;;;;;;;;;;;;;x
+EVTOPTBcsm.024;A Destrier;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.024;§GDestriers are generic warhorses, they are slower than Coursers but are more effective in close combat§!;;;;;;;;;;;;;x
+EVTOPTCcsm.024;The Galician Mountain Horse;;;;;;;;;;;;;x
+EVTTOOLTIPCcsm.024;§GThese horses are highly effective in rugged terrain, but are weaker everywhere else§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.025;High Quality P1;;;;;;;;;;;;;x
+EVTDESAcsm.025;There are many types of horses in the world. From the cheap Rouncey to the heaviest of warhorses.;;;;;;;;;;;;;x
+EVTOPTAcsm.025;A war charger;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.025;§GChargers are Destriers specifically bred for war§!;;;;;;;;;;;;;x
+EVTOPTBcsm.025;A Steppe Courser;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.025;§GCoursers are naturally fast, but the ones from the Steppes are used to running vast distances giving them an advantage in both speed and endurance§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.026;High Quality P2;;;;;;;;;;;;;x
+EVTDESAcsm.026;There are many types of horses in the world. From the cheap Rouncey to the heaviest of warhorses.;;;;;;;;;;;;;x
+EVTOPTAcsm.026;The swift Moorish Courser;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.026;§GThe Moors are famous for their swift cavalry, making their horses ideal for skirmishes§!;;;;;;;;;;;;;x
+EVTOPTBcsm.026;An Arabian Courser;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.026;§GArabian horses are light and suited to the harsh deserts in Arabia, they also have a high chance of being fair§!;;;;;;;;;;;;;x
+EVTOPTCcsm.026;The noble Arabian Charger;;;;;;;;;;;;;x
+EVTTOOLTIPCcsm.026;§GUnlike the Arabian Courser, this horse is ideal for close combat and has a high chance of being fair§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.027;High Quality P3;;;;;;;;;;;;;x
+EVTDESAcsm.027;There are many types of horses in the world. From the cheap Rouncey to the heaviest of warhorses.;;;;;;;;;;;;;x
+EVTOPTAcsm.027;The hardy Jurchen Steppe Horse;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.027;§GThe deadly Jurchen Hordes raid the lands of China regularly with the help of their swift and powerful horses§!;;;;;;;;;;;;;x
+EVTOPTBcsm.027;The strong Frankish Charger;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.027;§GThe Frankish Cavalry is one of the most powerful mounted forces in Europe, their horses are meant to be in the middle of the battlefield§!;;;;;;;;;;;;;x
+EVTOPTCcsm.027;The rare Nisean Horse;;;;;;;;;;;;;x
+EVTTOOLTIPCcsm.027;§GThese horses are perfect for those who focus on offense instead of defense, they also have an increased chance of being fair§!;;;;;;;;;;;;;x
+
+
+####Camels and Elephants####
+
+EVTTITLEcsm.030;Camels and Elephants;;;;;;;;;;;;;x
+EVTDESAcsm.030;Camels are mostly found in the East, while elephants are found in both North and West Africa as well as in India.;;;;;;;;;;;;;x
+EVTOPTAcsm.030;Camels;;;;;;;;;;;;;x
+EVTOPTBcsm.030;Elephants;;;;;;;;;;;;;x
+
+EVTTITLEcsm.031;Camels;;;;;;;;;;;;;x
+EVTDESAcsm.031;Camels are mostly found in the East, while elephants are found in both North and West Africa as well as in India.;;;;;;;;;;;;;x
+EVTOPTAcsm.031;The Arabian Camel;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.031;§GArabian Camels are well suited to traveling the harsh deserts of Arabia, they are also quite fearless§!;;;;;;;;;;;;;x
+EVTOPTBcsm.031;The Bactrian Camel;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.031;§GBactrian Camels are slow due to the rugged terrain around their homes, they are used mainly as pack animals§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.032;Elephants;;;;;;;;;;;;;x
+EVTDESAcsm.032;Camels are mostly found in the East, while elephants are found in both North and West Africa as well as in India.;;;;;;;;;;;;;x
+EVTOPTAcsm.032;An Indian Elephant;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.032;§GWhile not as big as their African cousins, these elephants are faster and are still a force to be reckoned with§!;;;;;;;;;;;;;x
+EVTOPTBcsm.032;An African Elephant;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.032;§GThe large African Elephant is a slow but destructive weapon of war§!;;;;;;;;;;;;;x
+
+
+####Exotic Mounts####
+
+EVTTITLEcsm.040;Exotic P1;;;;;;;;;;;;;x
+EVTDESAcsm.040;Some wild beasts were never meant to be made into mounts, but who's to stop the strong and clever from trying?;;;;;;;;;;;;;x
+EVTOPTAcsm.040;The hardy Tibetan Yak;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.040;§GThese yaks are accustomed to mountainous areas making travel in such terrain easier§!;;;;;;;;;;;;;x
+EVTOPTBcsm.040;A fierce Indian Tiger;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.040;§GThe tigers of India are deadly hunters, able to easily ambush their prey in dense jungles§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.041;Exotic P2;;;;;;;;;;;;;x
+EVTDESAcsm.041;Some wild beasts were never meant to be made into mounts, but who's to stop the strong and clever from trying?;;;;;;;;;;;;;x
+EVTOPTAcsm.041;The ferocious Scandinavian Wolf;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.041;§GSubjugating a wolf would improve your combat abilities as well as inspire more men to follow you§!;;;;;;;;;;;;;x
+EVTOPTBcsm.041;The robust Russian Bear;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.041;§GThese large bears make their homes in the cold forests of the north, making the effects of winter negligible§!;;;;;;;;;;;;;x
+EVTOPTCcsm.041;A swift Samian Reindeer;;;;;;;;;;;;;x
+EVTTOOLTIPCcsm.041;§GThe Samian people are one of the few that practice Reindeer husbandry, these Reindeer are quite fast which makes them ideal for skirmish tactics§!;;;;;;;;;;;;;x
+
+
+####Mount Armor####
+
+EVTTITLEcsm.050;Mount Armor;;;;;;;;;;;;;x
+EVTDESAcsm.050;Armor is mostly used in combat. For rulers that prefer to hide away on their thrones while greater men do battle in their name, buying armor is a waste.;;;;;;;;;;;;;x
+EVTOPTAcsm.050;Horse Armor;;;;;;;;;;;;;x
+EVTOPTBcsm.050;Exotic Armor;;;;;;;;;;;;;x
+EVTOPTCcsm.050;Unique Armor;;;;;;;;;;;;;x
+
+EVTTITLEcsm.051;Horse Armor;;;;;;;;;;;;;x
+EVTDESAcsm.051;Armor is mostly used in combat. For rulers that prefer to hide away on their thrones while greater men do battle in their name, buying armor is a waste.;;;;;;;;;;;;;x
+EVTOPTAcsm.051;Anything will do;;;;;;;;;;;;;x
+EVTOPTBcsm.051;Something of decent quality;;;;;;;;;;;;;x
+EVTOPTCcsm.051;Only the best;;;;;;;;;;;;;x
+
+EVTTITLEcsm.052;Exotic Armor;;;;;;;;;;;;;x
+EVTDESAcsm.052;Armor is mostly used in combat. For rulers that prefer to hide away on their thrones while greater men do battle in their name, buying armor is a waste.;;;;;;;;;;;;;x
+EVTOPTAcsm.052;Anything will do;;;;;;;;;;;;;x
+EVTOPTBcsm.052;Something of decent quality;;;;;;;;;;;;;x
+EVTOPTCcsm.052;Only the best;;;;;;;;;;;;;x
+
+EVTTITLEcsm.053;Unique Armor;;;;;;;;;;;;;x
+EVTDESAcsm.053;Armor is mostly used in combat. For rulers that prefer to hide away on their thrones while greater men do battle in their name, buying armor is a waste.;;;;;;;;;;;;;x
+EVTOPTAcsm.053;Greek Cataphract Armor;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.053;§GThis armor is heavy enough to slow down your horse, but the protection it offers is unmatched§!;;;;;;;;;;;;;x
+EVTOPTBcsm.053;Frankish Horse Armor;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.053;§GThis armor is heavy enough to slow down your horse, but it also looks quite impressive§!;;;;;;;;;;;;;x
+
+
+
+####Addons####
+
+EVTTITLEcsm.060;Additional Equipment P1;;;;;;;;;;;;;x
+EVTDESAcsm.060;Other than armor, there are multiple other pieces of equipment you could use while you ride your mount. Their benefits range from increasing your mount's speed to increasing it's combat capabilities.;;;;;;;;;;;;;x
+EVTOPTAcsm.060;A mastercrafted saddle;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.060;§GA well made saddle will allow you to ride longer, making you reach your destination faster§!;;;;;;;;;;;;;x
+EVTOPTBcsm.060;Some sturdy horseshoes;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.060;§GYour horse will surely appreciate having his hooves well cared for, this will lower it's fatigue§!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.061;Additional Equipment P2;;;;;;;;;;;;;x
+EVTDESAcsm.061;Other than armor, there are multiple other pieces of equipment you could use while you ride your mount. Their benefits range from increasing your mount's speed to increasing it's combat capabilities.;;;;;;;;;;;;;x
+EVTOPTAcsm.061;A long sturdy lance;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.061;§GA stronger lance will make your charge truly fearsome§!;;;;;;;;;;;;;x
+EVTOPTBcsm.061;An additional quiver;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.061;§GMore arrows will improve your skirmishing abilities§!;;;;;;;;;;;;;x
+EVTOPTCcsm.061;A shield;;;;;;;;;;;;;x
+EVTTOOLTIPCcsm.061;Having a shield will protect you from the dangers of battle;;;;;;;;;;;;;x
+
+
+EVTTITLEcsm.062;Additional Equipment P3;;;;;;;;;;;;;x
+EVTDESAcsm.062;Other than armor, there are multiple other pieces of equipment you could use while you ride your mount. Their benefits range from increasing your mount's speed to increasing it's combat capabilities.;;;;;;;;;;;;;x
+EVTOPTAcsm.062;Commision a banner to display your heraldry;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.062;§GHaving a prominent banner will rally your men faster, as well as inspire them to keep fighting§!;;;;;;;;;;;;;x
+EVTOPTBcsm.062;A Caparison;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.062;§GA caparison will increase your prestige and give a small bonus to mounted combat§!;;;;;;;;;;;;;x
+
+
+
+
+###########Decision related events############
+
+EVTDESAcsm.100;There are many Stable Masters of varying skills around. The more you are willing to spend the better the Stable Master will be. These men had dedicated their lives to caring for horses and other beasts, as such they are unwilling to hold titles or marry.;;;;;;;;;;;;;x
+EVTOPTAcsm.100;As long as he knows what he's doing;;;;;;;;;;;;;x
+EVTOPTBcsm.100;A learned man;;;;;;;;;;;;;x
+EVTOPTCcsm.100;I require the services of only the best;;;;;;;;;;;;;x
+EVTOPTDcsm.100;Perhaps some other time;;;;;;;;;;;;;x
+
+EVTDESAcsm.101;Your Stable Master stands before you, ready to serve you for life.;;;;;;;;;;;;;x
+EVTOPTAcsm.101;Excellent;;;;;;;;;;;;;x
+
+EVTDESAcsm.103;[Root.GetGovernorLetterGreeting]. [Root.GetChineseLetterBlessing].\n\nThe heavenly [From.Offmap.Ruler.GetLongChineseEmperorName], has graciously fulfilled your wish. A fine horse of Chinese origins will be bestowed upon you.;;;;;;;;;;;;;x
+EVTOPTAcsm.103;Truly a magnificent beast!;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.103;Since the §Y[offmap_china.GetFullName]§! is suffering from famine or plague, the horse's health is §Rreduced§!;;;;;;;;;;;;;x
+
+
+EVTDESAcsm.104;Oh noble Incitatus, you are too good for these fools. Let us ride forth once more so that all may look upon us in awe!;;;;;;;;;;;;;x
+EVTOPTAcsm.104;Onwards my trusty steed!;;;;;;;;;;;;;x
+
+
+EVTDESAcsm.106;Unfortunately none of the nearby Heartlands can supply you with a horse for [FromFrom.GetBestName];;;;;;;;;;;;;x
+EVTOPTAcsm.106;I'll try later then;;;;;;;;;;;;;x
+
+EVTDESAcsm.107;You have decided to bestow upon [FromFrom.GetBestName] his own horse for battle. All that remains is choosing what type to give [FromFrom.GetHerHim]. Be mindful that should [FromFrom.GetBestName] die, become landed, or is no longer a Commander, the horse and equipment will be lost.;;;;;;;;;;;;;x
+EVTOPTAcsm.107;You can never go wrong with speed;;;;;;;;;;;;;x
+EVTOPTBcsm.107;A balanced approach will serve best;;;;;;;;;;;;;x
+EVTOPTCcsm.107;I want [FromFrom.GetHerHim] to always be in the thick of battle;;;;;;;;;;;;;x
+EVTOPTDcsm.107;Actually, maybe now is not the best time;;;;;;;;;;;;;x
+
+###############Character flavor###############
+
+EVTDESAcsm.200;The raiders we sent to the [offmap_china.GetFullName] have returned. They are somewhat reluctant to hand over their find. A beautiful red horse only spoken of in legends.;;;;;;;;;;;;;x
+EVTOPTAcsm.200;A magnificent beast!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.201;The Great Horse;;;;;;;;;;;;;x
+EVTDESAcsm.201;A wealthy merchant has arrived in your lands claiming to possess the reincarnation of Alexander the Great's own warhorse. After seeing the horse for yourself, you feel inclined to agree. The horse is large and strong, and all attempts to mount him have resulted in failure. The merchant is eager to get rid of him however, as he can't benefit from him.;;;;;;;;;;;;;x
+EVTDESBcsm.201;[From.GetTitledName] has called all worthy men of the [From.PrimaryTitle.GetName] to attempt to tame a mighty horse. It is said that the horse is the reincarnation of Alexander the Great's own warhorse, Bucephalus. Regardless whether this is true or not, the horse is one of the best in existence.;;;;;;;;;;;;;x
+EVTOPTAcsm.201;Let all the worthy men of the realm try to tame him, after I do of course;;;;;;;;;;;;;x
+EVTOPTBcsm.201;He will be mine!;;;;;;;;;;;;;x
+
+EVTTITLEcsm.202;Bucephalus;;;;;;;;;;;;;x
+EVTDESAcsm.202;You arrive at the location where Bucephalus is kept. There is a large crowd gathered, eagerly watching every man's attempt. Finally your turn comes up and you approach the imposing horse.;;;;;;;;;;;;;x
+EVTOPTAcsm.202;Easy there...;;;;;;;;;;;;;x
+EVTOPTBcsm.202;If he is indeed Alexander's horse, then perhaps I shall mimic Alexander;;;;;;;;;;;;;x
+
+EVTTITLEcsm.203;Bucephalus Tamed;;;;;;;;;;;;;x
+EVTDESAcsm.203;You climb up the horse and after a few moments of thrashing about he finally calms down. The crowd erupts into cheers celebrating your success. You now have a mighty horse under your command, sure to draw the admiration and envy of all.;;;;;;;;;;;;;x
+EVTDESBcsm.203;Word has reached you that [From.GetTitledName] has successfully tamed Bucephalus. [From.GetSheHeCap] now has a mighty horse under [From.GetHerHis] command, sure to draw the admiration and envy of all.;;;;;;;;;;;;;x
+EVTOPTAcsm.203;Excellent;;;;;;;;;;;;;x
+EVTOPTBcsm.203;Damn [From.GetHerHim];;;;;;;;;;;;;x
+
+EVTTITLEcsm.204;Failure;;;;;;;;;;;;;x
+EVTDESAcsm.204;Bucephalus immediately throws you off. The beast grunts towards you as you back away in shame.;;;;;;;;;;;;;x
+EVTOPTAcsm.204;Damned horse;;;;;;;;;;;;;x
+
+
+EVTDESAcsm.206;While playing outside you hear the faint sound of animals. As you search for them you remember that [current_guardian.GetFirstName] has some mounts in the stables. Maybe [current_guardian.GetSheHe] might let you see them for a bit?;;;;;;;;;;;;;x
+EVTOPTAcsm.206;I'll go ask [current_guardian.GetHerHim] right away!;;;;;;;;;;;;;x
+EVTOPTBcsm.206;But what if [current_guardian.GetSheHe] gets mad at me?;;;;;;;;;;;;;x
+
+EVTDESAcsm.207;One of your [GetFromRelation]s runs up to you all excited. After [From.GetSheHe] calms down a bit [From.GetSheHe] asks if you could show [From.GetHerHim] your mounts in the stables.;;;;;;;;;;;;;x
+EVTOPTAcsm.207;Well why not?;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.207;§Y[From.GetFirstName]§! might gain a §Gpleasant§! trait;;;;;;;;;;;;;x
+EVTOPTBcsm.207;Go away, I'm busy;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.207;§Y[From.GetFirstName]§! might gain a §Rselfish§! trait;;;;;;;;;;;;;x
+
+EVTDESAcsm.208;[From.GetFirstName] smiles and leads you towards the stables. You were able to see a [random_mount.GetName] while it was eating. After a while you both leave in happiness.;;;;;;;;;;;;;x
+EVTDESBcsm.208;[From.GetFirstName] shoos you away. [From.GetSheHeCap] says that [From.GetSheHe] has no time to entertain children and that you should go bother someone else.;;;;;;;;;;;;;x
+EVTOPTAcsm.208;That was really fun;;;;;;;;;;;;;x
+EVTOPTBcsm.208;What a meanie!;;;;;;;;;;;;;x
+
+EVTDESAcsm.210;During the Siege of [FromFrom.GetName] by [From.GetBestName] and [From.GetHerHis] men, the stables were hit by the falling rubble. Your [hurt_mount.GetName] was injured in the chaos.;;;;;;;;;;;;;x
+EVTOPTAcsm.210;Curse them!;;;;;;;;;;;;;x
+
+EVTDESAcsm.211;During the chaos of battle, a stray arrow hits your [current_mount.GetMountType]'s side.;;;;;;;;;;;;;x
+EVTOPTAcsm.211;Curses;;;;;;;;;;;;;x
+
+EVTDESAcsm.212;While you huddle in the safety of your castle, you remember the animals stuck in the stables. The epidemic will surely affect them if you do nothing. You could bring a couple of them inside the castle, but risk infection.;;;;;;;;;;;;;x
+EVTOPTAcsm.212;Get them here before they die!;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.212;will get infected!;;;;;;;;;;;;;x
+EVTOPTBcsm.212;Our lives are much more valuable;;;;;;;;;;;;;x
+
+
+EVTTITLEcsm.214;The Heavenly Steed;;;;;;;;;;;;;x
+EVTDESAcsm.214;In the late hours of the night as you sit secluded in your prayers, you hear a commotion coming from outside. You leave castle and wander around outside, noting that for some reason nobody is around, not even the guards.\nFinally you find the source, it's coming from the stables.\nWhen you enter you see a strange sight, a horse that was never there before. It's a beautiful white arabian horse, but what's stranger is that you feel a soothing sense of peace whenever you look at it. One thing is certain, this horse is not of this world.;;;;;;;;;;;;;x
+EVTOPTAcsm.214;A truly amazing creature;;;;;;;;;;;;;x
+
+
+
+
+###############Province flavor###############
+
+
+EVTDESAcsm.301;Recently there has been an influx of traders in [Root.GetName]. This has resulted in higher profits for the locals and thus to you, their liege.;;;;;;;;;;;;;x
+EVTOPTAcsm.301;Excellent;;;;;;;;;;;;;x
+
+EVTDESAcsm.302;Recently there has been an influx of traders in [Root.GetName] due to the presence of a trade post. This has resulted in higher profits for the locals and thus to you, their liege.;;;;;;;;;;;;;x
+EVTOPTAcsm.302;Excellent;;;;;;;;;;;;;x
+
+EVTDESAcsm.303;A group of craftsmen have arrived in your lands seeking fortune. They are quite skilled, especially in the creation of mount equipment but require some funds in order to get the tools they need. Sponsoring them would bring mutual benefits.;;;;;;;;;;;;;x
+EVTOPTAcsm.303;Sounds great;;;;;;;;;;;;;x
+EVTOPTBcsm.303;Not interested;;;;;;;;;;;;;x
+
+EVTDESAcsm.304;The current group of doctors from the Hospital of [From.GetName] have proven themselves extremely skilled and efficient. There are barely any sick patients left, allowing them to instead tend to the traders passing through the province.;;;;;;;;;;;;;x
+EVTOPTAcsm.304;Excellent;;;;;;;;;;;;;x
+
+EVTDESAcsm.305;The local traders have come to see you with an offer. If you would lend them some of your personal land for them to graze the horses, they would give you a small cut of their profits from their future sales.;;;;;;;;;;;;;x
+EVTOPTAcsm.305;Sounds good to me;;;;;;;;;;;;;x
+EVTOPTBcsm.305;Absolutely not;;;;;;;;;;;;;x
+
+EVTDESAcsm.307;As you look upon your lands, you think up of various methods to increase it's overall wealth. Since [Root.GetName] is considered a Mount Heartlands, perhaps you could take advantage of that. Nothing says fun like horse races. If you organized some you could draw more foreign traders to your lands.;;;;;;;;;;;;;x
+EVTOPTAcsm.307;Let us begin preparations;;;;;;;;;;;;;x
+EVTOPTBcsm.307;That's too expensive;;;;;;;;;;;;;x
+
+###############Character Flavor Tombola Events###############
+
+
+EVTDESAcsm.401;It has come to your attention that you have run out of food for your [random_mount.GetName]. This could be a chance for you to improve your [random_mount.GetMountType]'s health.;;;;;;;;;;;;;x
+EVTOPTAcsm.401;Get some quality feed;;;;;;;;;;;;;x
+EVTOPTBcsm.401;Something decent;;;;;;;;;;;;;x
+EVTOPTCcsm.401;Don't bother me with such trifles, anything is fine;;;;;;;;;;;;;x
+
+EVTDESAcsm.402;Due to the rigorious training and care from [stable_master.GetBestName], one of your mounts has improved to a point where it has gained a new trait.;;;;;;;;;;;;;x
+EVTOPTAcsm.402;Excellent;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.402;Will gain a random trait;;;;;;;;;;;;;x
+
+EVTDESAcsm.403;Always on the move, nomadic life is difficult but that is what makes true men. Your faithful [improved_horse.GetName] has gotten used to running long distances.;;;;;;;;;;;;;x
+EVTOPTAcsm.403;Speed is always good;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.403;will become §GSwift§!;;;;;;;;;;;;;x
+
+EVTDESAcsm.404;You've been blessed with a few hours of peace. As you stroll about your halls, you wonder if you should perhaps take one of your [random_mount.GetMountType]s on a ride, but where to?;;;;;;;;;;;;;x
+EVTOPTAcsm.404;A leisurely ride around my lands;;;;;;;;;;;;;x
+EVTOPTBcsm.404;I think I'll go hunting;;;;;;;;;;;;;x
+EVTOPTCcsm.404;Maybe not;;;;;;;;;;;;;x
+
+EVTDESAcsm.405;Stable Master [stable_master.GetFirstName] has been working very hard over the years he's been serving you. Today he tells you that all the mounts in your stable are showing signs of increasingly good health. After taking a look for yourself, it's clear that it's all from [stable_master.GetFirstName]'s tireless efforts. Surely he deserves a reward.;;;;;;;;;;;;;x
+EVTOPTAcsm.405;That's amazing;;;;;;;;;;;;;x
+
+EVTDESAcsm.406;As you lounge by the window, you start hearing the sounds of two people yelling. You take a peak outside and see both [stable_master.GetFirstName] and [stable_master_arguement_courtier.GetBestName] in a heated arguement. The two are almost at each other's throats, and not to mention disturbing their [Root.GetTitle].;;;;;;;;;;;;;x
+EVTOPTAcsm.406;Now now, we're all friends here;;;;;;;;;;;;;x
+EVTOPTBcsm.406;I command you to be silent!;;;;;;;;;;;;;x
+EVTOPTCcsm.406;It'll be over soon, no need for my involvement;;;;;;;;;;;;;x
+
+EVTDESAcsm.407;While preparing your mount, you notice that it's armor has become dented and weak. You should probably repair it before it becomes unusable.;;;;;;;;;;;;;x
+EVTOPTAcsm.407;Time to find a smith;;;;;;;;;;;;;x
+EVTOPTBcsm.407;It's too expensive;;;;;;;;;;;;;x
+
+EVTDESAcsm.408;A fire has broken out in the stables! Some of your mounts have been hurt by the flames;;;;;;;;;;;;;x
+EVTOPTAcsm.408;Curses;;;;;;;;;;;;;x
+
+EVTDESAcsm.409;Stable Master [stable_master.GetFirstName] has come to you with several specialized training schedules for your [improved_mount.GetName]. He says that all of them include a special diet and care that will improve the [improved_mount.GetMountType]'s lifespan as well.;;;;;;;;;;;;;x
+EVTOPTAcsm.409;I want it to turn heads wherever it goes;;;;;;;;;;;;;x
+EVTTOOLTIPAcsm.409;[This.GetName] will become §ZFair§!;;;;;;;;;;;;;x
+EVTOPTBcsm.409;Make it strong and hardy;;;;;;;;;;;;;x
+EVTTOOLTIPBcsm.409;[This.GetName] will become §ZRobust§!;;;;;;;;;;;;;x
+EVTOPTCcsm.409;Let it crush all who stand in it's way;;;;;;;;;;;;;x
+EVTTOOLTIPCcsm.409;[This.GetName] will become §ZPowerful§!;;;;;;;;;;;;;x
+EVTOPTDcsm.409;Have it outrun anything that chases it;;;;;;;;;;;;;x
+EVTTOOLTIPDcsm.409;[This.GetName] will become §ZSwift§!;;;;;;;;;;;;;x
+

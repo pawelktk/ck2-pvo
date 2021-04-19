@@ -1,0 +1,2691 @@
+
+#####################Character Related#####################
+
+csm_is_inaccessible_or_incapable_trigger = {
+	OR = {  
+		is_inaccessible_trigger = yes
+		trait = incapable
+		prisoner = yes
+	}
+}
+
+has_mount_trigger = {
+	any_artifact = { has_artifact_flag = mount }
+}
+
+has_horse_mount_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount
+		has_artifact_flag = horse
+		NOT = { artifact_type = foal }
+	}
+}
+
+has_camel_mount_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount
+		has_artifact_flag = camel
+	}
+}
+
+has_elephant_mount_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount
+		has_artifact_flag = elephant
+	}
+}
+
+has_exotic_mount_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount
+		OR = {
+			has_artifact_flag = yak
+			has_artifact_flag = wolf
+			has_artifact_flag = tiger
+			has_artifact_flag = bear
+			has_artifact_flag = reindeer
+		}
+	}
+}
+
+has_unique_mount_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount
+		has_artifact_flag = unique
+	}
+}
+
+has_active_mount_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount
+		is_artifact_equipped = yes
+	}
+}
+
+has_active_mount_armor_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount_armor
+		is_artifact_equipped = yes
+	}
+}
+
+has_active_tier1_mount_armor_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount_armor
+		quality == 1
+		is_artifact_equipped = yes
+	}
+}
+
+has_active_tier2_mount_armor_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount_armor
+		quality == 2
+		is_artifact_equipped = yes
+	}
+}
+
+has_active_tier3_mount_armor_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount_armor
+		quality == 3
+		is_artifact_equipped = yes
+	}
+}
+
+has_active_tier4_mount_armor_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount_armor
+		quality == 4
+		is_artifact_equipped = yes
+	}
+}
+
+has_active_tier5_mount_armor_trigger = {
+	any_artifact = {
+		has_artifact_flag = mount_armor
+		quality == 5
+		is_artifact_equipped = yes
+	}
+}
+
+is_stable_master_trigger = {
+	custom_tooltip = {
+		text = is_stable_master_trigger_tooltip
+		OR = {
+			trait = stable_master_1
+			trait = stable_master_2
+			trait = stable_master_3
+			trait = stable_master_4
+		}
+	}
+}
+
+has_stable_master_trigger = {
+	any_courtier = { has_minor_title = title_stable_master }
+}
+
+has_weak_stable_master_trigger = {
+	any_courtier = { 
+		has_minor_title = title_stable_master 
+		OR = {
+			AND = {
+				trait = stable_master_1
+				stewardship < 10
+			}
+			AND = {
+				trait = stable_master_2
+				stewardship < 8
+			}
+			AND = {
+				trait = stable_master_3
+				stewardship < 7
+			}
+			AND = {
+				trait = stable_master_4
+				stewardship < 5
+			}
+		}
+	}
+}
+
+has_normal_stable_master_trigger = {
+	any_courtier = { 
+		has_minor_title = title_stable_master 
+		OR = {
+			AND = {
+				trait = stable_master_1
+				stewardship >= 10
+			}
+			AND = {
+				trait = stable_master_2
+				stewardship >= 8
+			}
+			AND = {
+				trait = stable_master_3
+				stewardship >= 7
+				stewardship < 10
+			}
+			AND = {
+				trait = stable_master_4
+				stewardship >= 5
+				stewardship < 8
+			}
+		}
+	}
+}
+
+has_great_stable_master_trigger = {
+	any_courtier = { 
+		has_minor_title = title_stable_master 
+		OR = {
+			AND = {
+				trait = stable_master_3
+				stewardship >= 10
+			}
+			AND = {
+				trait = stable_master_4
+				stewardship >= 8
+			}
+		}
+	}
+}
+
+
+can_use_horse_archery_trigger = {
+	OR = {
+		government = nomadic_government
+		culture_group = altaic
+		culture_group = iranian
+		culture_group = byzantine 
+		culture_group = magyar
+		culture = maghreb_arabic
+		culture = russian #druzhina
+		
+		#plus
+		culture_group = maghrebi
+		culture = assyrian #removed from byz group
+		
+		#hip
+		culture_group = north_african
+	}
+}
+
+is_skilled_horse_archer_trigger = {
+	NOT = { has_character_flag = unmounted }
+	can_use_horse_archery_trigger = yes
+	OR = {
+		AND = {
+			government = nomadic_government 
+			martial = 8
+		}
+		AND = {
+			culture_group = altaic
+			martial = 8
+		}
+		AND = {
+			OR = {
+				culture = armenian
+				culture = assyrian
+				culture = kurdish
+				culture_group = magyar
+			}
+			martial = 12
+		}
+		martial = 16
+	}
+}
+
+has_melee_weapon_equipped_trigger = {
+	any_artifact = {
+		OR = {
+			#vanilla
+			has_artifact_flag = dagger
+			has_artifact_flag = sword
+			has_artifact_flag = axe
+			has_artifact_flag = mace
+			
+			#aao
+			has_artifact_flag = melee
+			has_artifact_flag = scimitar
+			has_artifact_flag = hammer
+			has_artifact_flag = flail
+		}
+		is_artifact_equipped = yes
+		NOR = {
+			#vanilla
+			has_artifact_flag = jewelry
+			has_artifact_flag = crown_jewel
+			
+			#aao
+			has_artifact_flag = ceremonial
+			has_artifact_flag = coronation
+		}
+	}
+}
+
+has_long_weapon_equipped_trigger = {
+	any_artifact = {
+		OR = {
+			#vanilla
+			has_artifact_flag = lance
+			
+			#aao
+			has_artifact_flag = spear
+			
+			#other
+			has_artifact_flag = trident
+		}
+		is_artifact_equipped = yes
+		NOR = {
+			#vanilla
+			has_artifact_flag = jewelry
+			has_artifact_flag = crown_jewel
+			
+			#aao
+			has_artifact_flag = ceremonial
+			has_artifact_flag = coronation
+		}
+	}
+}
+
+has_ranged_weapon_equipped_trigger = {
+	any_artifact = {
+		OR = {
+			#vanilla
+			artifact_type = hermetic_handgun
+			has_artifact_flag = bow
+			has_artifact_flag = crossbow
+			has_artifact_flag = ranged_weapon
+			
+			#aao
+			
+		}
+		is_artifact_equipped = yes
+		NOR = {
+			#vanilla
+			has_artifact_flag = jewelry
+			has_artifact_flag = crown_jewel
+			
+			#aao
+			has_artifact_flag = ceremonial
+			has_artifact_flag = coronation
+		}
+	}
+}
+
+has_armor_equipped_trigger = {
+	any_artifact = {
+		OR = {
+			#vanilla
+			has_artifact_flag = armor_set
+			has_artifact_flag = armor
+			
+			#other
+			has_artifact_flag = plate_armor
+			has_artifact_flag = chainmail
+		}
+		is_artifact_equipped = yes
+		NOR = {
+			#vanilla
+			has_artifact_flag = jewelry
+			has_artifact_flag = crown_jewel
+			
+			#aao
+			has_artifact_flag = ceremonial
+			has_artifact_flag = coronation
+		}
+	}
+}
+
+has_helmet_equipped_trigger = {
+	any_artifact = {
+		OR = {
+			#aao, soon
+			has_artifact_flag = full_armor
+			has_artifact_flag = helmet
+			has_artifact_flag = bascinet
+		}
+		is_artifact_equipped = yes
+		NOR = {
+			#vanilla
+			has_artifact_flag = jewelry
+			has_artifact_flag = crown_jewel
+			
+			#aao
+			has_artifact_flag = ceremonial
+			has_artifact_flag = coronation
+		}
+	}
+}
+
+
+has_shield_equipped_trigger = {
+	any_artifact = {
+		OR = {
+			#aao, soon
+			has_artifact_flag = shield
+			has_artifact_flag = buckler
+			has_artifact_flag = great_shield
+		}
+		is_artifact_equipped = yes
+		NOR = {
+			#vanilla
+			has_artifact_flag = jewelry
+			has_artifact_flag = crown_jewel
+			
+			#aao
+			has_artifact_flag = ceremonial
+			has_artifact_flag = coronation
+		}
+	}
+}
+
+
+
+
+#####################Mount Related#####################
+
+is_mount_trigger = {
+	custom_tooltip = {
+		text = is_mount_trigger_tooltip
+		has_artifact_flag = mount
+		NOT = { artifact_type = foal }
+	}
+}
+
+is_fair_mount_trigger = {
+	custom_tooltip = {
+		text = is_fair_mount_trigger_tooltip 
+		has_artifact_flag = mount
+		has_artifact_flag = fair
+	}
+}
+
+is_robust_mount_trigger = {
+	custom_tooltip = {
+		text = is_robust_mount_trigger_tooltip
+		has_artifact_flag = mount		
+		has_artifact_flag = robust
+	}
+}
+
+is_fertile_mount_trigger = {
+	custom_tooltip = {
+		text = is_fertile_mount_trigger_tooltip 
+		has_artifact_flag = mount
+		has_artifact_flag = fertile
+	}
+}
+
+is_powerful_mount_trigger = {
+	custom_tooltip = {
+		text = is_powerful_mount_trigger_tooltip 
+		has_artifact_flag = mount
+		has_artifact_flag = powerful
+	}
+}
+
+is_swift_mount_trigger = {
+	custom_tooltip = {
+		text = is_swift_mount_trigger_tooltip 
+		has_artifact_flag = mount
+		has_artifact_flag = swift
+	}
+}
+
+is_breedable_trigger = {
+	has_artifact_flag = horse
+	NOR = {
+		has_artifact_flag = dying
+		has_artifact_flag = no_breeding
+		has_artifact_flag = unique
+		artifact_type = foal
+	}
+}
+
+is_breeding_only_trigger = {
+	custom_tooltip = {
+		text = is_breeding_only_trigger_tooltip
+		has_artifact_flag = breeding_only
+	}
+}
+
+is_healthy_mount_trigger = {
+	NOR = {
+		has_artifact_flag = mount_health_2
+		has_artifact_flag = mount_health_1
+		has_artifact_flag = dying
+	}
+}
+
+can_have_more_mount_traits_trigger = {
+	NOR = {
+		has_artifact_flag = mount_trait_limit_2
+		has_artifact_flag = unique
+	}
+}
+
+is_scared_of_camels_trigger = {
+	has_artifact_flag = horse
+	NOR = {
+		artifact_type = barbary_destrier
+		artifact_type = steppe_courser
+		artifact_type = arabian_courser
+		artifact_type = moorish_courser
+		artifact_type = arabian_charger
+		artifact_type = bucephalus
+	}
+}
+
+#####################Discount Checks#####################
+
+#irish_discount_trigger = {}
+
+frankish_discount_trigger = {
+	NOT = { culture = italian }
+	OR = {
+		culture = old_frankish
+		culture_group = latin
+		
+		#hip
+		culture = low_frankish
+	}
+}
+
+#german_discount_trigger = {}
+
+#slavic_discount_trigger = {}
+
+#italian_discount_trigger = {}
+
+spanish_discount_trigger = {
+	culture_group = iberian
+}
+
+moorish_discount_trigger = {
+	OR = {
+		culture_group = arabic			
+		
+		#plus
+		culture_group = maghrebi
+		culture_group = amazigh
+		
+		#hip
+		culture_group = north_african
+	}
+}
+
+#steppes_discount_trigger = {}
+
+arabian_discount_trigger = {
+	culture_group = arabic
+}
+
+#greek_discount_trigger = {}
+
+bactrian_discount_trigger = {
+	culture_group = iranian
+}
+
+indian_discount_trigger = {
+	OR = {
+		culture_group = indo_aryan_group
+		culture_group = dravidian_group
+		culture_group = tibetan_group
+	}
+}
+
+african_discount_trigger = {
+	OR = {
+		culture_group = west_african
+		culture_group = east_african
+		culture_group = central_african
+	}
+}
+
+tibetan_discount_trigger = {
+	culture_group = tibetan_group
+}
+
+scandinavian_discount_trigger = {
+	OR = {
+		culture_group = north_germanic
+		religion_openly_norse_or_reformed_trigger = yes
+		
+		#plus
+		religion = german_pagan
+		religion = german_pagan_reformed
+	}
+}
+
+russian_discount_trigger = {
+	OR = {
+		culture_group = east_slavic
+		culture_group = west_slavic
+	}
+}
+
+samian_discount_trigger = {
+	culture_group = finno_ugric
+}
+
+
+#####################Can Buy Checks#####################
+
+can_buy_irish_items_trigger = {
+	irish_mounts_available_trigger = yes
+	can_reach_irish_mounts_trigger = yes
+}
+
+can_buy_frankish_items_trigger = {
+	frankish_mounts_available_trigger = yes
+	can_reach_frankish_mounts_trigger = yes
+}
+
+can_buy_german_items_trigger = {
+	german_mounts_available_trigger = yes
+	can_reach_german_mounts_trigger = yes
+}
+
+can_buy_slavic_items_trigger = {
+	slavic_mounts_available_trigger = yes
+	can_reach_slavic_mounts_trigger = yes
+}
+
+can_buy_italian_items_trigger = {
+	italian_mounts_available_trigger = yes
+	can_reach_italian_mounts_trigger = yes
+}
+
+can_buy_spanish_items_trigger = {
+	spanish_mounts_available_trigger = yes
+	can_reach_spanish_mounts_trigger = yes
+}
+
+can_buy_moorish_items_trigger = {
+	moorish_mounts_available_trigger = yes
+	can_reach_moorish_mounts_trigger = yes
+}
+
+can_buy_steppes_items_trigger = {
+	steppes_mounts_available_trigger = yes
+	can_reach_steppes_mounts_trigger = yes
+}
+
+can_buy_arabian_items_trigger = {
+	arabian_mounts_available_trigger = yes
+	can_reach_arabian_mounts_trigger = yes
+}
+
+can_buy_greek_items_trigger = {
+	greek_mounts_available_trigger = yes
+	can_reach_greek_mounts_trigger = yes
+}
+
+can_buy_bactrian_items_trigger = {
+	bactrian_mounts_available_trigger = yes
+	can_reach_bactrian_mounts_trigger = yes
+}
+
+can_buy_indian_items_trigger = {
+	indian_mounts_available_trigger = yes
+	can_reach_indian_mounts_trigger = yes
+}
+
+can_buy_african_items_trigger = {
+	african_mounts_available_trigger = yes
+	can_reach_african_mounts_trigger = yes
+}
+
+can_buy_tibetan_items_trigger = {
+	tibetan_mounts_available_trigger = yes
+	can_reach_tibetan_mounts_trigger = yes
+}
+
+can_buy_scandinavian_items_trigger = {
+	scandinavian_mounts_available_trigger = yes
+	can_reach_scandinavian_mounts_trigger = yes
+}
+
+can_buy_russian_items_trigger = {
+	russian_mounts_available_trigger = yes
+	can_reach_russian_mounts_trigger = yes
+}
+
+can_buy_samian_items_trigger = {
+	samian_mounts_available_trigger = yes
+	can_reach_samian_mounts_trigger = yes
+}
+
+
+#####################Mount Availability Checks#####################
+
+irish_mounts_available_trigger = {
+	event_target:ireland_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+frankish_mounts_available_trigger = {
+	event_target:france_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+german_mounts_available_trigger = {
+	event_target:germany_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+slavic_mounts_available_trigger = {
+	event_target:slavic_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+italian_mounts_available_trigger = {
+	event_target:italy_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+spanish_mounts_available_trigger = {
+	event_target:spain_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+moorish_mounts_available_trigger = {
+	event_target:andalus_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+steppes_mounts_available_trigger = {
+	event_target:steppes_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+arabian_mounts_available_trigger = {
+	event_target:arabia_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+greek_mounts_available_trigger = {
+	event_target:greece_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+bactrian_mounts_available_trigger = {
+	event_target:bactria_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+indian_mounts_available_trigger = {
+	event_target:india_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+african_mounts_available_trigger = {
+	event_target:africa_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+tibetan_mounts_available_trigger = {
+	event_target:tibet_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+scandinavian_mounts_available_trigger = {
+	event_target:scandinavia_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+russian_mounts_available_trigger = {
+	event_target:russia_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+samian_mounts_available_trigger = {
+	event_target:sami_mount_province = {
+		check_variable = { which = available_mounts value >= 1 }
+	}
+}
+
+#####################Mount Range Checks#####################
+
+can_reach_irish_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:ireland_mount_province value = 350 } }
+					}
+				}
+			}
+		}	
+		AND = {
+			has_global_flag = csm_plus_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:ireland_mount_province value = 350 } }
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:ireland_mount_province value = 350 } }
+					}
+				}
+			}
+		}
+	}	
+}
+
+can_reach_frankish_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}
+						NOT = { distance = { where = event_target:france_mount_province value = 250 } }
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:france_mount_province value = 250 } }
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:france_mount_province value = 250 } }
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_german_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:germany_mount_province value = 250 } }
+					}
+				}
+			}
+		}	
+		AND = {
+			has_global_flag = csm_plus_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:germany_mount_province value = 250 } }
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:germany_mount_province value = 250 } }
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_slavic_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:russia_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}
+							NOT = { distance = { where = event_target:russia_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:russia_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}
+							NOT = { distance = { where = event_target:russia_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:russia_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}
+							NOT = { distance = { where = event_target:russia_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_italian_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					capital_scope = { region = world_europe }
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:italy_mount_province value = 250 } }
+							}
+						}	
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:italy_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					capital_scope = { region = world_europe }
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:italy_mount_province value = 250 } }
+							}
+						}	
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:italy_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					capital_scope = { region = world_europe }
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:italy_mount_province value = 250 } }
+							}
+						}	
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:italy_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+	}		
+}
+
+
+
+can_reach_spanish_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						religion_group = christian
+						culture_group = iberian
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:spain_mount_province value = 350 } }
+							}
+						}	
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:spain_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						religion_group = christian
+						culture_group = iberian
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:spain_mount_province value = 350 } }
+							}
+						}	
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:spain_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						religion_group = christian
+						culture_group = iberian
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:spain_mount_province value = 350 } }
+							}
+						}	
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:spain_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_moorish_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						culture_group = arabic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:andalus_mount_province value = 350 } }
+							}	
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:andalus_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						culture_group = arabic
+						culture_group = maghrebi
+						culture_group = amazigh
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:andalus_mount_province value = 350 } }
+							}	
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:andalus_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						culture_group = arabic
+						culture_group = north_african
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:andalus_mount_province value = 350 } }
+							}	
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:andalus_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_steppes_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					government = nomadic_government
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:steppes_mount_province value = 1000 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:steppes_mount_province value = 700 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					government = nomadic_government
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:steppes_mount_province value = 1000 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:steppes_mount_province value = 700 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					government = nomadic_government
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:steppes_mount_province value = 800 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:steppes_mount_province value = 600 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_arabian_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						culture_group = arabic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:arabia_mount_province value = 700 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:arabia_mount_province value = 500 } }
+						}	
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						culture_group = arabic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:arabia_mount_province value = 700 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:arabia_mount_province value = 500 } }
+						}	
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						culture_group = arabic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:arabia_mount_province value = 700 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:arabia_mount_province value = 500 } }
+						}	
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_greek_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					culture_group = byzantine
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:greece_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:greece_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					culture_group = byzantine
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:greece_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:greece_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					culture_group = byzantine
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:greece_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:greece_mount_province value = 250 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_bactrian_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:bactria_mount_province value = 400 } }
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:bactria_mount_province value = 400 } }
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			primary_title = {
+				ROOT = {
+					any_realm_province = {
+						OR = {
+							de_jure_liege_or_above = PREVPREV
+							ROOT = {
+								capital_scope = {
+									province = PREVPREV 
+								}
+							}
+						}	
+						NOT = { distance = { where = event_target:bactria_mount_province value = 400 } }
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_indian_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						culture_group = indo_aryan_group
+						culture_group = dravidian_group
+						culture_group = tibetan_group
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:india_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}
+							NOT = { distance = { where = event_target:india_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = indo_aryan_group
+						culture_group = dravidian_group
+						culture_group = tibetan_group
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:india_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}
+							NOT = { distance = { where = event_target:india_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = indo_aryan_group
+						culture_group = dravidian_group
+						culture_group = tibetan_group
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:india_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}
+							NOT = { distance = { where = event_target:india_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_african_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						culture_group = west_african
+						culture_group = east_african
+						culture_group = central_african
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:africa_mount_province value = 800 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:africa_mount_province value = 500 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = west_african
+						culture_group = east_african
+						culture_group = central_african
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:africa_mount_province value = 800 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:africa_mount_province value = 500 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = west_african
+						culture_group = east_african
+						culture_group = central_african
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:africa_mount_province value = 800 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:africa_mount_province value = 500 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_tibetan_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					culture_group = tibetan_group
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:tibet_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:tibet_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					culture_group = tibetan_group
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:tibet_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:tibet_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					culture_group = tibetan_group
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:tibet_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:tibet_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_scandinavian_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						culture_group = north_germanic
+						religion_openly_norse_or_reformed_trigger = yes
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:scandinavia_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:scandinavia_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = north_germanic
+						religion_openly_norse_or_reformed_trigger = yes
+						religion = german_pagan
+						religion = german_pagan_reformed
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:scandinavia_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:scandinavia_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = north_germanic
+						religion_openly_norse_or_reformed_trigger = yes
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:scandinavia_mount_province value = 500 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:scandinavia_mount_province value = 300 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_russian_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:russia_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}
+							NOT = { distance = { where = event_target:russia_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:russia_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:russia_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:russia_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:russia_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+can_reach_samian_mounts_trigger = {
+	OR = {
+		AND = {
+			NOR = {
+				has_global_flag = csm_plus_detected
+				has_global_flag = csm_hip_detected
+			}
+			OR = {
+				AND = {
+					culture_group = finno_ugric
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:sami_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:sami_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_plus_detected
+			OR = {
+				AND = {
+					culture_group = finno_ugric
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:sami_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:sami_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+			has_global_flag = csm_hip_detected
+			OR = {
+				AND = {
+					culture_group = finno_ugric
+					primary_title = {
+						ROOT = {
+							any_realm_province = {
+								OR = {
+									de_jure_liege_or_above = PREVPREV
+									ROOT = {
+										capital_scope = {
+											province = PREVPREV 
+										}
+									}
+								}	
+								NOT = { distance = { where = event_target:sami_mount_province value = 400 } }
+							}
+						}
+					}
+				}
+				primary_title = {
+					ROOT = {
+						any_realm_province = {
+							OR = {
+								de_jure_liege_or_above = PREVPREV
+								ROOT = {
+									capital_scope = {
+										province = PREVPREV 
+									}
+								}
+							}	
+							NOT = { distance = { where = event_target:sami_mount_province value = 200 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+

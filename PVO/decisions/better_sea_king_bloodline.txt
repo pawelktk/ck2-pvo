@@ -1,0 +1,59 @@
+decisions = {
+	better_sea_king_bloodline = {
+		is_high_prio = yes
+		potential = {
+			any_owned_bloodline = {
+				AND = {
+					has_bloodline_flag = more_raiders_bloodline
+					has_bloodline_flag = created_bloodline
+				}
+				bloodline_is_active_for = ROOT
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = NO_SEAKING_RAIDERS
+				OR = {
+					NOT = { has_character_flag = seaking_raid_troops }
+					had_character_flag = { flag = seaking_raid_troops days = 3650 }
+				}
+			}
+			custom_tooltip = {
+				text = NO_MARSHAL_RAIDERS
+				OR = {
+					NOT = { has_character_flag = tribal_organize_raid_troops }
+					had_character_flag = { flag = tribal_organize_raid_troops days = 3650 }
+				}
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			custom_tooltip = {
+				text = NO_MARSHAL_REGIMENTS
+				NOT = { has_earmarked_regiments = tribal_organize_raid }
+			}
+			war = no
+			custom_tooltip = {
+				text = UNOCCUPIED_CAPITAL
+				location = {
+					county = {
+						is_occupied = no
+						is_capital = PREVPREV
+					}
+				}
+			}
+		}
+		effect = {
+			clr_character_flag = tribal_organize_raid_troops
+			clr_character_flag = seaking_raid_troops
+			set_character_flag = seaking_raid_troops
+			character_event = { id = sea_king_troops.0001 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

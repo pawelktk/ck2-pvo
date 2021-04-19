@@ -1,0 +1,48 @@
+targetted_decisions ={
+toggle_raiding_anytime = {
+only_playable = yes
+ai = no
+filter = self
+potential = {
+
+OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = tengri_pagan
+			religion = tengri_pagan_reformed
+			religion = baltic_pagan
+			religion = baltic_pagan_reformed
+			religion = finnish_pagan
+			religion = finnish_pagan_reformed
+			religion = slavic_pagan
+			religion = slavic_pagan_reformed
+			religion = aztec
+			religion = aztec_reformed
+			religion = west_african_pagan
+			religion = west_african_pagan_reformed
+			religion = bon
+			religion = bon_reformed
+			religion = hindu
+			
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_viking
+			}
+			
+				has_religion_feature = religion_adventuring
+				has_religion_feature = religion_seafaring
+				culture = maghreb_arabic
+				is_tribal = yes
+				is_nomad = yes
+				has_religion_feature = religion_feature_aztec
+has_religion_feature = religion_feature_slavic
+		
+		}
+		
+}
+allow = {}
+effect = {
+any_army = { set_can_toggle_looting = yes 
+set_looting = yes }
+}
+}
+}

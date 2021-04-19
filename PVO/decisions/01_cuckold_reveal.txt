@@ -1,0 +1,53 @@
+targetted_decisions = {
+    reveal_true_father = {
+        is_high_prio = yes
+        ai_check_interval = 48000
+        filter = all
+        ai_target_filter = none
+        only_playable = yes
+        ai = no
+
+        from_potential = {
+            is_female = no
+        }
+        potential = {
+                ROOT = {
+                    is_father_real_father = no
+                }
+                ROOT = {
+                    mother = {
+                        OR = {
+                            is_lover = FROM
+                            is_former_lover = FROM
+                        }
+                    }
+                }
+        }
+        allow = {
+            ROOT = {
+                opinion = {
+                    who = FROM
+                    value = 50
+                }
+            }
+        }
+        effect = {
+            ROOT = {
+                father = {
+                    any_demesne_title = {
+                        add_weak_claim = ROOT
+                    }
+                }
+                dynasty = FROM
+                set_father = FROM
+                add_character_modifier = {
+                    modifier = unclear_heritage
+                    duration = -1
+                }
+            }
+        }
+        ai_will_do = {
+            factor = 0.1
+        }
+    }
+}

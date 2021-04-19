@@ -1,0 +1,557 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+
+
+fix_csm_bug;Fix market bug;;;;;;;;;;;;;x
+fix_csm_bug_desc;oops;;;;;;;;;;;;;x
+
+
+
+
+
+#####################ARTIFACTS#####################
+csm_info_book;The Great Book of Mounts;;;;;;;;;;;;;x
+csm_info_book_desc;Bestows upon the reader additional insight on the care and uses of the various mounts of the world.;;;;;;;;;;;;;x
+
+
+mount_type_horse;horse;;;;;;;;;;;;;x
+mount_type_camel;camel;;;;;;;;;;;;;x
+mount_type_elephant;elephant;;;;;;;;;;;;;x
+mount_type_yak;yak;;;;;;;;;;;;;x
+mount_type_wolf;wolf;;;;;;;;;;;;;x
+mount_type_tiger;tiger;;;;;;;;;;;;;x
+mount_type_bear;bear;;;;;;;;;;;;;x
+mount_type_reindeer;reindeer;;;;;;;;;;;;;x
+
+
+##prefixes   #add space after word here, Z for single, B for double
+
+mount_prefix_fair_robust;§BNoble§! ;;;;;;;;;;;;;x
+mount_prefix_fair_fertile;§BArdent§! ;;;;;;;;;;;;;x
+mount_prefix_fair_powerful;§BForceful§! ;;;;;;;;;;;;;x
+mount_prefix_fair_swift;§BElegant§! ;;;;;;;;;;;;;x
+
+mount_prefix_robust_fertile;§BVigorous§! ;;;;;;;;;;;;;x
+mount_prefix_robust_powerful;§BImposing§! ;;;;;;;;;;;;;x
+mount_prefix_robust_swift;§BSpirited§! ;;;;;;;;;;;;;x
+
+mount_prefix_fertile_powerful;§BDominant§! ;;;;;;;;;;;;;x
+mount_prefix_fertile_swift;§BEcstatic§! ;;;;;;;;;;;;;x
+
+mount_prefix_powerful_swift;§BThundering§! ;;;;;;;;;;;;;x
+
+
+###basic prefixes and descs
+
+mount_prefix_fair;§ZFair§! ;;;;;;;;;;;;;x
+mount_prefix_robust;§ZRobust§! ;;;;;;;;;;;;;x
+mount_prefix_fertile;§ZFertile§! ;;;;;;;;;;;;;x
+mount_prefix_powerful;§ZPowerful§! ;;;;;;;;;;;;;x
+mount_prefix_swift;§ZSwift§! ;;;;;;;;;;;;;x
+
+mount_prefix_fair_desc;\n§ZFair:§! Gives bonus prestige and vassal opinion to owner.[GetMountPrefixDesc2];;;;;;;;;;;;;x
+mount_prefix_robust_desc;\n§ZRobust:§! Has a longer lifespan and less likely to lose health from random events.[GetMountPrefixDesc2];;;;;;;;;;;;;x
+mount_prefix_fertile_desc;\n§ZFertile:§! More likely to breed and can breed for a total of three times.[GetMountPrefixDesc2];;;;;;;;;;;;;x
+mount_prefix_powerful_desc;\n§ZPowerful:§! More effective in mounted close combat.[GetMountPrefixDesc2];;;;;;;;;;;;;x
+mount_prefix_swift_desc;\n§ZSwift:§! More effective in speed based mounted combat.[GetMountPrefixDesc2];;;;;;;;;;;;;x
+mount_prefix_immortal_desc;\n§ZImmortal:§! This mount will never die.[GetMountPrefixDesc2];;;;;;;;;;;;;x
+
+mount_prefix_fair_desc2;\n§ZFair:§! Gives bonus prestige and vassal opinion to owner.;;;;;;;;;;;;;x
+mount_prefix_robust_desc2;\n§ZRobust:§! Has a longer lifespan and less likely to lose health from random events.;;;;;;;;;;;;;x
+mount_prefix_fertile_desc2;\n§ZFertile:§! More likely to breed and can breed for a total of three times.;;;;;;;;;;;;;x
+mount_prefix_powerful_desc2;\n§ZPowerful:§! More effective in mounted close combat.;;;;;;;;;;;;;x
+mount_prefix_swift_desc2;\n§ZSwift:§! More effective in speed based mounted combat.;;;;;;;;;;;;;x
+mount_prefix_immortal_desc2;\n§ZImmortal:§! This mount will never die.;;;;;;;;;;;;;x
+
+
+##slots
+mount;Mount;;;;;;;;;;;;;x
+mount_armor;Mount Armor;;;;;;;;;;;;;x
+mount_addon;Mount Equipment;;;;;;;;;;;;;x
+
+###Horses
+
+foal;Young [GetFoalType];;;;;;;;;;;;;x
+foal_desc;A young horse not yet ready for riding.;;;;;;;;;;;;;x
+
+
+#Tier 1
+pony;[GetMountPrefix]Pony;;;;;;;;;;;;;x
+pony_desc;A small pony ill-suited for battle, but desperate times call for desperate measures.[GetMountPrefixDesc];;;;;;;;;;;;;x
+dray_horse;[GetMountPrefix]Dray Horse;;;;;;;;;;;;;x
+dray_horse_desc;The Dray Horse is a common pack animal used around the world.[GetMountPrefixDesc];;;;;;;;;;;;;x
+rouncey;[GetMountPrefix]Rouncey;;;;;;;;;;;;;x
+rouncey_desc;A generic work horse, accustomed to hours of labor and travel.[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+#Tier 2
+hobby;[GetMountPrefix]Hobby;;;;;;;;;;;;;x
+hobby_desc;A small and quick horse of Irish origin ideal for skirmishing. Also responsible for being the foundation of many horse breeds.[GetMountPrefixDesc];;;;;;;;;;;;;x
+jennet;[GetMountPrefix]Jennet;;;;;;;;;;;;;x
+jennet_desc;This horse is one of the most commonly used horses by the Chrisitan Iberians for their light cavalry forces.[GetMountPrefixDesc];;;;;;;;;;;;;x
+palfry;[GetMountPrefix]Palfry;;;;;;;;;;;;;x
+palfry_desc;A horse primarily used by nobles to show off their wealth and influence to others.[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+#Tier3
+courser;[GetMountPrefix]Courser;;;;;;;;;;;;;x
+courser_desc;Coursers are light horses used primarily for light cavalry and hunting.[GetMountPrefixDesc];;;;;;;;;;;;;x
+destrier;[GetMountPrefix]Destrier;;;;;;;;;;;;;x
+destrier_desc;Destriers are larger and stronger than Coursers, making them the ideal generic warhorse.[GetMountPrefixDesc];;;;;;;;;;;;;x
+galician_mountain_horse;[GetMountPrefix]Galician Mountain Horse;;;;;;;;;;;;;x
+galician_mountain_horse_desc;These small horses are accustomed to the rugged terrain of their homeland, allowing them to easily outperform others in such terrain.[GetMountPrefixDesc];;;;;;;;;;;;;x
+barbary_destrier;[GetMountPrefix]Barbary Destrier;;;;;;;;;;;;;x
+barbary_destrier_desc;This Destrier has adapted to the harsh climate of the Barbary Coast, improving it's physical capabilities.[GetMountPrefixDesc];;;;;;;;;;;;;x
+chinese_ceromonial_horse;[GetMountPrefix]Chinese Ceromonial Horse;;;;;;;;;;;;;x
+chinese_ceromonial_horse_desc;A noble horse from the rich lands of China, an impressive horse that gives rise to jealousy in others.[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+#Tier4
+charger;[GetMountPrefix]Charger;;;;;;;;;;;;;x
+charger_desc;A Destrier bred and raised for only one purpose, war.[GetMountPrefixDesc];;;;;;;;;;;;;x
+chinese_war_horse;[GetMountPrefix]Chinese War Horse;;;;;;;;;;;;;x
+chinese_war_horse_desc;A Charger from the great lands of China, both prestigious and deadly.[GetMountPrefixDesc];;;;;;;;;;;;;x
+steppe_courser;[GetMountPrefix]Steppe Courser;;;;;;;;;;;;;x
+steppe_courser_desc;A Courser born in the vast eastern steppes. It boasts incredible speed and is mainly used by the nomadic hordes.[GetMountPrefixDesc];;;;;;;;;;;;;x
+arabian_courser;[GetMountPrefix]Arabian Courser;;;;;;;;;;;;;x
+arabian_courser_desc;One of the most prized horse breeds in the world. Arabian horses possess speed, refinement, endurance, and strength.[GetMountPrefixDesc];;;;;;;;;;;;;x
+moorish_courser;[GetMountPrefix]Moorish Courser;;;;;;;;;;;;;x
+moorish_courser_desc;The Moors of Iberia have trained their horses rigorously for the purpose of lightning fast raids.[GetMountPrefixDesc];;;;;;;;;;;;;x
+nisean_horse;[GetMountPrefix]Nisean Horse;;;;;;;;;;;;;x
+nisean_horse_desc;These horses were highly sought after in the ancient world. They are both beautiful and powerful, but their numbers are slowly dwindling.[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+
+#Tier5
+jurchen_steppe_horse;[GetMountPrefix]Jurchen Steppe Horse;;;;;;;;;;;;;x
+jurchen_steppe_horse_desc;The horse of the Jurchen Tribes of Manchuria. With these horses in their possession, China is no longer as imposing as it originally looked.[GetMountPrefixDesc];;;;;;;;;;;;;x
+mongolian_war_horse;[GetMountPrefix]Mongolian War Horse;;;;;;;;;;;;;x
+mongolian_war_horse_desc;The Mongol Horde has come, heralded by the thundering of their horses' hooves. There can be no hope in this world, no hope at all.[GetMountPrefixDesc];;;;;;;;;;;;;x
+arabian_charger;[GetMountPrefix]Arabian Charger;;;;;;;;;;;;;x
+arabian_charger_desc;The Arabian Charger is both beautiful and effective in war. This noble charger will turn heads wherever it goes.[GetMountPrefixDesc];;;;;;;;;;;;;x
+frankish_charger;[GetMountPrefix]Frankish Charger;;;;;;;;;;;;;x
+frankish_charger_desc;A Charger from the Frankish lands. This warhorse is as fearless as it is powerful, able to charge into the heaviest formations. [GetMountPrefixDesc];;;;;;;;;;;;;x
+
+
+#Unique
+glitterhoof;Incitatus;;;;;;;;;;;;;x
+glitterhoof_desc;The Legendary Horse Councilor Incitatus is the true power behind the [From.Owner.PrimaryTitle.GetFullName].[GetMountPrefixDesc];;;;;;;;;;;;;x
+glitterhoof_immortal;Incitatus the Immortal;;;;;;;;;;;;;x
+glitterhoof_immortal_desc;Blessed with immortality, the Legendary Horse Councilor Incitatus is the true power behind the [From.Owner.PrimaryTitle.GetFullName].[GetMountPrefixDesc];;;;;;;;;;;;;x
+red_hare;Red Hare;;;;;;;;;;;;;x
+red_hare_desc;A legendary horse from China. This horse can gallop for days without rest, it is undoubtedly the fastest horse alive.[GetMountPrefixDesc];;;;;;;;;;;;;x
+bucephalus;Bucephalus;;;;;;;;;;;;;x
+bucephalus_desc;Believed to be the reincarnation of Alexander the Great's own warhorse. His subjugation was not easy, for he is truly an unstoppable force on the battlefield.[GetMountPrefixDesc];;;;;;;;;;;;;x
+al_buraq;Al-Buraq;;;;;;;;;;;;;x
+al_buraq_desc;This majestic beast is said to have descended from the heavens. Both it's speed and beauty are truly divine.[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+
+
+###Camels
+
+arabian_camel;[GetMountPrefix]Arabian Camel;;;;;;;;;;;;;x
+arabian_camel_desc;The one humped Dromedary is an ideal companion for the scorching deserts of the Arabian Peninsula.[GetMountPrefixDesc];;;;;;;;;;;;;x
+bactrian_camel;[GetMountPrefix]Bactrian Camel;;;;;;;;;;;;;x
+bactrian_camel_desc;The two humped Bactrian Camel is mostly used as a pack animal on the Silk Road due to it's tolerance for cold, drought, and high altitudes[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+
+###Elephants
+
+indian_elephant;[GetMountPrefix]Indian Elephant;;;;;;;;;;;;;x
+indian_elephant_desc;A relatively small elephant yet still a terror on the battlefield.[GetMountPrefixDesc];;;;;;;;;;;;;x
+african_elephant;[GetMountPrefix]African Elephant;;;;;;;;;;;;;x
+african_elephant_desc;The large African Elephant is extremely slow, but can inflict devastating casualties on it's enemies.[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+
+###Misc
+
+tibetan_yak;[GetMountPrefix]Tibetan Yak;;;;;;;;;;;;;x
+tibetan_yak_desc;This yak is mostly used as a pack animal in the mountainous region of Tibet.[GetMountPrefixDesc];;;;;;;;;;;;;x
+scandinavian_wolf;[GetMountPrefix]Scandinavian Wolf;;;;;;;;;;;;;x
+scandinavian_wolf_desc;A ferocious wolf found in the forests of Scandinavia, it takes a brave soul indeed to try subjugating one.[GetMountPrefixDesc];;;;;;;;;;;;;x
+indian_tiger;[GetMountPrefix]Indian Tiger;;;;;;;;;;;;;x
+indian_tiger_desc;A cunning predator found in the thick jungles of India, a deadly hunter of both man and beast.[GetMountPrefixDesc];;;;;;;;;;;;;x
+russian_bear;[GetMountPrefix]Russian Bear;;;;;;;;;;;;;x
+russian_bear_desc;This hardy bear has thick fur to ward off the harsh winters of the north.[GetMountPrefixDesc];;;;;;;;;;;;;x
+samian_reindeer;[GetMountPrefix]Samian Reindeer;;;;;;;;;;;;;x
+samian_reindeer_desc;A skittish animal trained by the Samians. It is more suited for skirmishing than close combat.[GetMountPrefixDesc];;;;;;;;;;;;;x
+
+
+
+###Armor
+
+horse_armor_active;Has a horse equipped;;;;;;;;;;;;;x
+horse_armor_1;Horse Armor;;;;;;;;;;;;;x
+horse_armor_1_desc;A well crafted mail coat to protect horses from the dangers of war.;;;;;;;;;;;;;x
+horse_armor_2;Durable Horse Armor;;;;;;;;;;;;;x
+horse_armor_2_desc;A strong suit of metal armor created for horses.;;;;;;;;;;;;;x
+horse_armor_3;Magnificent Horse Armor;;;;;;;;;;;;;x
+horse_armor_3_desc;A masterfully crafted piece of horse armor made from strong metals, the ultimate in horse protection.;;;;;;;;;;;;;x
+
+exotic_armor_active;Has a non-horse mount equipped;;;;;;;;;;;;;x
+exotic_armor_1;Exotic Mount Armor;;;;;;;;;;;;;x
+exotic_armor_1_desc;A small amount of metal plates designed to protect exotic beasts from harm.;;;;;;;;;;;;;x
+exotic_armor_2;Durable Exotic Mount Armor;;;;;;;;;;;;;x
+exotic_armor_2_desc;A decent amount of strong metal plates designed to protect exotic beasts from harm.;;;;;;;;;;;;;x
+exotic_armor_3;Magnificent Exotic Mount Armor;;;;;;;;;;;;;x
+exotic_armor_3_desc;A large amount of exquisite metal plates designed to protect exotic beasts from harm.;;;;;;;;;;;;;x
+
+greek_cataphract_armor;Greek Cataphract Armor;;;;;;;;;;;;;x
+greek_cataphract_armor_desc;Heavy horse armor made from overlapping, rounded plates of iron. This armor is strong enough to resist the immense impact of a thunderous charge into infantry formations.;;;;;;;;;;;;;x
+frankish_horse_armor;Frankish Horse Armor;;;;;;;;;;;;;x
+frankish_horse_armor_desc;A sturdy set of horse armor primarily used by the Frankish Knights. This armor is both effective and ceremonial.;;;;;;;;;;;;;x
+
+
+###Addons
+
+mount_addon_has_mount;Has a mount equipped;;;;;;;;;;;;;x
+mount_addon_has_horse;Has a horse equipped;;;;;;;;;;;;;x
+
+mount_saddle;Magnificent Saddle;;;;;;;;;;;;;x
+mount_saddle_desc;A sturdy and very comfortable saddle made for long and difficult journeys.;;;;;;;;;;;;;x
+mount_horseshoes;Sturdy Horseshoes;;;;;;;;;;;;;x
+mount_horseshoes_desc;A pair of well made horseshoes, with these a horse may gallop without fear of hoof degradation.;;;;;;;;;;;;;x
+mount_lance;Couchable Lance;;;;;;;;;;;;;x
+mount_lance_desc;This lance has a unique grip, allowing the user to have more control while fully couched.;;;;;;;;;;;;;x
+mount_bow;Mounted Bow;;;;;;;;;;;;;x
+mount_bow_desc;A special bow made exclusively for horse archery.;;;;;;;;;;;;;x
+mount_shield;Mounted Shield;;;;;;;;;;;;;x
+mount_shield_desc;A lightweight shield used primarily by mounted troops.;;;;;;;;;;;;;x
+mount_banner;Heraldic Banner;;;;;;;;;;;;;x
+mount_banner_desc;An inspiring banner displaying your family's heraldry.;;;;;;;;;;;;;x
+mount_caparison;Caparison;;;;;;;;;;;;;x
+mount_caparison_desc;A cloth covering laid over a mount for protection and decoration.;;;;;;;;;;;;;x
+
+
+
+
+#####################Game Rules#####################
+RULE_GROUP_CSM;CSM;;;;;;;;;;;;;x
+
+RULE_EXTRA_MOUNTS;§BCSM:§! Extra Mounts;;;;;;;;;;;;;x
+RULE_EXTRA_MOUNTS_ALL_DESC;All mounts are available, this includes tigers, wolfs, and other similar creatures.;;;;;;;;;;;;;x
+RULE_OPTION_REALISTIC;Realistic;;;;;;;;;;;;;x
+RULE_EXTRA_MOUNTS_REALISTIC_DESC;Only realistic extra mounts are added, this currently only includes Yaks.;;;;;;;;;;;;;x
+RULE_EXTRA_MOUNTS_NONE_DESC;No extra mounts are available. Only Horses, Camels, and Elephants will exist.;;;;;;;;;;;;;x
+
+RULE_MOUNTED_COMBAT_FREQUENCY;§BCSM:§! Mounted Combat Frequency;;;;;;;;;;;;;x
+RULE_MOUNTED_COMBAT_FREQUENCY_DEFAULT_DESC;Mounted combat will occur at the default rate.;;;;;;;;;;;;;x
+RULE_OPTION_HIGH;High;;;;;;;;;;;;;x
+RULE_MOUNTED_COMBAT_FREQUENCY_HIGH_DESC;Mounted combat will occur at an §Zincreased§! rate.;;;;;;;;;;;;;x
+RULE_OPTION_LOW;Low;;;;;;;;;;;;;x
+RULE_MOUNTED_COMBAT_FREQUENCY_LOW_DESC;Mounted combat will occur at a §Rreduced§! rate.;;;;;;;;;;;;;x
+RULE_MOUNTED_COMBAT_FREQUENCY_OFF_DESC;Mounted combat is §Rdisabled§!.;;;;;;;;;;;;;x
+
+
+#####################Variables#####################
+available_mounts;Available mounts and equipment;;;;;;;;;;;;;x
+mount_upkeep;Mount Upkeep;;;;;;;;;;;;;x
+
+#####################Event Modifiers#####################
+
+mount_upkeep_modifier;Mount Upkeep;;;;;;;;;;;;;x
+mount_upkeep_modifier_desc;Yearly Mount Upkeep: §R[Root.mount_upkeep.GetValue]§!\nEach mount has a yearly upkeep cost of ¤4 per quality. Elephants have an additional yearly cost of ¤6. Unique Mounts have no upkeep.;;;;;;;;;;;;;x
+
+
+fair_mounts_1;Fair Mounts;;;;;;;;;;;;;x
+fair_mounts_1_desc;This modifier scales with the amount of §ZFair§! mounts in the character's possession, up to a maximum of five.;;;;;;;;;;;;;x
+fair_mounts_2;Fair Mounts;;;;;;;;;;;;;x
+fair_mounts_2_desc;This modifier scales with the amount of §ZFair§! mounts in the character's possession, up to a maximum of five.;;;;;;;;;;;;;x
+fair_mounts_3;Fair Mounts;;;;;;;;;;;;;x
+fair_mounts_3_desc;This modifier scales with the amount of §ZFair§! mounts in the character's possession, up to a maximum of five.;;;;;;;;;;;;;x
+fair_mounts_4;Fair Mounts;;;;;;;;;;;;;x
+fair_mounts_4_desc;This modifier scales with the amount of §ZFair§! mounts in the character's possession, up to a maximum of five.;;;;;;;;;;;;;x
+fair_mounts_5;Fair Mounts;;;;;;;;;;;;;x
+fair_mounts_5_desc;This modifier scales with the amount of §ZFair§! mounts in the character's possession, up to a maximum of five.;;;;;;;;;;;;;x
+
+
+csm_increased_trade;Increased Trade;;;;;;;;;;;;;x
+csm_increased_trade_desc;Due to a recent influx of mount traders this province is flourishing.;;;;;;;;;;;;;x
+
+csm_craftsmen;Skilled Craftsmen;;;;;;;;;;;;;x
+csm_craftsmen_desc;A group of skilled craftsmen are providing their services to the local lord.;;;;;;;;;;;;;x
+
+csm_doctors;Skilled Doctors;;;;;;;;;;;;;x
+csm_doctors_desc;The local doctors are using their skills to tend to the sick traders passing through the area.;;;;;;;;;;;;;x
+
+csm_lend_grazing_land;Grazing Lands;;;;;;;;;;;;;x
+csm_lend_grazing_land_desc;Part of the local lord's lands have been lent to the traders of the province in order to promote the growth of mounts.;;;;;;;;;;;;;x
+
+csm_horse_races;Horse Races;;;;;;;;;;;;;x
+csm_horse_races_desc;There are ongoing horse races in this province, increasing it's wealth.;;;;;;;;;;;;;x
+
+
+#####Timers#####
+mounted_combat_timer;Mounted Combat Timer;;;;;;;;;;;;;x
+mounted_combat_timer_desc;you shouldn't see this, if you do please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+breeding_timer;Breeding Timer;;;;;;;;;;;;;x
+breeding_timer_desc;you shouldn't see this, if you do please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+bucephalus_timer;Bucephalus Timer;;;;;;;;;;;;;x
+bucephalus_timer_desc;you shouldn't see this, if you do please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+
+character_flavor_timer;Character flavor timer;;;;;;;;;;;;;x
+character_flavor_timer_desc;you shouldn't see this, if you do please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+
+province_flavor_timer;Province flavor timer;;;;;;;;;;;;;x
+province_flavor_timer_desc;you shouldn't see this, if you do please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+
+ai_mount_decision_timer;AI mount decision timer;;;;;;;;;;;;;x
+ai_mount_decision_timer_desc;you shouldn't see this, if you do please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+ai_mount_equipment_decision_timer;AI mount equipment decision timer;;;;;;;;;;;;;x
+ai_mount_equipment_decision_timer_desc;you shouldn't see this, if you do please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+
+#####Mount Counters#####
+
+#Vanilla
+ireland_mount_counter;Irish Mount Heartlands;;;;;;;;;;;;;x
+ireland_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 350\n\nUnique items available here:\n     §GHobby§!;;;;;;;;;;;;;x
+
+france_mount_counter;Frankish Mount Heartlands;;;;;;;;;;;;;x
+france_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 250\n\nUnique items available here:\n     §ZFrankish Horse Armor§Z\n     §GFrankish Charger§!;;;;;;;;;;;;;x
+
+germany_mount_counter;German Mount Heartlands;;;;;;;;;;;;;x
+germany_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 250;;;;;;;;;;;;;x
+
+slavic_mount_counter;Slavic Mount Heartlands;;;;;;;;;;;;;x
+slavic_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GEast or West Slavic Characters:§! 400\n     §YOther Characters:§! 200;;;;;;;;;;;;;x
+
+italy_mount_counter;Italian Mount Heartlands;;;;;;;;;;;;;x
+italy_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GCapital in Europe:§! 250\n     §YOther Characters:§! 200;;;;;;;;;;;;;x
+
+spain_mount_counter;Spanish Mount Heartlands;;;;;;;;;;;;;x
+spain_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GChristian or Iberian Characters:§! 350\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §GJennet§!\n     §GGalician Mountain Horse§!;;;;;;;;;;;;;x
+
+andalus_mount_counter;Andalusian Mount Heartlands;;;;;;;;;;;;;x
+andalus_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GMuslim or Arabic Characters:§! 350\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §GMoorish Courser§!;;;;;;;;;;;;;x
+
+steppes_mount_counter;Steppes Mount Heartlands;;;;;;;;;;;;;x
+steppes_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GNomadic Characters:§! 1000\n     §YOther Characters:§! 700\n\nUnique items available here:\n     §GSteppe Courser§!\n     §GJurchen Steppe Horse§!;;;;;;;;;;;;;x
+
+arabia_mount_counter;Arabian Mount Heartlands;;;;;;;;;;;;;x
+arabia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GMuslim or Arabic Characters:§! 700\n     §YOther Characters:§! 500\n\nUnique items available here:\n     §GArabian Courser§!\n     §GArabian Charger§!\n     §GArabian Camel§!;;;;;;;;;;;;;x
+
+greece_mount_counter;Greek Mount Heartlands;;;;;;;;;;;;;x
+greece_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GByzantine Characters:§! 500\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §ZGreek Cataphract Armor§Z;;;;;;;;;;;;;x
+
+bactria_mount_counter;Bactrian Mount Heartlands;;;;;;;;;;;;;x
+bactria_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 400\n\nUnique items available here:\n     §GNisean Horse§!\n     §GBactrian Camel§!;;;;;;;;;;;;;x
+
+india_mount_counter;Indian Mount Heartlands;;;;;;;;;;;;;x
+india_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GIndian Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GIndian Elephant§!\n     §GIndian Tiger§!;;;;;;;;;;;;;x
+
+africa_mount_counter;African Mount Heartlands;;;;;;;;;;;;;x
+africa_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GAfrican Characters:§! 800\n     §YOther Characters:§! 500\n\nUnique items available here:\n     §GAfrican Elephant§!;;;;;;;;;;;;;x
+
+tibet_mount_counter;Tibetan Mount Heartlands;;;;;;;;;;;;;x
+tibet_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GTibetan Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GTibetan Yak§!;;;;;;;;;;;;;x
+
+scandinavia_mount_counter;Scandinavian Mount Heartlands;;;;;;;;;;;;;x
+scandinavia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GGermanic Religion or North Germanic Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GScandinavian Wolf§!;;;;;;;;;;;;;x
+
+russia_mount_counter;Russian Mount Heartlands;;;;;;;;;;;;;x
+russia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GEast or West Slavic Characters:§! 400\n     §YOther Characters:§! 200\n\nUnique items available here:\n     §GRussian Bear§!;;;;;;;;;;;;;x
+
+sami_mount_counter;Samian Mount Heartlands;;;;;;;;;;;;;x
+sami_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GFinno-Ugric Characters:§! 400\n     §YOther Characters:§! 200\n\nUnique items available here:\n     §GSamian Reindeer§!;;;;;;;;;;;;;x
+
+
+#CK2+
+plus_ireland_mount_counter;Irish Mount Heartlands;;;;;;;;;;;;;x
+plus_ireland_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 350\n\nUnique items available here:\n     §GHobby§!;;;;;;;;;;;;;x
+
+plus_france_mount_counter;Frankish Mount Heartlands;;;;;;;;;;;;;x
+plus_france_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 250\n\nUnique items available here:\n     §ZFrankish Horse Armor§Z\n     §GFrankish Charger§!;;;;;;;;;;;;;x
+
+plus_germany_mount_counter;German Mount Heartlands;;;;;;;;;;;;;x
+plus_germany_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 250;;;;;;;;;;;;;x
+
+plus_slavic_mount_counter;Slavic Mount Heartlands;;;;;;;;;;;;;x
+plus_slavic_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GEast or West Slavic Characters:§! 400\n     §YOther Characters:§! 200;;;;;;;;;;;;;x
+
+plus_italy_mount_counter;Italian Mount Heartlands;;;;;;;;;;;;;x
+plus_italy_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GCapital in Europe:§! 250\n     §YOther Characters:§! 200;;;;;;;;;;;;;x
+
+plus_spain_mount_counter;Spanish Mount Heartlands;;;;;;;;;;;;;x
+plus_spain_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GChristian or Iberian Characters:§! 350\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §GJennet§!\n     §GGalician Mountain Horse§!;;;;;;;;;;;;;x
+
+plus_andalus_mount_counter;Andalusian Mount Heartlands;;;;;;;;;;;;;x
+plus_andalus_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GMuslim or Arabic/Moorish Characters:§! 350\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §GMoorish Courser§!;;;;;;;;;;;;;x
+
+plus_steppes_mount_counter;Steppes Mount Heartlands;;;;;;;;;;;;;x
+plus_steppes_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GNomadic Characters:§! 1000\n     §YOther Characters:§! 700\n\nUnique items available here:\n     §GSteppe Courser§!\n     §GJurchen Steppe Horse§!;;;;;;;;;;;;;x
+
+plus_arabia_mount_counter;Arabian Mount Heartlands;;;;;;;;;;;;;x
+plus_arabia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GMuslim or Arabic Characters:§! 700\n     §YOther Characters:§! 500\n\nUnique items available here:\n     §GArabian Courser§!\n     §GArabian Charger§!\n     §GArabian Camel§!;;;;;;;;;;;;;x
+
+plus_greece_mount_counter;Greek Mount Heartlands;;;;;;;;;;;;;x
+plus_greece_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GByzantine Characters:§! 500\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §ZGreek Cataphract Armor§Z;;;;;;;;;;;;;x
+
+plus_bactria_mount_counter;Bactrian Mount Heartlands;;;;;;;;;;;;;x
+plus_bactria_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 400\n\nUnique items available here:\n     §GNisean Horse§!\n     §GBactrian Camel§!;;;;;;;;;;;;;x
+
+plus_india_mount_counter;Indian Mount Heartlands;;;;;;;;;;;;;x
+plus_india_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GIndian Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GIndian Elephant§!\n     §GIndian Tiger§!;;;;;;;;;;;;;x
+
+plus_africa_mount_counter;African Mount Heartlands;;;;;;;;;;;;;x
+plus_africa_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GAfrican Characters:§! 800\n     §YOther Characters:§! 500\n\nUnique items available here:\n     §GAfrican Elephant§!;;;;;;;;;;;;;x
+
+plus_tibet_mount_counter;Tibetan Mount Heartlands;;;;;;;;;;;;;x
+plus_tibet_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GTibetan Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GTibetan Yak§!;;;;;;;;;;;;;x
+
+plus_scandinavia_mount_counter;Scandinavian Mount Heartlands;;;;;;;;;;;;;x
+plus_scandinavia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GGermanic/Nordic Religion or North Germanic Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GScandinavian Wolf§!;;;;;;;;;;;;;x
+
+plus_russia_mount_counter;Russian Mount Heartlands;;;;;;;;;;;;;x
+plus_russia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GEast or West Slavic Characters:§! 400\n     §YOther Characters:§! 200\n\nUnique items available here:\n     §GRussian Bear§!;;;;;;;;;;;;;x
+
+plus_sami_mount_counter;Samian Mount Heartlands;;;;;;;;;;;;;x
+plus_sami_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GFinno-Ugric Characters:§! 400\n     §YOther Characters:§! 200\n\nUnique items available here:\n     §GSamian Reindeer§!;;;;;;;;;;;;;x
+
+
+#Hip
+hip_ireland_mount_counter;Irish Mount Heartlands;;;;;;;;;;;;;x
+hip_ireland_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 350\n\nUnique items available here:\n     §GHobby§!;;;;;;;;;;;;;x
+
+hip_france_mount_counter;Frankish Mount Heartlands;;;;;;;;;;;;;x
+hip_france_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 250\n\nUnique items available here:\n     §ZFrankish Horse Armor§Z\n     §GFrankish Charger§!;;;;;;;;;;;;;x
+
+hip_germany_mount_counter;German Mount Heartlands;;;;;;;;;;;;;x
+hip_germany_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 250;;;;;;;;;;;;;x
+
+hip_slavic_mount_counter;Slavic Mount Heartlands;;;;;;;;;;;;;x
+hip_slavic_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GEast or West Slavic Characters:§! 400\n     §YOther Characters:§! 200;;;;;;;;;;;;;x
+
+hip_italy_mount_counter;Italian Mount Heartlands;;;;;;;;;;;;;x
+hip_italy_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GCapital in Europe:§! 250\n     §YOther Characters:§! 200;;;;;;;;;;;;;x
+
+hip_spain_mount_counter;Spanish Mount Heartlands;;;;;;;;;;;;;x
+hip_spain_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GChristian or Iberian Characters:§! 350\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §GJennet§!\n     §GGalician Mountain Horse§!;;;;;;;;;;;;;x
+
+hip_andalus_mount_counter;Andalusian Mount Heartlands;;;;;;;;;;;;;x
+hip_andalus_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GMuslim or Arabic/Berber Characters:§! 350\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §GMoorish Courser§!;;;;;;;;;;;;;x
+
+hip_steppes_mount_counter;Steppes Mount Heartlands;;;;;;;;;;;;;x
+hip_steppes_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GNomadic Characters:§! 800\n     §YOther Characters:§! 600\n\nUnique items available here:\n     §GSteppe Courser§!\n     §GJurchen Steppe Horse§!;;;;;;;;;;;;;x
+
+hip_arabia_mount_counter;Arabian Mount Heartlands;;;;;;;;;;;;;x
+hip_arabia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GMuslim or Arabic Characters:§! 700\n     §YOther Characters:§! 500\n\nUnique items available here:\n     §GArabian Courser§!\n     §GArabian Charger§!\n     §GArabian Camel§!;;;;;;;;;;;;;x
+
+hip_greece_mount_counter;Greek Mount Heartlands;;;;;;;;;;;;;x
+hip_greece_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GByzantine Characters:§! 500\n     §YOther Characters:§! 250\n\nUnique items available here:\n     §ZGreek Cataphract Armor§Z;;;;;;;;;;;;;x
+
+hip_bactria_mount_counter;Bactrian Mount Heartlands;;;;;;;;;;;;;x
+hip_bactria_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §YAll Characters:§! 400\n\nUnique items available here:\n     §GNisean Horse§!\n     §GBactrian Camel§!;;;;;;;;;;;;;x
+
+hip_india_mount_counter;Indian Mount Heartlands;;;;;;;;;;;;;x
+hip_india_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GIndian Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GIndian Elephant§!\n     §GIndian Tiger§!;;;;;;;;;;;;;x
+
+hip_africa_mount_counter;African Mount Heartlands;;;;;;;;;;;;;x
+hip_africa_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GAfrican Characters:§! 800\n     §YOther Characters:§! 500\n\nUnique items available here:\n     §GAfrican Elephant§!;;;;;;;;;;;;;x
+
+hip_tibet_mount_counter;Tibetan Mount Heartlands;;;;;;;;;;;;;x
+hip_tibet_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GTibetan Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GTibetan Yak§!;;;;;;;;;;;;;x
+
+hip_scandinavia_mount_counter;Scandinavian Mount Heartlands;;;;;;;;;;;;;x
+hip_scandinavia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GGermanic Religion or North Germanic Characters:§! 500\n     §YOther Characters:§! 300\n\nUnique items available here:\n     §GScandinavian Wolf§!;;;;;;;;;;;;;x
+
+hip_russia_mount_counter;Russian Mount Heartlands;;;;;;;;;;;;;x
+hip_russia_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GEast or West Slavic Characters:§! 400\n     §YOther Characters:§! 200\n\nUnique items available here:\n     §GRussian Bear§!;;;;;;;;;;;;;x
+
+hip_sami_mount_counter;Samian Mount Heartlands;;;;;;;;;;;;;x
+hip_sami_mount_counter_desc;[Root.available_mounts.GetName]: §Y[Root.available_mounts.GetValue]§!\nDue to it's location or size, this province has become the hub of mount related transactions.\n\nIn order to interact with this province, the distance from your §YCapital§! or any of your §YRealm§! provinces that is §YDejure§! part of your §YPrimary Title§! to this province must be less than:\n     §GFinno-Ugric Characters:§! 400\n     §YOther Characters:§! 200\n\nUnique items available here:\n     §GSamian Reindeer§!;;;;;;;;;;;;;x
+
+
+
+#####################Modifier Defs#####################
+
+mounted_combat;Mounted Combat Rating;;;;;;;;;;;;;x
+mount_protection;Mount Welfare;;;;;;;;;;;;;x
+
+#####################Traits and Minor Titles#####################
+
+title_stable_master;Stable Master;;;;;;;;;;;;;x
+title_stable_master_desc;The Stable Master has complete responsibility for his master's mounts including devising training schedules, feeding, grooming and ensuring they recieve proper care and comfort.;;;;;;;;;;;;;x
+
+stable_master_1;Novice Stable Master;;;;;;;;;;;;;x
+stable_master_1_desc;This man lacks any experience related to mount care, but is better than nothing.;;;;;;;;;;;;;x
+stable_master_2;Learned Stable Master;;;;;;;;;;;;;x
+stable_master_2_desc;With a few experiences under his belt, this man can adequately train and care for some mounts.;;;;;;;;;;;;;x
+stable_master_3;Expert Stable Master;;;;;;;;;;;;;x
+stable_master_3_desc;This man has cared for a variety of different mounts and has picked up a few tricks to improve them.;;;;;;;;;;;;;x
+stable_master_4;Renowned Stable Master;;;;;;;;;;;;;x
+stable_master_4_desc;A master of his proffession, this man knows all there is to know about all the different mounts in the world.;;;;;;;;;;;;;x
+
+
+#####################Scripted triggers and effects#####################
+is_stable_master_trigger_tooltip;Is a Stable Master;;;;;;;;;;;;;x
+
+is_mount_trigger_tooltip;Is a mount;;;;;;;;;;;;;x
+is_fair_mount_trigger_tooltip;Has the §ZFair§! trait;;;;;;;;;;;;;x
+is_robust_mount_trigger_tooltip;Has the §ZRobust§! trait;;;;;;;;;;;;;x
+is_fertile_mount_trigger_tooltip;Has the §ZFertile§! trait;;;;;;;;;;;;;x
+is_powerful_mount_trigger_tooltip;Has the §ZPowerful§! trait;;;;;;;;;;;;;x
+is_swift_mount_trigger_tooltip;Has the §ZSwift§! trait;;;;;;;;;;;;;x
+is_breeding_only_trigger_tooltip;Is a rare breed;;;;;;;;;;;;;x
+
+increase_mount_health_effect_tooltip;[This.GetName]'s health §Gincreases§!;;;;;;;;;;;;;x
+decrease_mount_health_effect_tooltip;[This.GetName]'s health §Rdecreases§!;;;;;;;;;;;;;x
+
+csm_slighty_increase_prosperity_effect_tooltip;The prosperty of §Y[Root.GetName]§! slightly increases;;;;;;;;;;;;;x
+csm_increase_prosperity_effect_tooltip;The prosperty of §Y[Root.GetName]§! increases;;;;;;;;;;;;;x
+csm_greatly_increase_prosperity_effect_tooltip;The prosperty of §Y[Root.GetName]§! greatly increases;;;;;;;;;;;;;x
+
+
+#####################DECISIONS#####################
+
+csm_info_decision;Read The Great Book of Mounts;;;;;;;;;;;;;x
+csm_info_decision_desc;The knowledge contained here is surely useful;;;;;;;;;;;;;x
+
+employ_stable_master;Employ Stable Master;;;;;;;;;;;;;x
+employ_stable_master_desc;Having a dedicated Stable Master to care for your mounts will improve their lifespan and reduce the chance of any unfortunate incidents that may occur.;;;;;;;;;;;;;x
+employ_stable_master_effect;Choose how much you're willing to spend;;;;;;;;;;;;;x
+
+mount_market;Visit the Mount Market;;;;;;;;;;;;;x
+mount_market_desc;The Mount Market is where you can access all mounts and their related equipment.;;;;;;;;;;;;;x
+mount_market_effect;You browse the market;;;;;;;;;;;;;x
+
+
+ride_glitterhoof;Ride Incitatus;;;;;;;;;;;;;x
+ride_glitterhoof_desc;Glitterhoof has fulfilled his purpose, it is now time for him to return to his original form, a mighty steed!;;;;;;;;;;;;;x
+ride_glitterhoof_allow;Glitterhoof is alive;;;;;;;;;;;;;x
+ride_glitterhoof_allow2;Incitatus does NOT already exist;;;;;;;;;;;;;x
+ride_glitterhoof_effect;Glitterhoof turns into Incitatus\n§GIf Glitterhoof is immortal, Incitatus will never die§!;;;;;;;;;;;;;x
+
+tame_bucephalus;Tame Bucephalus;;;;;;;;;;;;;x
+tame_bucephalus_desc;The great horse Bucephalus has appeared. Whether it is truly a reincarnation of Alexander's horse or not, it is a mighty beast sure to serve it's master well.;;;;;;;;;;;;;x
+tame_bucephalus_allow;There is NOT an ongoing attempt;;;;;;;;;;;;;x
+tame_bucephalus_allow2;You have NOT attempted this in the last year;;;;;;;;;;;;;x
+tame_bucephalus_effect;You attempt to tame the great horse;;;;;;;;;;;;;x
+
+
+grant_commander_mount;Bestow Horse;;;;;;;;;;;;;x
+grant_commander_mount_desc;As [Root.GetBestName] is a Commander, perhaps it would be best if [Root.GetSheHe] has a personal horse to ride into battle.;;;;;;;;;;;;;x
+grant_commander_mount_allow;Has NOT been already given a horse;;;;;;;;;;;;;x
+grant_commander_mount_effect;You will choose what type of horse to bestow.;;;;;;;;;;;;;x
+
+sell_mount_decision;Sell a Mount;;;;;;;;;;;;;x
+sell_mount_decision_desc;You can sell one of your mounts to the market.;;;;;;;;;;;;;x
+sell_mount_decision_third_party;Artifact Requirements:;;;;;;;;;;;;;x
+sell_mount_decision_allow1;Is fully grown;;;;;;;;;;;;;x
+sell_mount_decision_allow2;Is NOT a unique mount;;;;;;;;;;;;;x
+sell_mount_decision_score_1;Is in good health;;;;;;;;;;;;;x
+sell_mount_decision_score_2;Is in great health;;;;;;;;;;;;;x
+sell_mount_decision_score_3;Is in poor health;;;;;;;;;;;;;x
+sell_mount_decision_score_4;Is in very poor health;;;;;;;;;;;;;x
+
+chinese_horse_decision;Request a Chinese Horse;;;;;;;;;;;;;x
+chinese_horse_decision_desc;The horses of §Y[Root.Offmap.GetFullName]§! are famed for their beauty and strength. You can request one of them for your personal use.;;;;;;;;;;;;;x
+chinese_horse_decision_effect1;Since the §Y[offmap_china.GetFullName]§! is suffering from famine or plague, the horse's health is §Rreduced§!!;;;;;;;;;;;;;x
+chinese_horse_decision_effect2;You will receive a §YChinese Horse§!!;;;;;;;;;;;;;x
+
+
+
+ai_mount_decision;AI mount manager;;;;;;;;;;;;;x
+ai_mount_decision_desc;if you see this please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+
+ai_mount_equipment_decision;AI mount equipment manager;;;;;;;;;;;;;x
+ai_mount_equipment_decision_desc;if you see this please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+
+ai_upgrade_equipment_decision;AI equipment upgrade;;;;;;;;;;;;;x
+ai_upgrade_equipment_decision_desc;if you see this please report it on the Crusader Mounts mod page.;;;;;;;;;;;;;x
+
+

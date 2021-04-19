@@ -1,0 +1,4302 @@
+####ID Ranges####
+#Market 0-99
+#Decision Events 100-199
+#Character flavor 200-299
+#Province flavor 300-399
+
+
+namespace = csm
+
+
+#####################Market Window#####################
+##choose type
+character_event = {
+	id = csm.010
+	title = EVTTITLEcsm.010
+	desc = EVTDESAcsm.010
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+	
+	#Mounts
+	option = {
+		name = EVTOPTAcsm.010
+		hidden_tooltip = { character_event = { id = csm.020 } }
+	}
+	
+	#Armor
+	option = {
+		name = EVTOPTBcsm.010
+		hidden_tooltip = { character_event = { id = csm.050 } }
+	}
+	
+	#Addons
+	option = {
+		name = EVTOPTCcsm.010
+		hidden_tooltip = { character_event = { id = csm.060 } }
+	}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = visiting_mount_market }
+	}
+}
+
+
+
+##choose mount type
+character_event = {
+	id = csm.020
+	title = EVTTITLEcsm.020
+	desc = EVTDESAcsm.020
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+	
+	#horse
+	option = {
+		name = EVTOPTAcsm.020
+		hidden_tooltip = { character_event = { id = csm.021 } }
+	}
+	
+	#camels and elephants
+	option = {
+		trigger = {
+			OR = {
+				can_buy_arabian_items_trigger = yes
+				can_buy_bactrian_items_trigger = yes
+				can_buy_indian_items_trigger = yes
+				can_buy_african_items_trigger = yes
+			}
+		}
+		name = EVTOPTBcsm.020
+		hidden_tooltip = { character_event = { id = csm.030 } }
+	}
+	
+	#exotic
+	option = {
+		trigger = { 
+			OR = {
+				AND = {
+					NOT = { has_game_rule = { name = extra_mounts value = none } }
+					can_buy_tibetan_items_trigger = yes
+				}
+				AND = {
+					has_game_rule = { name = extra_mounts value = all }
+					OR = {
+						can_buy_indian_items_trigger = yes
+						can_buy_scandinavian_items_trigger = yes
+						can_buy_russian_items_trigger = yes
+						can_buy_samian_items_trigger = yes
+					}
+				}
+			}
+		}
+		name = EVTOPTCcsm.020
+		hidden_tooltip = { character_event = { id = csm.040 } }
+	}
+	
+	#back to artifact type
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.010 } }
+	}
+}
+
+######Horses######
+character_event = {
+	id = csm.021
+	title = EVTTITLEcsm.021
+	desc = EVTDESAcsm.021
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+	
+	#tier 1+2
+	option = {
+		name = EVTOPTAcsm.021
+		hidden_tooltip = { character_event = { id = csm.022 } }
+	}
+	
+	#tier 3
+	option = {
+		name = EVTOPTBcsm.021
+		hidden_tooltip = { character_event = { id = csm.024 } }
+	}
+	
+	#tier 4+5
+	option = {
+		name = EVTOPTCcsm.021
+		hidden_tooltip = { character_event = { id = csm.025 } }
+	}
+	
+	#back to mount types
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.020 } }
+	}
+}
+
+###tier 1+2 page 1
+character_event = {
+	id = csm.022
+	title = EVTTITLEcsm.022
+	desc = EVTDESAcsm.022
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+	
+	#dray horse
+	option = {
+		name = EVTOPTAcsm.022
+		wealth = -25
+		add_artifact = dray_horse
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.022
+			new_mount_setup_effect = yes
+			set_variable = { which = csm_wealth_spent value = 25 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#rouncey
+	option = {
+		name = EVTOPTBcsm.022
+		wealth = -25
+		add_artifact = rouncey
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.022
+			new_mount_setup_effect = yes
+			set_variable = { which = csm_wealth_spent value = 25 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#next to p2
+	option = {
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.023 } }
+	}
+	
+	#back to horse quality
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.021 } }
+	}
+}
+
+##tier 1+2, page 2
+character_event = {
+	id = csm.023
+	title = EVTTITLEcsm.023
+	desc = EVTDESAcsm.023
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+	
+	#hobby
+	option = {
+		trigger = { can_buy_irish_items_trigger = yes }
+		name = EVTOPTAcsm.023
+		wealth = -75
+		add_artifact = hobby
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.023
+			new_mount_setup_effect = yes
+			event_target:ireland_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#jennet
+	option = {
+		trigger = { can_buy_spanish_items_trigger = yes }
+		name = EVTOPTBcsm.023
+		wealth = -75
+		add_artifact = jennet
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.023
+			new_mount_setup_effect = yes
+			event_target:spain_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#palfry
+	option = {
+		name = EVTOPTCcsm.023
+		wealth = -75
+		add_artifact = palfry
+		custom_tooltip = {
+			text = EVTTOOLTIPCcsm.023
+			new_mount_setup_effect = yes
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#loop back to page 1
+	option = {
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.022 } }
+	}
+}
+
+##tier 3 page 1
+character_event = {
+	id = csm.024
+	title = EVTTITLEcsm.024
+	desc = EVTDESAcsm.024
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+
+	#courser
+	option = {
+		name = EVTOPTAcsm.024
+		wealth = -150
+		add_artifact = courser
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.024
+			new_mount_setup_effect = yes
+			set_variable = { which = csm_wealth_spent value = 150 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+
+	#destrier
+	option = {
+		name = EVTOPTBcsm.024
+		wealth = -200
+		add_artifact = destrier
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.024
+			new_mount_setup_effect = yes
+			set_variable = { which = csm_wealth_spent value = 200 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#galician horse
+	option = {
+		trigger = { can_buy_spanish_items_trigger = yes }
+		name = EVTOPTCcsm.024
+		if = {
+			limit = { spanish_discount_trigger = yes }
+			wealth = -200
+		}
+		else = { wealth = -250 }
+		add_artifact = galician_mountain_horse
+		custom_tooltip = {
+			text = EVTTOOLTIPCcsm.024
+			new_mount_setup_effect = yes
+			event_target:spain_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#back to horse quality
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.021 } }
+	}
+}
+
+##tier 4+5 page 1 
+character_event = {
+	id = csm.025
+	title = EVTTITLEcsm.025
+	desc = EVTDESAcsm.025
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+
+	#charger
+	option = {
+		name = EVTOPTAcsm.025
+		wealth = -300
+		add_artifact = charger
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.025
+			new_mount_setup_effect = yes
+			set_variable = { which = csm_wealth_spent value = 300 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#steppe courser
+	option = {
+		trigger = { can_buy_steppes_items_trigger = yes }
+		name = EVTOPTBcsm.025
+		wealth = -300
+		add_artifact = steppe_courser
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.025
+			new_mount_setup_effect = yes
+			event_target:steppes_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#next to p2
+	option = {
+		name = EVTOPTNEXT
+		trigger = {
+			OR = {
+				can_buy_moorish_items_trigger = yes
+				can_buy_steppes_items_trigger = yes
+				can_buy_arabian_items_trigger = yes
+				can_buy_frankish_items_trigger = yes
+				can_buy_bactrian_items_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			#check for p2
+			if = {
+				limit = {
+					OR = {
+						can_buy_moorish_items_trigger = yes
+						can_buy_arabian_items_trigger = yes
+					}
+				}
+				character_event = { id = csm.026 }
+			}
+			#check for p3
+			else = { character_event = { id = csm.027 } }
+		}
+	}
+	
+	#back to horse quality
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.021 } }
+	}
+}
+
+#tier 4+5 page 2
+character_event = {
+	id = csm.026
+	title = EVTTITLEcsm.026
+	desc = EVTDESAcsm.026
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+	
+	#moorish courser
+	option = {
+		trigger = { can_buy_moorish_items_trigger = yes }
+		name = EVTOPTAcsm.026
+		if = {
+			limit = { moorish_discount_trigger = yes }
+			wealth = -350
+		}
+		else = { wealth = -450 }
+		add_artifact = moorish_courser
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.026
+			new_mount_setup_effect = yes
+			event_target:andalus_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#arabian courser
+	option = {
+		trigger = { can_buy_arabian_items_trigger = yes }
+		name = EVTOPTBcsm.026
+		if = {
+			limit = { arabian_discount_trigger = yes }
+			wealth = -350
+		}
+		else = { wealth = -450 }
+		add_artifact = arabian_courser
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.026
+			new_mount_setup_effect = yes
+			event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#arabian charger
+	option = {
+		trigger = { can_buy_arabian_items_trigger = yes }
+		name = EVTOPTCcsm.026
+		if = {
+			limit = { arabian_discount_trigger = yes }
+			wealth = -450
+		}
+		else = { wealth = -650 }
+		add_artifact = arabian_charger
+		custom_tooltip = {
+			text = EVTTOOLTIPCcsm.026
+			new_mount_setup_effect = yes
+			event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#next or loop back to p1
+	option = {
+		name = EVTOPTNEXT
+		
+		hidden_tooltip = { 
+			#check for p3
+			if = {
+				limit = { 
+					OR = {
+						can_buy_steppes_items_trigger = yes 
+						can_buy_frankish_items_trigger = yes
+						can_buy_bactrian_items_trigger = yes
+					}
+				}
+				character_event = { id = csm.027 }
+			}
+			#back to p1
+			else = { character_event = { id = csm.025 } }
+		}
+	}
+}
+
+#tier 4+5 p3
+character_event = {
+	id = csm.027
+	title = EVTTITLEcsm.027
+	desc = EVTDESAcsm.027
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+
+	#jurchen steppe horse
+	option = {
+		trigger = { can_buy_steppes_items_trigger = yes }
+		name = EVTOPTAcsm.027
+		if = {
+			limit = { offmap_china = { has_status = china_jurchen_invasion } }
+			wealth = -800
+		}
+		else_if = {
+			limit = { is_within_diplo_range = offmap_china }
+			wealth = -400
+		}
+		else = { wealth = -600 }
+		add_artifact = jurchen_steppe_horse
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.027
+			new_mount_setup_effect = yes
+			event_target:steppes_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#frankish charger
+	option = {
+		trigger = { can_buy_frankish_items_trigger = yes }
+		name = EVTOPTBcsm.027
+		if = {
+			limit = { frankish_discount_trigger = yes }
+			wealth = -400
+		}
+		else = { wealth = -600 }
+		add_artifact = frankish_charger
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.027
+			new_mount_setup_effect = yes
+			event_target:france_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+
+	#nisean horse
+	option = {
+		trigger = { can_buy_bactrian_items_trigger = yes }
+		name = EVTOPTCcsm.027
+		if = {
+			limit = { bactrian_discount_trigger = yes }
+			wealth = -350
+		}
+		else = { wealth = -450 }
+		add_artifact = nisean_horse
+		custom_tooltip = {
+			text = EVTTOOLTIPCcsm.027
+			new_mount_setup_effect = yes
+			event_target:bactria_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#loop back to p1
+	option = {
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.025 } }
+	}
+
+
+}
+
+
+
+######Camels and Elephants######
+character_event = {
+	id = csm.030
+	title = EVTTITLEcsm.030
+	desc = EVTDESAcsm.030
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+	#camels
+	option = {
+		trigger = {
+			OR = {
+				can_buy_arabian_items_trigger = yes
+				can_buy_bactrian_items_trigger = yes
+			}
+		}
+		name = EVTOPTAcsm.030
+		hidden_tooltip = { character_event = { id = csm.031 } }
+	}
+	
+	#Elephants
+	option = {
+		trigger = {
+			OR = {
+				can_buy_indian_items_trigger = yes
+				can_buy_african_items_trigger = yes
+			}
+		}
+		name = EVTOPTBcsm.030
+		hidden_tooltip = { character_event = { id = csm.032 } }
+	}
+	
+	#back to mount types
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.020 } }
+	}
+}
+
+####Camels
+character_event = {
+	id = csm.031
+	title = EVTTITLEcsm.031
+	desc = EVTDESAcsm.031
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+
+	#arabian camel
+	option = {
+		trigger = { can_buy_arabian_items_trigger = yes }
+		name = EVTOPTAcsm.031
+		if = {
+			limit = { arabian_discount_trigger = yes }
+			wealth = -250
+		}
+		else = { wealth = -300 }
+		add_artifact = arabian_camel
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.031
+			new_mount_setup_effect = yes
+			event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+
+	#bactrian camel
+	option = {
+		trigger = { can_buy_bactrian_items_trigger = yes }
+		name = EVTOPTBcsm.031
+		wealth = -200
+		add_artifact = bactrian_camel
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.031
+			new_mount_setup_effect = yes
+			event_target:bactria_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#back to camels and elephants
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.030 } }
+	}
+}
+
+###Elephants
+character_event = {
+	id = csm.032
+	title = EVTTITLEcsm.032
+	desc = EVTDESAcsm.032
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+
+	#indian elephant
+	option = {
+		trigger = { can_buy_indian_items_trigger = yes }
+		name = EVTOPTAcsm.032
+		if = {
+			limit = { indian_discount_trigger = yes }
+			wealth = -500
+		}
+		else = { wealth = -650 }
+		add_artifact = indian_elephant
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.032
+			new_mount_setup_effect = yes
+			event_target:india_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+
+	#african elephant
+	option = {
+		trigger = { can_buy_african_items_trigger = yes }
+		name = EVTOPTBcsm.032
+		if = {
+			limit = { african_discount_trigger = yes }
+			wealth = -500
+		}
+		else = { wealth = -650 }
+		add_artifact = african_elephant
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.032
+			new_mount_setup_effect = yes
+			event_target:africa_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#back to camels and elephants
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.030 } }
+	}
+}
+
+######Exotic Mounts######
+
+#page1
+character_event = {
+	id = csm.040
+	title = EVTTITLEcsm.040
+	desc = EVTDESAcsm.040
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+
+	#tibetan yak
+	option = {
+		trigger = { can_buy_tibetan_items_trigger = yes }
+		name = EVTOPTAcsm.040
+		if = {
+			limit = { tibetan_discount_trigger = yes }
+			wealth = -200
+		}
+		else = { wealth = -300 }
+		add_artifact = tibetan_yak
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.040
+			new_mount_setup_effect = yes
+			event_target:tibet_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#indian tiger
+	option = {
+		trigger = {
+			has_game_rule = { name = extra_mounts value = all }
+			can_buy_indian_items_trigger = yes
+		}
+		name = EVTOPTBcsm.040
+		if = {
+			limit = { indian_discount_trigger = yes }
+			wealth = -200
+		}
+		else = { wealth = -300 }
+		add_artifact = indian_tiger
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.040
+			new_mount_setup_effect = yes
+			event_target:india_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+
+	#next to p2
+	option = {
+		trigger = { 
+			has_game_rule = { name = extra_mounts value = all }
+			OR = {
+				can_buy_scandinavian_items_trigger = yes
+				can_buy_russian_items_trigger = yes
+				can_buy_samian_items_trigger = yes
+			}
+		}
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.041 } }
+	}
+	
+	#back to mount types
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.020 } }
+	}
+}
+
+#page2
+character_event = {
+	id = csm.041
+	title = EVTTITLEcsm.041
+	desc = EVTDESAcsm.041
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+
+	#scandinavian wolf
+	option = {
+		trigger = { can_buy_scandinavian_items_trigger = yes }
+		name = EVTOPTAcsm.041
+		if = {
+			limit = { scandinavian_discount_trigger = yes }
+			wealth = -200
+		}
+		else = { wealth = -300 }
+		add_artifact = scandinavian_wolf
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.041
+			new_mount_setup_effect = yes
+			event_target:scandinavia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#russian bear
+	option = {
+		trigger = { can_buy_russian_items_trigger = yes }
+		name = EVTOPTBcsm.041
+		if = {
+			limit = { russian_discount_trigger = yes }
+			wealth = -200
+		}
+		else = { wealth = -300 }
+		add_artifact = russian_bear
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.041
+			new_mount_setup_effect = yes
+			event_target:russia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#samian reindeer
+	option = {
+		trigger = { can_buy_samian_items_trigger = yes }
+		name = EVTOPTCcsm.041
+		if = {
+			limit = { samian_discount_trigger = yes }
+			wealth = -200
+		}
+		else = { wealth = -300 }
+		add_artifact = samian_reindeer
+		custom_tooltip = {
+			text = EVTTOOLTIPCcsm.041
+			new_mount_setup_effect = yes
+			event_target:sami_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#loop back to p1
+	option = {
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.040 } }
+	}
+}
+
+
+#######Armors######
+###type of armor
+character_event = {
+	id = csm.050
+	title = EVTTITLEcsm.050
+	desc = EVTDESAcsm.050
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+	
+	#horse
+	option = {
+		name = EVTOPTAcsm.050
+		hidden_tooltip = { character_event = { id = csm.051 } }
+	}
+	
+	
+	#exotic
+	option = {
+		name = EVTOPTBcsm.050
+		hidden_tooltip = { character_event = { id = csm.052 } }
+	}
+	
+	#unique
+	option = {
+		trigger = { 
+			OR = {
+				can_buy_greek_items_trigger = yes 
+				can_buy_frankish_items_trigger = yes
+			}
+		}
+		name = EVTOPTCcsm.050
+		hidden_tooltip = { character_event = { id = csm.053 } }
+	}
+	
+	
+	#back to artifact type
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.010 } }
+	}
+}
+
+###horse armor
+character_event = {
+	id = csm.051
+	title = EVTTITLEcsm.051
+	desc = EVTDESAcsm.051
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+	
+	#1
+	option = {
+		trigger = { NOT = { has_artifact = horse_armor_1 } }
+		name = EVTOPTAcsm.051
+		wealth = -75
+		add_artifact = horse_armor_1
+		hidden_tooltip = { 
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+	
+	#2
+	option = {
+		trigger = { NOT = { has_artifact = horse_armor_2 } }
+		name = EVTOPTBcsm.051
+		wealth = -150
+		add_artifact = horse_armor_2
+		hidden_tooltip = { 
+			set_variable = { which = csm_wealth_spent value = 150 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+	
+	#3
+	option = {
+		trigger = { NOT = { has_artifact = horse_armor_3 } }
+		name = EVTOPTCcsm.051
+		wealth = -300
+		add_artifact = horse_armor_3
+		hidden_tooltip = { 
+			set_variable = { which = csm_wealth_spent value = 300 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+	
+	#back to armor type
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.050 } }
+	}
+}
+
+###exotic armor
+character_event = {
+	id = csm.052
+	title = EVTTITLEcsm.052
+	desc = EVTDESAcsm.052
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+	#1
+	option = {
+		trigger = { NOT = { has_artifact = exotic_armor_1 } }
+		name = EVTOPTAcsm.052
+		wealth = -75
+		add_artifact = exotic_armor_1
+		hidden_tooltip = { 
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+	
+	#2
+	option = {
+		trigger = { NOT = { has_artifact = exotic_armor_2 } }
+		name = EVTOPTBcsm.052
+		wealth = -150
+		add_artifact = exotic_armor_2
+		hidden_tooltip = { 
+			set_variable = { which = csm_wealth_spent value = 150 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+	
+	#3
+	option = {
+		trigger = { NOT = { has_artifact = exotic_armor_3 } }
+		name = EVTOPTCcsm.052
+		wealth = -300
+		add_artifact = exotic_armor_3
+		hidden_tooltip = {
+			set_variable = { which = csm_wealth_spent value = 300 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+	
+	#back to armor type
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.050 } }
+	}
+}
+
+###unique armor
+character_event = {
+	id = csm.053
+	title = EVTTITLEcsm.053
+	desc = EVTDESAcsm.053
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+	
+	#greek cataphract
+	option = {
+		trigger = { 
+			can_buy_greek_items_trigger = yes
+			NOT = { has_artifact = greek_cataphract_armor } 
+		}
+		name = EVTOPTAcsm.053
+		wealth = -400
+		add_artifact = greek_cataphract_armor
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.053
+			event_target:greece_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+	
+	#frankish horse armor
+	option = {
+		trigger = {
+			can_buy_frankish_items_trigger = yes
+			NOT = { has_artifact = frankish_horse_armor }
+		}
+		name = EVTOPTBcsm.053
+		wealth = -400
+		add_artifact = frankish_horse_armor
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.053
+			event_target:france_mount_province = { change_variable = { which = available_mounts value = -1 } }
+			clr_character_flag = visiting_mount_market 
+		}
+	}
+
+	
+	#back to armor type
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.050 } }
+	}
+}
+
+
+#######Addons######
+###page 1
+character_event = {
+	id = csm.060
+	title = EVTTITLEcsm.060
+	desc = EVTDESAcsm.060
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+	#saddle
+	option = {
+		trigger = { NOT = { has_artifact = mount_saddle } }
+		name = EVTOPTAcsm.060
+		wealth = -50
+		add_artifact = mount_saddle
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.060
+			set_variable = { which = csm_wealth_spent value = 50 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#horseshoe
+	option = {
+		trigger = { NOT = { has_artifact = mount_horseshoes } }
+		name = EVTOPTBcsm.060
+		wealth = -50
+		add_artifact = mount_horseshoes
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.060
+			set_variable = { which = csm_wealth_spent value = 50 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#next to p2
+	option = {
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.061 } }
+	}
+	
+	#back to artifact type
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { character_event = { id = csm.010 } }
+	}
+}
+
+###p2
+character_event = {
+	id = csm.061
+	title = EVTTITLEcsm.061
+	desc = EVTDESAcsm.061
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+
+	#lance
+	option = {
+		trigger = { NOT = { has_artifact = mount_lance } }
+		name = EVTOPTAcsm.061
+		wealth = -75
+		add_artifact = mount_lance
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.061
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#bow
+	option = {
+		trigger = { 
+			NOT = { has_artifact = mount_bow } 
+			can_use_horse_archery_trigger = yes
+		}
+		name = EVTOPTBcsm.061
+		wealth = -75
+		add_artifact = mount_bow
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.061
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#shield
+	option = {
+		trigger = { NOT = { has_artifact = mount_shield } }
+		name = EVTOPTCcsm.061
+		wealth = -75
+		add_artifact = mount_shield
+		custom_tooltip = {
+			text = EVTTOOLTIPCcsm.061
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	
+	#next page
+	option = {
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.062 } }
+	}
+}
+
+###p3
+character_event = {
+	id = csm.062
+	title = EVTTITLEcsm.062
+	desc = EVTDESAcsm.062
+	picture = GFX_evt_market
+
+	is_triggered_only = yes
+	
+	#banner
+	option = {
+		trigger = { NOT = { has_artifact = mount_banner } }
+		name = EVTOPTAcsm.062
+		wealth = -75
+		add_artifact = mount_banner
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.062
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#caparison
+	option = {
+		trigger = { NOT = { has_artifact = mount_caparison } }
+		name = EVTOPTBcsm.062
+		wealth = -75
+		add_artifact = mount_caparison
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.062
+			set_variable = { which = csm_wealth_spent value = 75 }
+			new_artifact = { save_event_target_as = csm_bought_item }
+			decrease_nearest_mount_province_effect = yes
+			clr_character_flag = visiting_mount_market
+		}
+	}
+	
+	#loop back to p1
+	option = {
+		name = EVTOPTNEXT
+		hidden_tooltip = { character_event = { id = csm.060 } }
+	}
+}
+
+
+
+###############Decision related###############
+
+#stable master hiring
+character_event = {
+	id = csm.100
+	desc = EVTDESAcsm.100
+	picture = GFX_evt_council_speaker
+	
+	is_triggered_only = yes
+	
+	#cheap guy
+	option = {
+		name = EVTOPTAcsm.100
+		wealth = -50
+		set_character_flag = cheap_stable_master
+		hidden_tooltip = { character_event = { id = csm.101 days = 1 } }
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 5
+				tier = count
+			}
+		}
+	}
+	
+	#moderate guy
+	option = {
+		name = EVTOPTBcsm.100
+		wealth = -150
+		set_character_flag = moderate_stable_master
+		hidden_tooltip = { character_event = { id = csm.101 days = 1 } }
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				tier = count
+			}
+			modifier = {
+				factor = 2
+				wealth = 150
+				tier = duke
+			}
+		}
+	}
+
+	#great guy
+	option = {
+		name = EVTOPTCcsm.100
+		wealth = -300
+		set_character_flag = great_stable_master
+		hidden_tooltip = { character_event = { id = csm.101 days = 1 } }
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				tier = count			
+			}
+			modifier = {
+				factor = 3
+				higher_tier_than = count
+				wealth = 200
+			}
+		}
+	}
+
+	#nvm
+	option = {
+		name = EVTOPTDcsm.100
+		clr_character_flag = employing_stable_master
+		ai_chance = { factor = 0 }
+	}
+}
+
+character_event = {
+	id = csm.101
+	desc = EVTDESAcsm.101
+	picture = GFX_evt_council_speaker
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_character_flag = cheap_stable_master }
+			create_character = {
+				age = 30
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = no
+				health = 6
+				random_traits = no
+				attributes = {
+					diplomacy = 4
+					martial = 2
+					stewardship = 5
+					intrigue = 2
+					learning = 2
+				}
+			}
+			new_character = {
+				#education
+				random_list = {
+					#diplomacy
+					20 = {
+						random_list = {
+							25 = { add_trait = naive_appeaser }
+							25 = { add_trait = underhanded_rogue }
+							25 = { add_trait = charismatic_negotiator }
+						}
+					}
+					#martial
+					20 = {
+						random_list = {
+							25 = { add_trait = misguided_warrior }
+							25 = { add_trait = tough_soldier }
+							25 = { add_trait = skilled_tactician }
+						}
+					}
+					#stewardship
+					20 = {
+						random_list = {
+							25 = { add_trait = indulgent_wastrel }
+							25 = { add_trait = thrifty_clerk }
+							25 = { add_trait = fortune_builder }
+						}
+					}
+					#intrigue
+					20 = {
+						random_list = {
+							25 = { add_trait = amateurish_plotter }
+							25 = { add_trait = flamboyant_schemer }
+							25 = { add_trait = intricate_webweaver }
+						}
+					}
+					#learning
+					20 = {
+						random_list = {
+							25 = { add_trait = detached_priest }
+							25 = { add_trait = martial_cleric }
+							25 = { add_trait = scholarly_theologian }
+						}
+					}
+				}
+				
+				add_trait = stable_master_1
+				set_character_flag = ai_flag_refuse_concubinage
+				set_character_flag = ai_flag_refuse_marriage
+				set_character_flag = no_court_invites
+				set_character_flag = is_stablemaster
+				
+				random_list = {
+					10 = {}
+					20 = { add_trait = stubborn }
+					20 = { add_trait = greedy }
+					20 = { add_trait = wroth }
+					20 = { add_trait = shy }
+					20 = { add_trait = erudite }
+					20 = { add_trait = charitable }
+					20 = { add_trait = patient }
+					20 = { add_trait = gregarious }
+				}
+                random_list = {
+					10 = {}
+					20 = { add_trait = lustful }
+					20 = { add_trait = gluttonous }
+					20 = { add_trait = slothful }
+					20 = { add_trait = proud }
+					20 = { add_trait = chaste }
+					20 = { add_trait = temperate }
+					20 = { add_trait = diligent }
+					20 = { add_trait = humble }
+				}
+				random_list = {
+					90 = {}
+					3 = { add_trait = ugly }
+					3 = { add_trait = fair }
+					2 = { add_trait = quick }
+					2 = { add_trait = slow }
+				}
+				save_event_target_as = hired_stable_master
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = moderate_stable_master }
+			create_character = {
+				age = 30
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = no
+				health = 6
+				random_traits = no
+				attributes = {
+					diplomacy = 4
+					martial = 2
+					stewardship = 5
+					intrigue = 2
+					learning = 2
+				}
+			}
+			new_character = {
+				#education
+				random_list = {
+					#diplomacy
+					20 = {
+						random_list = {
+							25 = { add_trait = naive_appeaser }
+							25 = { add_trait = underhanded_rogue }
+							25 = { add_trait = charismatic_negotiator }
+							25 = { add_trait = grey_eminence }
+						}
+					}
+					#martial
+					20 = {
+						random_list = {
+							25 = { add_trait = misguided_warrior }
+							25 = { add_trait = tough_soldier }
+							25 = { add_trait = skilled_tactician }
+							25 = { add_trait = brilliant_strategist }
+						}
+					}
+					#stewardship
+					20 = {
+						random_list = {
+							25 = { add_trait = indulgent_wastrel }
+							25 = { add_trait = thrifty_clerk }
+							25 = { add_trait = fortune_builder }
+							25 = { add_trait = midas_touched }
+						}
+					}
+					#intrigue
+					20 = {
+						random_list = {
+							25 = { add_trait = amateurish_plotter }
+							25 = { add_trait = flamboyant_schemer }
+							25 = { add_trait = intricate_webweaver }
+							25 = { add_trait = elusive_shadow }
+						}
+					}
+					#learning
+					20 = {
+						random_list = {
+							25 = { add_trait = detached_priest }
+							25 = { add_trait = martial_cleric }
+							25 = { add_trait = scholarly_theologian }
+							25 = { add_trait = mastermind_theologian }
+						}
+					}
+				}
+				
+				add_trait = stable_master_2
+				set_character_flag = ai_flag_refuse_concubinage
+				set_character_flag = ai_flag_refuse_marriage
+				set_character_flag = no_court_invites
+				set_character_flag = is_stablemaster
+				
+				random_list = {
+					10 = {}
+					20 = { add_trait = stubborn }
+					20 = { add_trait = greedy }
+					20 = { add_trait = wroth }
+					20 = { add_trait = shy }
+					20 = { add_trait = erudite }
+					20 = { add_trait = charitable }
+					20 = { add_trait = patient }
+					20 = { add_trait = gregarious }
+				}
+                random_list = {
+					10 = {}
+					20 = { add_trait = lustful }
+					20 = { add_trait = gluttonous }
+					20 = { add_trait = slothful }
+					20 = { add_trait = proud }
+					20 = { add_trait = chaste }
+					20 = { add_trait = temperate }
+					20 = { add_trait = diligent }
+					20 = { add_trait = humble }
+				}
+				random_list = {
+					90 = {}
+					3 = { add_trait = ugly }
+					3 = { add_trait = fair }
+					2 = { add_trait = quick }
+					2 = { add_trait = slow }
+				}
+				save_event_target_as = hired_stable_master
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = great_stable_master }
+			create_character = {
+				age = 30
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = no
+				health = 6
+				random_traits = no
+				attributes = {
+					diplomacy = 4
+					martial = 2
+					stewardship = 5
+					intrigue = 2
+					learning = 2
+				}
+			}
+			new_character = {
+				#education
+				random_list = {
+					#diplomacy
+					20 = {
+						random_list = {
+							25 = { add_trait = underhanded_rogue }
+							25 = { add_trait = charismatic_negotiator }
+							25 = { add_trait = grey_eminence }
+						}
+					}
+					#martial
+					20 = {
+						random_list = {
+							25 = { add_trait = tough_soldier }
+							25 = { add_trait = skilled_tactician }
+							25 = { add_trait = brilliant_strategist }
+						}
+					}
+					#stewardship
+					20 = {
+						random_list = {
+							25 = { add_trait = thrifty_clerk }
+							25 = { add_trait = fortune_builder }
+							25 = { add_trait = midas_touched }
+						}
+					}
+					#intrigue
+					20 = {
+						random_list = {
+							25 = { add_trait = flamboyant_schemer }
+							25 = { add_trait = intricate_webweaver }
+							25 = { add_trait = elusive_shadow }
+						}
+					}
+					#learning
+					20 = {
+						random_list = {
+							25 = { add_trait = martial_cleric }
+							25 = { add_trait = scholarly_theologian }
+							25 = { add_trait = mastermind_theologian }
+						}
+					}
+				}
+				
+				
+				random_list = {
+					50 = { add_trait = stable_master_3 }
+					50 = { add_trait = stable_master_4 }
+				}	
+				set_character_flag = ai_flag_refuse_concubinage
+				set_character_flag = ai_flag_refuse_marriage
+				set_character_flag = no_court_invites
+				set_character_flag = is_stablemaster
+				
+				#random flavor
+				random_list = {
+					10 = {}
+					20 = { add_trait = stubborn }
+					20 = { add_trait = greedy }
+					20 = { add_trait = wroth }
+					20 = { add_trait = shy }
+					20 = { add_trait = erudite }
+					20 = { add_trait = charitable }
+					20 = { add_trait = patient }
+					20 = { add_trait = gregarious }
+				}
+                random_list = {
+					10 = {}
+					20 = { add_trait = lustful }
+					20 = { add_trait = gluttonous }
+					20 = { add_trait = slothful }
+					20 = { add_trait = proud }
+					20 = { add_trait = chaste }
+					20 = { add_trait = temperate }
+					20 = { add_trait = diligent }
+					20 = { add_trait = humble }
+				}
+				random_list = {
+					90 = {}
+					3 = { add_trait = ugly }
+					3 = { add_trait = fair }
+					2 = { add_trait = quick }
+					2 = { add_trait = slow }
+				}
+				save_event_target_as = hired_stable_master
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAcsm.101
+		event_target:hired_stable_master = {
+			show_scope_change = no
+			give_minor_title = title_stable_master
+		}
+	}
+	
+	after = {
+		clr_character_flag = cheap_stable_master
+		clr_character_flag = moderate_stable_master
+		clr_character_flag = great_stable_master
+		clr_character_flag = employing_stable_master
+	}
+}
+
+
+#chinese horse decision governor ping
+character_event = {
+    id = csm.102
+	
+    hide_window = yes
+    is_triggered_only = yes
+	
+	immediate = { FROMFROM = { letter_event = { id = csm.103 days = 1 } } }
+}
+
+#give chinese horse
+letter_event = {
+    id = csm.103
+	
+    desc = EVTDESAcsm.103
+    border = GFX_event_letter_frame_diplomacy
+
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTAcsm.103
+		random_list = {
+			65 = { add_artifact = chinese_ceromonial_horse }
+			
+			34 = { add_artifact = chinese_war_horse }
+			
+			1 = { 
+				trigger = { 
+					NOR = { 
+						has_global_flag = red_hare_alive 
+						offmap_china = {
+							OR = {
+								has_status = china_famine
+								has_status = china_plague
+							}
+						}
+					}
+				}
+				modifier = {
+					factor = 5
+					offmap_china = { has_status = china_golden_age }
+				}
+				add_artifact = red_hare
+				set_global_flag = red_hare_alive
+			}
+		}
+		new_mount_setup_effect = yes
+		if = {
+			limit = {
+				offmap_china = {
+					OR = {
+						has_status = china_famine
+						has_status = china_plague
+					}
+				}
+			}
+			custom_tooltip = {
+				text = EVTTOOLTIPAcsm.103
+				new_artifact = { decrease_mount_health_effect = yes }
+			}
+		}
+    }
+}
+
+##glitterhoof
+character_event = {
+	id = csm.104
+	desc = EVTDESAcsm.104
+	picture = GFX_evt_horse_friend
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = glitterhoof_alive
+		random_realm_character = {
+			limit = { trait = horse }
+			save_event_target_as = glitterhoof
+			any_artifact = {
+				limit = { has_artifact_flag = horse_armor }
+				destroy_artifact = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAcsm.104
+		if = {
+			limit = { event_target:glitterhoof = { trait = immortal } }
+			add_artifact = glitterhoof_immortal
+			new_mount_setup_effect = yes
+		}
+		else = {
+			add_artifact = glitterhoof
+			new_mount_setup_effect = yes
+		}
+		hidden_tooltip = { event_target:glitterhoof = { death = { death_reason = death_natural } } }
+	}
+}
+
+
+###grant commander mount checks
+character_event = {
+	id = csm.105
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		decrease_nearest_mount_province_effect = yes
+		if = {
+			limit = { has_character_flag = grant_commander_mount_no_mounts }
+			character_event = { id = csm.106 }
+		}
+		else = { character_event = { id = csm.107 } }
+	}
+}
+
+###no mounts available for commander
+character_event = {
+	id = csm.106
+	desc = EVTDESAcsm.106
+	picture = GFX_evt_emissary_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAcsm.106
+		hidden_tooltip = {
+			clr_character_flag = grant_commander_mount_no_mounts
+			clr_character_flag = grant_commander_mount_block
+		}
+	}
+}
+
+###give unlanded commander mount
+character_event = {
+	id = csm.107
+	desc = EVTDESAcsm.107
+	picture = GFX_evt_emissary_byzantine
+
+	is_triggered_only = yes
+	
+	#courser
+	option = {
+		name = EVTOPTAcsm.107
+		wealth = -150
+		FROMFROM = {
+			if = {
+				limit = { can_use_horse_archery_trigger = yes }
+				add_artifact = mount_bow
+			}
+			else = { add_artifact = mount_lance }
+			hidden_tooltip = { new_artifact = { set_artifact_flag = commander_addon } }
+			
+			add_artifact = courser
+			hidden_tooltip = {
+				new_artifact = {
+					randomize_mount_traits_effect = yes 
+					set_artifact_flag = commander_mount
+					decrease_mount_health_effect = yes
+				}
+				check_fair_mount_modifiers_effect = yes
+				set_character_flag = has_mount_commander
+			}
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+		}
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 1.5
+				FROMFROM = { can_use_horse_archery_trigger = yes }
+			}
+			modifier = {
+				factor = 3
+				FROMFROM = { is_skilled_horse_archer_trigger = yes}
+			}
+		}
+	}
+	
+	#destrier
+	option = {
+		name = EVTOPTBcsm.107
+		wealth = -150
+		FROMFROM = {
+			add_artifact = mount_lance
+			hidden_tooltip = { new_artifact = { set_artifact_flag = commander_addon } }
+			
+			add_artifact = destrier
+			hidden_tooltip = {
+				new_artifact = { 
+					randomize_mount_traits_effect = yes 
+					set_artifact_flag = commander_mount
+					decrease_mount_health_effect = yes
+				}
+				check_fair_mount_modifiers_effect = yes
+				set_character_flag = has_mount_commander
+			}
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+		}
+		ai_chance = { factor = 25 }
+	}
+	
+	#charger
+	option = {
+		name = EVTOPTCcsm.107
+		wealth = -200
+		FROMFROM = {
+			add_artifact = mount_lance
+			hidden_tooltip = { new_artifact = { set_artifact_flag = commander_addon } }
+			
+			add_artifact = charger
+			hidden_tooltip = {
+				new_artifact = { 
+					randomize_mount_traits_effect = yes 
+					set_artifact_flag = commander_mount
+					decrease_mount_health_effect = yes
+				}
+				check_fair_mount_modifiers_effect = yes
+				set_character_flag = has_mount_commander
+			}
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+		}
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 1.5
+				FROMFROM = { dynasty = ROOT }
+			}
+		}
+	}
+	
+	#nvm
+	option = {
+		name = EVTOPTDcsm.107
+		event_target:decreased_mount_province = { change_variable = { which = available_mounts value = 1 } }
+		
+		ai_chance = { factor = 0 }
+	}
+	
+	after = { clr_character_flag = grant_commander_mount_block }
+}
+
+
+
+
+###############Character flavor###############
+
+###find red hare from raiding china
+character_event = {
+	id = csm.200
+	desc = EVTDESAcsm.200
+	picture = GFX_evt_china_civil_war
+	
+	has_dlc = "Jade Dragon"
+	only_playable = yes
+	only_independent = yes
+	only_capable = yes
+	min_age = 16
+	prisoner = no
+	war = no
+
+	trigger = {
+		NOT = { has_global_flag = red_hare_alive }
+		has_character_modifier = china_raid_active
+		offmap_china = {
+			NOT = {
+				governor = {
+					war_with = ROOT
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 40
+		modifier = {
+			factor = 3
+			ai = yes
+		}
+		modifier = {
+			factor = 0.9
+			government = nomadic_government
+		}
+	}
+	
+	option = {
+		name = EVTOPTAcsm.200
+		add_artifact = red_hare
+		set_global_flag = red_hare_alive
+		new_mount_setup_effect = yes
+	}
+}
+
+###bucephalus spawning
+character_event = {
+	id = csm.201
+	title = EVTTITLEcsm.201
+	desc = {
+		trigger = { character = ROOT }
+		text = EVTDESAcsm.201
+	}
+	desc = {
+		trigger = { NOT = { character = ROOT } }
+		text = EVTDESBcsm.201
+	}
+	picture = GFX_evt_victory_arch_byzantine
+	major = yes
+	
+	only_playable = yes
+	only_independent = yes
+	only_capable = yes
+	min_age = 16
+	prisoner = no
+	war = no
+
+	trigger = {
+		NOR = {
+			has_global_flag = bucephalus_alive
+			has_global_flag = bucephalus_ready
+		}
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+			AND = {
+				e_byzantium = { has_holder = no }
+				e_roman_empire = { has_holder = no }
+				culture_group = byzantine
+				realm_size >= 30
+			}
+		}
+	}
+	major_trigger = { same_realm = ROOT }
+	
+	mean_time_to_happen = {
+		years = 60
+		
+		modifier = {
+			factor = 1.75
+			ai = yes
+		}
+		modifier = {
+			factor = 0.9
+			stewardship = 8
+		}
+		modifier = {
+			factor = 0.9
+			stewardship = 12
+		}
+		modifier = {
+			factor = 0.9
+			stewardship = 16
+		}
+		modifier = {
+			factor = 0.9
+			stewardship = 20
+		}
+		modifier = {
+			factor = 0.9
+			realm_size = 50
+		}
+		modifier = {
+			factor = 0.9
+			realm_size = 100
+		}
+		modifier = {
+			factor = 0.9
+			realm_size = 150
+		}
+		modifier = {
+			factor = 0.9
+			realm_size = 200
+		}
+	}
+	
+	immediate = { 
+		set_global_flag = bucephalus_ready 
+		set_global_flag = bucephalus_alive
+		set_character_flag = bucephalus_spawner
+	}
+	
+	option = {
+		trigger = { character = ROOT }
+		name = EVTOPTAcsm.201
+	}
+	option = {
+		trigger = { NOT = { character = ROOT } }
+		name = EVTOPTBcsm.201
+	}
+}
+
+###bucephalus taming attempt
+character_event = {
+	id = csm.202
+	title = EVTTITLEcsm.202
+	desc = EVTDESAcsm.202
+	picture = GFX_evt_victory_arch_byzantine
+
+	is_triggered_only = yes
+	
+	#default
+	option = {
+		name = EVTOPTAcsm.202
+		random_list = {
+			#success
+			30 = {
+				modifier = {
+					factor = 1.1
+					OR = {
+						diplomacy = 8
+						martial = 8
+						stewardship = 8
+						intrigue = 8
+						learning = 8
+					}
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						diplomacy = 12
+						martial = 12
+						stewardship = 12
+						intrigue = 12
+						learning = 12
+					}
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						diplomacy = 16
+						martial = 16
+						stewardship = 16
+						intrigue = 16
+						learning = 16
+					}
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						diplomacy = 20
+						martial = 20
+						stewardship = 20
+						intrigue = 20
+						learning = 20
+					}
+				}
+				modifier = {
+					factor = 1.5
+					trait = quick
+				}
+				modifier = {
+					factor = 2
+					trait = genius
+				}
+				modifier = {
+					factor = 1.5
+					trait = strong
+				}
+				modifier = {
+					factor = 1.2
+					trait = shrewd
+				}
+				modifier = {
+					factor = 1.2
+					trait = brave
+				}
+				modifier = {
+					factor = 1.2
+					trait = cavalry_leader
+				}
+				
+				custom_tooltip = {
+					text = EVTTOOLTIPSUCCESS
+					character_event = { id = csm.203 days = 3 }
+				}
+			}
+			#failure
+			70 = {
+				custom_tooltip = {
+					text = EVTTOOLTIPFAILURE
+					character_event = { id = csm.204 days = 3 }
+				}
+			}
+		}
+		ai_chance = { factor = 25 }
+	}
+
+	#high learning, copy alexander
+	option = {
+		trigger = { learning = 15 }
+		tooltip_info = learning
+		name = EVTOPTBcsm.202
+		random_list = {
+			#success
+			90 = {
+				modifier = {
+					factor = 0.4
+					ai = yes
+				}
+				custom_tooltip = {
+					text = EVTTOOLTIPSUCCESS
+					character_event = { id = csm.203 days = 3 }
+				}
+			}
+			#failure
+			10 = {
+				custom_tooltip = {
+					text = EVTTOOLTIPFAILURE
+					character_event = { id = csm.204 days = 3 }
+				}
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+##tame success
+character_event = {
+	id = csm.203
+	desc = {
+		trigger = { character = ROOT }
+		text = EVTDESAcsm.203
+	}
+	desc = {
+		trigger = { NOT = { character = ROOT } }
+		text = EVTDESBcsm.203
+	}
+	picture = GFX_evt_victory_arch_byzantine
+	major = yes
+	
+	is_triggered_only = yes
+	
+	major_trigger = { same_realm = ROOT }
+	
+	immediate = {
+		clr_global_flag = bucephalus_ready
+		clr_global_flag = bucephalus_busy
+	}
+	
+	option = {
+		trigger = { character = ROOT }
+		name = EVTOPTAcsm.203
+		add_trait = proud
+		add_artifact = bucephalus
+		new_mount_setup_effect = yes
+	}
+	option = {
+		trigger = { NOT = { character = ROOT } }
+		name = EVTOPTBcsm.203
+	}
+}
+
+##tame failure
+character_event = {
+	id = csm.204
+	title = EVTTITLEcsm.204
+	desc = EVTDESAcsm.204
+	picture = GFX_evt_victory_arch_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAcsm.204
+		random = {
+			chance = 40
+			add_trait = depressed
+		}
+		clr_global_flag = bucephalus_busy
+	}
+}
+
+###bucephalus spawner died failsafe
+character_event = {
+	id = csm.205
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	has_global_flag = bucephalus_ready
+	
+	trigger = { has_character_flag = bucephalus_spawner }
+	immediate = {
+		current_heir = { set_character_flag = bucephalus_spawner }
+	}
+}
+
+
+###child wants to see mounts trigger
+character_event = {
+	id = csm.206
+	desc = EVTDESAcsm.206
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	has_dlc = "Conclave"
+	min_age = 4
+	max_age = 12
+	prisoner = no
+	
+	trigger = {
+		NOT = { has_character_flag = csm_child_stables_event }
+		OR = {
+			guardian = { has_character_flag = has_mount }
+			host = { has_character_flag = has_mount }
+		}
+		OR = {
+			child_personality_diplomacy_trigger = yes
+			child_personality_martial_trigger = yes
+			child_personality_stewardship_trigger = yes
+			child_personality_intrigue_trigger = yes
+			child_personality_learning_trigger = yes
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		
+		modifier = {
+			factor = 0.5
+			NOR = {
+				guardian = { dynasty = ROOT }
+				host = { dynasty = ROOT }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			guardian = { dynasty = ROOT }
+		}
+	}
+
+	immediate = {
+		set_character_flag = csm_child_stables_event
+		if = {
+			limit = {
+				guardian = { has_character_flag = has_mount }
+			}
+			guardian = { save_event_target_as = current_guardian }
+		}
+		else = { host = { save_event_target_as = current_guardian } }
+	}
+	
+	#ask to go
+	option = {
+		name = EVTOPTAcsm.206
+		if = {
+			limit = { NOT = { trait = curious } }
+			random = { chance = 40 add_trait = curious }
+		}
+		else = { random = { chance = 40 add_trait = idolizer } }
+		hidden_tooltip = { event_target:current_guardian = { character_event = { id = csm.207 days = 3 } } }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				event_target:current_guardian = { dynasty = ROOT }
+			}
+			modifier = {
+				factor = 2
+				event_target:current_guardian = { is_parent_of = ROOT }
+			}
+			modifier = {
+				factor = 2
+				trait = curious
+			}
+			modifier = {
+				factor = 2
+				trait = affectionate
+			}
+		}
+	}
+	
+	#too shy
+	option = {
+		name = EVTOPTBcsm.206
+		if = {
+			limit = { NOT = { trait = timid } }
+			random = { chance = 40 add_trait = timid }
+		}
+		else = { 
+			random = { 
+				chance = 40 
+				add_trait = shy 
+				remove_trait = timid
+			} 
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				trait = timid
+			}
+			modifier = {
+				factor = 3
+				trait = indolent
+			}
+		}
+	}
+}
+
+###event for guardian/host
+character_event = {
+	id = csm.207
+	desc = EVTDESAcsm.207
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	#yes
+	option = {
+		name = EVTOPTAcsm.207
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsm.207
+			FROM = { set_character_flag = go_see_mounts }
+			get_random_mount_effect = yes
+		}
+		reverse_opinion = { modifier = opinion_happy who = FROM years = 5 }
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2 
+				dynasty = FROM
+			}
+			modifier = {
+				factor = 2 
+				is_parent_of = FROM
+			}
+			modifier = {
+				factor = 2 
+				trait = depressed
+			}
+			modifier = {
+				factor = 2 
+				trait = kind
+			}
+			modifier = {
+				factor = 2 
+				trait = charitable
+			}
+			modifier = {
+				factor = 2 
+				OR = {
+					trait = humble
+					trait = proud
+				}
+			}
+			modifier = {
+				factor = 2 
+				trait = just
+			}
+		}
+	}
+
+	#no
+	option = {
+		name = EVTOPTBcsm.207
+		custom_tooltip = {
+			text = EVTTOOLTIPBcsm.207
+			FROM = { set_character_flag = no_see_mounts }
+		}
+		reverse_opinion = { modifier = opinion_dislike who = FROM years = 5 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2 
+				trait = drunkard
+			}
+			modifier = {
+				factor = 2 
+				trait = dull
+			}
+			modifier = {
+				factor = 2 
+				trait = greedy
+			}
+			modifier = {
+				factor = 2 
+				trait = slothful
+			}
+			modifier = {
+				factor = 2 
+				trait = wroth
+			}
+			modifier = {
+				factor = 2 
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2 
+				trait = cruel
+			}
+			modifier = {
+				factor = 2 
+				trait = cynical
+			}
+		}
+	}
+	
+	after = { FROM = { character_event = { id = csm.208 days = 3 } } }
+}
+
+###child gets finale
+character_event = {
+	id = csm.208
+	desc = {
+		trigger = { has_character_flag = go_see_mounts }
+		text = EVTDESAcsm.208
+	}
+	desc = {
+		trigger = { has_character_flag = no_see_mounts }
+		text = EVTDESBcsm.208
+	}
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		trigger = { has_character_flag = go_see_mounts }
+		name = EVTOPTAcsm.208
+		if = {
+			limit = { trait = affectionate }
+			remove_trait = affectionate
+			add_trait = kind
+		}
+		else_if = {
+			limit = { trait = playful }
+			remove_trait = playful
+			add_trait = gregarious
+		}
+		else_if = {
+			limit = { trait = rowdy }
+			remove_trait = rowdy
+			add_trait = honest
+		}
+		else_if = {
+			limit = { trait = haughty }
+			remove_trait = haughty
+			add_trait = proud
+		}
+		else_if = {
+			limit = { trait = conscientious }
+			remove_trait = conscientious
+			add_trait = diligent
+		}
+		else_if = {
+			limit = { trait = willful }
+			remove_trait = willful
+			add_trait = ambitious
+		}
+		else_if = {
+			limit = { trait = curious }
+			remove_trait = curious
+			add_trait = shrewd
+		}
+		else_if = {
+			limit = { trait = timid }
+			remove_trait = timid
+			add_trait = humble
+		}
+		else = { add_trait = kind }
+		prestige = 25
+	}
+	
+	option = {
+		trigger = { has_character_flag = no_see_mounts }
+		name = EVTOPTBcsm.208
+		if = {
+			limit = { trait = affectionate }
+			remove_trait = affectionate
+			add_trait = trusting
+		}
+		else_if = {
+			limit = { trait = playful }
+			remove_trait = playful
+			add_trait = deceitful
+		}
+		else_if = {
+			limit = { trait = haughty }
+			remove_trait = haughty
+			add_trait = proud
+		}
+		else_if = {
+			limit = { trait = fussy }
+			remove_trait = fussy
+			add_trait = greedy
+		}
+		else_if = {
+			limit = { trait = brooding }
+			remove_trait = brooding
+			add_trait = envious
+		}
+		else_if = {
+			limit = { trait = indolent }
+			remove_trait = indolent
+			add_trait = slothful
+		}
+		else_if = {
+			limit = { trait = willful }
+			remove_trait = willful
+			add_trait = stubborn
+		}
+		else_if = {
+			limit = { trait = curious }
+			remove_trait = curious
+			add_trait = cynical
+		}
+		else_if = {
+			limit = { trait = timid }
+			remove_trait = timid
+			add_trait = shy
+		}
+		else = { add_trait = shy }
+		prestige = -10
+	}
+
+	after = {
+		clr_character_flag = go_see_mounts
+		clr_character_flag = no_see_mounts
+	}
+}
+
+####location sieged, hurt mounts at location
+character_event = {
+	id = csm.209
+
+	hide_window = yes
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		FROM = {
+			owner = {
+				NOR = {
+					is_liege_or_above = ROOT
+					employer = { character = ROOT }
+					is_friend = ROOT
+				}
+				OR = {
+					has_character_flag = has_mount
+					any_courtier = { has_character_flag = has_mount }
+				}
+				OR = {
+					in_command = no
+					AND = {
+						in_command = yes
+						any_artifact = {
+							is_mount_trigger = yes
+							is_artifact_equipped = no
+						}
+					}
+				}
+				capital_holding = { title = PREVPREV }
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			OR = {
+				trait = wroth
+				trait = arbitrary
+				trait = cruel
+			}
+		}
+		modifier = {
+			factor = 3
+			religion_group = pagan_group
+		}
+	}
+	
+	immediate = {
+		FROM = {
+			owner = {
+				if = { 
+					limit = { has_character_flag = has_mount }
+					character_event = { id = csm.210 }
+				}
+				if = {
+					limit = { 
+						any_courtier = { 
+							has_character_flag = has_mount
+							NOT = { character = PREV }
+						}
+					}
+					any_courtier = {
+						limit = { 
+							has_character_flag = has_mount 
+							NOT = { character = PREV }
+						}
+						character_event = { id = csm.210 }
+					}
+				}
+			}
+		}
+	}
+}
+
+##mounts hurt by siege
+character_event = {
+	id = csm.210
+	desc = EVTDESAcsm.210
+	picture = GFX_evt_siege
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				in_command = no
+				any_artifact = {
+					is_mount_trigger = yes
+					is_artifact_equipped = yes
+					NOT = { has_artifact_flag = immortal }
+				}
+			}
+			random_artifact = {
+				limit = {
+					is_mount_trigger = yes
+					is_artifact_equipped = yes
+					NOT = { has_artifact_flag = immortal }
+				}
+				save_event_target_as = hurt_mount
+			}
+		}
+		else = {
+			random_artifact = {
+				limit = { 
+					is_mount_trigger = yes
+					NOT = { has_artifact_flag = immortal } 
+				}
+				save_event_target_as = hurt_mount
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAcsm.210
+		event_target:hurt_mount = { decrease_mount_health_effect = yes }
+	}
+}
+
+
+
+##mounts gets hit by arrow in combat
+character_event = {
+	id = csm.211
+	desc = EVTDESAcsm.211
+	picture = GFX_evt_horsemanship
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	has_character_flag = has_mount
+	min_age = 16
+	
+	trigger = {
+		NOT = { has_character_modifier = mounted_combat_timer }
+		any_artifact = {
+			has_artifact_flag = mount
+			NOT = { has_artifact_flag = immortal }
+			is_artifact_equipped = yes
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1 
+		
+		modifier = {
+			factor = 2
+			has_active_mount_armor_trigger = no
+			ai = no
+		}
+		modifier = {
+			factor = 0.9
+			has_active_tier1_mount_armor_trigger = yes
+		}
+		modifier = {
+			factor = 0.75
+			has_active_tier2_mount_armor_trigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			has_active_tier3_mount_armor_trigger = yes
+		}
+		modifier = {
+			factor = 0.25
+			has_active_tier3_mount_armor_trigger = yes
+		}
+		modifier = {
+			factor = 1.25
+			trait = aggressive_leader
+		}
+		modifier = {
+			factor = 1.25
+			trait = arbitrary
+		}
+		modifier = {
+			factor = 2
+			trait = one_eyed
+		}
+	}
+	
+	immediate = { get_current_mount_effect = yes }
+	
+	option = {
+		name = EVTOPTAcsm.211
+		event_target:current_mount = { decrease_mount_health_effect = yes }
+	}
+}
+
+###in seclusion, mounts suffer unless brought inside
+character_event = {
+	id = csm.212
+	desc = EVTDESAcsm.212
+	picture = GFX_evt_bring_out_your_dead
+	
+	only_playable = yes
+	has_character_flag = has_mount
+	
+	trigger = {
+		has_character_modifier = in_seclusion
+		capital_scope = { has_disease = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 9
+		modifier = {
+			factor = 3.0
+			ai = no
+			war = yes
+		}
+		modifier = {
+			factor = 3.0
+			ai = no
+			multiplayer = yes
+		}
+	}
+	
+	immediate = {
+		get_random_mount_no_immortal_effect = yes
+		get_random_mount_no_immortal_2_effect = yes
+	}
+	
+	#let them into the castle
+	option = {
+		name = EVTOPTAcsm.212
+		if = {
+			limit = {
+				any_courtier = {
+					NOR = {
+						character = ROOT
+						prisoner = yes
+						is_ill = yes
+						num_of_symptoms = 1
+						has_character_flag = developing_illness
+					}
+					has_character_modifier = in_seclusion
+				}
+			}
+			random_courtier = {
+				limit = { 
+					NOR = { 
+						character = ROOT
+						prisoner = yes
+						is_ill = yes
+						num_of_symptoms = 1
+						has_character_flag = developing_illness
+					}
+					has_character_modifier = in_seclusion
+				}
+				custom_tooltip = {
+					text = EVTTOOLTIPAcsm.212
+					give_epidemic_disease_effect = yes
+				}
+			}
+		}
+		else = {
+			custom_tooltip = {
+				text = EVTTOOLTIPAcsm.212
+				give_epidemic_disease_effect = yes
+			}
+		}
+		
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 3
+				trait = kind
+			}
+		}
+	}
+	
+	#leave them outside
+	option = {
+		name = EVTOPTBcsm.212
+		event_target:random_mount = {
+			show_scope_change = no
+			random = {
+				chance = 75
+				decrease_mount_health_effect = yes
+			}
+		}
+		event_target:random_mount_2 = {
+			show_scope_change = no
+			random = {
+				chance = 75
+				decrease_mount_health_effect = yes
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+		}
+	}
+}
+
+###temujin and vassal nomads get mongolian horses
+character_event = {
+	id = csm.213
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	has_global_flag = mongol_empire_arrival
+	culture = mongol
+	only_playable = yes
+	only_independent = yes
+	only_men = yes
+	min_age = 16
+	
+	trigger = {
+		NOT = { has_global_flag = csm_mongol_horde_horses }
+		has_landed_title = e_mongol_empire
+		demesne_size = 3
+	}
+	
+	immediate = {
+		set_global_flag = csm_mongol_horde_horses
+		
+		add_artifact = mongolian_war_horse
+		new_artifact = {
+			set_artifact_flag = swift
+			set_mount_trait_limit_effect = yes
+			set_artifact_flag = powerful
+			set_mount_trait_limit_effect = yes
+		}
+		check_mount_flags_effect = yes
+		
+		if = {
+			limit = { has_dlc = "Horse Lords" }
+			any_vassal = {
+				limit = {
+					government = nomadic_government
+					culture = mongol
+				}
+				add_artifact = mongolian_war_horse
+				set_character_flag = has_mount
+			}
+		}
+		else = {
+			any_vassal = {
+				limit = { culture = mongol }
+				add_artifact = mongolian_war_horse
+				set_character_flag = has_mount
+			}
+		}
+	}
+}
+
+###al buraq spawn
+narrative_event = {
+	id = csm.214
+	title = EVTTITLEcsm.214
+	desc = EVTDESAcsm.214
+	picture = GFX_evt_religious_exultation
+	
+	only_playable = yes
+	only_capable = yes
+	only_men = yes
+	min_age = 16
+	
+	trigger = {
+		OR = {
+			AND = {
+				ai = no
+				has_game_rule = { name = supernatural_events value = on }
+			}
+			AND = {
+				ai = yes
+				has_game_rule = { name = supernatural_events value = unrestricted }
+			}
+		}
+		
+		NOT = { has_global_flag = al_buraq_alive }
+		higher_tier_than = count
+		religion_group = muslim
+		NOR = {
+			trait = cynical
+			trait = sympathy_christendom
+			trait = sympathy_pagans
+			trait = sympathy_zoroastrianism
+			trait = sympathy_judaism
+			trait = sympathy_indian
+		}
+		OR = {
+			trait = zealous
+			trait = holy_warrior
+			trait = scholarly_theologian
+			trait = mastermind_theologian
+			any_demesne_title = { is_holy_site = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 50
+		modifier = {
+			factor = 2
+			ai = yes
+		}
+		modifier = {
+			factor = 0.9
+			piety > 250
+		}
+		modifier = {
+			factor = 0.9
+			piety > 750
+		}
+		modifier = {
+			factor = 0.9
+			piety > 1500
+		}
+		modifier = {
+			factor = 0.9
+			trait = sayyid
+		}
+		modifier = {
+			factor = 0.9
+			trait = hajjaj
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				trait = faqih
+				trait = hafiz
+			}
+		}
+	}
+	
+	immediate = { set_global_flag = al_buraq_alive }
+	
+	option = {
+		name = EVTOPTAcsm.214
+		add_artifact = al_buraq
+		new_mount_setup_effect = yes
+	}
+}
+
+
+
+
+
+
+
+
+
+###############Province Flavor###############
+
+province_event = {
+	id = csm.300
+	
+	hide_window = yes
+	
+	trigger = {
+		has_province_flag = mount_province
+		NOT = { has_province_modifier = province_flavor_timer }
+		holder_scope = { 
+			is_adult = yes
+			war = no 
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		modifier = {
+			factor = 0.9
+			has_province_flag = crown_focus_province
+		}
+		modifier = {
+			factor = 0.9
+			holder_scope = { has_ambition = obj_see_the_realm_prosper }
+		}
+		modifier = {
+			factor = 0.9
+			holder_scope = { has_education_stewardship_trigger = yes }
+		}
+		modifier = {
+			factor = 0.9
+			holder_scope = { 
+				OR = {
+					has_focus = focus_business
+					has_focus = focus_rulership
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			holder_scope = { stewardship = 12 }
+		}
+		modifier = {
+			factor = 0.9
+			holder_scope = { stewardship = 16 }
+		}
+		modifier = {
+			factor = 0.9
+			holder_scope = { stewardship = 18 }
+		}
+		modifier = {
+			factor = 0.8
+			holder_scope = { has_lifestyle_stewardship_trigger = yes }
+		}
+	}
+	
+	immediate = {
+		add_province_modifier = { modifier = province_flavor_timer years = 8 hidden = yes }
+		
+		random_list = {
+			
+			#fallback
+			1 = { remove_province_modifier = province_flavor_timer }
+			
+			###business brings prosperity
+			50 = {
+				trigger = {
+					has_trade_post = no
+					holder_scope = {
+						OR = {
+							stewardship >= 14
+							has_focus = focus_business
+							has_focus = focus_rulership
+						}
+					}
+				}
+				province_event = { id = csm.301 }
+			}
+		
+			###trade post brings prosperity
+			100 = {
+				trigger = {
+					NOT = { has_province_modifier = csm_increased_trade }
+					has_trade_post = yes
+					holder_scope = {
+						OR = {
+							stewardship >= 8
+							is_patrician = yes
+						}
+					}
+				}
+				province_event = { id = csm.302 }
+			}
+			
+			###craftsmen looking for sponser
+			50 = {
+				trigger = {
+					NOT = { has_province_modifier = csm_craftsmen }
+				}
+				province_event = { id = csm.303 }
+			}
+			
+			###hospital improves general sanitation, less mounts die
+			100 = {
+				trigger = {
+					NOT = { has_province_modifier = csm_doctors }
+					has_hospital = yes
+				}
+				province_event = { id = csm.304 }
+			}
+			
+			###lend land for grazing
+			50 = {
+				trigger = { NOT = { has_province_modifier = csm_lend_grazing_land } }
+				province_event = { id = csm.305 }
+			}
+			
+			###organize horse races
+			50 = {
+				trigger = { NOT = { has_province_modifier = csm_horse_races } }
+				province_event = { id = csm.307 }
+			}
+			
+		}
+	
+	}
+}
+
+
+
+
+
+###business brings prosperity
+province_event = {
+	id = csm.301
+	desc = EVTDESAcsm.301
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcsm.301
+		if = {
+			limit = { has_dlc = "Reapers" }
+			holder_scope = { show_scope_change = no scaled_wealth = 0.2 }
+		}
+		else = { holder_scope = { show_scope_change = no scaled_wealth = 0.4 } }
+		csm_increase_prosperity_effect = yes
+	}
+}
+
+###trade post brings prosperity
+province_event = {
+	id = csm.302
+	desc = EVTDESAcsm.302
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcsm.302
+		if = {
+			limit = { has_dlc = "Reapers" }
+			holder_scope = { show_scope_change = no scaled_wealth = 0.2 }
+		}
+		else = { holder_scope = { show_scope_change = no scaled_wealth = 0.4 } }
+		add_province_modifier = { modifier = csm_increased_trade years = 10 }
+		csm_increase_prosperity_effect = yes
+	}
+}
+
+###craftsmen looking for sponser
+province_event = {
+	id = csm.303
+	desc = EVTDESAcsm.303
+	picture = GFX_evt_construction_site
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAcsm.303
+		holder_scope = { scaled_wealth = { value = -0.4 min = -30 max = -500 } }
+		add_province_modifier = { modifier = csm_craftsmen years = 5 }
+		random_list = {
+			33 = { change_variable = { which = available_mounts value = 5 } }
+			33 = { change_variable = { which = available_mounts value = 15 } }
+			33 = { change_variable = { which = available_mounts value = 30 } }
+		}
+		ai_chance = {
+			factor = 75
+		}
+	}
+	
+	option = {
+		name = EVTOPTBcsm.303
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				holder_scope = { trait = greedy }
+			}
+			modifier = {
+				factor = 3
+				holder_scope = { wealth < 50 }
+			}
+		}
+	}
+}
+
+###hospital improves general sanitation, less mounts die
+province_event = {
+	id = csm.304
+	desc = EVTDESAcsm.304
+	picture = GFX_evt_court_physician
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAcsm.304
+		add_province_modifier = { modifier = csm_doctors years = 7 }
+		holder_scope = { prestige = 50 }
+		random_list = {
+			33 = { change_variable = { which = available_mounts value = 5 } }
+			33 = { change_variable = { which = available_mounts value = 10 } }
+			33 = { change_variable = { which = available_mounts value = 20 } }
+		}
+	}
+}
+
+###lend land for grazing
+province_event = {
+	id = csm.305
+	desc = EVTDESAcsm.305
+	picture = GFX_evt_merchant_caravan
+
+	is_triggered_only = yes
+	
+	#yes
+	option = {
+		name = EVTOPTAcsm.305
+		holder_scope = {
+			random_list = {
+				25 = { scaled_wealth = 0.2 }
+				25 = { scaled_wealth = 0.3 }
+				25 = { scaled_wealth = 0.4 }
+				25 = { scaled_wealth = 0.5 }
+			}
+		}
+		add_province_modifier = { modifier = csm_lend_grazing_land years = 10 }
+		csm_slightly_increase_prosperity_effect = yes
+		hidden_tooltip = { province_event = { id = csm.306 days = 360 random = 100 } }
+		ai_chance = {
+			factor = 75 
+			modifier = {
+				factor = 2
+				holder_scope = { trait = charitable }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { trait = kind }
+			}
+		}
+	}
+
+	#no
+	option = {
+		name = EVTOPTBcsm.305
+		ai_chance = {
+			factor = 25 
+			modifier = {
+				factor = 2
+				holder_scope = { trait = greedy }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { monthly_income < 5 }
+			}
+		}
+	}
+}
+
+###give small boost
+province_event = {
+	id = csm.306
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			33 = { change_variable = { which = available_mounts value = 5 } }
+			33 = { change_variable = { which = available_mounts value = 10 } }
+			33 = { change_variable = { which = available_mounts value = 20 } }
+		}
+	}
+}
+
+###organize horse races
+province_event = {
+	id = csm.307
+	desc = EVTDESAcsm.307
+	picture = GFX_evt_hippodrome_byzantine
+	
+	is_triggered_only = yes
+	
+	#yes
+	option = {
+		name = EVTOPTAcsm.307
+		holder_scope = {
+			scaled_wealth = { value = -1.5 min = -100 max = -750 }
+		}
+		add_province_modifier = { modifier = csm_horse_races years = 10 }
+		csm_increase_prosperity_effect = yes
+		ai_chance = {
+			factor = 75
+		}
+	}
+	
+	#no
+	option = {
+		name = EVTOPTBcsm.307
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 3
+				holder_scope = { trait = dull }
+			}
+			modifier = {
+				factor = 3
+				holder_scope = { trait = greedy }
+			}
+			modifier = {
+				factor = 3
+				holder_scope = { trait = slothful }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { wealth < 50 }
+			}
+			modifier = {
+				factor = 3
+				holder_scope = { tier = count }
+			}
+		}
+	}
+}
+
+##############Character Flavor Tombola Events################
+
+character_event = {
+	id = csm.400
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	only_playable = yes
+	only_capable = yes
+	has_character_flag = has_mount
+
+	trigger = {
+		NOT = { has_character_modifier = character_flavor_timer }
+		csm_is_inaccessible_or_incapable_trigger = no
+	}
+	
+	weight_multiplier = {
+		days = 1
+		
+		modifier = {
+			factor = 1.5
+			has_stable_master_trigger = yes
+		}
+		
+		#more likely to spend time on other stuff
+		modifier = {
+			factor = 2
+			OR = {
+				trait = stressed
+				trait = depressed
+			}
+		}
+		#nothing else to do
+		modifier = {
+			factor = 2
+			trait = content
+		}
+		#relevant lifestyles
+		modifier = {
+			factor = 3
+			OR = {
+				trait = administrator
+				trait = gamer
+				trait = gardener
+				trait = hunter
+				trait = falconer
+			}
+		}
+		#cares more about possessions/animals
+		modifier = {
+			factor = 1.5
+			OR = {
+				trait = diligent
+				trait = kind
+			}
+		}
+		#wants to show off
+		modifier = {
+			factor = 1.5
+			trait = proud
+		}
+	}
+	
+	
+	immediate = {
+		add_character_modifier = { modifier = character_flavor_timer years = 4 hidden = yes }
+		check_mount_flags_effect = yes
+		
+		if = {
+			limit = { NOT = { has_character_flag = has_mount } }
+			break = yes
+		}
+		
+		random_list = {
+			
+			###buying new feed
+			100 = {
+				character_event = { id = csm.401 }
+			}
+		
+			###stablemaster gives mount trait
+			75 = {
+				trigger = {
+					has_stable_master_trigger = yes
+					any_artifact = {
+						is_mount_trigger = yes
+						is_healthy_mount_trigger = yes
+						can_have_more_mount_traits_trigger = yes
+					}
+				}
+				random_list = {
+					#random trait
+					75 = { character_event = { id = csm.402 } }
+					
+					#selected trait+health
+					25 = {
+						modifier = {
+							factor = 0.9
+							has_weak_stable_master_trigger = yes
+						}
+						modifier = {
+							factor = 1.25
+							has_normal_stable_master_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							has_great_stable_master_trigger = yes
+						}
+						character_event = { id = csm.409 } 
+					}
+				}
+			}
+			
+			###nomad's horse becomes swift from running too much
+			100 = {
+				trigger = {
+					government = nomadic_government
+					any_artifact = {
+						is_mount_trigger = yes
+						is_healthy_mount_trigger = yes
+						can_have_more_mount_traits_trigger = yes
+						has_artifact_flag = horse
+						NOT = { has_artifact_flag = swift }
+					}
+				}
+				character_event = { id = csm.403 }
+			}
+			
+			###go on a ride
+			100 = {
+				trigger = {
+					any_artifact = {
+						is_mount_trigger = yes
+						NOT = { has_artifact_flag = elephant }
+					}
+				}
+				character_event = { id = csm.404 }
+			}
+		
+			###stablemaster improves all mounts' health
+			50 = {
+				trigger = { has_stable_master_trigger = yes }
+				modifier = {
+					factor = 0.9
+					has_weak_stable_master_trigger = yes
+				}
+				modifier = {
+					factor = 1.25
+					has_normal_stable_master_trigger = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_great_stable_master_trigger = yes
+				}
+				character_event = { id = csm.405 }
+			}
+			
+			###stablemaster gets into arguement
+			100 = {
+				trigger = { has_stable_master_trigger = yes }
+				character_event = { id = csm.406 }
+			}
+		
+			###armor needs repairs
+			100 = {
+				trigger = { any_artifact = { has_artifact_flag = mount_armor } }
+				character_event = { id = csm.407 }
+			}
+			
+			###stables on fire
+			50 = {
+				modifier = {
+					factor = 0.9
+					has_weak_stable_master_trigger = yes
+				}
+				modifier = {
+					factor = 0.8
+					has_normal_stable_master_trigger = yes
+				}
+				modifier = {
+					factor = 0.7
+					has_great_stable_master_trigger = yes
+				}
+				
+				modifier = {
+					factor = 0.9
+					capital_holding = {
+						OR = {
+							has_building = ca_stable_3
+							has_building = ca_stable_4
+							has_building = ca_steppe_stable_3
+							has_building = ca_steppe_stable_4
+							has_building = ca_desert_stable_3
+							has_building = ca_desert_stable_4
+						}
+					}
+				}
+				modifier = {
+					factor = 0.8
+					capital_holding = {
+						OR = {
+							has_building = ca_stable_5
+							has_building = ca_stable_6
+							has_building = ca_steppe_stable_5
+							has_building = ca_steppe_stable_6
+							has_building = ca_desert_stable_5
+							has_building = ca_desert_stable_6
+						}
+					}
+				}
+				character_event = { id = csm.408 }
+			}
+		}
+	}
+	
+	
+
+}
+
+
+###buying new feed
+character_event = {
+	id = csm.401
+	desc = EVTDESAcsm.401
+	picture = GFX_evt_charity
+	
+	is_triggered_only = yes
+	
+	
+	immediate = { get_random_mount_no_immortal_effect = yes }
+	
+	option = {
+		name = EVTOPTAcsm.401
+		scaled_wealth = { value = -0.3 max = -400 }
+		event_target:random_mount = { 
+			random = {
+				chance = 70
+				increase_mount_health_effect = yes 
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBcsm.401
+		scaled_wealth = { value = -0.2 max = -200 }
+		event_target:random_mount = {
+			random = {
+				chance = 30
+				increase_mount_health_effect = yes 
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTCcsm.401
+		scaled_wealth = { value = -0.05 max = -50 }
+		event_target:random_mount = {
+			random = {
+				chance = 40
+				decrease_mount_health_effect = yes 
+			}
+		}
+	}
+}
+
+###stablemaster gives mount trait
+character_event = {
+	id = csm.402
+	desc = EVTDESAcsm.402
+	picture = GFX_evt_horse_friend
+	
+	is_triggered_only = yes
+	
+	immediate = { get_stable_master_effect = yes }
+	
+	option = {
+		name = EVTOPTAcsm.402
+		random_artifact = {
+			limit = {
+				is_mount_trigger = yes
+				is_healthy_mount_trigger = yes
+				can_have_more_mount_traits_trigger = yes
+			}
+			custom_tooltip = {
+				text = EVTTOOLTIPAcsm.402
+				random_list = {
+					20 = {
+						trigger = { NOT = { has_artifact_flag = fair } }
+						set_artifact_flag = fair
+						add_mount_trait_limit_effect = yes
+						ROOT = { check_fair_mount_modifiers_effect = yes }
+					}
+					20 = {
+						trigger = { NOT = { has_artifact_flag = robust } }
+						set_artifact_flag = robust
+						add_mount_trait_limit_effect = yes
+					}
+					20 = {
+						trigger = { NOT = { has_artifact_flag = powerful } }
+						set_artifact_flag = powerful
+						add_mount_trait_limit_effect = yes
+					}
+					20 = {
+						trigger = { NOT = { has_artifact_flag = swift } }
+						set_artifact_flag = swift
+						add_mount_trait_limit_effect = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+###nomad's horse becomes swift from running too much
+character_event = {
+	id = csm.403
+	desc = EVTDESAcsm.403
+	picture = GFX_evt_mongols
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				any_artifact = {
+					is_mount_trigger = yes
+					is_healthy_mount_trigger = yes
+					can_have_more_mount_traits_trigger = yes
+					has_artifact_flag = horse
+					NOT = { has_artifact_flag = swift }
+					is_artifact_equipped = yes
+				}
+			}
+			random_artifact = {
+				limit = {
+					is_mount_trigger = yes
+					is_healthy_mount_trigger = yes
+					can_have_more_mount_traits_trigger = yes
+					has_artifact_flag = horse
+					NOT = { has_artifact_flag = swift }
+					is_artifact_equipped = yes
+				}
+				save_event_target_as = improved_horse
+			}
+		}
+		else = {
+			random_artifact = {
+				limit = {
+					is_mount_trigger = yes
+					is_healthy_mount_trigger = yes
+					can_have_more_mount_traits_trigger = yes
+					has_artifact_flag = horse
+					NOT = { has_artifact_flag = swift }
+				}
+				save_event_target_as = improved_horse
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAcsm.403
+		event_target:improved_horse = {
+			custom_tooltip = { 
+				text = EVTTOOLTIPAcsm.403
+				set_artifact_flag = swift
+				add_mount_trait_limit_effect = yes
+			}
+		}
+	}
+}
+
+
+###go on a ride
+character_event = {
+	id = csm.404
+	desc = EVTDESAcsm.404
+	picture = GFX_evt_hunt
+
+	is_triggered_only = yes
+	
+	immediate = {
+		random_artifact = {
+			limit = {
+				is_mount_trigger = yes
+				NOT = { has_artifact_flag = elephant }
+			}
+			save_event_target_as = random_mount
+		}
+	}
+	
+	#ride around demesne
+	option = {
+		name = EVTOPTAcsm.404
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
+		}
+		random_list = {
+			65 = { prestige = 50 }
+			20 = {
+				trigger = { NOT = { trait = proud } }
+				add_trait = proud
+			}
+			10 = {
+				trigger = { NOT = { trait = gregarious } }
+				add_trait = gregarious
+			}
+			5 = {
+				trigger = {
+					NOR = {
+						trait = wounded
+						trait = severely_injured
+					}
+				}
+				add_trait_wounded_effect = yes
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				has_education_diplomacy_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_diplomacy_trigger = yes
+			}
+		}
+	}
+	
+	#go hunting
+	option = {
+		name = EVTOPTBcsm.404
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
+		}
+		random_list = {
+			50 = { 
+				if = {
+					limit = { society_member_of = hermetics }
+					hermetic_add_animal_ingredient_effect = yes
+				}
+				else = { scaled_wealth = { value = 0.15 max = 100 } }
+			}
+			20 = {
+				trigger = { has_any_lifestyle_trait = no }
+				add_trait = hunter
+			}
+			10 = {
+				trigger = { NOT = { trait = diligent } }
+				add_trait = diligent
+			}
+			20 = {
+				trigger = {
+					NOR = {
+						trait = wounded
+						trait = severely_injured
+					}
+				}
+				add_trait_wounded_effect = yes
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				has_education_martial_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = wroth
+					trait = proud
+				}
+			}
+		}
+	}
+	
+	#no
+	option = {
+		name = EVTOPTCcsm.404
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			random = {
+				chance = 15
+				add_trait = arbitrary
+			}
+		}
+		else = { prestige = -25 }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 3
+				trait = dull
+			}
+			modifier = {
+				factor = 3
+				trait = slothful
+			}
+			modifier = {
+				factor = 3
+				trait = stubborn
+			}
+		}
+	}
+}
+
+
+###stablemaster improves all mounts' health
+character_event = {
+	id = csm.405
+	desc = EVTDESAcsm.405
+	picture = GFX_evt_stone_church
+
+	is_triggered_only = yes
+	
+	immediate = { get_stable_master_effect = yes }
+	
+	option = {
+		name = EVTOPTAcsm.405
+		any_artifact = {
+			limit = {
+				is_mount_trigger = yes
+				NOT = { has_artifact_flag = immortal }
+			}
+			increase_mount_health_effect = yes
+		}
+		event_target:stable_master = {
+			transfer_scaled_wealth = { from = ROOT value = 0.2 max = 100 }
+			opinion = { modifier = opinion_grateful who = ROOT years = 5 }
+		}
+	}
+}
+
+###stablemaster gets into arguement
+character_event = {
+	id = csm.406
+	desc = EVTDESAcsm.406
+	picture = GFX_evt_son_asking_father
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		get_stable_master_effect = yes
+		random_courtier = {
+			limit = {
+				is_adult = yes
+				prisoner = no
+				NOR = {
+					character = ROOT
+					character = event_target:stable_master
+				}
+			}
+			save_event_target_as = stable_master_arguement_courtier
+		}
+	}
+	
+	#break em up
+	option = {
+		name = EVTOPTAcsm.406
+		trigger_switch = {
+			on_trigger = tier
+			
+			emperor = { piety = 75 }
+			king = { piety = 50 }
+			duke = { piety = 25 }
+			count = { piety = 10 }
+		}
+		if = {
+			limit = { NOT = { trait = humble } }
+			random = {
+				chance = 25
+				add_trait = humble
+			}
+		}
+		reverse_opinion = { modifier = opinion_grateful who = event_target:stable_master years = 5 }
+		reverse_opinion = { modifier = opinion_grateful who = event_target:stable_master_arguement_courtier years = 5 }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				has_education_diplomacy_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_diplomacy_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = charitable
+					trait = kind
+				}
+			}
+		}
+	}
+	
+	#use authority
+	option = {
+		name = EVTOPTBcsm.406
+		trigger_switch = {
+			on_trigger = tier
+			
+			emperor = { prestige = 100 }
+			king = { prestige = 75 }
+			duke = { prestige = 50 }
+			count = { prestige = 25 }
+		}
+		if = {
+			limit = { NOT = { trait = proud } }
+			random = {
+				chance = 25
+				add_trait = proud
+			}
+		}
+		reverse_opinion = { modifier = strengthened_loyalty who = event_target:stable_master years = 5 }
+		reverse_opinion = { modifier = strengthened_loyalty who = event_target:stable_master_arguement_courtier years = 5 }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				has_education_martial_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+		}
+	}
+	
+	
+	#dont care
+	option = {
+		name = EVTOPTCcsm.406
+		event_target:stable_master = { show_scope_change = no add_rival = event_target:stable_master_arguement_courtier }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 3
+				trait = envious
+			}
+			modifier = {
+				factor = 3
+				trait = proud
+			}
+			modifier = {
+				factor = 3
+				trait = slothful
+			}
+			modifier = {
+				factor = 3
+				trait = stubborn
+			}
+		}
+	}
+}
+
+
+###armor needs repairs
+character_event = {
+	id = csm.407
+	desc = EVTDESAcsm.407
+	picture = GFX_evt_weaponsmith
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				any_artifact = {
+					has_artifact_flag = mount_armor
+					is_artifact_equipped = yes
+				}
+			}
+			random_artifact = {
+				limit = {
+					has_artifact_flag = mount_armor
+					is_artifact_equipped = yes
+				}
+				save_event_target_as = armor_to_repair
+			}
+		}
+		else = {
+			random_artifact = {
+				limit = { has_artifact_flag = mount_armor }
+				save_event_target_as = armor_to_repair
+			}
+		}
+	}
+	
+	
+	option = {
+		name = EVTOPTAcsm.407
+		if = {
+			limit = { 
+				event_target:armor_to_repair = {
+					OR = {
+						artifact_type = horse_armor_1
+						artifact_type = exotic_armor_1
+					}
+				}
+			}
+			wealth = -35
+		}
+		else_if = {
+			limit = { 
+				event_target:armor_to_repair = {
+					OR = {
+						artifact_type = horse_armor_2
+						artifact_type = exotic_armor_2
+					}
+				}
+			}
+			wealth = -75
+		}
+		else_if = {
+			limit = { 
+				event_target:armor_to_repair = {
+					OR = {
+						artifact_type = horse_armor_3
+						artifact_type = exotic_armor_3
+					}
+				}
+			}
+			wealth = -150
+		}
+		else_if = {
+			limit = { event_target:armor_to_repair = { quality == 4 } }
+			wealth = -200
+		}
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						wealth < 30
+						event_target:armor_to_repair = {
+							OR = {
+								artifact_type = horse_armor_1
+								artifact_type = exotic_armor_1
+							}
+						}
+					}
+					AND = {
+						wealth < 65
+						event_target:armor_to_repair = {
+							OR = {
+								artifact_type = horse_armor_2
+								artifact_type = exotic_armor_2
+							}
+						}
+					}
+					AND = {
+						wealth < 130
+						event_target:armor_to_repair = {
+							OR = {
+								artifact_type = horse_armor_3
+								artifact_type = exotic_armor_3
+							}
+						}
+					}
+					AND = {
+						wealth < 160
+						event_target:armor_to_repair = { quality == 4 }
+					}
+				}
+			}
+		}
+	}
+	
+	#dont repair
+	option = {
+		name = EVTOPTBcsm.407
+		event_target:armor_to_repair = { show_scope_change = no destroy_artifact = yes }
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+}
+
+
+###stables on fire
+character_event = {
+	id = csm.408
+	desc = EVTDESAcsm.408
+	picture = GFX_evt_burning_house
+
+	is_triggered_only = yes
+	
+	immediate = {
+		get_random_mount_no_immortal_effect = yes
+		get_random_mount_no_immortal_2_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTAcsm.408
+		event_target:random_mount = { decrease_mount_health_effect = yes }
+		event_target:random_mount_2 = { decrease_mount_health_effect = yes }
+	}
+}
+
+###stablemaster improves health+trait
+character_event = {
+	id = csm.409
+	desc = EVTDESAcsm.409
+	picture = GFX_evt_courier
+
+	is_triggered_only = yes
+	
+	immediate = {
+		get_stable_master_effect = yes
+		if = {
+			limit = { 
+				any_artifact = { 
+					is_mount_trigger = yes
+					is_healthy_mount_trigger = yes
+					can_have_more_mount_traits_trigger = yes
+					is_artifact_equipped = yes
+				}
+			}
+			random_artifact = {
+				limit = {
+					is_mount_trigger = yes
+					is_healthy_mount_trigger = yes
+					can_have_more_mount_traits_trigger = yes
+					is_artifact_equipped = yes
+				}
+				save_event_target_as = improved_mount
+			}
+		}
+		else = {
+			random_artifact = {
+				limit = {
+					is_mount_trigger = yes
+					is_healthy_mount_trigger = yes
+					can_have_more_mount_traits_trigger = yes
+				}
+				save_event_target_as = improved_mount
+			}
+		}
+	}
+	
+	#fair
+	option = {
+		trigger = { event_target:improved_mount = { NOT = { has_artifact_flag = fair } } }
+		name = EVTOPTAcsm.409
+		event_target:improved_mount = {
+			show_scope_change = no
+			increase_mount_health_effect = yes
+			custom_tooltip = {
+				text = EVTTOOLTIPAcsm.409
+				set_artifact_flag = fair
+				add_mount_trait_limit_effect = yes
+			}
+		}
+		opinion = { modifier = opinion_grateful who = event_target:stable_master years = 5 }
+		ai_chance = { factor = 25 }
+	}
+	
+	#robust
+	option = {
+		trigger = { event_target:improved_mount = { NOT = { has_artifact_flag = robust } } }
+		name = EVTOPTBcsm.409
+		event_target:improved_mount = {
+			show_scope_change = no
+			increase_mount_health_effect = yes
+			custom_tooltip = {
+				text = EVTTOOLTIPBcsm.409
+				set_artifact_flag = robust
+				add_mount_trait_limit_effect = yes
+			}
+		}
+		opinion = { modifier = opinion_grateful who = event_target:stable_master years = 5 }
+		ai_chance = { factor = 25 }
+	}
+	
+	#powerful
+	option = {
+		trigger = { event_target:improved_mount = { NOT = { has_artifact_flag = powerful } } }
+		name = EVTOPTCcsm.409
+		event_target:improved_mount = {
+			show_scope_change = no
+			increase_mount_health_effect = yes
+			custom_tooltip = {
+				text = EVTTOOLTIPCcsm.409
+				set_artifact_flag = powerful
+				add_mount_trait_limit_effect = yes
+			}
+		}
+		opinion = { modifier = opinion_grateful who = event_target:stable_master years = 5 }
+		ai_chance = { factor = 25 }
+	}
+	
+	#swift
+	option = {
+		trigger = { event_target:improved_mount = { NOT = { has_artifact_flag = swift } } }
+		name = EVTOPTDcsm.409
+		event_target:improved_mount = {
+			show_scope_change = no
+			increase_mount_health_effect = yes
+			custom_tooltip = {
+				text = EVTTOOLTIPDcsm.409
+				set_artifact_flag = swift
+				add_mount_trait_limit_effect = yes
+			}
+		}
+		opinion = { modifier = opinion_grateful who = event_target:stable_master years = 5 }
+		ai_chance = { factor = 25 }
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

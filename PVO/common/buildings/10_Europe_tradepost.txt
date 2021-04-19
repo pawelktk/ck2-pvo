@@ -1,0 +1,402 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+
+trade_post = {
+
+	tr_europe_1 = {		
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_1_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 1
+		}
+		gold_cost = 150
+		build_time = 150
+		ai_creation_factor = 95
+		add_number_to_name = no
+		
+		trade_route_wealth = 1	# Affects total value of trade route
+		tradevalue = 20
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	tr_europe_2 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_2_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 2
+		}
+		gold_cost = 250
+		build_time = 300
+		upgrades_from = tr_europe_1
+		ai_creation_factor = 95
+		add_number_to_name = no
+		
+		trade_route_wealth = 1	# Affects total value of trade route
+		tradevalue = 30
+		fort_level = 1
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	tr_europe_3 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_3_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 3
+		}
+		gold_cost = 400
+		build_time = 600
+		upgrades_from = tr_europe_2
+		ai_creation_factor = 95
+		add_number_to_name = no
+		
+		trade_route_wealth = 2	# Affects total value of trade route
+		tradevalue = 35
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	tr_europe_4 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_4_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 4
+		}
+		gold_cost = 600
+		build_time = 600
+		upgrades_from = tr_europe_3
+		ai_creation_factor = 95
+		add_number_to_name = no
+		
+		trade_route_wealth = 2	# Affects total value of trade route
+		tradevalue = 45
+		fort_level = 1
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	tr_europe_5 = {
+		potential = {
+			port = yes
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_5_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 5
+		}
+		gold_cost = 900
+		build_time = 600
+		upgrades_from = tr_europe_4
+		ai_creation_factor = 95
+		add_number_to_name = no
+		
+		trade_route_wealth = 3	# Affects total value of trade route
+		tradevalue = 50
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	trade_offices_europe_1 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_office_1_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 1
+		}
+		gold_cost = 175
+		build_time = 600
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		tech_growth_modifier = 0.2
+		monthly_character_prestige = 0.2
+		retinuesize = 25
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	trade_offices_europe_2 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_office_2_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 2
+		}
+		gold_cost = 350
+		build_time = 600
+		upgrades_from = trade_offices_europe_1
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		monthly_character_prestige = 0.3
+		retinuesize = 50
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	trade_offices_europe_3 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_office_3_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 3
+		}
+		gold_cost = 600
+		build_time = 600
+		upgrades_from = trade_offices_europe_2
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		monthly_character_prestige = 0.5
+		retinuesize = 75
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	trade_offices_europe_4 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_office_4_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 4
+		}
+		gold_cost = 900
+		build_time = 600
+		upgrades_from = trade_offices_europe_3
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		monthly_character_prestige = 1
+		retinuesize = 100
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	trade_offices_europe_5 = {
+		potential = {
+			port = yes
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_office_5_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 5
+		}
+		gold_cost = 1400
+		build_time = 600
+		upgrades_from = trade_offices_europe_4
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		monthly_character_prestige = 1.5
+		retinuesize = 150
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}	
+	mercenary_garrison_europe_1 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_garrison_1_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 1
+		}
+		gold_cost = 100
+		build_time = 600
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		garrison_size = 2
+		tradevalue = 4
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}	
+	mercenary_garrison_europe_2 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_garrison_2_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 2
+		}
+		gold_cost = 225
+		build_time = 600
+		upgrades_from = mercenary_garrison_europe_1
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		garrison_size = 2
+		fort_level = 1
+		tradevalue = 6
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}	
+	mercenary_garrison_europe_3 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_sca_garrison_3_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 3
+		}
+		gold_cost = 350
+		build_time = 600
+		upgrades_from = mercenary_garrison_europe_2
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		garrison_size = 2
+		tradevalue = 6
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	mercenary_garrison_europe_4 = {
+		potential = {
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_garrison_4_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 4
+		}
+		gold_cost = 500
+		build_time = 600
+		upgrades_from = mercenary_garrison_europe_3
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		garrison_size = 3
+		fort_level = 1
+		tradevalue = 8
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	mercenary_garrison_europe_5 = {
+		potential = {
+			port = yes
+			trade_route = Europe_trade_route
+			Europe_trade_route_post_trigger = yes
+			ROOT = {
+			    NOT = {
+					province_id = 764   # Antiocheia
+					province_id = 802   # Alexandria
+	            }
+			}
+		}
+		desc = tr_euro_garrison_5_desc
+		trigger = {
+			TECH_TRADE_PRACTICES = 5
+		}
+		gold_cost = 750
+		build_time = 600
+		upgrades_from = mercenary_garrison_europe_4
+		ai_creation_factor = 5
+		add_number_to_name = no
+		
+		garrison_size = 3
+		fort_level = 1
+		tradevalue = 12
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+}

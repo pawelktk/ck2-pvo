@@ -1,0 +1,258 @@
+targetted_decisions = {
+	player_rank_up_to_warrior = {
+		only_playable = yes
+		ai = no
+		filter = self
+		potential = {
+			is_in_society = yes
+				OR = {
+					society_rank = {
+						society = warrior_lodge_norse
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_tengri
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_baltic
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_finnish
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_slavic
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_west_african
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_bon
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_zun
+						rank < 2
+					}
+					society_rank = {
+						society = warrior_lodge_hellenic
+						rank < 2
+					}
+				}
+				OR = {
+					society_currency = {
+						society = warrior_lodge_norse
+						value >= 750
+					}
+					society_currency = {
+						society = warrior_lodge_baltic
+						value >= 750
+					}
+					society_currency = {
+						society = warrior_lodge_bon
+						value >= 750
+					}
+					society_currency = {
+						society = warrior_lodge_slavic
+						value >= 750
+					}
+					society_currency = {
+						society = warrior_lodge_finnish
+						value >= 750
+					}
+					society_currency = {
+						society = warrior_lodge_west_african
+						value >= 750
+					}
+					society_currency = {
+						society = warrior_lodge_hellenic
+						value >= 750
+					}
+					society_currency = {
+						society = warrior_lodge_zun
+						value >= 750
+					}
+				}
+		}
+		allow {}
+		effect = {
+			society_rank_up = 1
+			change_society_currency = -750
+		}
+	}
+		player_rank_up_to_veteran = {
+		only_playable = yes
+		ai = no
+		filter = self
+		potential = {
+			is_in_society = yes
+				OR = {
+					society_rank = {
+						society = warrior_lodge_norse
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_tengri
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_baltic
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_finnish
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_slavic
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_west_african
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_bon
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_zun
+						rank == 2
+					}
+					society_rank = {
+						society = warrior_lodge_hellenic
+						rank == 2
+					}
+				}
+				OR = {
+					society_currency = {
+						society = warrior_lodge_norse
+						value >= 1000
+					}
+					society_currency = {
+						society = warrior_lodge_baltic
+						value >= 1000
+					}
+					society_currency = {
+						society = warrior_lodge_bon
+						value >= 1000
+					}
+					society_currency = {
+						society = warrior_lodge_slavic
+						value >= 1000
+					}
+					society_currency = {
+						society = warrior_lodge_finnish
+						value >= 1000
+					}
+					society_currency = {
+						society = warrior_lodge_west_african
+						value >= 1000
+					}
+					society_currency = {
+						society = warrior_lodge_hellenic
+						value >= 1000
+					}
+					society_currency = {
+						society = warrior_lodge_zun
+						value >= 1000
+					}
+				}
+		}
+		allow {}
+		effect = {
+			society_rank_up = 1
+			change_society_currency = -1000
+		}
+	}
+	player_rank_up_to_hero = {
+		only_playable = yes
+		ai = no
+		filter = self
+		potential = {
+			is_in_society = yes
+				OR = {
+					society_rank = {
+						society = warrior_lodge_norse
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_tengri
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_baltic
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_finnish
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_slavic
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_west_african
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_bon
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_zun
+						rank == 3
+					}
+					society_rank = {
+						society = warrior_lodge_hellenic
+						rank == 3
+					}
+				}
+				OR = {
+					society_currency = {
+						society = warrior_lodge_norse
+						value >= 2000
+					}
+					society_currency = {
+						society = warrior_lodge_baltic
+						value >= 2000
+					}
+					society_currency = {
+						society = warrior_lodge_bon
+						value >= 2000
+					}
+					society_currency = {
+						society = warrior_lodge_slavic
+						value >= 2000
+					}
+					society_currency = {
+						society = warrior_lodge_finnish
+						value >= 2000
+					}
+					society_currency = {
+						society = warrior_lodge_west_african
+						value >= 2000
+					}
+					society_currency = {
+						society = warrior_lodge_hellenic
+						value >= 2000
+					}
+					society_currency = {
+						society = warrior_lodge_zun
+						value >= 2000
+					}
+				}
+		}
+		allow {}
+		effect = {
+			character_event = { id = HF.10060}
+		}
+	}
+	
+}
+		

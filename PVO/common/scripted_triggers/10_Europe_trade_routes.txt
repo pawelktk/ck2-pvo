@@ -1,0 +1,84 @@
+Europe_trade_route_post_trigger = {
+	custom_tooltip = {
+		text = Europe_trade_route_province_desc
+		hidden_tooltip = {
+			OR = {
+			province_id = 52    # Northumberland
+			province_id = 32    # Middlesex
+			province_id = 57    # York
+			province_id = 59    # Chester
+			province_id = 46    # Edinburg
+			province_id = 26    # Winchester
+			
+			province_id = 149   # Bordeaux
+			province_id = 112   # Ile de france
+			province_id = 77    # Artios
+			province_id = 227   # Lyon
+			province_id = 221   # Provence
+			province_id = 212   # Narbonne
+			province_id = 930   # Bar-sur-Aube
+			
+			province_id = 78    # Brugge
+			province_id = 82    # Sticht
+			
+			province_id = 1982  # Magdeburg
+			province_id = 848	# Bremen	
+			province_id = 1981  # Frankfurt
+			province_id = 242   # Basel
+			province_id = 119   # Köln
+			province_id = 449   # Osterreich
+			province_id = 312   # Meissen
+			province_id = 262   # Lubeck
+			province_id = 368   # Danzig
+			province_id = 366   # Stettin
+			
+			province_id = 235   # Lombardia
+			province_id = 333   # Roma
+			province_id = 328   # Florence
+			province_id = 356   # Venezia
+			province_id = 233   # Genoa
+			province_id = 935   # Amalfi
+			province_id = 350   # Ancona
+			province_id = 340   # Palermo
+			province_id = 327   # Pisa
+			province_id = 326   # Cagliari
+			
+			province_id = 204   # Barcelona
+			province_id = 181   # Cordoba
+			province_id = 197   # Toledo
+			province_id = 157   # Santiago
+			province_id = 171   # Valencia
+			province_id = 827   # Mallorca
+			province_id = 165   # Cadiz
+			province_id = 160   # Lisboa
+			province_id = 199   # Burgos
+			province_id = 152   # Navarra
+			
+			province_id = 496   # Byzantion
+			province_id = 490	# Thessalonike
+			province_id = 483   # Rhodos
+			province_id = 757   # Famagusta
+			province_id = 482   # Athens
+			province_id = 470   # Durasso
+			
+			province_id = 468   # Ragusa
+			province_id = 467	# Split
+			province_id = 501   # Nish
+			province_id = 505   # Belgrade
+			province_id = 1696  # Freisach	
+			province_id = 527   # Krakowskie
+			province_id = 437   # Praha
+            province_id = 522   # Pest
+			
+			province_id = 817	# Tunis
+			province_id = 832   # Oran
+			province_id = 822   # Bejaija
+			province_id = 841   # Tangiers
+			
+			#Connecting Trade Posts - That don't build european trade posts
+			province_id = 764   # Antiocheia
+			province_id = 802   # Alexandria
+			}
+		}
+	}
+}

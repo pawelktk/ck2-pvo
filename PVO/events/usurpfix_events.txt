@@ -1,0 +1,132 @@
+namespace = usurpfix
+
+#fail-safe event to reverse temple usurpation when not otherwise precluded
+character_event = {
+	id = usurpfix.1
+	hide_window = yes
+
+	is_triggered_only = yes #triggered via on_new_holder_usurpation
+
+	# ROOT is the usurping character, FROM is the title, FROMFROM is the old holder
+
+	trigger = {
+		FROM = {
+			holding_type = temple
+		}
+		ROOT = { #check that the usurping character is a blank random priest
+			ai = yes
+			is_adult = yes
+			is_lowborn = yes
+			top_liege = {
+				culture = PREV
+				religion = PREV
+			}
+			demesne_size == 1
+			wealth == 0
+			prestige == 0
+			piety == 0
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+			NOR = {
+				mother_even_if_dead = { always = yes }
+				true_father_even_if_dead = { always = yes }
+				any_sibling_even_if_dead = { always = yes }
+				any_spouse_even_if_dead  = { always = yes }
+				any_child_even_if_dead = { always = yes }
+				any_close_relative = { always = yes }
+			}
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			give_nickname = nick_the_usurper
+			death = { death_reason = death_duel killer = FROMFROM }
+			abdicate_to = FROMFROM
+		}
+		if= {
+			limit = {
+				FROMFROM = {
+					liege = {
+						has_opinion_modifier = {
+							who = FROMFROM
+							modifier = opinion_resigned_from_council
+						}
+					}
+				}
+			}
+			FROMFROM = {
+				liege = {
+					remove_opinion = { #takes a day to come into effect
+						who = FROMFROM
+						modifier = opinion_resigned_from_council
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROMFROM = {
+						liege = {
+							NOT = { job_spiritual = { always = yes } }
+						}
+					}
+				}
+				FROMFROM = {
+					give_job_title = job_spiritual
+				}
+			}
+			else_if = {
+				limit = {
+					FROMFROM = {
+						liege = {
+							NOT = { job_chancellor = { always = yes } }
+						}
+					}
+				}
+				FROMFROM = {
+					give_job_title = job_chancellor
+				}
+			}
+			else_if = {
+				limit = {
+					FROMFROM = {
+						liege = {
+							NOT = { job_marshal = { always = yes } }
+						}
+					}
+				}
+				FROMFROM = {
+					give_job_title = job_marshal
+				}
+			}
+			else_if = {
+				limit = {
+					FROMFROM = {
+						liege = {
+							NOT = { job_treasurer = { always = yes } }
+						}
+					}
+				}
+				FROMFROM = {
+					give_job_title = job_treasurer
+				}
+			}
+			else_if = {
+				limit = {
+					FROMFROM = {
+						liege = {
+							NOT = { job_spymaster = { always = yes } }
+						}
+					}
+				}
+				FROMFROM = {
+					give_job_title = job_spymaster
+				}
+			}
+		}
+	}
+}

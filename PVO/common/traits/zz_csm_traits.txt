@@ -1,0 +1,81 @@
+stable_master_1 = {
+	
+	stewardship = 1
+	fertility = -10
+	mount_protection = 0.05
+	
+	opposites = {
+		stable_master_2
+		stable_master_3
+		stable_master_4
+	}
+	
+	can_hold_titles = no
+	cannot_inherit = yes
+	cannot_marry = yes
+	
+	customizer = no
+	random = no
+}
+
+stable_master_2 = {
+	
+	stewardship = 2
+	fertility = -10
+	mount_protection = 0.10
+	
+	opposites = {
+		stable_master_1
+		stable_master_3
+		stable_master_4
+	}
+	
+	can_hold_titles = no
+	cannot_inherit = yes
+	cannot_marry = yes
+	
+	customizer = no
+	random = no
+}
+
+stable_master_3 = {
+
+	stewardship = 4
+	fertility = -10
+	mount_protection = 0.20
+	
+	opposites = {
+		stable_master_1
+		stable_master_2
+		stable_master_4
+	}
+	
+	can_hold_titles = no
+	cannot_inherit = yes
+	cannot_marry = yes
+	
+	customizer = no
+	random = no
+}
+
+
+stable_master_4 = {
+
+	stewardship = 6
+	fertility = -10
+	mount_protection = 0.30
+	
+	opposites = {
+		stable_master_1
+		stable_master_2
+		stable_master_4
+	}
+	
+	can_hold_titles = no
+	cannot_inherit = yes
+	cannot_marry = yes
+	
+	customizer = no
+	random = no
+}
+

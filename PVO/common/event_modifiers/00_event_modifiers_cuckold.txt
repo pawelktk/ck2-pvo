@@ -1,0 +1,6 @@
+unclear_heritage = {
+  vassal_opinion = -10
+  church_opinion = -10
+  global_revolt_risk = 0.02
+  icon = 28
+}

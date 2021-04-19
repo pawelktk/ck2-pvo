@@ -1,0 +1,5 @@
+NDefines.NMilitary.MAX_COMMANDERS_BARON = 5
+NDefines.NMilitary.MAX_COMMANDERS_COUNT = 5
+NDefines.NMilitary.MAX_COMMANDERS_DUKE = 8
+NDefines.NMilitary.MAX_COMMANDERS_KING = 10
+NDefines.NMilitary.MAX_COMMANDERS_EMPEROR = 30

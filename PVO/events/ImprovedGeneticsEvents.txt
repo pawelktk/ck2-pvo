@@ -11,10 +11,489 @@
 # chance for the character to get the negative trait.																	   #
 ############################################################################################################################
 
-### For the numbers, ignore my comments. They are obsolete
-
 
 namespace = MT
+
+character_event = {
+
+	hide_window = yes
+	id = MT.1000
+
+	is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = MT.1001 days = 3}
+	}
+}
+
+character_event = {
+
+	hide_window = yes
+	id = MT.1001
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_save_game = no
+		ai = yes
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { historical = yes }
+			}
+
+			## Intelligence. 7% Bright, 2% quick, 0.5% genius. And similar for the Other
+			## Adjusted values. 5% bright, 1.2% quick, 0.3% genius
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = bright
+							trait = quick
+							trait = genius
+							trait = imbecile
+							trait = slow
+							trait = dim
+						}
+					}
+				}
+				random_list = {
+					50 = { 
+						add_trait = bright
+					}
+					12 = {
+						add_trait = quick
+					}
+					3 = {
+						add_trait = genius
+					}
+					2 = {
+						add_trait = imbecile
+					}
+					10 = {
+						add_trait = slow
+					}
+					45 = {
+						add_trait = dim
+					}
+					870 = {
+						## Nothing
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = strong
+							trait = burly
+							trait = delicate
+							trait = weak
+						}
+					}
+				}
+				random_list = {
+					50 = { 
+						add_trait = burly
+					}
+					15 = {
+						add_trait = strong
+					}
+					10 = {
+						add_trait = weak
+					}
+					40 = {
+						add_trait = delicate
+					}
+					870 = {
+						## Nothing
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = fair
+							trait = comely
+							trait = homely
+							trait = ugly
+						}
+					}
+				}
+				random_list = {
+					50 = { 
+						add_trait = comely
+					}
+					15 = {
+						add_trait = fair
+					}
+					10 = {
+						add_trait = ugly
+					}
+					40 = {
+						add_trait = homely
+					}
+					870 = {
+						## Nothing
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = giant
+							trait = tall
+							trait = short
+							trait = tiny
+						}
+					}
+				}
+				random_list = {
+					40 = { 
+						add_trait = tall
+					}
+					5 = {
+						add_trait = giant
+					}
+					5 = {
+						add_trait = tiny
+					}
+					35 = {
+						add_trait = short
+					}
+					890 = {
+						## Nothing
+					}
+				}
+			}
+
+			random = {
+				3 = {
+					add_trait = dwarf
+				}
+
+				997 = {
+
+				}
+			}
+
+			random = {
+				4 = {
+					add_trait = hunchback
+				}
+
+				996 = {
+
+				}
+			}
+
+			random = {
+				5 = {
+					add_trait = harelip
+				}
+
+				995 = {
+
+				}
+			}
+
+			random = {
+				6 = {
+					add_trait = stutter
+				}
+
+				993 = {
+
+				}
+			}
+
+			random = {
+				6 = {
+					add_trait = lisp
+				}
+
+				993 = {
+
+				}
+			}
+
+			random = {
+				5 = {
+					add_trait = clubfooted
+				}
+
+				995 = {
+
+				}
+			}
+
+
+			random_list = {
+				4 = {
+					add_trait = wrymouth
+				}
+
+				996 = {
+
+				}
+			}
+
+			random_list = {
+				5 = {
+					add_trait = deaf
+				}
+
+				995 = {
+
+				}
+			}
+			random_list = {
+				10 = {
+					add_trait = perceptive
+				}
+				10 = {
+					add_trait = absentminded
+				}
+				980 = {
+				}
+			}
+
+			## HIP traits. Wrymouth, Deaf
+
+		}
+		else_if = {
+			limit = {
+				NOT = { num_of_traits = 6 }
+			}
+			set_character_flag = num_of_traits_debug
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = bright
+							trait = quick
+							trait = genius
+							trait = imbecile
+							trait = slow
+							trait = dim
+						}
+					}
+				}
+				random_list = {
+					50 = { 
+						add_trait = bright
+					}
+					12 = {
+						add_trait = quick
+					}
+					3 = {
+						add_trait = genius
+					}
+					3 = {
+						add_trait = imbecile
+					}
+					10 = {
+						add_trait = slow
+					}
+					40 = {
+						add_trait = dim
+					}
+					1870 = {
+						## Nothing
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = strong
+							trait = burly
+							trait = delicate
+							trait = weak
+						}
+					}
+				}
+				random_list = {
+					50 = { 
+						add_trait = burly
+					}
+					15 = {
+						add_trait = strong
+					}
+					12 = {
+						add_trait = weak
+					}
+					40 = {
+						add_trait = delicate
+					}
+					1870 = {
+						## Nothing
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = fair
+							trait = comely
+							trait = homely
+							trait = ugly
+						}
+					}
+				}
+				random_list = {
+					50 = { 
+						add_trait = fair
+					}
+					15 = {
+						add_trait = comely
+					}
+					12 = {
+						add_trait = homely
+					}
+					40 = {
+						add_trait = ugly
+					}
+					1870 = {
+						## Nothing
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = giant
+							trait = tall
+							trait = short
+							trait = tiny
+						}
+					}
+				}
+				random_list = {
+					50 = { 
+						add_trait = tall
+					}
+					5 = {
+						add_trait = giant
+					}
+					5 = {
+						add_trait = tiny
+					}
+					50 = {
+						add_trait = short
+					}
+					1890 = {
+						## Nothing
+					}
+				}
+			}
+
+			random = {
+				3 = {
+					add_trait = dwarf
+				}
+
+				1997 = {
+
+				}
+			}
+
+			random = {
+				4 = {
+					add_trait = hunchback
+				}
+
+				1996 = {
+
+				}
+			}
+
+			random = {
+				5 = {
+					add_trait = harelip
+				}
+
+				1995 = {
+
+				}
+			}
+
+			random = {
+				7 = {
+					add_trait = stutter
+				}
+
+				1993 = {
+
+				}
+			}
+
+			random = {
+				7 = {
+					add_trait = lisp
+				}
+
+				1993 = {
+
+				}
+			}
+
+			random = {
+				5 = {
+					add_trait = clubfooted
+				}
+
+				1995 = {
+
+				}
+			}
+
+			random_list = {
+				4 = {
+					add_trait = wrymouth
+				}
+
+				1996 = {
+
+				}
+			}
+
+			random_list = {
+				5 = {
+					add_trait = deaf
+				}
+
+				1995 = {
+
+				}
+			}
+			random_list = {
+				10 = {
+					add_trait = perceptive
+				}
+				10 = {
+					add_trait = absentminded
+				}
+				1980 = {
+				}
+			}
+		}
+		else = {}
+	}
+}
 
 ## Initialization Event, for the cuckolding case, since REAL_FATHER scope doesn't work as expected. It only scopes to real father if the real father is not the father.
 ## So an additional event chain is required for the cuckolding case. 
@@ -129,6 +608,64 @@ character_event = {
 						set_character_flag = int_CC
 						}
 						2 = {
+						set_character_flag = int_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = bright
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_AA
+						}
+						5 = {
+						set_character_flag = int_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_BB
+						}
+						5 = {
+						set_character_flag = int_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_CC
+						}
+						5 = {
+						set_character_flag = int_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = dim
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_aa
+						}
+						5 = {
+						set_character_flag = int_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_bb
+						}
+						5 = {
+						set_character_flag = int_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_cc
+						}
+						5 = {
 						set_character_flag = int_Cc
 						}
 					}
@@ -303,6 +840,64 @@ character_event = {
 						set_character_flag = int_CC
 						}
 						2 = {
+						set_character_flag = int_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = bright
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_AA
+						}
+						5 = {
+						set_character_flag = int_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_BB
+						}
+						5 = {
+						set_character_flag = int_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_CC
+						}
+						5 = {
+						set_character_flag = int_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = dim
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_aa
+						}
+						5 = {
+						set_character_flag = int_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_bb
+						}
+						5 = {
+						set_character_flag = int_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = int_cc
+						}
+						5 = {
 						set_character_flag = int_Cc
 						}
 					}
@@ -1124,6 +1719,64 @@ character_event = {
 				}
 				else_if = {
 					limit = {
+						trait = comely
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = attr_AA
+						}
+						5 = {
+						set_character_flag = attr_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = attr_BB
+						}
+						5 = {
+						set_character_flag = attr_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = attr_CC
+						}
+						5 = {
+						set_character_flag = attr_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = homely
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = attr_aa
+						}
+						5 = {
+						set_character_flag = attr_Aa
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = attr_bb
+						}
+						5 = {
+						set_character_flag = attr_Bb
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = attr_cc
+						}
+						5 = {
+						set_character_flag = attr_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
 						trait = ugly
 					}
 					random_list = {
@@ -1236,6 +1889,64 @@ character_event = {
 						set_character_flag = attr_CC
 						}
 						2 = {
+						set_character_flag = attr_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = comely
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = attr_AA
+						}
+						5 = {
+						set_character_flag = attr_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = attr_BB
+						}
+						5 = {
+						set_character_flag = attr_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = attr_CC
+						}
+						5 = {
+						set_character_flag = attr_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = homely
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = attr_aa
+						}
+						5 = {
+						set_character_flag = attr_Aa
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = attr_bb
+						}
+						5 = {
+						set_character_flag = attr_Bb
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = attr_cc
+						}
+						5 = {
 						set_character_flag = attr_Cc
 						}
 					}
@@ -2009,6 +2720,64 @@ character_event = {
 				}
 				else_if = {
 					limit = {
+						trait = burly
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = str_AA
+						}
+						5 = {
+						set_character_flag = str_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = str_BB
+						}
+						5 = {
+						set_character_flag = str_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = str_CC
+						}
+						5 = {
+						set_character_flag = str_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = delicate
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = str_aa
+						}
+						5 = {
+						set_character_flag = str_Aa
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = str_bb
+						}
+						5 = {
+						set_character_flag = str_Bb
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = str_cc
+						}
+						5 = {
+						set_character_flag = str_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
 						trait = weak
 					}
 					random_list = {
@@ -2121,6 +2890,64 @@ character_event = {
 						set_character_flag = str_CC
 						}
 						2 = {
+						set_character_flag = str_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = burly
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = str_AA
+						}
+						5 = {
+						set_character_flag = str_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = str_BB
+						}
+						5 = {
+						set_character_flag = str_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = str_CC
+						}
+						5 = {
+						set_character_flag = str_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = delicate
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = str_aa
+						}
+						5 = {
+						set_character_flag = str_Aa
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = str_bb
+						}
+						5 = {
+						set_character_flag = str_Bb
+						}
+					}
+					random_list = {
+						2 =  { 
+						set_character_flag = str_cc
+						}
+						5 = {
 						set_character_flag = str_Cc
 						}
 					}
@@ -2898,6 +3725,64 @@ character_event = {
 				}
 				else_if = {
 					limit = {
+						trait = tall
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_AA
+						}
+						5 = {
+						set_character_flag = hgt_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_BB
+						}
+						5 = {
+						set_character_flag = hgt_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_CC
+						}
+						5 = {
+						set_character_flag = hgt_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = short
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_aa
+						}
+						5 = {
+						set_character_flag = hgt_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_bb
+						}
+						5 = {
+						set_character_flag = hgt_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_cc
+						}
+						5 = {
+						set_character_flag = hgt_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
 						trait = tiny
 					}
 					random_list = {
@@ -3010,6 +3895,65 @@ character_event = {
 						set_character_flag = hgt_CC
 						}
 						2 = {
+						set_character_flag = hgt_Cc
+						}
+					}
+				}
+
+				else_if = {
+					limit = {
+						trait = tall
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_AA
+						}
+						5 = {
+						set_character_flag = hgt_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_BB
+						}
+						5 = {
+						set_character_flag = hgt_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_CC
+						}
+						5 = {
+						set_character_flag = hgt_Cc
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						trait = short
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_aa
+						}
+						5 = {
+						set_character_flag = hgt_Aa
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_bb
+						}
+						5 = {
+						set_character_flag = hgt_Bb
+						}
+					}
+					random_list = {
+						3 =  { 
+						set_character_flag = hgt_cc
+						}
+						5 = {
 						set_character_flag = hgt_Cc
 						}
 					}
@@ -3361,6 +4305,7 @@ character_event = {
 			}
 			50 = {
 			set_character_flag = hgt_bb
+		change_variable = { which = alleles value = 1 }
 			
 			}
 			}
@@ -3574,10 +4519,10 @@ character_event = {
 				}
 			}
 			random_list = {
-				80 = {
+				60 = {
 				add_trait = giant
 				}
-				20 = {
+				40 = {
 				add_trait = tall
 				}
 			}
@@ -3595,13 +4540,13 @@ character_event = {
 				}
 			}
 			random_list = {
-				10 = {
+				12 = {
 				add_trait = giant
 				}
-				60 = {
+				50 = {
 				add_trait = tall
 				}
-				30 = {
+				40 = {
 				}
 			}
 		}
@@ -3694,10 +4639,10 @@ character_event = {
 				}
 			}
 			random_list = {
-				80 = {
+				60 = {
 				add_trait = tiny
 				}
-				20 = {
+				40 = {
 				add_trait = short
 				}
 			}
@@ -7622,7 +8567,7 @@ character_event = {
 				1 = {
 				add_trait = lisp
 				}
-				199 = {
+				99 = {
 				}
 			}
 		}
@@ -8406,7 +9351,7 @@ character_event = {
 				1 = {
 				add_trait = stutter
 				}
-				199 = {
+				99 = {
 				}
 			}
 		}
@@ -11062,7 +12007,7 @@ character_event = {
 					OR = {
 						trait = strong
 						trait = weak
-						trait = burly
+						trait = sturdy
 						trait = delicate
 					}
 				}
@@ -11072,7 +12017,7 @@ character_event = {
 				add_trait = strong
 				}
 				20 = {
-				add_trait = burly
+				add_trait = sturdy
 				}
 			}
 		}
@@ -11083,7 +12028,7 @@ character_event = {
 					OR = {
 						trait = strong
 						trait = weak
-						trait = burly
+						trait = sturdy
 						trait = delicate
 					}
 				}
@@ -11093,7 +12038,7 @@ character_event = {
 				add_trait = strong
 				}
 				50 = {
-				add_trait = burly
+				add_trait = sturdy
 				}
 				25 = {
 				}
@@ -11106,7 +12051,7 @@ character_event = {
 					OR = {
 						trait = strong
 						trait = weak
-						trait = burly
+						trait = sturdy
 						trait = delicate
 					}
 				}
@@ -11116,7 +12061,7 @@ character_event = {
 				add_trait = strong
 				}
 				8 = {
-				add_trait = burly
+				add_trait = sturdy
 				}
 				90 = {
 				}
@@ -11129,7 +12074,7 @@ character_event = {
 					OR = {
 						trait = strong
 						trait = weak
-						trait = burly
+						trait = sturdy
 						trait = delicate
 					}
 				}
@@ -11142,7 +12087,7 @@ character_event = {
 					OR = {
 						trait = strong
 						trait = weak
-						trait = burly
+						trait = sturdy
 						trait = delicate
 					}
 				}
@@ -11165,7 +12110,7 @@ character_event = {
 					OR = {
 						trait = strong
 						trait = weak
-						trait = burly
+						trait = sturdy
 						trait = delicate
 					}
 				}
@@ -11188,7 +12133,7 @@ character_event = {
 					OR = {
 						trait = strong
 						trait = weak
-						trait = burly
+						trait = sturdy
 						trait = delicate
 					}
 				}
@@ -13658,7 +14603,7 @@ character_event = {
 				1 = {
 				add_trait = clubfooted
 				}
-				199 = {
+				99 = {
 				}
 			}
 		}
@@ -14442,7 +15387,7 @@ character_event = {
 				1 = {
 				add_trait = hunchback
 				}
-				199 = {
+				99 = {
 				}
 			}
 		}
@@ -15226,7 +16171,7 @@ character_event = {
 				1 = {
 				add_trait = harelip
 				}
-				199 = {
+				99 = {
 				}
 			}
 		}
@@ -16010,7 +16955,7 @@ character_event = {
 				1 = {
 				add_trait = lisp
 				}
-				199 = {
+				99 = {
 				}
 			}
 		}
@@ -16794,7 +17739,7 @@ character_event = {
 				1 = {
 				add_trait = stutter
 				}
-				199 = {
+				99 = {
 				}
 			}
 		}

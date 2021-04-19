@@ -1,0 +1,4290 @@
+####ID Ranges####
+#General 0-199
+#AI-only 200-399
+#
+
+
+
+
+namespace = csmm
+
+##initialization
+character_event = {
+	id = csmm.000
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	ai = no
+	
+	trigger = {
+		NOR = {
+			has_global_flag = csm_initializing
+			has_global_flag = csm_initialized 
+		}
+		ai = no
+	}
+	
+	immediate = {
+		set_global_flag = csm_initializing
+		
+		#debug
+		#set_variable = { which = global_mounted_combat value = 0 }
+		#set_variable = { which = global_mounted_combat_commander value = 0 }
+		#set_variable = { which = global_mounted_combat_fight value = 0 }
+		#set_variable = { which = global_mounted_combat_run value = 0 }
+		
+		##ck2+
+		if = {
+			limit = {
+				e_placeholder = { has_title_flag = secondary_startup }
+			}
+			character_event = { id = csmm.001 days = 5 }
+			set_global_flag = csm_plus_detected
+		}
+		
+		##HIP
+		else_if = {
+			limit = { e_hip = { has_holder = yes } }
+			character_event = { id = csmm.002 days = 5 }
+			set_global_flag = csm_hip_detected
+		}
+		
+		
+		#vanilla
+		else = { character_event = { id = csmm.003 days = 5 } }
+	}
+}
+
+
+##CK2+ initialization
+character_event = {
+	id = csmm.001
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = { has_global_flag = aao_initialized }
+			set_global_flag = csm_aao_initialized
+		}
+		
+		#if = {
+		#	limit = { NOT = { has_game_rule = { name = mounted_combat_frequency value = off } } }
+		#	set_global_flag = mounted_combat_allowed
+		#}
+		
+		
+		#Ireland, Dublin
+		11 = {
+			save_global_event_target_as = ireland_mount_province
+			if = {
+				limit = { 
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 75 }
+			}
+			else = { set_variable = { which = available_mounts value = 50 } }
+			add_province_modifier = { modifier = plus_ireland_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#France, Anjou
+		107 = {
+			save_global_event_target_as = france_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = plus_france_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Germany, Nassau
+		121 = {
+			save_global_event_target_as = germany_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = plus_germany_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Slavic, Czerk
+		530 = {
+			save_global_event_target_as = slavic_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = plus_slavic_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Italy, Orvieto
+		243 = {
+			save_global_event_target_as = italy_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = plus_italy_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		
+		#Spain, Valladolid
+		198 = {
+			save_global_event_target_as = spain_mount_province
+			if = {
+				limit = { 
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 75 }
+			}
+			else = { set_variable = { which = available_mounts value = 50 } }
+			add_province_modifier = { modifier = plus_spain_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Andalus, Cordoba
+		181 = {
+			save_global_event_target_as = andalus_mount_province
+			if = {
+				limit = { 
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 100 }
+			}
+			else = { set_variable = { which = available_mounts value = 75 } }
+			add_province_modifier = { modifier = plus_andalus_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Steppes, Kipchak
+		1430 = {
+			save_global_event_target_as = steppes_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = plus_steppes_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Arabia, Najran
+		857 = {
+			save_global_event_target_as = arabia_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = plus_arabia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Greece, Thessalonike
+		490 = {
+			save_global_event_target_as = greece_mount_province
+			set_variable = { which = available_mounts value = 75 }
+			add_province_modifier = { modifier = plus_greece_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Bactria, Merv
+		630 = {
+			save_global_event_target_as = bactria_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = plus_bactria_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#India, Kherla
+		1286 = {
+			save_global_event_target_as = india_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = plus_india_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Africa, Gao
+		914 = {
+			save_global_event_target_as = africa_mount_province
+			set_variable = { which = available_mounts value = 75 }
+			add_province_modifier = { modifier = plus_africa_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Tibet, Banbar 
+		1671 = {
+			save_global_event_target_as = tibet_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = plus_tibet_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Scandinavia, Jamtland
+		282 = {
+			save_global_event_target_as = scandinavia_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = plus_scandinavia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Russia, Moskva
+		575 = {
+			save_global_event_target_as = russia_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = plus_russia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Soumi, Karjala
+		388 = {
+			save_global_event_target_as = sami_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = plus_sami_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		if = {
+			limit = { year = 1220 }
+			e_mongol_empire = {
+				holder_scope = {
+					character_event = { id = csm.213 days = 2 }
+				}
+			}
+		}
+		
+		
+		set_global_flag = csm_initialized
+		clr_global_flag = csm_initializing
+	}
+}
+
+##HIP initialization
+character_event = {
+	id = csmm.002
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = { has_global_flag = aao_initialized }
+			set_global_flag = csm_aao_initialized
+		}
+		
+		#if = {
+		#	limit = { NOT = { has_game_rule = { name = mounted_combat_frequency value = off } } }
+		#	set_global_flag = mounted_combat_allowed
+		#}
+		
+		
+		#Ireland, Dublin
+		11 = {
+			save_global_event_target_as = ireland_mount_province
+			if = {
+				limit = { 
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 75 }
+			}
+			else = { set_variable = { which = available_mounts value = 50 } }
+			add_province_modifier = { modifier = hip_ireland_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#France, Anjou
+		107 = {
+			save_global_event_target_as = france_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = hip_france_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Germany, Nassau
+		121 = {
+			save_global_event_target_as = germany_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = hip_germany_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Slavic, Czerk
+		530 = {
+			save_global_event_target_as = slavic_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = hip_slavic_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Italy, Orvieto
+		243 = {
+			save_global_event_target_as = italy_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = hip_italy_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		
+		#Spain, Valladolid
+		198 = {
+			save_global_event_target_as = spain_mount_province
+			if = {
+				limit = { 
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 75 }
+			}
+			else = { set_variable = { which = available_mounts value = 50 } }
+			add_province_modifier = { modifier = hip_spain_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Andalus, Cordoba
+		181 = {
+			save_global_event_target_as = andalus_mount_province
+			if = {
+				limit = {
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 100 }
+			}
+			else = { set_variable = { which = available_mounts value = 75 } }
+			add_province_modifier = { modifier = hip_andalus_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Steppes, Irgiz, if using map changes
+		if = {
+			limit = {
+				897 = {
+					county = { title = c_irgiz }
+				}
+			}
+			897 = {
+				save_global_event_target_as = steppes_mount_province
+				set_variable = { which = available_mounts value = 100 }
+				add_province_modifier = { modifier = hip_steppes_mount_counter duration = -1 }
+				set_province_flag = mount_province
+			}
+		}
+		else = {
+			#Steppes, Kipchak
+			1430 = {
+				save_global_event_target_as = steppes_mount_province
+				set_variable = { which = available_mounts value = 100 }
+				add_province_modifier = { modifier = hip_steppes_mount_counter duration = -1 }
+				set_province_flag = mount_province
+			}
+		}
+		
+		#Arabia, Asir
+		861 = {
+			save_global_event_target_as = arabia_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = hip_arabia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Greece, Thessalonike
+		490 = {
+			save_global_event_target_as = greece_mount_province
+			set_variable = { which = available_mounts value = 75 }
+			add_province_modifier = { modifier = hip_greece_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Bactria, Merv
+		630 = {
+			save_global_event_target_as = bactria_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = hip_bactria_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#India, Ajayameru, if using map changes
+		if = {
+			limit = {
+				1654 = {
+					county = { title = c_ajayameru }
+				}
+			}
+			1654 = {
+				save_global_event_target_as = india_mount_province
+				set_variable = { which = available_mounts value = 100 }
+				add_province_modifier = { modifier = hip_india_mount_counter duration = -1 }
+				set_province_flag = mount_province
+			}
+		}
+		else = {
+			#India, Kherla
+			1286 = {
+				save_global_event_target_as = india_mount_province
+				set_variable = { which = available_mounts value = 100 }
+				add_province_modifier = { modifier = hip_india_mount_counter duration = -1 }
+				set_province_flag = mount_province
+			}
+		}
+		
+		#Africa, Gao
+		914 = {
+			save_global_event_target_as = africa_mount_province
+			set_variable = { which = available_mounts value = 75 }
+			add_province_modifier = { modifier = hip_africa_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		
+		#Tibet, Rutog, if using map changes
+		if = {
+			limit = {
+				1984 = {
+					county = { title = c_rutog }
+				}
+			}
+			1984 = {
+				save_global_event_target_as = tibet_mount_province
+				set_variable = { which = available_mounts value = 50 }
+				add_province_modifier = { modifier = hip_tibet_mount_counter duration = -1 }
+				set_province_flag = mount_province
+			}
+		}
+		else = {
+			#Tibet, Coqen
+			1493 = {
+				save_global_event_target_as = tibet_mount_province
+				set_variable = { which = available_mounts value = 50 }
+				add_province_modifier = { modifier = hip_tibet_mount_counter duration = -1 }
+				set_province_flag = mount_province
+			}
+		}
+		
+		#Scandinavia, Jamtland
+		282 = {
+			save_global_event_target_as = scandinavia_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = hip_scandinavia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Russia, Moskva
+		575 = {
+			save_global_event_target_as = russia_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = hip_russia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Soumi, Karjala
+		388 = {
+			save_global_event_target_as = sami_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = hip_sami_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		if = {
+			limit = { year = 1220 }
+			e_mongol_empire = {
+				holder_scope = {
+					character_event = { id = csm.213 days = 2 }
+				}
+			}
+		}
+		
+		
+		set_global_flag = csm_initialized
+		clr_global_flag = csm_initializing
+	}
+}
+
+
+
+
+##vanilla initialization
+character_event = {
+	id = csmm.003
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = { has_global_flag = aao_initialized }
+			set_global_flag = csm_aao_initialized
+		}
+		
+		#if = {
+		#	limit = { NOT = { has_game_rule = { name = mounted_combat_frequency value = off } } }
+		#	set_global_flag = mounted_combat_allowed
+		#}
+		
+		
+		#Ireland, Dublin
+		11 = {
+			save_global_event_target_as = ireland_mount_province
+			if = {
+				limit = {
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 75 }
+			}
+			else = { set_variable = { which = available_mounts value = 50 } }
+			add_province_modifier = { modifier = ireland_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#France, Anjou
+		107 = {
+			save_global_event_target_as = france_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = france_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Germany, Nassau
+		121 = {
+			save_global_event_target_as = germany_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = germany_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Slavic, Czerk
+		530 = {
+			save_global_event_target_as = slavic_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = slavic_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Italy, Orvieto
+		243 = {
+			save_global_event_target_as = italy_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = italy_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		
+		#Spain, Valladolid
+		198 = {
+			save_global_event_target_as = spain_mount_province
+			if = {
+				limit = { 
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 75 }
+			}
+			else = { set_variable = { which = available_mounts value = 50 } }
+			add_province_modifier = { modifier = spain_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Andalus, Cordoba
+		181 = {
+			save_global_event_target_as = andalus_mount_province
+			if = {
+				limit = { 
+					year = 769
+					NOT = { year = 1066 }
+				}
+				set_variable = { which = available_mounts value = 100 }
+			}
+			else = { set_variable = { which = available_mounts value = 75 } }
+			add_province_modifier = { modifier = andalus_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Steppes, Kipchak
+		1430 = {
+			save_global_event_target_as = steppes_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = steppes_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Arabia, Asir
+		861 = {
+			save_global_event_target_as = arabia_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = arabia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Greece, Thessalonike
+		490 = {
+			save_global_event_target_as = greece_mount_province
+			set_variable = { which = available_mounts value = 75 }
+			add_province_modifier = { modifier = greece_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Bactria, Merv
+		630 = {
+			save_global_event_target_as = bactria_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = bactria_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#India, Kherla
+		1286 = {
+			save_global_event_target_as = india_mount_province
+			set_variable = { which = available_mounts value = 100 }
+			add_province_modifier = { modifier = india_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Africa, Gao
+		914 = {
+			save_global_event_target_as = africa_mount_province
+			set_variable = { which = available_mounts value = 75 }
+			add_province_modifier = { modifier = africa_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Tibet, Coqen
+		1493 = {
+			save_global_event_target_as = tibet_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = tibet_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		
+		#Scandinavia, Jamtland
+		282 = {
+			save_global_event_target_as = scandinavia_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = scandinavia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Russia, Moskva
+		575 = {
+			save_global_event_target_as = russia_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = russia_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		#Soumi, Karjala
+		388 = {
+			save_global_event_target_as = sami_mount_province
+			set_variable = { which = available_mounts value = 50 }
+			add_province_modifier = { modifier = sami_mount_counter duration = -1 }
+			set_province_flag = mount_province
+		}
+		
+		if = {
+			limit = { year = 1220 }
+			e_mongol_empire = {
+				holder_scope = {
+					character_event = { id = csm.213 days = 2 }
+				}
+			}
+		}
+		
+		
+		set_global_flag = csm_initialized
+		clr_global_flag = csm_initializing
+	}
+}
+
+##province mounts fluctuation
+character_event = {
+	id = csmm.004
+
+	is_triggered_only = yes
+	hide_window = yes
+	
+	has_global_flag = csm_initialized
+	only_playable = yes
+	ai = no
+	
+	trigger = {
+		ai = no
+		#for multiplayer
+		OR = {
+			NOT = { has_global_flag = csm_provinces_randomizing } 
+			had_global_flag = { flag = csm_provinces_randomized days = 720 } #must be days
+		}
+	}
+
+	immediate = {
+		set_global_flag = csm_provinces_randomizing
+		clr_global_flag = csm_provinces_randomized
+		
+	
+		event_target:ireland_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:france_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:germany_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:slavic_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:italy_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:spain_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:andalus_mount_province = { randomize_heartland_effect = yes }
+	
+		event_target:steppes_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:arabia_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:greece_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:bactria_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:india_mount_province = { randomize_heartland_effect = yes }
+		
+		event_target:africa_mount_province = { randomize_heartland_effect = yes }
+	
+		event_target:tibet_mount_province = { randomize_heartland_effect = yes }
+	
+		event_target:scandinavia_mount_province = { randomize_heartland_effect = yes }
+
+		event_target:russia_mount_province = { randomize_heartland_effect = yes }	
+	
+		event_target:sami_mount_province = { randomize_heartland_effect = yes }
+		
+		
+		set_global_flag = csm_provinces_randomized
+		clr_global_flag = csm_provinces_randomizing
+	}
+}
+
+##mount inheritance
+character_event = {
+	id = csmm.005
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	has_global_flag = csm_initialized
+	
+	trigger = {
+		FROM = { 
+			OR = {
+				has_artifact_flag = mount 
+				has_artifact_flag = commander_addon
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { is_playable = no }
+			FROM = { unsafe_destroy_artifact = yes }
+		}
+		else_if = {
+			limit = {
+				FROM = { 
+					OR = {
+						has_artifact_flag = commander_mount 
+						has_artifact_flag = commander_addon
+					}
+				}
+			}
+			FROM = { unsafe_destroy_artifact = yes }
+		}
+		else = { check_mount_flags_effect = yes }
+	}
+}
+
+#character becomes unlanded
+character_event = {
+	id = csmm.006
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		has_character_flag = has_mount
+		any_artifact = {
+			OR = {
+				has_artifact_flag = mount
+				has_artifact_flag = mount_armor
+				has_artifact_flag = mount_addon
+			}
+		}
+	}
+	
+	immediate = { character_event = { id = csmm.007 days = 2 } }
+}
+
+#pick best candidate to gift
+character_event = {
+	id = csmm.007
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				any_dynasty_member = {
+					is_playable = yes
+					same_realm = ROOT
+				}
+			}
+			random_dynasty_member = {
+				limit = {
+					is_playable = yes
+					same_realm = ROOT
+				}
+				character_event = { id = csmm.008 }
+			}
+		}
+		
+		else_if = {
+			limit = {
+				any_dynasty_member = { is_playable = yes }
+			}
+			random_dynasty_member = {
+				limit = { is_playable = yes }
+				character_event = { id = csmm.008 }
+			}
+		}
+		
+		else_if = {
+			limit = {
+				NOT = {
+					liege = {
+						reverse_has_opinion_modifier = { who = ROOT modifier = opinion_revoked_my_title }
+					}
+				}
+			}
+			liege = { character_event = { id = csmm.008 } }
+		}
+		
+		else = {
+			random_realm_lord = {
+				limit = { is_playable = yes }
+				character_event = { id = csmm.008 }
+			}
+		}
+	}
+}
+
+
+#candidate gains unlanded character's mounts
+character_event = {
+	id = csmm.008
+	desc = EVTDESAcsmm.008
+	picture = GFX_evt_emissary
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcsmm.008
+		FROM = {
+			show_scope_change = no
+			any_artifact = {
+				show_scope_change = no
+				limit = {
+					OR = {
+						has_artifact_flag = mount
+						has_artifact_flag = mount_armor
+						has_artifact_flag = mount_addon
+					}
+				}
+				transfer_artifact = {
+					from = PREV
+					to = ROOT
+				}
+			}
+		}
+	}
+	
+	after = {
+		check_mount_flags_effect = yes
+		FROM = { check_mount_flags_effect = yes }
+	}
+}
+
+
+	
+###dead stable master notification
+character_event = {
+	id = csmm.009
+	desc = EVTDESAcsmm.009
+	picture = GFX_evt_died_old_age
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	
+	option = { name = EVTOPTAcsmm.009 }
+}
+
+
+###mount master maintenance event
+character_event = {
+	id = csmm.010
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	has_global_flag = csm_initialized
+	only_playable = yes
+	has_character_flag = has_mount
+
+	immediate = {
+		
+		check_mount_flags_effect = yes
+		if = {
+			limit = { NOT = { has_character_flag = has_mount } }
+			break = yes
+		}
+		
+		#health decrease
+		any_artifact = {
+			limit = {
+				has_artifact_flag = mount
+				NOR = { 
+					has_artifact_flag = immortal 
+					artifact_type = foal
+				}
+			}
+			random_list = {
+				#no change
+				40 = {
+					modifier = {
+						factor = 1.1
+						ROOT = { has_weak_stable_master_trigger = yes }
+					}
+					modifier = {
+						factor = 1.2
+						ROOT = { has_normal_stable_master_trigger = yes }
+					}
+					modifier = {
+						factor = 1.3
+						ROOT = { has_great_stable_master_trigger = yes }
+					}
+				}
+				
+				#decrease health 
+				60 = {
+					modifier = {
+						factor = 0.8
+						has_artifact_flag = robust
+					}
+					modifier = {
+						factor = 0.7
+						has_artifact_flag = unique
+					}
+					decrease_mount_health_effect = yes		
+				}
+			}
+		}
+		
+		#age foals
+		any_artifact = {
+			limit = { artifact_type = foal }
+			age_foal_effect = yes
+		}
+		
+		
+		#roll breeding
+		if = {
+			limit = {
+				NOT = { has_global_flag = gender_based_breeding }
+				NOT = { has_character_modifier = breeding_timer }
+				any_artifact = {
+					count = 2
+					is_breedable_trigger = yes
+				}
+			}
+			random_list = {
+				#nothing
+				100 = {
+					modifier = {
+						factor = 5
+						ai = yes
+						any_artifact = {
+							count = 8
+							has_artifact_flag = mount
+						}
+					}
+				}
+				
+				#breed
+				25 = { character_event = { id = csmm.012 days = 10 } }
+				
+				
+				#fertile breed
+				60 = {
+					trigger = {
+						any_artifact = {
+							is_breedable_trigger = yes
+							is_fertile_mount_trigger = yes
+						}
+					}
+					character_event = { id = csmm.012 days = 10 }
+				}
+			}
+		}
+		
+		#clrs fair modifiers and checks if can reapply
+		check_fair_mount_modifiers_effect = yes
+		
+		
+		##wealthy/ambitious AI gets another mount for breeding
+		if = {
+			limit = {
+				NOT = { has_global_flag = gender_based_breeding }
+				ai = yes
+				NOT = { has_character_modifier = ai_mount_decision_timer }
+				NOT = {
+					any_artifact = {
+						count = 4
+						is_mount_trigger = yes
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { government = nomadic_government }
+						OR = {
+							AND = {
+								higher_tier_than = duke
+								wealth = 300
+								monthly_income = 30
+							}
+							AND = {
+								higher_tier_than = duke
+								wealth = 400
+								monthly_income = 20
+							}
+							AND = {
+								trait = ambitious
+								wealth = 300
+								monthly_income = 20
+							}
+							AND = {
+								trait = proud
+								wealth = 300
+								monthly_income = 20
+							}
+						}
+					}
+					AND = {
+						government = nomadic_government
+						prestige = 250
+						OR = {
+							prestige = 1000
+							demesne_size = 8
+							AND = {
+								independent = yes
+								any_vassal = {
+									count = 3
+									clan = yes
+								}
+							}
+							AND = {
+								trait = ambitious
+								prestige = 300
+							}
+							AND = {
+								trait = proud
+								prestige = 300
+							}
+						}
+					}
+				}
+			}
+			add_character_modifier = { modifier = ai_mount_decision_timer years = 3 hidden = yes }
+			set_character_flag = ai_get_breeding_mount
+			if = {
+				limit = { government = nomadic_government }
+				character_event = { id = csmm.201 }
+			}
+			else = { character_event = { id = csmm.200 } }
+		}
+		
+		##AI with multiple mounts recalcs which to use
+		if = {
+			limit = {
+				ai = yes
+				war = no
+				any_artifact = {
+					count = 2
+					is_mount_trigger = yes
+				}
+			}
+			set_character_flag = ai_recalc_equipped_mount
+			character_event = { id = csmm.204 days = 5 }
+		}
+		
+		##check commander mounts
+		any_realm_character = {
+			limit = {
+				has_character_flag = has_mount_commander
+				OR = {
+					AND = {
+						host = { character = ROOT }
+						liege = { character = ROOT }
+						is_ruler = no
+					}
+					AND = {
+						liege = { character = ROOT }
+						is_ruler = yes
+					}
+				}
+			}
+			#mount is dead, remove addon and flag
+			if = {
+				limit = { NOT = { any_artifact = { has_artifact_flag = commander_mount } } }
+				any_artifact = {
+					limit = { has_artifact_flag = commander_addon }
+					destroy_artifact = yes
+				}
+				clr_character_flag = has_mount_commander
+				check_fair_mount_modifiers_effect = yes
+			}
+			
+			#no longer commander, get rid of artifacts and flag
+			else_if = {
+				limit = { NOT = { has_minor_title = title_commander } }
+				any_artifact = {
+					limit = {
+						OR = {
+							has_artifact_flag = commander_mount
+							has_artifact_flag = commander_addon
+						}
+					}
+					unsafe_destroy_artifact = yes
+				}
+				clr_character_flag = has_mount_commander
+				check_fair_mount_modifiers_effect = yes
+			}
+			
+			#is now landed, remove artifacts and flag
+			else_if = {
+				limit = { is_ruler = yes }
+				any_artifact = {
+					limit = {
+						OR = {
+							has_artifact_flag = commander_mount
+							has_artifact_flag = commander_addon
+						}
+					}
+					unsafe_destroy_artifact = yes
+				}
+				clr_character_flag = has_mount_commander
+				check_fair_mount_modifiers_effect = yes
+			}
+			
+			#age commander mount
+			else = {
+				any_artifact = {
+					limit = { has_artifact_flag = commander_mount }
+					random_list = {
+						#no change
+						35 = {}
+						
+						#decrease health 
+						65 = {
+							modifier = {
+								factor = 0.8
+								has_artifact_flag = robust
+							}
+							decrease_mount_health_effect = yes		
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+###dead mount notification
+character_event = {
+	id = csmm.011
+	desc = EVTDESAcsmm.011
+	picture = GFX_evt_horse_friend
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAcsmm.011
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_flag = has_mount_commander }
+				clr_character_flag = has_mount_commander
+				any_artifact = {
+					limit = { has_artifact_flag = commander_addon }
+					destroy_artifact = yes
+				}
+			}
+			else_if = {
+				limit = { event_target:dying_mount = { artifact_type = glitterhoof } }
+				clr_global_flag = glitterhoof_alive
+			}
+			else_if = {
+				limit = { event_target:dying_mount = { artifact_type = red_hare } }
+				clr_global_flag = red_hare_alive
+			}
+			else_if = {
+				limit = { event_target:dying_mount = { artifact_type = bucephalus } }
+				clr_global_flag = bucephalus_alive
+			}
+			else_if = {
+				limit = { event_target:dying_mount = { artifact_type = al_buraq } }
+				clr_global_flag = al_buraq_alive
+			}
+		}
+		event_target:dying_mount = { show_scope_change = no unsafe_destroy_artifact = yes }
+		check_mount_flags_effect = yes
+	}
+}
+
+
+###breeding
+character_event = {
+	id = csmm.012
+	desc = EVTDESAcsmm.012
+	picture = GFX_evt_horse_friend
+	
+	is_triggered_only = yes
+
+	immediate = {
+		add_character_modifier = { modifier = breeding_timer years = 4 hidden = yes }
+		#get targets
+		if = {
+			limit = {
+				any_artifact = { 
+					is_breedable_trigger = yes
+					is_fertile_mount_trigger = yes
+					quality > 3
+				}
+			}
+			random_artifact = {
+				limit = {
+					is_breedable_trigger = yes 
+					is_fertile_mount_trigger = yes
+					quality > 3
+				}
+				save_event_target_as = breeding_mount_1
+			}
+		}
+		else_if = {
+			limit = {
+				any_artifact = { 
+					is_breedable_trigger = yes
+					is_fertile_mount_trigger = yes
+				}
+			}
+			random_artifact = {
+				limit = {
+					is_breedable_trigger = yes 
+					is_fertile_mount_trigger = yes
+				}
+				save_event_target_as = breeding_mount_1
+			}
+		}
+		else_if = {
+			limit = {
+				any_artifact = { 
+					is_breedable_trigger = yes
+					quality > 3
+				}
+			}
+			random_artifact = {
+				limit = { 
+					is_breedable_trigger = yes 
+					quality > 3
+				}
+				save_event_target_as = breeding_mount_1
+			}
+		}
+		else = {
+			random_artifact = {
+				limit = { is_breedable_trigger = yes }
+				save_event_target_as = breeding_mount_1
+			}
+		}
+		
+		random_artifact = {
+			limit = {
+				is_breedable_trigger = yes
+				NOT = { artifact = event_target:breeding_mount_1 }
+			}
+			save_event_target_as = breeding_mount_2
+		}
+	}
+
+	option = {
+		name = EVTOPTAcsmm.012
+		custom_tooltip = {
+			text = EVTTOOLTIPAcsmm.012
+			add_artifact = foal
+		}
+		hidden_tooltip = {
+			new_artifact = { save_event_target_as = breeding_mount_3 }
+			
+			#determine breeding result
+			event_target:breeding_mount_1 = {
+				trigger_switch = {
+					on_trigger = has_artifact_flag
+					
+					courser = {
+						event_target:breeding_mount_3 = {
+							random_list = {
+								
+								#dray horse
+								15 = {
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = dray_horse }
+										event_target:breeding_mount_2 = { artifact_type = dray_horse }
+									}
+									modifier = {
+										factor = 0.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 3 }
+											event_target:breeding_mount_2 = { quality >= 3 }
+										}
+									}
+									set_artifact_flag = change_to_dray_horse
+								}
+								
+								#rouncey
+								20 = {
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = rouncey }
+										event_target:breeding_mount_2 = { artifact_type = rouncey }
+									}
+									modifier = {
+										factor = 0.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 3 }
+											event_target:breeding_mount_2 = { quality >= 3 }
+										}
+									}
+									set_artifact_flag = change_to_rouncey
+								}
+							
+							
+								#hobby
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture = irish }
+											event_target:breeding_mount_1 = { has_artifact_flag = irish }
+											event_target:breeding_mount_2 = { has_artifact_flag = irish }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 2 }
+											event_target:breeding_mount_2 = { quality >= 2 }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										event_target:breeding_mount_1 = { quality >= 2 }
+										event_target:breeding_mount_2 = { quality >= 2 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = hobby }
+										event_target:breeding_mount_2 = { artifact_type = hobby }
+									}
+									set_artifact_flag = change_to_hobby
+								}
+								
+								#jennet
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture_group = iberian }
+											ROOT = { 
+												religion_group = christian
+												capital_scope = { region = world_europe_west_iberia } 
+											}
+											event_target:breeding_mount_1 = { artifact_type = jennet }
+											event_target:breeding_mount_2 = { artifact_type = jennet }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 2 }
+											event_target:breeding_mount_2 = { quality >= 2 }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										event_target:breeding_mount_1 = { quality >= 2 }
+										event_target:breeding_mount_2 = { quality >= 2 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = jennet }
+										event_target:breeding_mount_2 = { artifact_type = jennet }
+									}
+									set_artifact_flag = change_to_jennet
+								}
+								
+								#courser
+								20 = {
+									modifier = {
+										factor = 1.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 3 }
+											event_target:breeding_mount_2 = { quality >= 3 }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										event_target:breeding_mount_1 = { quality >= 3 }
+										event_target:breeding_mount_2 = { quality >= 3 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = courser }
+										event_target:breeding_mount_2 = { artifact_type = courser }
+									}
+									set_artifact_flag = change_to_courser
+								}
+								
+								#steppe courser
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { government = nomadic_government }
+											ROOT = { culture_group = altaic }
+											event_target:breeding_mount_1 = { artifact_type = steppe_courser }
+											event_target:breeding_mount_2 = { artifact_type = steppe_courser }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 1.2
+										ROOT = { capital_scope = { terrain = steppe } }
+									}
+									modifier = {
+										factor = 1.2
+										ROOT = { government = nomadic_government }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = steppe_courser }
+										event_target:breeding_mount_2 = { artifact_type = steppe_courser }
+									}
+									set_artifact_flag = change_to_steppe_courser
+								}
+								
+								#arabian courser
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture_group = arabic }
+											event_target:breeding_mount_1 = { has_artifact_flag = arabian }
+											event_target:breeding_mount_2 = { has_artifact_flag = arabian }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = arabian }
+										event_target:breeding_mount_2 = { has_artifact_flag = arabian }
+									}
+									set_artifact_flag = change_to_arabian_courser
+								}
+								
+								#moorish courser
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture = andalusian_arabic }
+											ROOT = { 
+												religion_group = muslim
+												capital_scope = { region = world_europe_west_iberia } 
+											}
+											event_target:breeding_mount_1 = { has_artifact_flag = moorish }
+											event_target:breeding_mount_2 = { has_artifact_flag = moorish }
+											
+											#plus
+											ROOT = { culture_group = maghrebi }
+											#hip
+											ROOT = { culture_group = north_african }
+											
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = moorish }
+										event_target:breeding_mount_2 = { has_artifact_flag = moorish }
+									}
+									set_artifact_flag = change_to_moorish_courser
+								}
+								
+								#mongolian war horse
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture = mongol }
+											ROOT = { 
+												has_global_flag = mongol_empire_arrival
+												capital_scope = { region = world_steppe } 
+											}
+											event_target:breeding_mount_1 = { has_artifact_flag = mongol }
+											event_target:breeding_mount_2 = { has_artifact_flag = mongol }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = mongol }
+										event_target:breeding_mount_2 = { has_artifact_flag = mongol }
+									}
+									set_artifact_flag = change_to_mongolian_war_horse
+								}
+							}
+						}
+					}
+				
+					destrier = {
+						event_target:breeding_mount_3 = {
+							random_list = {
+								
+								#palfry
+								20 = {
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = palfry }
+										event_target:breeding_mount_2 = { artifact_type = palfry }									
+									}
+									set_artifact_flag = change_to_palfry
+								}
+								
+								#destrier
+								15 = {
+									modifier = {
+										factor = 1.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 3 }
+											event_target:breeding_mount_2 = { quality >= 3 }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										event_target:breeding_mount_1 = { quality >= 3 }
+										event_target:breeding_mount_2 = { quality >= 3 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = destrier }
+										event_target:breeding_mount_2 = { artifact_type = destrier }									
+									}
+									set_artifact_flag = change_to_destrier
+								}
+								
+								#galician horse
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture_group = iberian }
+											ROOT = {
+												religion_group = christian
+												capital_scope = { region = world_europe_west_iberia } 
+											}
+											event_target:breeding_mount_1 = { artifact_type = galician_mountain_horse }
+											event_target:breeding_mount_2 = { artifact_type = galician_mountain_horse }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 3 }
+											event_target:breeding_mount_2 = { quality >= 3 }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										event_target:breeding_mount_1 = { quality >= 3 }
+										event_target:breeding_mount_2 = { quality >= 3 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = galician_mountain_horse }
+										event_target:breeding_mount_2 = { artifact_type = galician_mountain_horse }									
+									}
+									set_artifact_flag = change_to_galician_mountain_horse
+								}
+								
+								
+								#barbary_destrier
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture = maghreb_arabic } #berber
+											ROOT = {
+												OR = {
+													culture_group = arabic
+													
+													#plus
+													culture_group = maghrebi
+													culture_group = amazigh
+													
+													#hip
+													culture_group = north_african
+												}
+												capital_scope = { #southern iberia
+													OR = {
+														de_jure_liege = d_granada
+														de_jure_liege = d_sevilla
+														de_jure_liege = d_algarve
+														de_jure_liege = d_murcia
+													}
+												}
+											}
+											ROOT = {
+												capital_scope = { #in barbary coast
+													OR = {
+														de_jure_liege = d_tangiers
+														de_jure_liege = d_marrakech
+														de_jure_liege = d_fes
+														de_jure_liege = d_tlemcen
+														de_jure_liege = d_alger
+														de_jure_liege = d_kabylia
+														de_jure_liege = d_tunis
+														de_jure_liege = d_tahert
+														
+														#plus
+														de_jure_liege = d_ifni
+													}
+												}
+											}
+										}
+									}
+									modifier = {
+										factor = 1.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 3 }
+											event_target:breeding_mount_2 = { quality >= 3 }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										event_target:breeding_mount_1 = { quality >= 3 }
+										event_target:breeding_mount_2 = { quality >= 3 }
+									}
+									modifier = {
+										factor = 2
+										ROOT = {
+											capital_scope = { #in barbary coast
+												OR = {
+													de_jure_liege = d_tangiers
+													de_jure_liege = d_marrakech
+													de_jure_liege = d_fes
+													de_jure_liege = d_tlemcen
+													de_jure_liege = d_alger
+													de_jure_liege = d_kabylia
+													de_jure_liege = d_tunis
+													de_jure_liege = d_tahert
+													
+													#plus
+													de_jure_liege = d_ifni
+												}
+											}
+										}
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = barbary }
+										event_target:breeding_mount_2 = { has_artifact_flag = barbary }									
+									}
+									set_artifact_flag = change_to_barbary_destrier
+								}
+								
+								#chinese_ceromonial_horse
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture_group = chinese_group }
+											event_target:breeding_mount_1 = { has_artifact_flag = chinese }
+											event_target:breeding_mount_2 = { has_artifact_flag = chinese }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 3 }
+											event_target:breeding_mount_2 = { quality >= 3 }
+										}
+									}
+									modifier = {
+										factor = 1.5
+										event_target:breeding_mount_1 = { quality >= 3 }
+										event_target:breeding_mount_2 = { quality >= 3 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = chinese }
+										event_target:breeding_mount_2 = { has_artifact_flag = chinese }
+									}
+									set_artifact_flag = change_to_chinese_ceromonial_horse
+								}
+								
+								#jurchen_steppe_horse
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture = jurchen }
+											ROOT = { 
+												culture_group = altaic
+												capital_scope = { region = world_steppe_east } 
+											}
+											event_target:breeding_mount_1 = { has_artifact_flag = jurchen }
+											event_target:breeding_mount_2 = { has_artifact_flag = jurchen }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 1.3
+										ROOT = { culture = jurchen }
+									}
+									modifier = {
+										factor = 1.3
+										ROOT = { 
+											culture = jurchen 
+											government = nomadic_government
+										}
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = jurchen }
+										event_target:breeding_mount_2 = { has_artifact_flag = jurchen }
+									}
+									set_artifact_flag = change_to_jurchen_steppe_horse
+								}
+								
+								#nisean horse
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture_group = iranian }
+											event_target:breeding_mount_1 = { has_artifact_flag = nisean }
+											event_target:breeding_mount_2 = { has_artifact_flag = nisean }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 1.3
+										ROOT = { culture = iranian }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = nisean }
+										event_target:breeding_mount_2 = { has_artifact_flag = nisean }
+									}
+									set_artifact_flag = change_to_nisean_horse
+								}
+							}
+						}	
+					}
+				
+					charger = {
+						event_target:breeding_mount_3 = {
+							random_list = {
+							
+								#charger
+								20 = {
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { artifact_type = charger }
+										event_target:breeding_mount_2 = { artifact_type = charger }									
+									}
+									set_artifact_flag = change_to_charger
+								}
+							
+								#chinese_war_horse
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture_group = chinese_group }
+											event_target:breeding_mount_1 = { has_artifact_flag = chinese }
+											event_target:breeding_mount_2 = { has_artifact_flag = chinese }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = chinese }
+										event_target:breeding_mount_2 = { has_artifact_flag = chinese }
+									}
+									set_artifact_flag = change_to_chinese_war_horse
+								}
+								
+								#mongolian war horse
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture = mongol }
+											ROOT = {
+												has_global_flag = mongol_empire_arrival
+												capital_scope = { region = world_steppe } 
+											}
+											event_target:breeding_mount_1 = { has_artifact_flag = mongol }
+											event_target:breeding_mount_2 = { has_artifact_flag = mongol }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = mongol }
+										event_target:breeding_mount_2 = { has_artifact_flag = mongol }
+									}
+									set_artifact_flag = change_to_mongolian_war_horse
+								}
+								
+								#arabian_charger
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { culture_group = arabic }
+											event_target:breeding_mount_1 = { has_artifact_flag = arabian }
+											event_target:breeding_mount_2 = { has_artifact_flag = arabian }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = arabian }
+										event_target:breeding_mount_2 = { has_artifact_flag = arabian }
+									}
+									set_artifact_flag = change_to_arabian_charger
+								}
+								
+								#frankish_charger
+								15 = {
+									trigger = {
+										OR = {
+											ROOT = { frankish_discount_trigger = yes }
+											event_target:breeding_mount_1 = { has_artifact_flag = frankish }
+											event_target:breeding_mount_2 = { has_artifact_flag = frankish }
+										}
+									}
+									modifier = {
+										factor = 2
+										OR = {
+											event_target:breeding_mount_1 = { quality >= 4 }
+											event_target:breeding_mount_2 = { quality >= 4 }
+										}
+									}
+									modifier = {
+										factor = 2
+										event_target:breeding_mount_1 = { quality >= 4 }
+										event_target:breeding_mount_2 = { quality >= 4 }
+									}
+									modifier = {
+										factor = 5
+										event_target:breeding_mount_1 = { has_artifact_flag = frankish }
+										event_target:breeding_mount_2 = { has_artifact_flag = frankish }
+									}
+									set_artifact_flag = change_to_frankish_charger
+								}
+								
+							}
+						}
+					}
+				}
+			}
+			
+			###determine mount traits
+			event_target:breeding_mount_3 = {
+				
+				#fair
+				random = {
+					modifier = { 
+						factor = 0
+						NOR = {
+							event_target:breeding_mount_1 = { has_artifact_flag = fair }
+							event_target:breeding_mount_2 = { has_artifact_flag = fair }
+						}
+					}
+					modifier = {
+						factor = 3
+						event_target:breeding_mount_1 = { has_artifact_flag = fair }
+						event_target:breeding_mount_2 = { has_artifact_flag = fair }
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							event_target:breeding_mount_1 = { artifact_type = nisean_horse }
+							event_target:breeding_mount_2 = { artifact_type = nisean_horse }
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							event_target:breeding_mount_1 = { has_artifact_flag = arabian }
+							event_target:breeding_mount_2 = { has_artifact_flag = arabian }
+						}
+					}
+					chance = 20
+					set_artifact_flag = fair
+					add_mount_trait_limit_effect = yes
+				}
+
+				#robust
+				random = {
+					modifier = {
+						factor = 0
+						NOR = { 
+							event_target:breeding_mount_1 = { has_artifact_flag = robust }
+							event_target:breeding_mount_2 = { has_artifact_flag = robust }
+						}
+					}
+					modifier = {
+						factor = 3
+						event_target:breeding_mount_1 = { has_artifact_flag = robust }
+						event_target:breeding_mount_2 = { has_artifact_flag = robust }
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							event_target:breeding_mount_1 = { artifact_type = barbary_destrier }
+							event_target:breeding_mount_2 = { artifact_type = barbary_destrier }
+						}
+					}
+					chance = 20
+					set_artifact_flag = robust
+					add_mount_trait_limit_effect = yes
+				}
+				
+				#fertile
+				random = {
+					modifier = {
+						factor = 0
+						has_artifact_flag = mount_trait_limit_2
+					}
+					modifier = {
+						factor = 0
+						NOR = {
+							event_target:breeding_mount_1 = { has_artifact_flag = fertile }
+							event_target:breeding_mount_2 = { has_artifact_flag = fertile }
+						}
+					}
+					modifier = {
+						factor = 3
+						event_target:breeding_mount_1 = { has_artifact_flag = fertile }
+						event_target:breeding_mount_2 = { has_artifact_flag = fertile }
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							event_target:breeding_mount_1 = { artifact_type = hobby }
+							event_target:breeding_mount_1 = { artifact_type = jennet }
+							event_target:breeding_mount_2 = { artifact_type = hobby }
+							event_target:breeding_mount_2 = { artifact_type = jennet }
+						}
+					}
+					chance = 20
+					set_artifact_flag = fertile
+					add_mount_trait_limit_effect = yes
+				}
+				
+				#powerful
+				random = {
+					modifier = {
+						factor = 0
+						has_artifact_flag = mount_trait_limit_2
+					}
+					modifier = {
+						factor = 0
+						NOR = {
+							event_target:breeding_mount_1 = { has_artifact_flag = powerful }
+							event_target:breeding_mount_2 = { has_artifact_flag = powerful }
+						}
+					}
+					modifier = {
+						factor = 3
+						event_target:breeding_mount_1 = { has_artifact_flag = powerful }
+						event_target:breeding_mount_2 = { has_artifact_flag = powerful }
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							event_target:breeding_mount_1 = { has_artifact_flag = charger }
+							event_target:breeding_mount_2 = { has_artifact_flag = charger }
+						}
+					}
+					chance = 25
+					set_artifact_flag = powerful
+					add_mount_trait_limit_effect = yes
+				}
+				
+				#swift
+				random = {
+					modifier = {
+						factor = 0
+						has_artifact_flag = mount_trait_limit_2
+					}
+					modifier = {
+						factor = 0
+						NOR = { 
+							event_target:breeding_mount_1 = { has_artifact_flag = swift }
+							event_target:breeding_mount_2 = { has_artifact_flag = swift }
+						}
+					}
+					modifier = {
+						factor = 3
+						event_target:breeding_mount_1 = { has_artifact_flag = swift }
+						event_target:breeding_mount_2 = { has_artifact_flag = swift }
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							event_target:breeding_mount_1 = { has_artifact_flag = courser }
+							event_target:breeding_mount_2 = { has_artifact_flag = courser }
+						}
+					}
+					chance = 25
+					set_artifact_flag = swift
+					add_mount_trait_limit_effect = yes
+				}
+			}
+			
+			event_target:breeding_mount_1 = { add_breeding_counter_effect = yes }
+			event_target:breeding_mount_2 = { add_breeding_counter_effect = yes }
+		}
+	}
+}
+
+
+
+###foal grown up
+character_event = {
+	id = csmm.013
+	desc = EVTDESAcsmm.013
+	picture = GFX_evt_horse_friend
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAcsmm.013
+		event_target:growing_foal = {
+			show_scope_change = no
+			trigger_switch = {
+				on_trigger = has_artifact_flag
+				
+				###tier 1
+				change_to_dray_horse = { ROOT = { show_scope_change = no add_artifact = dray_horse foal_inherit_traits_effect = yes } }
+				change_to_rouncey = { ROOT = { show_scope_change = no add_artifact = rouncey foal_inherit_traits_effect = yes } }
+				
+				###tier 2
+				change_to_hobby = { ROOT = { show_scope_change = no add_artifact = hobby foal_inherit_traits_effect = yes } }
+				change_to_jennet = { ROOT = { show_scope_change = no add_artifact = jennet foal_inherit_traits_effect = yes } }
+				change_to_palfry = { ROOT = { show_scope_change = no add_artifact = palfry foal_inherit_traits_effect = yes } }
+				
+				###tier 3
+				change_to_courser = { ROOT = { show_scope_change = no add_artifact = courser foal_inherit_traits_effect = yes } }
+				change_to_destrier = { ROOT = { show_scope_change = no add_artifact = destrier foal_inherit_traits_effect = yes } }
+				change_to_galician_mountain_horse = { ROOT = { show_scope_change = no add_artifact = galician_mountain_horse foal_inherit_traits_effect = yes } }
+				change_to_barbary_destrier = { ROOT = { show_scope_change = no add_artifact = barbary_destrier foal_inherit_traits_effect = yes } }
+				change_to_chinese_ceromonial_horse = { ROOT = { show_scope_change = no add_artifact = chinese_ceromonial_horse foal_inherit_traits_effect = yes } }
+				
+				###tier 4
+				change_to_charger = { ROOT = { show_scope_change = no add_artifact = charger foal_inherit_traits_effect = yes } }
+				change_to_chinese_war_horse = { ROOT = { show_scope_change = no add_artifact = chinese_war_horse foal_inherit_traits_effect = yes } }
+				change_to_steppe_courser = { ROOT = { show_scope_change = no add_artifact = steppe_courser foal_inherit_traits_effect = yes } }
+				change_to_arabian_courser = { ROOT = { show_scope_change = no add_artifact = arabian_courser foal_inherit_traits_effect = yes } }
+				change_to_moorish_courser = { ROOT = { show_scope_change = no add_artifact = moorish_courser foal_inherit_traits_effect = yes } }
+				change_to_nisean_horse = { ROOT = { show_scope_change = no add_artifact = nisean_horse foal_inherit_traits_effect = yes } }
+				
+				###tier 5
+				change_to_jurchen_steppe_horse = { ROOT = { show_scope_change = no add_artifact = jurchen_steppe_horse foal_inherit_traits_effect = yes } }
+				change_to_mongolian_war_horse = { ROOT = { show_scope_change = no add_artifact = mongolian_war_horse foal_inherit_traits_effect = yes } }
+				change_to_arabian_charger = { ROOT = { show_scope_change = no add_artifact = arabian_charger foal_inherit_traits_effect = yes } }
+				change_to_frankish_charger = { ROOT = { show_scope_change = no add_artifact = frankish_charger foal_inherit_traits_effect = yes } }
+			}
+		}
+		event_target:growing_foal = { show_scope_change = no unsafe_destroy_artifact = yes }
+	}
+}
+
+
+###fair mounts modifier, modifiers are cleared with scripted effect first
+character_event = {
+	id = csmm.014
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = fair_mounts_counter value = 0 }
+		any_artifact = {
+			limit = { is_fair_mount_trigger = yes }
+			ROOT = { change_variable = { which = fair_mounts_counter value = 1 } }
+		}
+		if = {
+			limit = { check_variable = { which = fair_mounts_counter value >= 5 } }
+			add_character_modifier = { modifier = fair_mounts_5 duration = -1 }
+		}
+		else_if = {
+			limit = { check_variable = { which = fair_mounts_counter value == 4 } }
+			add_character_modifier = { modifier = fair_mounts_4 duration = -1 }
+		}
+		else_if = {
+			limit = { check_variable = { which = fair_mounts_counter value == 3 } }
+			add_character_modifier = { modifier = fair_mounts_3 duration = -1 }
+		}
+		else_if = {
+			limit = { check_variable = { which = fair_mounts_counter value == 2 } }
+			add_character_modifier = { modifier = fair_mounts_2 duration = -1 }
+		}
+		else_if = {
+			limit = { check_variable = { which = fair_mounts_counter value == 1 } }
+			add_character_modifier = { modifier = fair_mounts_1 duration = -1 }
+		}
+	}
+}
+
+
+###generic mounts empty, refund money
+character_event = {
+	id = csmm.015
+	desc = EVTDESAcsmm.015
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAcsmm.015
+		if = {
+			limit = {
+				ai = yes
+				government = nomadic_government
+			}
+			trigger_switch = {
+				on_trigger = has_character_flag 
+				
+				csm_nomad_250_prestige = { prestige = 250 }
+				csm_nomad_375_prestige = { prestige = 375 }
+				csm_nomad_500_prestige = { prestige = 500 }
+			}
+			clr_character_flag = csm_nomad_250_prestige
+			clr_character_flag = csm_nomad_375_prestige
+			clr_character_flag = csm_nomad_500_prestige
+		}
+		else = { wealth = csm_wealth_spent }
+		event_target:csm_bought_item = { unsafe_destroy_artifact = yes }
+		check_mount_flags_effect = yes
+	}
+	
+	after = {
+		hidden_tooltip = { set_variable = { which = csm_wealth_spent value = 0 } }
+	}
+}
+
+###mount upkeep
+character_event = {
+	id = csmm.016
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	has_character_flag = has_mount
+	
+	trigger = {
+		OR = {
+			ai = yes
+			AND = {
+				ai = no
+				NOT = { has_global_flag = gender_based_breeding }
+			}
+		}
+	}
+	
+	immediate = {
+		update_mount_upkeep_effect = yes
+		
+		if = {
+			limit = { 
+				ai = no
+				NOT = { has_character_flag = hide_mount_upkeep } 
+			}
+			character_event = { id = csmm.017 }
+		}
+		else = {
+			wealth = mount_upkeep
+		}
+	}
+}
+
+###mount upkeep notification
+character_event = {
+	id = csmm.017
+	desc = EVTDESAcsmm.017
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+	
+	immediate = { update_mount_upkeep_effect = yes }
+
+	#ok
+	option = {
+		name = EVTOPTAcsmm.017
+		wealth = mount_upkeep
+	}
+	
+	#hide notification
+	option = {
+		name = EVTOPTBcsmm.017
+		wealth = mount_upkeep
+		set_character_flag = hide_mount_upkeep
+	}
+}
+
+###return looted mounts
+character_event = {
+	id = csmm.018
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = {
+			is_capital = yes #capital holding
+			location = { is_capital = yes } #of capital province
+			holder_scope = {
+				NOR = {
+					character = ROOT
+					is_liege_or_above = ROOT
+				}
+			}
+		}
+	}
+	
+	#delay so vanilla finishes looting event
+	immediate = { 
+		FROM = { save_event_target_as = mount_looted_holding }
+		character_event = { id = csmm.019 days = 1 } 
+	}
+}
+
+character_event = {
+	id = csmm.019
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				any_artifact = {
+					has_artifact_flag = mount
+					previous_owner = {
+						is_alive = yes
+						OR = {
+							has_landed_title = event_target:mount_looted_holding
+							top_liege = { has_landed_title = event_target:mount_looted_holding }
+							war_with = ROOT
+							top_liege = { war_with = ROOT }
+						}
+					}
+				}
+			}
+			random_artifact = {
+				limit = { 
+					has_artifact_flag = mount
+					previous_owner = {
+						is_alive = yes
+						OR = {
+							has_landed_title = event_target:mount_looted_holding
+							top_liege = { has_landed_title = event_target:mount_looted_holding }
+							war_with = ROOT
+							top_liege = { war_with = ROOT }
+						}
+					}
+				}
+				previous_owner = { save_event_target_as = previous_mount_owner }
+				transfer_artifact = {
+					from = ROOT
+					to = event_target:previous_mount_owner
+				}
+			}
+		}
+	}
+}
+
+
+
+#############AI Stuff###############
+
+#buying mount from decision
+character_event = {
+	id = csmm.200
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = csm_wealth_spent value = 0 }
+		
+		random_list = {
+			
+			####horses
+			100 = {
+				random_list = {
+				
+					###tier 1
+					20 = {
+						trigger = {
+							NOR = {
+								higher_tier_than = count 
+								has_character_flag = ai_get_breeding_mount
+							}
+						}
+						random_list = {
+							
+							#dray_horse
+							20 = {
+								wealth = -25
+								add_artifact = dray_horse
+								new_mount_setup_effect = yes
+								set_variable = { which = csm_wealth_spent value = 25 }
+								new_artifact = { save_event_target_as = csm_bought_item }
+								decrease_nearest_mount_province_effect = yes
+							}
+						
+							#rouncey
+							80 = {
+								wealth = -25
+								add_artifact = rouncey
+								new_mount_setup_effect = yes
+								set_variable = { which = csm_wealth_spent value = 25 }
+								new_artifact = { save_event_target_as = csm_bought_item }
+								decrease_nearest_mount_province_effect = yes
+							}
+						}
+					}
+				
+					###tier 2
+					20 = {
+						modifier = {
+							factor = 0.5
+							higher_tier_than = count
+						}
+						modifier = {
+							factor = 0.2
+							tier = emperor
+						}
+						random_list = {
+							
+							#hobby
+							20 = {
+								trigger = { can_buy_irish_items_trigger = yes }
+								modifier = {
+									factor = 2
+									has_character_flag = ai_get_breeding_mount
+								}
+								modifier = {
+									factor = 1.5
+									culture_group = celtic
+								}
+								wealth = -75
+								add_artifact = hobby
+								new_mount_setup_effect = yes
+								event_target:ireland_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							
+							#jennet
+							20 = {
+								trigger = { can_buy_spanish_items_trigger = yes }
+								modifier = {
+									factor = 0.5
+									moorish_discount_trigger = yes
+								}
+								modifier = {
+									factor = 2
+									has_character_flag = ai_get_breeding_mount
+								}
+								modifier = {
+									factor = 3
+									spanish_discount_trigger = yes
+								}
+								wealth = -75
+								add_artifact = jennet
+								new_mount_setup_effect = yes
+								event_target:spain_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							
+							#palfry
+							20 = {
+								modifier = {
+									factor = 1.5
+									trait = content
+								}
+								modifier = {
+									factor = 1.5
+									any_vassal = {
+										count = 4
+										higher_tier_than = count
+										NOT = { opinion = { who = ROOT value = 10 } }
+									}
+								}
+								wealth = -75
+								add_artifact = palfry
+								new_mount_setup_effect = yes
+								set_variable = { which = csm_wealth_spent value = 75 }
+								new_artifact = { save_event_target_as = csm_bought_item }
+								decrease_nearest_mount_province_effect = yes
+							}
+						}
+					}
+					
+					###tier 3
+					20 = {
+						random_list = {
+							
+							#courser
+							20 = {
+								modifier = {
+									factor = 1.25
+									can_use_horse_archery_trigger = yes
+								}
+								modifier = {
+									factor = 3
+									is_skilled_horse_archer_trigger = yes
+								}
+								modifier = {
+									factor = 1.5
+									OR = {
+										trait = light_foot_leader
+										trait = flanker
+										trait = flat_terrain_leader
+									}
+								}
+								wealth = -150
+								add_artifact = courser
+								new_mount_setup_effect = yes
+								set_variable = { which = csm_wealth_spent value = 150 }
+								new_artifact = { save_event_target_as = csm_bought_item }
+								decrease_nearest_mount_province_effect = yes
+							}
+							
+							#destrier
+							20 = {
+								modifier = {
+									factor = 1.5
+									OR = {
+										trait = experimenter #direct leader
+										trait = inspiring_leader
+										trait = aggressive_leader
+										trait = cavalry_leader
+									}
+								}
+								modifier = {
+									factor = 1.25
+									capital_scope = { region = world_europe }
+								}
+								wealth = -200
+								add_artifact = destrier
+								new_mount_setup_effect = yes
+								set_variable = { which = csm_wealth_spent value = 200 }
+								new_artifact = { save_event_target_as = csm_bought_item }
+								decrease_nearest_mount_province_effect = yes
+							}
+							
+							#galician horse
+							20 = {
+								trigger = { can_buy_spanish_items_trigger = yes }
+								modifier = {
+									factor = 0.5
+									moorish_discount_trigger = yes
+								}
+								modifier = {
+									factor = 1.5
+									spanish_discount_trigger = yes
+								}
+								modifier = {
+									factor = 2
+									capital_scope = {
+										OR = {
+											terrain = hills
+											terrain = mountain
+										}
+									}
+								}
+								modifier = {
+									factor = 3
+									capital_scope = {
+										any_neighbor_province = {
+											count = 3
+											OR = {
+												terrain = hills
+												terrain = mountain
+											}
+										}
+									}
+								}
+								if = {
+									limit = { spanish_discount_trigger = yes }
+									wealth = -200
+								}
+								else = { wealth = -200 }
+								add_artifact = galician_mountain_horse
+								new_mount_setup_effect = yes
+								event_target:spain_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+						}
+					}
+					
+					###tier 4
+					30 = {
+						trigger = {
+							OR = {
+								wealth = 300
+								monthly_income = 20
+							}
+							OR = {
+								higher_tier_than = count
+								prestige = 500
+								demesne_size = 3
+								is_patrician = yes
+							}
+						}
+						random_list = {
+						
+							#charger
+							20 = {
+								modifier = {
+									factor = 1.5
+									OR = {
+										trait = experimenter #direct leader
+										trait = inspiring_leader
+										trait = aggressive_leader
+										trait = cavalry_leader
+									}
+								}
+								wealth = -300
+								add_artifact = charger
+								new_mount_setup_effect = yes
+								set_variable = { which = csm_wealth_spent value = 300 }
+								new_artifact = { save_event_target_as = csm_bought_item }
+								decrease_nearest_mount_province_effect = yes
+							}
+							
+							#steppe courser
+							20 = {
+								trigger = { can_buy_steppes_items_trigger = yes }
+								modifier = {
+									factor = 1.5
+									can_use_horse_archery_trigger = yes
+								}
+								modifier = {
+									factor = 1.5
+									OR = {
+										trait = light_foot_leader
+										trait = flanker
+										trait = flat_terrain_leader
+									}
+								}
+								wealth = -300
+								add_artifact = steppe_courser
+								new_mount_setup_effect = yes
+								event_target:steppes_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							
+							#moorish courser
+							20 = {
+								trigger = { can_buy_moorish_items_trigger = yes }
+								modifier = {
+									factor = 0.5
+									moorish_discount_trigger = no
+									wealth < 400
+								}
+								modifier = {
+									factor = 0.5
+									spanish_discount_trigger = yes
+								}
+								modifier = {
+									factor = 2
+									has_character_flag = ai_get_breeding_mount
+								}
+								modifier = {
+									factor = 5
+									moorish_discount_trigger = yes
+								}
+								if = {
+									limit = { moorish_discount_trigger = yes }
+									wealth = -350
+								}
+								else = { wealth = -450 }
+								add_artifact = moorish_courser
+								new_mount_setup_effect = yes
+								event_target:andalus_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							
+							#arabian courser
+							20 = {
+								trigger = { can_buy_arabian_items_trigger = yes }
+								modifier = {
+									factor = 0.5
+									arabian_discount_trigger = no
+									wealth < 400
+								}
+								modifier = {
+									factor = 1.5
+									arabian_discount_trigger = yes
+								}
+								modifier = {
+									factor = 1.5
+									capital_scope = { terrain = desert }
+								}
+								if = {
+									limit = { arabian_discount_trigger = yes }
+									wealth = -350
+								}
+								else = { wealth = -450 }
+								add_artifact = arabian_courser
+								new_mount_setup_effect = yes
+								event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							
+							#nisean horse
+							20 = {
+								trigger = { can_buy_bactrian_items_trigger = yes }
+								modifier = {
+									factor = 0.5
+									bactrian_discount_trigger = no
+									wealth < 400
+								}
+								modifier = {
+									factor = 1.5
+									bactrian_discount_trigger = yes
+								}
+								modifier = {
+									factor = 1.5
+									trait = wroth
+								}
+								if = {
+									limit = { bactrian_discount_trigger = yes }
+									wealth = -350
+								}
+								else = { wealth = -450 }
+								add_artifact = nisean_horse
+								new_mount_setup_effect = yes
+								event_target:bactria_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+						}
+					}
+					
+					###tier 5
+					40 = {
+						trigger = {
+							OR = {
+								wealth = 500
+								monthly_income = 40
+							}
+							OR = {
+								higher_tier_than = count
+								prestige = 1000
+								demesne_size = 5
+								is_patrician = yes
+							}
+							OR = {
+								can_buy_arabian_items_trigger = yes
+								can_buy_steppes_items_trigger = yes
+								can_buy_frankish_items_trigger = yes
+							}
+						}
+						random_list = {
+							#arabian charger
+							20 = {
+								trigger = { can_buy_arabian_items_trigger = yes }
+								modifier = {
+									factor = 2
+									has_character_flag = ai_get_breeding_mount
+								}
+								modifier = {
+									factor = 1.5
+									arabian_discount_trigger = yes
+								}
+								modifier = {
+									factor = 1.5
+									capital_scope = { 
+										OR = {
+											terrain = desert 
+											terrain = plains
+										}
+									}
+								}
+								if = {
+									limit = { arabian_discount_trigger = yes }
+									wealth = -450
+								}
+								else = { wealth = -650 }
+								add_artifact = arabian_charger
+								new_mount_setup_effect = yes
+								event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							
+							#jurchen steppe horse
+							20 = {
+								trigger = { can_buy_steppes_items_trigger = yes }
+								modifier = {
+									factor = 1.5
+									capital_scope = { terrain = steppe }
+								}
+								modifier = {
+									factor = 2
+									culture = jurchen
+								}
+								if = {
+									limit = { offmap_china = { has_status = china_jurchen_invasion } }
+									wealth = -800
+								}
+								else_if = {
+									limit = { is_within_diplo_range = offmap_china }
+									wealth = -400
+								}
+								else = { wealth = -600 }
+								add_artifact = jurchen_steppe_horse
+								new_mount_setup_effect = yes
+								event_target:steppes_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							
+							#frankish charger
+							20 = {
+								trigger = { can_buy_frankish_items_trigger = yes }
+								modifier = {
+									factor = 1.5
+									frankish_discount_trigger = yes
+								}
+								modifier = {
+									factor = 1.5
+									trait = brave
+								}
+								modifier = {
+									factor = 1.5
+									trait = experimenter #direct leader
+								}
+								
+								if = {
+									limit = { frankish_discount_trigger = yes }
+									wealth = -400
+								}
+								else = { wealth = -600 }
+								add_artifact = frankish_charger
+								new_mount_setup_effect = yes
+								event_target:france_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+						}
+					}
+				}
+			}
+			
+			####camels
+			30 = {
+				trigger = {
+					NOT = { has_character_flag = ai_get_breeding_mount }
+					OR = {
+						can_buy_arabian_items_trigger = yes
+						AND = {
+							can_buy_bactrian_items_trigger = yes
+							martial < 12
+						}
+					}
+				}
+				random_list = {
+					
+					#arabian camel
+					30 = {
+						trigger = { can_buy_arabian_items_trigger = yes }
+						if = {
+							limit = { arabian_discount_trigger = yes }
+							wealth = -250
+						}
+						else = { wealth = -300 }
+						add_artifact = arabian_camel
+						new_mount_setup_effect = yes
+						event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#bactrian camel
+					20 = {
+						trigger = { can_buy_bactrian_items_trigger = yes }
+						modifier = {
+							factor = 0.1
+							higher_tier_than = duke
+						}
+						modifier = {
+							factor = 1.5
+							martial < 8
+						}
+						wealth = -200
+						add_artifact = bactrian_camel
+						new_mount_setup_effect = yes
+						event_target:bactria_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+				}
+			}
+			
+			####elephants
+			50 = {
+				trigger = {
+					NOT = { has_character_flag = ai_get_breeding_mount }
+					OR = {
+						can_buy_indian_items_trigger = yes
+						can_buy_african_items_trigger = yes
+					}
+					OR = {
+						wealth = 350
+						AND = {
+							wealth = 300
+							monthly_income = 20
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					OR = {
+						indian_discount_trigger = yes
+						african_discount_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 2
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.5
+					trait = lunatic
+				}
+				modifier = {
+					factor = 5
+					trait = war_elephant_leader
+				}
+				
+				random_list = {
+					
+					#indian elephant
+					20 = {
+						trigger = { can_buy_indian_items_trigger = yes }
+						if = {
+							limit = { indian_discount_trigger = yes }
+							wealth = -400
+						}
+						else = { wealth = -650 }
+						add_artifact = indian_elephant
+						new_mount_setup_effect = yes
+						event_target:india_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#african elephant
+					20 = {
+						trigger = { can_buy_african_items_trigger = yes }
+						if = {
+							limit = { african_discount_trigger = yes }
+							wealth = -400
+						}
+						else = { wealth = -650 }
+						add_artifact = african_elephant
+						new_mount_setup_effect = yes
+						event_target:africa_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+				}
+			}
+			
+			####exotic
+			20 = {
+				trigger = {
+					NOT = { has_character_flag = ai_get_breeding_mount }
+					OR = {
+						AND = {
+							NOT = { has_game_rule = { name = extra_mounts value = none } } 
+							can_buy_tibetan_items_trigger = yes
+						}
+						AND = {
+							has_game_rule = { name = extra_mounts value = all }
+							OR = {
+								can_buy_indian_items_trigger = yes
+								can_buy_scandinavian_items_trigger = yes
+								can_buy_russian_items_trigger = yes
+								can_buy_samian_items_trigger = yes
+							}
+						}
+					}
+					wealth = 200
+				}
+				modifier = {
+					factor = 2
+					trait = brave
+				}
+				modifier = {
+					factor = 2
+					trait = lunatic
+				}
+				modifier = {
+					factor = 2
+					trait = possessed
+				}
+				modifier = {
+					factor = 2
+					prestige = 500
+				}
+				modifier = {
+					factor = 1.5
+					OR = {
+						capital_scope = { terrain = forest }
+						AND = {
+							capital_scope = { terrain = mountain }
+							can_buy_tibetan_items_trigger = yes
+						}
+						AND = {
+							capital_scope = { terrain = jungle }
+							can_buy_indian_items_trigger = yes
+						}
+					}
+				}
+				random_list = {
+				
+					#tibetan yak
+					20 = {
+						trigger = { can_buy_tibetan_items_trigger = yes }
+						if = {
+							limit = { tibetan_discount_trigger = yes }
+							wealth = -200
+						}
+						else = { wealth = -300 }
+						add_artifact = tibetan_yak
+						new_mount_setup_effect = yes
+						event_target:tibet_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+				
+					#indian tiger
+					20 = {
+						trigger = {
+							has_game_rule = { name = extra_mounts value = all }
+							can_buy_indian_items_trigger = yes
+						}
+						if = {
+							limit = { indian_discount_trigger = yes }
+							wealth = -200
+						}
+						else = { wealth = -300 }
+						add_artifact = indian_tiger
+						new_mount_setup_effect = yes
+						event_target:india_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#scandinavian wolf
+					20 = {
+						trigger = {
+							has_game_rule = { name = extra_mounts value = all }
+							can_buy_scandinavian_items_trigger = yes
+						}
+						if = {
+							limit = { scandinavian_discount_trigger = yes }
+							wealth = -200
+						}
+						else = { wealth = -300 }
+						add_artifact = scandinavian_wolf
+						new_mount_setup_effect = yes
+						event_target:scandinavia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#russian bear
+					20 = {
+						trigger = {
+							has_game_rule = { name = extra_mounts value = all }
+							can_buy_russian_items_trigger = yes
+						}
+						if = {
+							limit = { russian_discount_trigger = yes }
+							wealth = -200
+						}
+						else = { wealth = -300 }
+						add_artifact = russian_bear
+						new_mount_setup_effect = yes
+						event_target:russia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#samian reindeer
+					20 = {
+						trigger = {
+							has_game_rule = { name = extra_mounts value = all }
+							can_buy_samian_items_trigger = yes
+						}
+						if = {
+							limit = { samian_discount_trigger = yes }
+							wealth = -200
+						}
+						else = { wealth = -300 }
+						add_artifact = samian_reindeer
+						new_mount_setup_effect = yes
+						event_target:sami_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+				}
+			}
+		}
+		clr_character_flag = ai_get_breeding_mount
+	}
+}
+
+###nomad buying horses
+character_event = {
+	id = csmm.201
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	
+	immediate = {
+		random_list = {
+			
+			###tier 3
+			20 = {
+				random_list = {
+				
+					#courser
+					20 = {
+						modifier = {
+							factor = 1.25
+							can_use_horse_archery_trigger = yes
+						}
+						modifier = {
+							factor = 3
+							is_skilled_horse_archer_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							OR = {
+								trait = light_foot_leader
+								trait = flanker
+								trait = flat_terrain_leader
+							}
+						}
+						modifier = {
+							factor = 3
+							trait = hunter
+						}
+						prestige = -250
+						add_artifact = courser
+						new_mount_setup_effect = yes
+						set_character_flag = csm_nomad_250_prestige
+						new_artifact = { save_event_target_as = csm_bought_item }
+						decrease_nearest_mount_province_effect = yes
+					}
+					
+					#destrier
+					20 = {
+						modifier = {
+							factor = 1.5
+							OR = {
+								trait = experimenter #direct leader
+								trait = inspiring_leader
+								trait = aggressive_leader
+								trait = cavalry_leader
+							}
+						}
+						modifier = {
+							factor = 3
+							trait = impaler
+						}
+						prestige = -250
+						add_artifact = destrier
+						new_mount_setup_effect = yes
+						set_character_flag = csm_nomad_250_prestige
+						new_artifact = { save_event_target_as = csm_bought_item }
+						decrease_nearest_mount_province_effect = yes
+					}
+					
+					#galician horse
+					20 = {
+						trigger = { can_buy_spanish_items_trigger = yes }
+						modifier = {
+							factor = 0.5
+							moorish_discount_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							spanish_discount_trigger = yes
+						}
+						modifier = {
+							factor = 2
+							capital_scope = {
+								OR = {
+									terrain = hills
+									terrain = mountain
+								}
+							}
+						}
+						modifier = {
+							factor = 3
+							capital_scope = {
+								any_neighbor_province = {
+									count = 3
+									OR = {
+										terrain = hills
+										terrain = mountain
+									}
+								}
+							}
+						}
+						prestige = -250
+						add_artifact = galician_mountain_horse
+						new_mount_setup_effect = yes
+						event_target:spain_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+				}
+			}
+			###tier 4
+			40 = {
+				trigger = {
+					OR = {
+						prestige = 400
+						AND = {
+							independent = yes
+							prestige = 275
+						}
+					}
+				}
+				random_list = {
+				
+					#charger
+					20 = {
+						modifier = {
+							factor = 1.5
+							OR = {
+								trait = experimenter #direct leader
+								trait = inspiring_leader
+								trait = aggressive_leader
+								trait = cavalry_leader
+							}
+						}
+						if = {
+							limit = { independent = yes }
+							prestige = -375
+							set_character_flag = csm_nomad_375_prestige
+						}
+						else = { 
+							prestige = -500 
+							set_character_flag = csm_nomad_500_prestige
+						}
+						add_artifact = charger
+						new_mount_setup_effect = yes
+						set_variable = { which = csm_prestige_spent value = 350 }
+						new_artifact = { save_event_target_as = csm_bought_item }
+						decrease_nearest_mount_province_effect = yes
+					}
+					
+					#steppe courser
+					20 = {
+						trigger = { can_buy_steppes_items_trigger = yes }
+						modifier = {
+							factor = 1.5
+							can_use_horse_archery_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							OR = {
+								trait = light_foot_leader
+								trait = flanker
+								trait = flat_terrain_leader
+							}
+						}
+						if = {
+							limit = { independent = yes }
+							prestige = -375
+						}
+						else = { prestige = -500 }
+						add_artifact = steppe_courser
+						new_mount_setup_effect = yes
+						event_target:steppes_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#moorish courser
+					20 = {
+						trigger = { can_buy_moorish_items_trigger = yes }
+						modifier = {
+							factor = 2
+							has_character_flag = ai_get_breeding_mount
+						}
+						modifier = {
+							factor = 3
+							moorish_discount_trigger = yes
+						}
+						if = {
+							limit = { independent = yes }
+							prestige = -375
+						}
+						else = { prestige = -500 }
+						add_artifact = moorish_courser
+						new_mount_setup_effect = yes
+						event_target:andalus_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#arabian courser
+					20 = {
+						trigger = { can_buy_arabian_items_trigger = yes }
+						modifier = {
+							factor = 1.5
+							arabian_discount_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							capital_scope = { terrain = desert }
+						}
+						modifier = {
+							factor = 3
+							religion_group = muslim
+						}
+						if = {
+							limit = { independent = yes }
+							prestige = -375
+						}
+						else = { prestige = -500 }
+						add_artifact = arabian_courser
+						new_mount_setup_effect = yes
+						event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#nisean horse
+					20 = {
+						trigger = { can_buy_bactrian_items_trigger = yes }
+						modifier = {
+							factor = 1.5
+							bactrian_discount_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							trait = wroth
+						}
+						if = {
+							limit = { independent = yes }
+							prestige = -375
+						}
+						else = { prestige = -500 }
+						add_artifact = nisean_horse
+						new_mount_setup_effect = yes
+						event_target:bactria_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+				}
+			}
+			###tier 5
+			60 = {
+				trigger = {
+					OR = {
+						prestige = 650
+						AND = {
+							independent = yes
+							prestige = 525
+						}
+					}	
+					OR = {
+						can_buy_arabian_items_trigger = yes
+						can_buy_steppes_items_trigger = yes
+						can_buy_frankish_items_trigger = yes
+					}
+				}
+				random_list = {
+					#arabian charger
+					20 = {
+						trigger = { can_buy_arabian_items_trigger = yes }
+						modifier = {
+							factor = 2
+							has_character_flag = ai_get_breeding_mount
+						}
+						modifier = {
+							factor = 1.5
+							arabian_discount_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							capital_scope = { 
+								OR = {
+									terrain = desert 
+									terrain = plains
+								}
+							}
+						}
+						modifier = {
+							factor = 3
+							religion_group = muslim
+						}
+						if = {
+							limit = { independent = yes }
+							prestige = -625
+						}
+						else = { prestige = -750 }
+						add_artifact = arabian_charger
+						new_mount_setup_effect = yes
+						event_target:arabia_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#jurchen steppe horse
+					20 = {
+						trigger = { can_buy_steppes_items_trigger = yes }
+						modifier = {
+							factor = 1.5
+							capital_scope = { terrain = steppe }
+						}
+						if = {
+							limit = { independent = yes }
+							prestige = -625
+						}
+						else = { prestige = -750 }
+						add_artifact = jurchen_steppe_horse
+						new_mount_setup_effect = yes
+						event_target:steppes_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+					
+					#frankish charger
+					20 = {
+						trigger = { can_buy_frankish_items_trigger = yes }
+						modifier = {
+							factor = 1.5
+							frankish_discount_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							trait = brave
+						}
+						modifier = {
+							factor = 1.5
+							trait = experimenter #direct leader
+						}		
+						if = {
+							limit = { independent = yes }
+							prestige = -625
+						}
+						else = { prestige = -750 }
+						add_artifact = frankish_charger
+						new_mount_setup_effect = yes
+						event_target:france_mount_province = { change_variable = { which = available_mounts value = -1 } }
+					}
+				}
+			}
+		}
+		clr_character_flag = ai_get_breeding_mount
+	}
+}
+
+
+
+
+###buying mount armor and equipment
+character_event = {
+	id = csmm.202
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		get_current_mount_effect = yes
+		
+		##armor first
+		if = {
+			limit = {
+				NOT = { has_character_flag = ai_get_mount_addon }
+				has_active_mount_armor_trigger = no 
+			}
+			random_list = {
+				
+				#horse
+				20 = {
+					trigger = { event_target:current_mount = { has_artifact_flag = horse } }
+					random_list = {
+						#1
+						50 = {
+							wealth = -50
+							add_artifact = horse_armor_1
+							set_variable = { which = csm_wealth_spent value = 50 }
+							new_artifact = { save_event_target_as = csm_bought_item }
+							decrease_nearest_mount_province_effect = yes
+						}
+						
+						#2
+						40 = {
+							wealth = -100
+							add_artifact = horse_armor_2
+							set_variable = { which = csm_wealth_spent value = 100 }
+							new_artifact = { save_event_target_as = csm_bought_item }
+							decrease_nearest_mount_province_effect = yes
+						}
+					
+						#3
+						30 = {
+							trigger = {
+								OR = {
+									wealth = 150
+									AND = {
+										wealth = 100
+										monthly_income = 15
+									}
+								}
+							}
+							modifier = {
+								factor = 2
+								event_target:current_mount = { quality >= 3 }
+							}
+							wealth = -200
+							add_artifact = horse_armor_3
+							set_variable = { which = csm_wealth_spent value = 200 }
+							new_artifact = { save_event_target_as = csm_bought_item }
+							decrease_nearest_mount_province_effect = yes
+						}
+						
+						#greek cataphract
+						40 = {
+							trigger = { 
+								can_buy_greek_items_trigger = yes 
+								OR = {
+									wealth = 250
+									AND = {
+										wealth = 200
+										monthly_income = 15
+									}
+								}
+							}
+							modifier = {
+								factor = 3
+								event_target:current_mount = { quality >= 4 }
+							}
+							wealth = -300
+							add_artifact = greek_cataphract_armor
+							event_target:greece_mount_province = { change_variable = { which = available_mounts value = -1 } }
+						}
+						
+						#frankish horse armor
+						40 = {
+							trigger = { 
+								can_buy_frankish_items_trigger = yes 
+								OR = {
+									wealth = 250
+									AND = {
+										wealth = 200
+										monthly_income = 15
+									}
+								}
+							}
+							modifier = {
+								factor = 3
+								event_target:current_mount = { quality >= 4 }
+							}
+							wealth = -300
+							add_artifact = frankish_horse_armor
+							event_target:france_mount_province = { change_variable = { which = available_mounts value = -1 } }
+						}
+					}
+				}
+				
+				#exotic
+				20 = {
+					trigger = { 
+						event_target:current_mount = { 
+							OR = {
+								has_artifact_flag = camel
+								has_artifact_flag = elephant
+								has_artifact_flag = exotic
+							}
+						}
+					}
+					random_list = {
+						#1
+						50 = {
+							wealth = -50
+							add_artifact = exotic_armor_1
+							set_variable = { which = csm_wealth_spent value = 50 }
+							new_artifact = { save_event_target_as = csm_bought_item }
+							decrease_nearest_mount_province_effect = yes
+						}
+						
+						#2
+						40 = {
+							wealth = -100
+							add_artifact = exotic_armor_2
+							set_variable = { which = csm_wealth_spent value = 100 }
+							new_artifact = { save_event_target_as = csm_bought_item }
+							decrease_nearest_mount_province_effect = yes
+						}
+					
+						#3
+						30 = {
+							trigger = {
+								OR = {
+									wealth = 150
+									AND = {
+										wealth = 100
+										monthly_income = 15
+									}
+								}
+							}
+							modifier = {
+								factor = 2
+								event_target:current_mount = { quality >= 3 }
+							}
+							wealth = -200
+							add_artifact = exotic_armor_3
+							set_variable = { which = csm_wealth_spent value = 200 }
+							new_artifact = { save_event_target_as = csm_bought_item }
+							decrease_nearest_mount_province_effect = yes
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_active_mount_armor_trigger = yes
+					has_character_flag = ai_get_mount_addon
+				}
+				NOT = { any_artifact = { has_artifact_flag = mount_addon } }
+			}
+			random_list = {
+				
+				#saddle
+				20 = {
+					trigger = { NOT = { has_artifact = mount_saddle } }
+					wealth = -50
+					add_artifact = mount_saddle
+					set_variable = { which = csm_wealth_spent value = 50 }
+					new_artifact = { save_event_target_as = csm_bought_item }
+					decrease_nearest_mount_province_effect = yes
+				}
+			
+				#horseshoe
+				15 = {
+					trigger = {
+						NOT = { has_artifact = mount_horseshoes } 
+						event_target:current_mount = { has_artifact_flag = horse }
+					}
+					modifier = { #near pagan attrition
+						factor = 3
+						NOT = { year = 1166 } #approximate time low pagans/have mil tech 4
+						NOT = { religion_group = pagan_group }
+						capital_scope = {
+							any_neighbor_province = {
+								is_land = yes
+								any_neighbor_province = {
+									is_land = yes
+									religion_group = pagan_group
+								}
+							}
+						}
+					}
+					modifier = { #near mountains
+						factor = 2.5
+						capital_scope = {
+							any_neighbor_province = {
+								any_neighbor_province = {
+									count = 5
+									OR = {
+										terrain = hills
+										terrain = mountain
+									}
+								}
+							}
+						}
+					}
+					wealth = -50
+					add_artifact = mount_horseshoes
+					set_variable = { which = csm_wealth_spent value = 50 }
+					new_artifact = { save_event_target_as = csm_bought_item }
+					decrease_nearest_mount_province_effect = yes
+				}
+				
+				#lance
+				20 = {
+					trigger = { NOT = { has_artifact = mount_lance } }
+					modifier = {
+						factor = 0.5
+						is_weak_trigger = yes
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							independent = yes
+							has_education_martial_trigger = yes
+							has_crusade_trait_trigger = yes
+						}
+					}
+					wealth = -75
+					add_artifact = mount_lance
+					set_variable = { which = csm_wealth_spent value = 75 }
+					new_artifact = { save_event_target_as = csm_bought_item }
+					decrease_nearest_mount_province_effect = yes
+				}
+				
+				#bow
+				20 = {
+					trigger = { 
+						NOT = { has_artifact = mount_bow } 
+						can_use_horse_archery_trigger = yes
+					}
+					modifier = {
+						factor = 0.5
+						is_weak_trigger = yes
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							independent = yes
+							has_education_martial_trigger = yes
+							has_crusade_trait_trigger = yes
+						}
+					}
+					modifier = {
+						factor = 3
+						is_skilled_horse_archer_trigger = yes
+					}
+					wealth = -75
+					add_artifact = mount_bow
+					set_variable = { which = csm_wealth_spent value = 75 }
+					new_artifact = { save_event_target_as = csm_bought_item }
+					decrease_nearest_mount_province_effect = yes
+				}
+				
+				#shield
+				20 = {
+					trigger = { NOT = { has_artifact = mount_shield } }
+					modifier = {
+						factor = 0.5
+						is_weak_trigger = yes
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							independent = yes
+							has_education_martial_trigger = yes
+							has_crusade_trait_trigger = yes
+						}
+					}
+					modifier = {
+						factor = 2
+						is_skilled_horse_archer_trigger = no
+					}
+					wealth = -75
+					add_artifact = mount_shield
+					set_variable = { which = csm_wealth_spent value = 75 }
+					new_artifact = { save_event_target_as = csm_bought_item }
+					decrease_nearest_mount_province_effect = yes
+				}
+				
+				
+				#banner
+				20 = {
+					trigger = { NOT = { has_artifact = mount_banner } }
+					modifier = {
+						factor = 1.5
+						has_pleasant_trait_trigger = yes
+					}
+					modifier = {
+						factor = 2
+						trait = inspiring_leader
+					}
+					modifier = {
+						factor = 2
+						trait = strategist
+					}
+					wealth = -75
+					add_artifact = mount_banner
+					set_variable = { which = csm_wealth_spent value = 75 }
+					new_artifact = { save_event_target_as = csm_bought_item }
+					decrease_nearest_mount_province_effect = yes
+				}
+				
+				#caparison
+				20 = {
+					trigger = { NOT = { has_artifact = mount_caparison } }
+					modifier = {
+						factor = 1.5
+						is_patrician = yes
+						NOT = { any_vassal = { is_patrician = yes } } #Not current doge
+					}
+					modifier = {
+						factor = 2
+						trait = proud
+					}
+					wealth = -75
+					add_artifact = mount_caparison
+					set_variable = { which = csm_wealth_spent value = 75 }
+					new_artifact = { save_event_target_as = csm_bought_item }
+					decrease_nearest_mount_province_effect = yes
+				}
+			}
+		}
+		clr_character_flag = ai_get_mount_addon
+	}
+}
+
+
+###upgrade equipment
+character_event = {
+	id = csmm.203
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	
+	immediate = {
+		if = {
+			limit = {
+				any_artifact = {
+					has_artifact_flag = mount_armor
+					OR = {
+						quality < 3
+						AND = {
+							has_artifact_flag = horse_armor
+							quality < 4
+							ROOT = { 
+								OR = {
+									can_buy_greek_items_trigger = yes 
+									can_buy_frankish_items_trigger = yes
+								}
+							}
+						}
+					}
+					is_artifact_equipped = yes
+				}
+			}
+			random_artifact = {
+				limit = {
+					has_artifact_flag = mount_armor
+					OR = {
+						quality < 3
+						AND = {
+							has_artifact_flag = horse_armor
+							quality < 4
+							ROOT = { 
+								OR = {
+									can_buy_greek_items_trigger = yes 
+									can_buy_frankish_items_trigger = yes
+								}
+							}
+						}
+					}
+					is_artifact_equipped = yes
+				}
+				save_event_target_as = equipment_to_replace
+			}
+		}
+		else_if = {
+			limit = {
+				any_artifact = {
+					has_artifact_flag = mount_armor
+					OR = {
+						quality < 3
+						AND = {
+							has_artifact_flag = horse_armor
+							quality < 4
+							ROOT = { 
+								OR = {
+									can_buy_greek_items_trigger = yes 
+									can_buy_frankish_items_trigger = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			random_artifact = {
+				limit = {
+					has_artifact_flag = mount_armor
+					OR = {
+						quality < 3
+						AND = {
+							has_artifact_flag = horse_armor
+							quality < 4
+							ROOT = { 
+								OR = {
+									can_buy_greek_items_trigger = yes 
+									can_buy_frankish_items_trigger = yes
+								}
+							}
+						}
+					}
+				}
+				save_event_target_as = equipment_to_replace
+			}
+		}
+		else = {
+			random_artifact = {
+				limit = {
+					has_artifact_flag = mount_addon
+					original_owner = { NOT = { character = ROOT } }
+				}
+				save_event_target_as = equipment_to_replace
+			}
+		}
+	
+		if = {
+			limit = {
+				event_target:equipment_to_replace = { has_artifact_flag = mount_armor }
+			}
+			event_target:equipment_to_replace = {
+				if = {
+					limit = { quality == 1 }
+					ROOT = { wealth = -50 }
+				}
+				else_if = {
+					limit = { quality == 2 }
+					ROOT = { wealth = -100 }
+				}
+				else_if = {
+					limit = { quality == 3 }
+					ROOT = { wealth = -100 }
+				}
+				trigger_switch = {
+					on_trigger = artifact_type
+					
+					horse_armor_1 = { ROOT = { add_artifact = horse_armor_2 } }
+					horse_armor_2 = { ROOT = { add_artifact = horse_armor_3 } }
+					horse_armor_3 = {
+						ROOT = { 
+							if = {
+								limit = { can_buy_greek_items_trigger = yes }
+								add_artifact = greek_cataphract_armor
+								event_target:greece_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+							else_if = {
+								limit = { can_buy_frankish_items_trigger = yes }
+								add_artifact = frankish_horse_armor
+								event_target:france_mount_province = { change_variable = { which = available_mounts value = -1 } }
+							}
+						}
+					}
+					
+					exotic_armor_1 = { ROOT = { add_artifact = exotic_armor_2 } }
+					exotic_armor_2 = { ROOT = { add_artifact = exotic_armor_3 } }
+				}
+				unsafe_destroy_artifact = yes
+			}
+		}
+		else_if = {
+			limit = {
+				event_target:equipment_to_replace = { has_artifact_flag = mount_addon }
+			}
+			event_target:equipment_to_replace = {
+				trigger_switch = {
+					on_trigger = artifact_type
+			
+					mount_saddle = { ROOT = { wealth = 25 } }
+					mount_horseshoes = { ROOT = { wealth = 25 } }
+					mount_lance = { ROOT = { wealth = 50 } }
+					mount_bow = { ROOT = { wealth = 50 } }
+					mount_shield = { ROOT = { wealth = 50 } }
+					mount_banner = { ROOT = { wealth = 50 } }
+					mount_caparison = { ROOT = { wealth = 50 } }
+				}
+				unsafe_destroy_artifact = yes
+			}
+			set_character_flag = ai_get_mount_addon
+			character_event = { id = csmm.202 }
+		}
+	}
+
+
+}
+
+###ai recalcs which mount to use
+character_event = {
+	id = csmm.204
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = { clr_character_flag = ai_recalc_equipped_mount }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####Player info
+long_character_event = {
+	id = csmm.300
+	desc = EVTDESAcsmm.300
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	ai = no
+	
+	trigger = { NOT = { has_global_flag = csm_info_event } }
+	
+	
+	option = {
+		name = EVTOPTAcsmm.300
+		add_artifact = csm_info_book
+	}
+	option = {
+		name = EVTOPTBcsmm.300
+	}
+	
+	after = { set_global_flag = csm_info_event }
+}
+
+#book index
+long_character_event = {
+	id = csmm.301
+	desc = EVTDESAcsmm.301
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#mount info
+	option = {
+		name = EVTOPTAcsmm.301
+		hidden_tooltip = { long_character_event = { id = csmm.302 } }
+	}
+	#province info
+	option = {
+		name = EVTOPTBcsmm.301
+		hidden_tooltip = { narrative_event = { id = csmm.310 } }
+	}
+	
+	#mounted combat
+	#option = {
+	#	name = EVTOPTCcsmm.301
+	#	hidden_tooltip = { narrative_event = { id = csmm.320 } }
+	#}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+	}
+}
+
+
+#mount info index
+long_character_event = {
+	id = csmm.302
+	desc = EVTDESAcsmm.302
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#aqcuisition
+	option = {
+		name = EVTOPTAcsmm.302
+		hidden_tooltip = { long_character_event = { id = csmm.303 } }
+	}
+	
+	#lifespan
+	option = {
+		name = EVTOPTBcsmm.302
+		hidden_tooltip = { long_character_event = { id = csmm.304 } }
+	}
+
+	#breeding
+	option = {
+		name = EVTOPTCcsmm.302
+		hidden_tooltip = { long_character_event = { id = csmm.305 } }
+	}
+
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { long_character_event = { id = csmm.301 } }
+	}
+}
+
+#acquisition info
+long_character_event = {
+	id = csmm.303
+	desc = EVTDESAcsmm.303
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#back
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { long_character_event = { id = csmm.302 } }
+	}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+	}
+}
+
+#lifespan info
+long_character_event = {
+	id = csmm.304
+	desc = EVTDESAcsmm.304
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#back
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { long_character_event = { id = csmm.302 } }
+	}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+	}
+}
+
+#breeding info
+long_character_event = {
+	id = csmm.305
+	desc = EVTDESAcsmm.305
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#breeding results
+	option = {
+		name = EVTOPTAcsmm.305
+		hidden_tooltip = { long_character_event = { id = csmm.306 } }
+	}
+	
+	#back
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { long_character_event = { id = csmm.302 } }
+	}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+	}
+}
+
+#breeding results
+long_character_event = {
+	id = csmm.306
+	desc = EVTDESAcsmm.306
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#back
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { long_character_event = { id = csmm.305 } }
+	}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+	}
+}
+
+#province info
+narrative_event = {
+	id = csmm.310
+	title = EVTTITLEcsmm.310
+	desc = EVTDESAcsmm.310
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#fluctuation info
+	option = {
+		name = EVTOPTAcsmm.310
+		hidden_tooltip = { long_character_event = { id = csmm.311 } }
+	}
+	
+	#back
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { long_character_event = { id = csmm.301 } }
+	}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+	}
+}
+
+#more province info
+long_character_event = {
+	id = csmm.311
+	desc = EVTDESAcsmm.311
+	picture = GFX_evt_scientist
+	
+	is_triggered_only = yes
+	
+	#back
+	option = {
+		name = EVTOPTBACK
+		hidden_tooltip = { narrative_event = { id = csmm.310 } }
+	}
+	
+	#exit
+	option = {
+		name = EVTOPTEXIT
+		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+	}
+}
+
+#mounted combat info
+#narrative_event = {
+#	id = csmm.320
+#	title = EVTTITLEcsmm.320
+#	desc = EVTDESAcsmm.320
+#	picture = GFX_evt_scientist
+#	
+#	is_triggered_only = yes
+#	
+#	#mounted combat stat info
+#	option = {
+#		name = EVTOPTAcsmm.320
+#		hidden_tooltip = { narrative_event = { id = csmm.321 } }
+#	}
+#	
+#	#back
+#	option = {
+#		name = EVTOPTBACK
+#		hidden_tooltip = { long_character_event = { id = csmm.301 } }
+#	}
+#	
+#	#exit
+#	option = {
+#		name = EVTOPTEXIT
+#		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+#	}
+#}
+
+#mounted combat stat info
+#narrative_event = {
+#	id = csmm.321
+#	title = EVTTITLEcsmm.321
+#	desc = EVTDESAcsmm.321
+#	picture = GFX_evt_scientist
+#	
+#	is_triggered_only = yes
+#	
+#	#back
+#	option = {
+#		name = EVTOPTBACK
+#		hidden_tooltip = { narrative_event = { id = csmm.320 } }
+#	}
+#	
+#	#exit
+#	option = {
+#		name = EVTOPTEXIT
+#		hidden_tooltip = { clr_character_flag = reading_csm_info_book }
+#	}
+#}
+
+

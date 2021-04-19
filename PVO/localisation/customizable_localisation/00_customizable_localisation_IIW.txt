@@ -1,0 +1,105 @@
+defined_text = {
+	name = GetWarningA
+
+	text = {
+		trigger = {
+			is_ruler = no
+			NOT = { has_character_flag = no_court_invites }
+			NOT = { liege = { is_close_relative = ROOT } }
+			is_married = no
+			is_consort = no
+			is_councillor = no
+		}
+		localisation_key = possible
+	}
+
+
+}
+
+defined_text = {
+	name = GetWarningB
+
+
+	text = {
+		trigger = {
+		OR = {
+			is_ruler = yes
+			has_character_flag = no_court_invites
+			liege = { is_close_relative = ROOT }
+			is_married = yes
+			is_consort = yes
+			is_councillor = yes
+		}
+		}
+		localisation_key = impossible
+	}
+
+
+}
+
+defined_text = {
+	name = GetReasonA
+
+	text = {
+		trigger = {
+			is_ruler = yes
+		}
+		localisation_key = Ruler.
+	}
+}
+
+defined_text = {
+	name = GetReasonB
+
+	text = {
+		trigger = {
+			has_character_flag = no_court_invites
+		}
+		localisation_key = Loyal.
+	}
+}
+
+defined_text = {
+	name = GetReasonC
+
+	text = {
+		trigger = {
+			liege = { is_close_relative = ROOT }
+		}
+		localisation_key = Relative.
+	}
+}
+
+defined_text = {
+	name = GetReasonD
+
+	text = {
+		trigger = {
+			is_consort = yes
+		}
+		localisation_key = Concubine.
+	}
+}
+
+defined_text = {
+	name = GetReasonE
+
+	text = {
+		trigger = {
+			is_married = yes
+		}
+		localisation_key = Married.
+	}
+}
+
+
+defined_text = {
+	name = GetReasonF
+
+	text = {
+		trigger = {
+			is_councillor = yes
+		}
+		localisation_key = Counciler.
+	}
+}

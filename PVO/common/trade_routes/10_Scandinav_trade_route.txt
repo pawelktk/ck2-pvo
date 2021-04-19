@@ -1,0 +1,204 @@
+Scandinav_trade_route = {
+	wealth = 20.0			# Total base wealth of trade route
+	trade_post_display_trigger = {
+		OR = {
+			province_id = 290   # Uppland
+			province_id = 301	# Gotland
+			province_id = 272	# Vingulsmark
+			province_id = 303   # Skane
+			province_id = 391   # Nordland
+			province_id = 274   # Bergenshus
+			province_id = 281   # Angermanland
+			province_id = 414   # Novgorod
+			province_id = 547   # Kiev
+			province_id = 536   # Halych
+			province_id = 378   # Reval
+			province_id = 1646  # Odessa
+			province_id = 1596  # Riga
+			province_id = 496   # Byzantion
+			province_id = 510   # Costania
+			province_id = 610   # Bolghar
+			province_id = 582   # Vladimir
+			province_id = 11    # Dublin
+			province_id = 14	# Desmond
+			province_id = 41	# Buchan
+			province_id = 49	# Carrick
+		}
+	}
+
+	modifier = {			# Comment la route commerciale modifie les provinces qu'elle traverse
+		castle_tax_modifier = 0.05
+		city_tax_modifier = 0.05
+		temple_tax_modifier = 0.05
+		tribal_tax_modifier = 0.30
+		trade_route_value = 15
+		local_movement_speed = 0.30
+		tech_growth_modifier = 0.10
+		icon = 4
+	}
+	
+	start = {				# Début de la route commercial
+		496   # Byzantion
+		262   # Lubeck
+		848	  # Bremen
+		82	  # Sticht
+		619	  # Saray
+	}
+	
+	############### Route Scandinav ###################
+	path = {
+		496   # Byzantion
+		948   # Gulf of Varna
+		510   # Costania
+		949   # Coast of Taurida
+		558	  # Oleshky
+		543   # Lower Dniepr
+		544   # Korsun
+		547   # Kiev
+	}
+		path = {
+        547   # Kiev
+		1648  # Medjybij
+		546   # Terbovl
+		536	  # Halych
+		1636  # Zvenyhorod
+		534   # Peremysl
+		532   # Nowysacz
+		527   # Krakow
+	}
+	path = {
+        547   # Kiev
+		1649  # Korosten
+		1653  # Slutsk
+		1659  # Drutsk
+		418   # Orsha
+		417   # Vitebsk
+		419   # Polotsk
+	}
+	path = {
+        419   # Polotsk
+		416   # West Dvina
+		1594  # Jersika
+		1596  # Riga
+	}
+	path = {
+        1596  # Riga
+		1004  # Baltic Sea
+		301	  # Gotland
+	}
+	path = {
+		419   # Polotsk
+		415   # Velikiye Luki
+		1662  # Rusa
+		414   # Novgorod
+		409	  # Ladoga
+	}
+	path = {
+		409	  # Ladoga
+		1006  # Gulf of Finland
+		378   # Reval
+		1005  # Sea of Alland
+		290   # Uppland
+	}
+	path = {
+		290   # Uppland
+		292   # Sodermanland
+		301	  # Gotland
+		1003  # Anse de Hanö
+		1002  # Golfe de Danzig
+		368   # Danzig
+	}
+	path = {
+        290   # Uppland
+		289   # Vastmanland
+		288   # Varmland
+		272	  # Vingulsmark
+		271	  # Vestfold
+		270   # Pelamark
+		269   # Rykjafylki
+		274   # Bergenshus
+	}
+	path = {
+        290   # Uppland
+		286   # Gastrikland
+		285   # Halsingland
+		283   # Medelpad
+		281   # Angermanland
+	}
+	path = {
+		262   # Lubeck
+		999	  # The Sound
+		303	  # Skane
+	}
+	path = {
+		303   # Skane
+		1702  # Finnveden
+		1701  # Vista
+		293   # Ostergotland
+		290   # Uppland
+	}
+	path = {
+        274   # Bergenshus	
+		986	  # North Sea
+		1686  # North Sea
+		987	  # North Sea
+		391   # Nordland
+	}
+	path = {
+		274   # Bergenshus
+		988	  # North Sea
+		995	  # Dogger Bank
+		57    # York		
+	}
+	path = {
+		303	  # Skane
+		1001  # Kattegat
+		1000  # Gulf of Heligoland
+		973	  # Waddenzee
+		78    # Brugge
+	}
+	path = {
+		82	  # Sticht
+		82	  # Sticht
+	}
+	path = {
+		848	  # Bremen	
+		848	  # Bremen	
+	}
+	path = {
+		274   # Bergenshus
+		989	  # North Sea
+		41	  # Buchan
+		993	  # Moray Firth
+		992	  # The Minch
+		49	  # Carrick
+		1019  # Mer d'Irlande
+		11    # Dublin
+	}
+	path = {
+		11    # Dublin
+		16	  # Leinster
+		12	  # Ossory
+		15	  # Ormond
+		14	  # Desmond
+	}
+	############### Volga Route ###################
+	path = {
+		619	  # Saray
+		1812  # Saqsin
+		1814  # Uvek
+		608   # Lower Volga
+		610   # Bolghar
+		611   # Qazan
+		589   # Kherzenets
+		585   # Gorodets
+		582   # Vladimir
+		583   # Suzdal
+		572   # Yaroslavl
+		571   # Uglich
+		408   # Belo Ozero
+		404   # Zaozerye
+		1660  # Chlisselbourg
+		409	  # Ladoga	
+	}
+}

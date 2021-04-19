@@ -1,0 +1,75 @@
+namespace = sea_king_troops
+
+	character_event = {
+		id = sea_king_troops.0001
+		desc = sea_king_troops_desc
+		picture = GFX_evt_battle
+		border = GFX_event_normal_frame_war
+	
+		is_triggered_only = yes
+
+		option = {
+			name = sea_king_troops.0001A
+			disband_event_forces = seaking_raid_troops
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+						#leader = none
+						match_character = THIS		# Die Truppen werden anhand der gegenw‰rtigen Truppenst‰rke des Ziels bemessen
+						match_mult = 0.025			# Der Faktor mit dem dies geschieht (die Raiding-Truppe ist also 2,5% der Gesamtst‰rke)
+						match_min = 1700			# Die Mindestanzahl, die die Raidtruppe immer haben muss (egal wie groﬂ die Gesamtst‰rke des Ziels ist)
+						match_max = 1700			# Die Maximalanzahl
+						attrition = 0				# Keine Attrition
+						cannot_inherit = yes		# Truppen werden nicht vererbt
+						earmark = seaking_raid_troops	# Bezeichnung an der man die Truppen scopen kann
+						is_looter = yes					# Sie stehen auf loot
+						can_toggle_looting = no			# Man kann sie nicht umstellen
+					}
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+						#leader = none
+						match_character = THIS
+						match_mult = 0.025
+						match_min = 1700
+						match_max = 1700
+						attrition = 0
+						cannot_inherit = yes
+						earmark = seaking_raid_troops
+						is_looter = yes
+						can_toggle_looting = no
+					}
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+						#leader = none
+						match_character = THIS
+						match_mult = 0.025
+						match_min = 1700
+						match_max = 1700
+						attrition = 0
+						cannot_inherit = yes
+						earmark = seaking_raid_troops
+						is_looter = yes
+						can_toggle_looting = no
+					}
+					spawn_fleet = {
+						province = closest # closest sea zone
+						owner = THIS
+						troops = {
+							galleys = { 150 150}
+						}
+						cannot_inherit = yes
+						earmark = seaking_raid_troops
+					}
+				}
+			}
+		}
+	}
+
+

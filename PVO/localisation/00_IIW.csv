@@ -1,0 +1,3 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x;;
+BUY_FAVOR_INTERACTION_DESC;It is §G[Recipient.GetWarningA]§!§R[Recipient.GetWarningB]§! to invite §Y[Recipient.GetBestName]§! to your court with a favor: §R[Recipient.GetReasonA][Recipient.GetReasonB][Recipient.GetReasonC][Recipient.GetReasonD][Recipient.GetReasonE][Recipient.GetReasonF]§!\nPay §Y[Recipient.GetBestName]§! $GOLD|0Y$¤ to $EFFECT$ [Recipient.GetHerHim].;;;;;;;;;;;;;x;;
+ASKS_FAVOR;get a Favor from;;;;;;;;;;;;;;x;;

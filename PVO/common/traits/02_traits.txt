@@ -1048,6 +1048,8 @@ architect = {
 	
 	stewardship = 2
 	martial = 1
+	wonder_build_cost_modifier = -0.03
+	wonder_build_time_modifier = -0.05
 	
 	command_modifier = {
 		siege = 0.2
@@ -1436,7 +1438,7 @@ dull = {
 	combat_rating = -3 #new value!
 	
 	ai_rationality = -15
-	
+
 	male_insult = INSULT_DULLARD
 	female_insult = INSULT_NITWIT
 	male_insult_adj = INSULT_DIM
@@ -2006,6 +2008,9 @@ valhalla_bound  = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2021,78 +2026,9 @@ valhalla_bound  = {
 	female_compliment = COMPL_VALHALLA_BOUND_FEMALE
 }
 
-ravager = {
-	potential = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			any_owned_bloodline = {
-				has_bloodline_flag = bloodline_viking
-			}
-			AND = {
-				has_religion_feature = religion_adventuring
-				has_religion_feature = religion_seafaring
-			}
-		}
-	}
-	opposites =  {
-		pirate
-		viking
-		seaking
-		sea_queen
-	}
-	martial = 2
-	combat_rating = 20 #old value: 2
-	monthly_character_prestige = 0.4
-	norse_pagan_opinion = 20
-	norse_pagan_reformed_opinion = 20
-	
-	same_opinion = 5
-	#religious = yes
-	
-	male_insult = COMPL_PIRATE
-	female_insult = COMPL_PIRATE
-	male_compliment = COMPL_VIKING
-	male_compliment_adj = COMPL_VIKING_adj
-	female_compliment = COMPL_VALKYRIE
-	female_compliment_adj = COMPL_VIKING_adj
-}
 
-seaking = {
-	potential = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			any_owned_bloodline = {
-				has_bloodline_flag = bloodline_viking
-			}
-			AND = {
-				has_religion_feature = religion_adventuring
-				has_religion_feature = religion_seafaring
-			}
-		}
-	}
-	opposites =  {
-		pirate
-		viking
-		ravager
-		sea_queen
-	}
-	martial = 3
-	combat_rating = 20 #old value: 2
-	monthly_character_prestige = 0.5
-	norse_pagan_opinion = 25
-	norse_pagan_reformed_opinion = 25
-	
-	#religious = yes
-	
-	male_insult = COMPL_PIRATE
-	female_insult = COMPL_PIRATE
-	male_compliment = COMPL_VIKING
-	male_compliment_adj = COMPL_VIKING_adj
-	female_compliment = COMPL_VALKYRIE
-	female_compliment_adj = COMPL_VIKING_adj
-}
+
+
 
 dancing_plague = {
 	is_epidemic = yes
@@ -2199,42 +2135,7 @@ cannot_marry = {
 	random = no
 }
 
-sea_queen = {
-	potential = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			any_owned_bloodline = {
-				has_bloodline_flag = bloodline_viking
-			}
-			AND = {
-				has_religion_feature = religion_adventuring
-				has_religion_feature = religion_seafaring
-			}
-		}
-	}
-	opposites =  {
-		pirate
-		viking
-		ravager
-		seaking
-	}
-	martial = 3
-	combat_rating = 20 #old value: 2
-	monthly_character_prestige = 0.5
-	norse_pagan_opinion = 25
-	norse_pagan_reformed_opinion = 25
-	
-	#religious = yes
-	customizer = no
-	
-	male_insult = COMPL_PIRATE
-	female_insult = COMPL_PIRATE
-	male_compliment = COMPL_VIKING
-	male_compliment_adj = COMPL_VIKING_adj
-	female_compliment = COMPL_VALKYRIE
-	female_compliment_adj = COMPL_VIKING_adj
-}
+
 
 eagle_warrior = {
 	opposites = {
@@ -2251,6 +2152,9 @@ eagle_warrior = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2285,6 +2189,9 @@ sun_warrior = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2319,6 +2226,9 @@ ukkos_shield = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2353,6 +2263,9 @@ nyames_shield = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2387,6 +2300,9 @@ peruns_chosen = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2421,6 +2337,9 @@ romuvas_own = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2455,6 +2374,9 @@ ares_own = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2489,6 +2411,9 @@ tengri_warrior = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2523,6 +2448,9 @@ shaddai = {
 		tengri_warrior
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -2557,6 +2485,9 @@ gondi_shahansha = {
 		tengri_warrior
 		shaddai
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -6454,7 +6385,8 @@ kow_tow_completed_tier_3 = {
 	random = no
 }
 giant = {
-	birth = 20
+	birth = 50
+	inherit_chance = 5
 	
 	opposites =  {
 		dwarf
@@ -6469,6 +6401,7 @@ giant = {
 	
 	vassal_opinion = 5
 	tribal_opinion = 10
+	sex_appeal_opinion = -5
 	
 	male_insult = INSULT_ABOMINATION
 	female_insult = INSULT_FREAK
@@ -6861,7 +6794,10 @@ pagan_branch_1 = {
 	
 	ai_zeal = -30
 
-	potential = { has_religion_feature = religion_no_leader }
+	potential = {
+        has_religion_feature = religion_no_leader
+        NOT = { religion = a_tag_roog_reformed }
+    }
 	random = no
 	religious = yes
 	ruler_designer_cost = 0
@@ -6881,7 +6817,10 @@ pagan_branch_2 = {
 	
 	ai_zeal = 30
 	
-	potential = { has_religion_feature = religion_no_leader }
+	potential = {
+        has_religion_feature = religion_no_leader
+        NOT = { religion = a_tag_roog_reformed }
+    }
 	random = no
 	religious = yes
 	ruler_designer_cost = 0
@@ -6901,7 +6840,10 @@ pagan_branch_3 = {
 	
 	ai_ambition = 20
 	
-	potential = { has_religion_feature = religion_no_leader }
+	potential = {
+        has_religion_feature = religion_no_leader
+        NOT = { religion = a_tag_roog_reformed }
+    }
 	random = no
 	religious = yes
 	ruler_designer_cost = 0
@@ -6921,7 +6863,10 @@ pagan_branch_4 = {
 	
 	ai_honor = 10
 	
-	potential = { has_religion_feature = religion_no_leader }
+	potential = {
+        has_religion_feature = religion_no_leader
+        NOT = { religion = a_tag_roog_reformed }
+    }
 	random = no
 	religious = yes
 	ruler_designer_cost = 0
@@ -7057,6 +7002,7 @@ zodiac_aquarius = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	opposites = {
@@ -7084,6 +7030,7 @@ zodiac_aries = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 
@@ -7108,6 +7055,7 @@ zodiac_cancer = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	diplomacy = -1
@@ -7130,6 +7078,7 @@ zodiac_capricorn = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	martial = -1
@@ -7152,6 +7101,7 @@ zodiac_gemini = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	stewardship = 1
@@ -7175,6 +7125,7 @@ zodiac_leo = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	martial = 1
@@ -7200,6 +7151,7 @@ zodiac_libra = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 
@@ -7223,6 +7175,7 @@ zodiac_pisces = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	diplomacy = -1
@@ -7246,6 +7199,7 @@ zodiac_sagittarius = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	martial = 1
@@ -7269,6 +7223,7 @@ zodiac_scorpio = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	intrigue = 1
@@ -7293,6 +7248,7 @@ zodiac_taurus = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	martial = 1
@@ -7315,6 +7271,7 @@ zodiac_virgo = {
 			religion = hellenic_pagan
 			religion = hellenic_pagan_reformed
 			has_religion_feature = religion_astrology
+			is_in_society = hermetics
 		}
 	}
 	stewardship = 1
@@ -7439,7 +7396,6 @@ crowned_by_pope_rd = {
 }
 
 crusader_king = {
-	customizer = no
 	opposites = {
 		crusader
 		crusader_queen
@@ -7475,7 +7431,6 @@ crusader_king = {
 }
 
 crusader_queen = {
-	customizer = no
 	opposites = {
 		crusader
 		crusader_king
@@ -7510,36 +7465,7 @@ crusader_queen = {
 	random = no
 }
 
-pirate = {
-	potential = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			has_character_flag = acquired_pirate_trait_by_bloodline
-			AND = {
-				has_religion_feature = religion_adventuring
-				has_religion_feature = religion_seafaring
-			}
-		}
-	}
-	opposites =  {
-		viking
-		ravager
-		seaking
-		sea_queen
-	}
-	martial = 1
-	combat_rating = 10 #old value: 1
-	monthly_character_prestige = 0.3
-	norse_pagan_opinion = 15
-	norse_pagan_reformed_opinion = 15
-	
-	same_opinion = 5
-	#religious = yes
-	
-	male_insult = COMPL_PIRATE
-	female_insult = COMPL_PIRATE
-}
+
 
 bloodthirsty_gods_1 = { #10 burned_hearts_points
 	potential = {
@@ -7703,4 +7629,173 @@ tribal_kinslayer = {
 	male_insult = INSULT_KINSLAYER
 	female_insult = INSULT_KINSLAYER
 }
+ravager = {
+	potential = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_viking
+			}
+			
+				has_religion_feature = religion_adventuring
+				has_religion_feature = religion_seafaring
+				culture = maghreb_arabic
+				is_tribal = yes
+				has_religion_feature = religion_feature_aztec
+has_religion_feature = religion_feature_slavic
+
+		is_looting = yes
+			  is_allowed_to_loot = yes
+		}
+	}
+	opposites =  {
+		pirate
+		viking
+		seaking
+		sea_queen
+	}
+	martial = 2
+	combat_rating = 20 #old value: 2
+	monthly_character_prestige = 0.4
+	#norse_pagan_opinion = 20
+	#norse_pagan_reformed_opinion = 20
+	same_religion_opinion = 20
+	
+	
+	same_opinion = 5
+	#religious = yes
+	
+	male_insult = COMPL_PIRATE
+	female_insult = COMPL_PIRATE
+	male_compliment = COMPL_VIKING
+	male_compliment_adj = COMPL_VIKING_adj
+	female_compliment = COMPL_VALKYRIE
+	female_compliment_adj = COMPL_VIKING_adj
+}
+
+seaking = {
+	potential = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_viking
+			}
+			
+				has_religion_feature = religion_adventuring
+				has_religion_feature = religion_seafaring
+				
+			culture = maghreb_arabic
+				is_tribal = yes
+				has_religion_feature = religion_feature_aztec
+has_religion_feature = religion_feature_slavic
+is_looting = yes
+			  is_allowed_to_loot = yes
+				
+		}
+	}
+	opposites =  {
+		pirate
+		viking
+		ravager
+		sea_queen
+	}
+	martial = 3
+	combat_rating = 20 #old value: 2
+	monthly_character_prestige = 0.5
+	#norse_pagan_opinion = 25
+	#norse_pagan_reformed_opinion = 25
+	same_religion_opinion = 25
+	
+	#religious = yes
+	
+	male_insult = COMPL_PIRATE
+	female_insult = COMPL_PIRATE
+	male_compliment = COMPL_VIKING
+	male_compliment_adj = COMPL_VIKING_adj
+	female_compliment = COMPL_VALKYRIE
+	female_compliment_adj = COMPL_VIKING_adj
+}
+
+sea_queen = {
+	potential = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_viking
+			}
+			
+				has_religion_feature = religion_adventuring
+				has_religion_feature = religion_seafaring
+				culture = maghreb_arabic
+				is_tribal = yes
+				has_religion_feature = religion_feature_aztec
+has_religion_feature = religion_feature_slavic
+is_looting = yes
+			  is_allowed_to_loot = yes
+			
+		}
+	}
+	opposites =  {
+		pirate
+		viking
+		ravager
+		seaking
+	}
+	martial = 3
+	combat_rating = 20 #old value: 2
+	monthly_character_prestige = 0.5
+	#norse_pagan_opinion = 25
+	#norse_pagan_reformed_opinion = 25
+	same_religion_opinion = 25
+	#religious = yes
+	customizer = no
+	
+	male_insult = COMPL_PIRATE
+	female_insult = COMPL_PIRATE
+	male_compliment = COMPL_VIKING
+	male_compliment_adj = COMPL_VIKING_adj
+	female_compliment = COMPL_VALKYRIE
+	female_compliment_adj = COMPL_VIKING_adj
+}
+pirate = {
+	potential = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			has_character_flag = acquired_pirate_trait_by_bloodline
+			
+				has_religion_feature = religion_adventuring
+				has_religion_feature = religion_seafaring
+				culture = maghreb_arabic
+				is_tribal = yes
+				has_religion_feature = religion_feature_aztec
+has_religion_feature = religion_feature_slavic
+is_looting = yes
+			  is_allowed_to_loot = yes
+			
+		}
+	}
+	opposites =  {
+		viking
+		ravager
+		seaking
+		sea_queen
+	}
+	martial = 1
+	combat_rating = 10 #old value: 1
+	monthly_character_prestige = 0.3
+	#norse_pagan_opinion = 15
+	#norse_pagan_reformed_opinion = 15
+	same_religion_opinion = 15
+	
+	same_opinion = 5
+	#religious = yes
+	
+	male_insult = COMPL_PIRATE
+	female_insult = COMPL_PIRATE
+}
+
 

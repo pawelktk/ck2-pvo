@@ -1,0 +1,133 @@
+
+#####Characters#####
+
+mount_upkeep_modifier = { icon = 24 }
+
+fair_mounts_1 = {
+	icon = 7
+	monthly_character_prestige = 0.1
+	vassal_opinion = 1
+}
+
+fair_mounts_2 = {
+	icon = 7
+	monthly_character_prestige = 0.2
+	vassal_opinion = 3
+}
+
+fair_mounts_3 = {
+	icon = 7
+	monthly_character_prestige = 0.4
+	vassal_opinion = 5
+}
+
+fair_mounts_4 = {
+	icon = 7
+	monthly_character_prestige = 0.8
+	vassal_opinion = 7
+}
+
+fair_mounts_5 = {
+	icon = 7
+	monthly_character_prestige = 1.5
+	vassal_opinion = 10
+}
+
+
+
+
+#####Provinces#####
+
+csm_increased_trade = {
+	icon = 6
+	tradevalue = 10
+}
+
+csm_craftsmen = {
+	icon = 11
+	local_build_cost_modifier = -0.15
+	local_build_time_modifier = -0.3
+}
+
+csm_doctors = {
+	icon = 2
+	monthly_character_piety = 0.15
+	disease_defence = 0.1
+}
+
+csm_lend_grazing_land = {
+	icon = 22
+	castle_tax_modifier = -0.25
+}
+
+csm_horse_races = {
+	icon = 9
+	local_revolt_risk = -0.05
+	local_tax_modifier = 0.2
+	tradevalue = 5
+}
+
+
+#####Timers#####
+mounted_combat_timer = { icon = 1 }
+breeding_timer = { icon = 1 }
+bucephalus_timer = { icon = 1 }
+character_flavor_timer = { icon = 1 }
+province_flavor_timer = { icon = 1 }
+ai_mount_decision_timer = { icon = 1 }
+ai_mount_equipment_decision_timer = { icon = 1 }
+
+#####Mount Counters#####
+ireland_mount_counter = { icon = 56 }
+france_mount_counter = { icon = 56 }
+germany_mount_counter = { icon = 56 }
+slavic_mount_counter = { icon = 56 }
+italy_mount_counter = { icon = 56 }
+spain_mount_counter = { icon = 56 }
+andalus_mount_counter = { icon = 56 }
+steppes_mount_counter = { icon = 56 }
+arabia_mount_counter = { icon = 56 }
+greece_mount_counter = { icon = 56 }
+bactria_mount_counter = { icon = 56 }
+india_mount_counter = { icon = 56 }
+africa_mount_counter = { icon = 56 }
+tibet_mount_counter = { icon = 56 }
+scandinavia_mount_counter = { icon = 56 }
+russia_mount_counter = { icon = 56 }
+sami_mount_counter = { icon = 56 }
+
+plus_ireland_mount_counter = { icon = 82 }
+plus_france_mount_counter = { icon = 82 }
+plus_germany_mount_counter = { icon = 82 }
+plus_slavic_mount_counter = { icon = 82 }
+plus_italy_mount_counter = { icon = 82 }
+plus_spain_mount_counter = { icon = 82 }
+plus_andalus_mount_counter = { icon = 82 }
+plus_steppes_mount_counter = { icon = 82 }
+plus_arabia_mount_counter = { icon = 82 }
+plus_greece_mount_counter = { icon = 82 }
+plus_bactria_mount_counter = { icon = 82 }
+plus_india_mount_counter = { icon = 82 }
+plus_africa_mount_counter = { icon = 82 }
+plus_tibet_mount_counter = { icon = 82 }
+plus_scandinavia_mount_counter = { icon = 82 }
+plus_russia_mount_counter = { icon = 82 }
+plus_sami_mount_counter = { icon = 82 }
+
+hip_ireland_mount_counter = { icon = 56 }
+hip_france_mount_counter = { icon = 56 }
+hip_germany_mount_counter = { icon = 56 }
+hip_slavic_mount_counter = { icon = 56 }
+hip_italy_mount_counter = { icon = 56 }
+hip_spain_mount_counter = { icon = 56 }
+hip_andalus_mount_counter = { icon = 56 }
+hip_steppes_mount_counter = { icon = 56 }
+hip_arabia_mount_counter = { icon = 56 }
+hip_greece_mount_counter = { icon = 56 }
+hip_bactria_mount_counter = { icon = 56 }
+hip_india_mount_counter = { icon = 56 }
+hip_africa_mount_counter = { icon = 56 }
+hip_tibet_mount_counter = { icon = 56 }
+hip_scandinavia_mount_counter = { icon = 56 }
+hip_russia_mount_counter = { icon = 56 }
+hip_sami_mount_counter = { icon = 56 }

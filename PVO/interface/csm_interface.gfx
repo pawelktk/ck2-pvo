@@ -1,0 +1,307 @@
+spriteTypes = {
+
+	###########Traits###########
+	spriteType = {
+		name = "GFX_trait_stable_master_1"
+		texturefile = "gfx/traits/stable_master_1.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_stable_master_2"
+		texturefile = "gfx/traits/stable_master_2.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_stable_master_3"
+		texturefile = "gfx/traits/stable_master_3.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_stable_master_4"
+		texturefile = "gfx/traits/stable_master_4.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	###########Decisions###########
+	spriteType = {
+		name = "GFX_csm_info_decision"
+		texturefile = "gfx\\interface\\decision_icon_write_a_book.dds"
+	}
+	spriteType = {
+		name = "GFX_employ_stable_master"
+		texturefile = "gfx\\interface\\decision_icon_employ_steward.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_market"
+		texturefile = "gfx\\interface\\decision_icon_choose_warhorse_nomad.dds"
+	}
+	spriteType = {
+		name = "GFX_ride_glitterhoof"
+		texturefile = "gfx\\interface\\decision_icon_tournament.dds"
+	}
+	spriteType = {
+		name = "GFX_tame_bucephalus"
+		texturefile = "gfx\\interface\\decision_icon_choose_warhorse_nomad.dds"
+	}
+	
+	###########Artifacts###########
+	
+	###Horses
+	spriteType = {
+		name = "GFX_foal"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\foal.dds"
+	}
+	spriteType = {
+		name = "GFX_foal_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\foal_small.dds"
+	}
+	spriteType = {
+		name = "GFX_courser"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\courser.dds"
+	}
+	spriteType = {
+		name = "GFX_courser_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\courser_small.dds"
+	}
+	spriteType = {
+		name = "GFX_destrier"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\destrier.dds"
+	}
+	spriteType = {
+		name = "GFX_destrier_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\destrier_small.dds"
+	}
+	spriteType = {
+		name = "GFX_charger"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\charger.dds"
+	}
+	spriteType = {
+		name = "GFX_charger_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\charger_small.dds"
+	}
+	spriteType = {
+		name = "GFX_chinese_horse"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\chinese_horse.dds"
+	}
+	spriteType = {
+		name = "GFX_chinese_horse_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\chinese_horse_small.dds"
+	}
+
+	
+	###Uniques
+	spriteType = {
+		name = "GFX_glitterhoof"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\glitterhoof.dds"
+	}
+	spriteType = {
+		name = "GFX_glitterhoof_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\glitterhoof_small.dds"
+	}
+	spriteType = {
+		name = "GFX_glitterhoof_immortal"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\glitterhoof_immortal.dds"
+	}
+	spriteType = {
+		name = "GFX_glitterhoof_immortal_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\glitterhoof_immortal_small.dds"
+	}
+	spriteType = {
+		name = "GFX_red_hare"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\red_hare.dds"
+	}
+	spriteType = {
+		name = "GFX_red_hare_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\red_hare_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bucephalus"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bucephalus.dds"
+	}
+	spriteType = {
+		name = "GFX_bucephalus_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bucephalus_small.dds"
+	}
+	spriteType = {
+		name = "GFX_al_buraq"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\al_buraq.dds"
+	}
+	spriteType = {
+		name = "GFX_al_buraq_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\al_buraq_small.dds"
+	}
+	
+
+	###Camels
+	spriteType = {
+		name = "GFX_arabian_camel"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\arabian_camel.dds"
+	}
+	spriteType = {
+		name = "GFX_arabian_camel_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\arabian_camel_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bactrian_camel"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bactrian_camel.dds"
+	}
+	spriteType = {
+		name = "GFX_bactrian_camel_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bactrian_camel_small.dds"
+	}
+	
+	
+	###Elephants
+	spriteType = {
+		name = "GFX_indian_elephant"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\indian_elephant.dds"
+	}
+	spriteType = {
+		name = "GFX_indian_elephant_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\indian_elephant_small.dds"
+	}
+	spriteType = {
+		name = "GFX_african_elephant"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\african_elephant.dds"
+	}
+	spriteType = {
+		name = "GFX_african_elephant_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\african_elephant_small.dds"
+	}
+	
+	
+	###Exotic
+	spriteType = {
+		name = "GFX_tibetan_yak"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\tibetan_yak.dds"
+	}
+	spriteType = {
+		name = "GFX_tibetan_yak_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\tibetan_yak_small.dds"
+	}
+	spriteType = {
+		name = "GFX_scandinavian_wolf"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\scandinavian_wolf.dds"
+	}
+	spriteType = {
+		name = "GFX_scandinavian_wolf_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\scandinavian_wolf_small.dds"
+	}
+	spriteType = {
+		name = "GFX_indian_tiger"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\indian_tiger.dds"
+	}
+	spriteType = {
+		name = "GFX_indian_tiger_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\indian_tiger_small.dds"
+	}
+	spriteType = {
+		name = "GFX_russian_bear"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\russian_bear.dds"
+	}
+	spriteType = {
+		name = "GFX_russian_bear_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\russian_bear_small.dds"
+	}
+	spriteType = {
+		name = "GFX_samian_reindeer"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\samian_reindeer.dds"
+	}
+	spriteType = {
+		name = "GFX_samian_reindeer_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\samian_reindeer_small.dds"
+	}
+	
+	###Armor
+	spriteType = {
+		name = "GFX_exotic_armor_1"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\exotic_armor_1.dds"
+	}
+	spriteType = {
+		name = "GFX_exotic_armor_1_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\exotic_armor_1_small.dds"
+	}
+	spriteType = {
+		name = "GFX_exotic_armor_2"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\exotic_armor_2.dds"
+	}
+	spriteType = {
+		name = "GFX_exotic_armor_2_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\exotic_armor_2_small.dds"
+	}
+	spriteType = {
+		name = "GFX_exotic_armor_3"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\exotic_armor_3.dds"
+	}
+	spriteType = {
+		name = "GFX_exotic_armor_3_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\exotic_armor_3_small.dds"
+	}
+	spriteType = {
+		name = "GFX_greek_cataphract_armor"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\greek_cataphract_armor.dds"
+	}
+	spriteType = {
+		name = "GFX_greek_cataphract_armor_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\greek_cataphract_armor_small.dds"
+	}
+	spriteType = {
+		name = "GFX_frankish_horse_armor"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\frankish_horse_armor.dds"
+	}
+	spriteType = {
+		name = "GFX_frankish_horse_armor_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\frankish_horse_armor_small.dds"
+	}
+	
+	
+	###Addons
+	spriteType = {
+		name = "GFX_mount_saddle"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_saddle.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_saddle_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_saddle_small.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_horseshoes"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_horseshoes.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_horseshoes_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_horseshoes_small.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_shield"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_shield.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_shield_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_shield_small.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_banner"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_banner.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_banner_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_banner_small.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_caparison"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_caparison.dds"
+	}
+	spriteType = {
+		name = "GFX_mount_caparison_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\mount_caparison_small.dds"
+	}
+}

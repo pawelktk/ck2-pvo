@@ -1,0 +1,6 @@
+# ROOT is the character, FROM is the title, FROMFROM is the old holder
+on_new_holder_usurpation = {
+	events = {
+		usurpfix.1 #fail-safe event that reverses temple usurpation
+	}
+}

@@ -1,0 +1,215 @@
+#On_looted_settlement: Bloodline gained at 200 viking_raids variable.
+
+narrative_event = {
+	id = HF.23212
+	title = EVTTITLE23212
+	desc = {
+		trigger = {
+			is_female = no
+			is_alternate_start = no
+			OR = {
+				religion = norse_pagan 
+				religion = norse_pagan_reformed
+			}
+		}
+		text = EVTDESCAHF23212
+	}
+	desc = {
+		trigger = {
+			is_female = yes
+			is_alternate_start = no
+			OR = {
+				religion = norse_pagan 
+				religion = norse_pagan_reformed
+			}
+		}
+		text = EVTDESCBHF23212
+	}
+	desc = {
+		trigger = {
+			OR = {
+				is_alternate_start = yes
+				NOR = {
+					religion = norse_pagan 
+					religion = norse_pagan_reformed
+				}
+			}
+		}
+		text = EVTDESCCHF23212
+	}
+	picture = { 
+		trigger = { is_female = no } 
+		picture = GFX_evt_vikings_arriving_oldgods
+	}
+	picture = { 
+		trigger = { is_female = yes } 
+		picture = GFX_evt_norse_tempest
+	}
+	border = GFX_event_narrative_frame_war
+	sound = bloodline_added
+	
+	is_triggered_only = yes
+
+	has_dlc = "Holy Fury"
+
+	trigger = {
+		check_variable = { which = viking_raids value = 200 }
+		OR = { 
+			trait = seaking
+			trait = sea_queen
+		}
+		NOR = { 
+			any_owned_bloodline = { # Not already has a Viking bloodline.
+				has_bloodline_flag = bloodline_historical_norse
+			}
+			any_owned_bloodline = {has_bloodline_flag = more_raiders1_bloodline}
+			
+			any_owned_bloodline ={has_bloodline_flag = does_not_sow_bloodline}
+			
+	}
+	}
+
+	option = {
+		name = EVTOPTAHF23212
+		add_blood_splatter_effect = yes #Dramatic effect.
+		hidden_tooltip = { 
+			if = { 
+				limit = { this_has_super_cool_nickname_trigger = no }
+				random_list = { 
+					20 = { 
+						trigger = { age = 50 }
+						give_nickname = nick_the_white_raven 
+					} 
+					20 = { 
+						trigger = { is_female = no }
+						give_nickname = nick_the_salt_snake 
+					} 
+					20 = { 
+						trigger = { is_female = yes }
+						give_nickname = nick_the_salt_viper 
+					} 
+					20 = { 
+						trigger = { is_female = yes is_attractive_trigger = yes }
+						give_nickname = nick_the_siren 
+					} 
+					20 = { 
+						trigger = { is_female = no }
+						give_nickname = nick_the_wyrm 
+					} 
+					20 = { 
+						trigger = { is_female = yes is_unattractive_trigger = yes }
+						give_nickname = nick_the_fury 
+					} 
+					20 = { 
+						trigger = { is_female = no }
+						give_nickname = nick_the_sea_devil 
+					} 
+					10 = { 
+						give_nickname = nick_the_stormforged 
+					} 
+					10 = { 
+						give_nickname = nick_the_tempest_of_capital 
+					} 
+				}
+			}
+		}
+		if = { 
+			limit = { is_female = no }
+			create_bloodline = {
+				type = seaking_bloodline
+			}
+			
+			
+			set_bloodline_founder_religion_flag_effect = yes
+			if = { 
+				limit = { OR = { religion = norse_pagan religion  = norse_pagan_reformed } }
+				new_bloodline = {
+					set_description = "bloodline_desc_seaking_bloodline_viking"
+					random_list = { 
+						20 = { set_name = bloodline_seaking_viking_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaking_viking_random_b }
+						20 = { set_name = bloodline_seaking_viking_random_c }
+						20 = { set_name = bloodline_seaking_viking_random_d } 
+					}
+				}		
+			}
+			if = { 
+				limit = { NOR = { religion = norse_pagan religion  = norse_pagan_reformed } }
+				new_bloodline = {
+					set_description = "bloodline_desc_seaking_bloodline_pirate"
+					random_list = { 
+						20 = { set_name = bloodline_seaking_pirate_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaking_pirate_random_b }
+						20 = { set_name = bloodline_seaking_pirate_random_c }
+						20 = { set_name = bloodline_seaking_pirate_random_d } 
+					}
+				}		
+			}	
+		}
+		if = { 
+			limit = { is_female = yes }
+			create_bloodline = {
+				type = seaqueen_bloodline
+			}
+			
+			set_bloodline_founder_religion_flag_effect = yes
+			if = { 
+				limit = { OR = { religion = norse_pagan religion  = norse_pagan_reformed } }
+				new_bloodline = {
+					set_description = "bloodline_desc_seaking_bloodline_viking"
+					random_list = { 
+						20 = { set_name = bloodline_seaqueen_viking_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaqueen_viking_random_b }
+						20 = { set_name = bloodline_seaqueen_viking_random_c }
+						20 = { set_name = bloodline_seaqueen_viking_random_d } 
+					}
+				}		
+			}
+			if = { 
+				limit = { NOR = { religion = norse_pagan religion  = norse_pagan_reformed } }
+				new_bloodline = {
+					set_description = "bloodline_desc_seaking_bloodline_pirate"
+					random_list = { 
+						20 = { set_name = bloodline_seaqueen_pirate_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaqueen_pirate_random_b }
+						20 = { set_name = bloodline_seaqueen_pirate_random_c }
+						20 = { set_name = bloodline_seaqueen_pirate_random_d } 
+					}
+				}		
+			}		
+		}
+		hidden_tooltip = { 
+			if = { 
+				limit = { 
+					NOR = { 
+						trait = african_tattoo_1
+						trait = african_tattoo_2
+						trait = african_tattoo_3
+						trait = african_tattoo_4
+						trait = african_tattoo_5
+						trait = african_tattoo_6
+						trait = african_tattoo_7
+						trait = african_tattoo_8
+						trait = slavic_tattoo_1
+						trait = slavic_tattoo_2
+						trait = slavic_tattoo_3
+						trait = slavic_tattoo_4
+						trait = slavic_tattoo_5
+						trait = slavic_tattoo_6
+						trait = norse_tattoo_1
+						trait = norse_tattoo_2
+						trait = norse_tattoo_3
+						trait = norse_tattoo_4
+						trait = norse_tattoo_5
+						trait = norse_tattoo_6
+					} 
+				}
+				add_trait = norse_tattoo_4		
+			}
+			any_player = { 
+				limit = { NOT = { character = ROOT } is_within_diplo_range = ROOT } 
+				narrative_event = { id = HF.23213 } 
+			}
+		}
+	}
+}

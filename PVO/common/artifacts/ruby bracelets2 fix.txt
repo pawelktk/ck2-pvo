@@ -1,0 +1,14 @@
+
+
+ruby_bracelets_2 = {
+	quality = 4
+	monthly_character_prestige = 0.7
+	castle_opinion = 4
+	tribal_opinion = 3
+	town_opinion = 3
+	flags = { bracelet jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_bracelet_jeweled_gold"
+	
+	slot = wrist
+}

@@ -1,0 +1,232 @@
+decisions = {
+  normalize_genetics = {
+    potential = {
+      ai = no
+      OR = {
+        has_character_flag = int_AA
+        has_character_flag = int_Aa
+        has_character_flag = int_aa
+      }
+      NOT = { total_years_played = 25}
+      NOT = { has_character_flag = normalized_genetics }
+    }
+    allow = {
+      ai = no
+      NOT = { total_years_played = 25}
+    }
+    effect = {
+      set_character_flag = normalized_genetics
+      if = {
+        limit = {
+          NOT = {
+            OR = {
+            trait = genius
+            trait = quick
+            trait = slow
+            trait = imbecile
+            }
+          }
+        }
+        clr_character_flag = int_AA
+        clr_character_flag = int_Aa
+        clr_character_flag = int_aa
+        clr_character_flag = int_BB
+        clr_character_flag = int_Bb
+        clr_character_flag = int_bb
+        clr_character_flag = int_CC
+        clr_character_flag = int_Cc
+        clr_character_flag = int_cc
+        set_character_flag = int_Aa
+        set_character_flag = int_Bb
+        set_character_flag = int_Cc
+      }
+      if = {
+        limit = {
+          NOT = {
+            OR = {
+            trait = fair
+            trait = ugly
+            }
+          }
+        }
+        clr_character_flag = attr_AA
+        clr_character_flag = attr_Aa
+        clr_character_flag = attr_aa
+        clr_character_flag = attr_BB
+        clr_character_flag = attr_Bb
+        clr_character_flag = attr_bb
+        clr_character_flag = attr_CC
+        clr_character_flag = attr_Cc
+        clr_character_flag = attr_cc
+        set_character_flag = attr_Aa
+        set_character_flag = attr_Bb
+        set_character_flag = attr_Cc
+      }
+      if = {
+        limit = {
+          NOT = {
+          OR = {
+            trait = strong
+            trait = weak
+            }
+          }
+        }
+          clr_character_flag = str_AA
+          clr_character_flag = str_Aa
+          clr_character_flag = str_aa
+          clr_character_flag = str_BB
+          clr_character_flag = str_Bb
+          clr_character_flag = str_bb
+          clr_character_flag = str_CC
+          clr_character_flag = str_Cc
+          clr_character_flag = str_cc
+          set_character_flag = str_Aa
+          set_character_flag = str_Bb
+          set_character_flag = str_Cc
+      }
+
+      if = {
+        limit = {
+          NOT = {
+            OR = {
+            trait = giant
+            trait = tiny
+            }
+          }
+        }
+          clr_character_flag = hgt_AA
+          clr_character_flag = hgt_Aa
+          clr_character_flag = hgt_aa
+          clr_character_flag = hgt_BB
+          clr_character_flag = hgt_Bb
+          clr_character_flag = hgt_bb
+          clr_character_flag = hgt_CC
+          clr_character_flag = hgt_Cc
+          clr_character_flag = hgt_cc
+          set_character_flag = hgt_Aa
+          set_character_flag = hgt_Bb
+          set_character_flag = hgt_Cc
+      }
+
+      if = {
+        limit = {
+          NOT = {
+            trait = clubfooted
+          }
+        }
+          clr_character_flag = clubfooted_AA
+          clr_character_flag = clubfooted_Aa
+          clr_character_flag = clubfooted_aa
+          clr_character_flag = clubfooted_BB
+          clr_character_flag = clubfooted_Bb
+          clr_character_flag = clubfooted_bb
+          clr_character_flag = clubfooted_CC
+          clr_character_flag = clubfooted_Cc
+          clr_character_flag = clubfooted_cc
+          set_character_flag = clubfooted_Aa
+          set_character_flag = clubfooted_Bb
+          set_character_flag = clubfooted_Cc
+      }
+
+      if = {
+        limit = {
+          NOT = {
+            trait = dwarf
+          }
+        }
+        clr_character_flag = dwarf_AA
+        clr_character_flag = dwarf_Aa
+        clr_character_flag = dwarf_aa
+        clr_character_flag = dwarf_BB
+        clr_character_flag = dwarf_Bb
+        clr_character_flag = dwarf_bb
+        clr_character_flag = dwarf_CC
+        clr_character_flag = dwarf_Cc
+        clr_character_flag = dwarf_cc
+        set_character_flag = dwarf_Aa
+        set_character_flag = dwarf_Bb
+        set_character_flag = dwarf_Cc
+      }
+
+      if = {
+        limit = {
+          NOT = {
+            trait = harelip
+          }
+        }
+        clr_character_flag = harelip_AA
+        clr_character_flag = harelip_Aa
+        clr_character_flag = harelip_aa
+        clr_character_flag = harelip_BB
+        clr_character_flag = harelip_Bb
+        clr_character_flag = harelip_bb
+        clr_character_flag = harelip_CC
+        clr_character_flag = harelip_Cc
+        clr_character_flag = harelip_cc
+        set_character_flag = harelip_Aa
+        set_character_flag = harelip_Bb
+        set_character_flag = harelip_Cc
+      }
+
+      if = {
+        limit = {
+          NOT = {
+            trait = hunchback
+          }
+        }
+        clr_character_flag = hunchback_AA
+        clr_character_flag = hunchback_Aa
+        clr_character_flag = hunchback_aa
+        clr_character_flag = hunchback_BB
+        clr_character_flag = hunchback_Bb
+        clr_character_flag = hunchback_bb
+        clr_character_flag = hunchback_CC
+        clr_character_flag = hunchback_Cc
+        clr_character_flag = hunchback_cc
+        set_character_flag = hunchback_Aa
+        set_character_flag = hunchback_Bb
+        set_character_flag = hunchback_Cc
+      }
+
+      if = {
+        limit = {
+          NOT = {
+            trait = stutter
+          }
+        }
+        clr_character_flag = stutter_AA
+        clr_character_flag = stutter_Aa
+        clr_character_flag = stutter_aa
+        clr_character_flag = stutter_BB
+        clr_character_flag = stutter_Bb
+        clr_character_flag = stutter_bb
+        clr_character_flag = stutter_CC
+        clr_character_flag = stutter_Cc
+        clr_character_flag = stutter_cc
+        set_character_flag = stutter_Aa
+        set_character_flag = stutter_Bb
+        set_character_flag = stutter_Cc
+      }
+
+      if = {
+        limit = {
+          NOT = {
+            trait = lisp
+          }
+        }
+        clr_character_flag = lisp_AA
+        clr_character_flag = lisp_Aa
+        clr_character_flag = lisp_aa
+        clr_character_flag = lisp_BB
+        clr_character_flag = lisp_Bb
+        clr_character_flag = lisp_bb
+        clr_character_flag = lisp_CC
+        clr_character_flag = lisp_Cc
+        clr_character_flag = lisp_cc
+        set_character_flag = lisp_Aa
+        set_character_flag = lisp_Bb
+        set_character_flag = lisp_Cc
+      }
+    }
+  }
+}

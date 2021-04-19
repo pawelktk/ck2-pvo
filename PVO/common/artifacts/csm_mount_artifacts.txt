@@ -1,0 +1,1090 @@
+slots = {
+	mount = 1
+}
+
+
+#############################
+###### Tier 1 ######
+#############################
+
+foal = {
+	active = { always = yes }
+	allowed_gift = { always = no }
+	
+	quality = 1
+	flags = { alive curse mount horse foal_age_0 no_breeding }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_foal"
+}
+
+
+pony = {
+
+	command_modifier = {
+		speed = 0.025
+	}
+	general_opinion = -5
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 1
+	flags = { alive curse mount horse tier_1 mount_health_5 no_breeding }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_foal"
+	slot = mount
+}
+
+
+dray_horse = { #pack horse
+	
+	command_modifier = {
+		speed = 0.05
+	}
+	days_of_supply = 30
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 1
+	flags = { alive curse mount horse tier_1 mount_health_5 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+
+
+rouncey = { #general purpose horse
+
+	command_modifier = {
+		speed = 0.05
+	}
+	vassal_opinion = 2
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 1
+	flags = { alive curse mount horse tier_1 mount_health_5 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+
+
+#############################
+###### Tier 2 ######
+#############################
+
+hobby = { #irish horse
+
+	command_modifier = {
+		speed = 0.1
+		phase_skirmish_attack = 0.05
+	}
+	combat_rating = 4
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 2
+	flags = { alive curse mount horse tier_2 irish mount_health_5 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+jennet = { #spanish horse
+
+	command_modifier = {
+		speed = 0.1
+		pursue = 0.05
+	}
+	combat_rating = 4
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 2
+	flags = { alive curse mount horse tier_2 spanish mount_health_5 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+palfry = { #ceromonial horse
+
+	command_modifier = {
+		speed = 0.05
+	}
+	vassal_opinion = 5
+	monthly_character_prestige = 0.25
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 2
+	flags = { alive curse mount horse tier_2 mount_health_5 destrier }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_destrier"
+	slot = mount
+}
+
+#############################
+###### Tier 3 ######
+#############################
+
+courser = { 
+
+	command_modifier = {
+		speed = 0.2
+		pursue = 0.05
+		retreat = 0.05
+	}
+	combat_rating = 4
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 3
+	flags = { alive curse mount horse tier_3 mount_health_5 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+destrier = { 
+
+	command_modifier = {
+		speed = 0.15
+		phase_melee_attack = 0.05
+		phase_melee_defense = 0.05
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 3
+	flags = { alive curse mount horse tier_3 mount_health_5 destrier }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_destrier"
+	slot = mount
+}
+
+galician_mountain_horse = { 
+
+	command_modifier = {
+		speed = 0.1
+		morale_offence = 0.05
+		terrain = hills
+		terrain = mountain
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 3
+	flags = { alive curse mount horse tier_3 spanish mount_health_5 destrier }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_destrier"
+	slot = mount
+}
+
+barbary_destrier = { #breeding only
+
+	command_modifier = {
+		speed = 0.15
+		phase_melee_attack = 0.075
+		phase_melee_defense = 0.075
+		pursue = 0.05
+	}
+	attrition = -0.025
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 3
+	flags = { alive curse mount horse tier_3 barbary mount_health_6 destrier breeding_only }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_destrier"
+	slot = mount
+}
+
+chinese_ceromonial_horse = { #china interaction
+
+	command_modifier = {
+		speed = 0.1
+	}
+	general_opinion = 5
+	monthly_grace = 1.5
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 3
+	flags = { alive curse mount horse tier_3 chinese mount_health_5 destrier }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_chinese_horse"
+	slot = mount
+}
+
+
+
+#############################
+###### Tier 4 ######
+#############################
+
+charger = {
+	command_modifier = {
+		speed = 0.15
+		phase_melee_attack = 0.15
+		phase_melee_defense = 0.10
+		cavalry = 0.1
+	}
+	monthly_character_prestige = 0.25
+	combat_rating = 10
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount horse tier_4 mount_health_5 charger }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_charger"
+	slot = mount
+}
+
+chinese_war_horse = {
+	command_modifier = {
+		speed = 0.2
+		phase_melee_attack = 0.15
+		phase_melee_defense = 0.15
+		cavalry = 0.1
+	}
+	monthly_grace = 1
+	combat_rating = 10
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount horse tier_4 chinese mount_health_6 charger }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_chinese_horse"
+	slot = mount
+}
+
+steppe_courser = {
+	command_modifier = {
+		speed = 0.3
+		phase_skirmish_attack = 0.15
+		phase_skirmish_defense = 0.1
+		pursue = 0.15
+		flank = 0.1
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount horse tier_4 steppes mount_health_5 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+arabian_courser = {
+
+	command_modifier = {
+		speed = 0.25
+		phase_skirmish_attack = 0.1
+		pursue = 0.1
+		cavalry = 0.05
+		flank = 0.1
+		terrain = desert
+	}
+	combat_rating = 7
+
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount horse tier_4 arabian mount_health_6 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+moorish_courser = {
+	
+	command_modifier = {
+		speed = 0.3
+		phase_skirmish_attack = 0.2
+		phase_skirmish_defense = 0.1
+		cavalry = 0.1
+	}
+	combat_rating = 7
+
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount horse tier_4 moorish mount_health_5 courser }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_courser"
+	slot = mount
+}
+
+nisean_horse = {
+	
+	command_modifier = {
+		speed = 0.2
+		phase_skirmish_defense = 0.05
+		phase_melee_attack = 0.1
+		phase_melee_defense = 0.1
+		morale_offence = 0.1
+		center = 0.1
+	}
+	combat_rating = 7
+	monthly_character_prestige = 0.5
+	
+	active = {
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount horse tier_4 nisean mount_health_5 destrier }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_destrier"
+	slot = mount
+}
+
+
+#############################
+###### Tier 5 ######
+#############################
+
+
+jurchen_steppe_horse = {
+	command_modifier = {
+		speed = 0.3
+		phase_skirmish_attack = 0.2
+		phase_skirmish_defense = 0.15
+		phase_melee_attack = 0.05
+		pursue = 0.2
+		cavalry = 0.05
+		terrain = steppe
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 jurchen mount_health_5 destrier }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_destrier"
+	slot = mount
+}
+
+mongolian_war_horse = { #breeding only
+	command_modifier = {
+		speed = 0.35
+		phase_skirmish_attack = 0.2
+		phase_skirmish_defense = 0.2
+		pursue = 0.25
+		cavalry = 0.10
+		terrain = steppe
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 mongol mount_health_6 charger breeding_only }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_charger"
+	slot = mount
+}
+
+arabian_charger = {
+	command_modifier = {
+		speed = 0.2
+		phase_melee_attack = 0.2
+		phase_melee_defense = 0.2
+		cavalry = 0.15
+		terrain = desert
+		terrain = plains
+	}
+	combat_rating = 10
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 arabian mount_health_5 charger }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_charger"
+	slot = mount
+}
+
+frankish_charger = {
+	command_modifier = {
+		speed = 0.15
+		phase_melee_attack = 0.2
+		phase_melee_defense = 0.2
+		cavalry = 0.15
+		center = 0.1
+	}
+	combat_rating = 10
+	monthly_character_prestige = 0.5
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 frankish mount_health_5 charger }
+	indestructible = yes
+	stacking = yes
+	picture = "GFX_charger"
+	slot = mount
+}
+
+
+#############################
+###### Unique ######
+#############################
+
+glitterhoof = {
+	command_modifier = {
+		speed = 0.25
+	}
+	diplomacy = 2
+	vassal_opinion = 5
+	monthly_character_prestige = 1
+	global_revolt_risk = -0.025
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 unique mount_health_7 fair robust no_breeding mount_trait_limit_2 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_glitterhoof"
+	slot = mount
+}
+
+glitterhoof_immortal = {
+	command_modifier = {
+		speed = 0.3
+	}
+	diplomacy = 3
+	martial = 1
+	stewardship = 1
+	intrigue = 1
+	learning = 1
+	vassal_opinion = 5
+	monthly_character_prestige = 1
+	global_revolt_risk = -0.05
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 unique mount_health_10 fair immortal no_breeding mount_trait_limit_2 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_glitterhoof_immortal"
+	slot = mount
+}
+
+red_hare = {
+	command_modifier = {
+		speed = 0.5
+		phase_skirmish_attack = 0.1
+		phase_skirmish_defense = 0.1
+		phase_melee_attack = 0.1
+		phase_melee_defense = 0.1
+		pursue = 0.1
+		terrain = plains
+		terrain = farmlands
+		terrain = steppe
+	}
+	combat_rating = 10
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 chinese unique mount_health_7 fair swift no_breeding mount_trait_limit_2 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_red_hare"
+	slot = mount
+}
+
+bucephalus = {
+	command_modifier = {
+		speed = 0.3
+		phase_melee_attack = 0.25
+		phase_melee_defense = 0.25
+		cavalry = 0.15
+	}
+	vassal_opinion = 5
+	monthly_character_prestige = 1
+	
+	combat_rating = 16
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 greek unique mount_health_7 robust powerful no_breeding mount_trait_limit_2 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_bucephalus"
+	slot = mount
+}
+
+al_buraq = {
+	command_modifier = {
+		speed = 0.4
+		morale_offence = 0.15
+		morale_defence = 0.2
+		terrain = desert
+		terrain = plains
+		religious_enemy = 0.3
+	}
+	same_religion_opinion = 10
+	monthly_character_piety = 0.5
+	
+	combat_rating = 10
+	
+	active = {
+		is_adult = yes 
+		religion_group = muslim
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 5
+	flags = { alive curse mount horse tier_5 arabian unique mount_health_7 fair swift no_breeding mount_trait_limit_2 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_al_buraq"
+	slot = mount
+}
+
+
+
+
+#############################
+###### Camels ######
+#############################
+
+arabian_camel = {
+	command_modifier = {
+		speed = 0.15
+		morale_defence = 0.15
+		phase_melee_attack = 0.05
+		phase_melee_defense = 0.05
+		terrain = desert
+		terrain = plains
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 3
+	flags = { alive curse mount camel tier_3 arabian mount_health_6 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_arabian_camel"
+	slot = mount
+}
+
+bactrian_camel = {
+	command_modifier = {
+		speed = 0.1
+		morale_defence = 0.1
+		terrain = hills
+		terrain = mountain
+	}
+	days_of_supply = 30
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 3
+	flags = { alive curse mount camel tier_3 bactrian mount_health_6 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_bactrian_camel"
+	slot = mount
+}
+
+
+
+
+#############################
+###### Elephants ######
+#############################
+
+indian_elephant = {
+	command_modifier = {
+		speed = 0.1
+		morale_offence = 0.1
+		damage = 0.2
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount elephant tier_4 indian mount_health_6 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_indian_elephant"
+	slot = mount
+}
+
+african_elephant = {
+	command_modifier = {
+		speed = 0.05
+		morale_offence = 0.1
+		damage = 0.25
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount elephant tier_4 african mount_health_6 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_african_elephant"
+	slot = mount
+}
+
+
+
+
+#############################
+###### Misc ######
+#############################
+
+tibetan_yak = {
+	command_modifier = {
+		speed = 0.1
+		phase_skirmish_attack = 0.05
+		morale_defence = 0.1
+		terrain = mountain
+	}
+	attrition = -0.2
+	combat_rating = 4
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount yak exotic tier_4 tibetan mount_health_5 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_tibetan_yak"
+	slot = mount
+}
+
+scandinavian_wolf = {
+	command_modifier = {
+		speed = 0.15
+		phase_melee_attack = 0.05
+		phase_melee_defense = 0.1
+		morale_offence = 0.15
+		terrain = forest
+	}
+	martial = 1
+	combat_rating = 10
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount wolf exotic tier_4 scandinavian mount_health_5 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_scandinavian_wolf"
+	slot = mount
+}
+
+indian_tiger = {
+	command_modifier = {
+		speed = 0.15
+		phase_melee_attack = 0.1
+		phase_melee_defense = 0.05
+		morale_offence = 0.15
+		terrain = jungle
+	}
+	martial = 1
+	combat_rating = 10
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount tiger exotic tier_4 indian mount_health_5 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_indian_tiger"
+	slot = mount
+}
+
+russian_bear = {
+	command_modifier = {
+		speed = 0.1
+		morale_offence = 0.1
+		morale_defence = 0.1
+		terrain = forest
+		winter_supply = 5
+		winter_combat = 0.3
+	}
+	combat_rating = 10
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount bear exotic tier_4 russian mount_health_5 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_russian_bear"
+	slot = mount
+}
+
+samian_reindeer  = {
+	command_modifier = {
+		speed = 0.2
+		morale_defence = 0.1
+		terrain = forest
+		phase_skirmish_attack = 0.15
+		phase_skirmish_defense = 0.1
+	}
+	combat_rating = 7
+	
+	active = { 
+		is_adult = yes 
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				NOT = { has_character_flag = ai_recalc_equipped_mount }
+			}
+		}
+	}
+	allowed_gift = { always = no }
+	
+	quality = 4
+	flags = { alive curse mount reindeer exotic tier_4 samian mount_health_5 }
+	indestructible = yes
+	stacking = no
+	picture = "GFX_samian_reindeer"
+	slot = mount
+}

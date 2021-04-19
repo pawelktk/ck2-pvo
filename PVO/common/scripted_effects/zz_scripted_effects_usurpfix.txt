@@ -1,0 +1,103 @@
+# replaces the command "religion = ROOT" in character scopes
+usurpfix_convert_religion_to_root_effect = {
+	if = {
+		limit = {
+			NOT = { government = theocracy_government }
+		}
+		religion = ROOT
+	}
+	else = {
+		set_character_flag = usurpfix_pseudo_theocrat
+		set_government_type = pseudo_theocracy_government
+		religion = ROOT
+		set_government_type = theocracy_government
+		clr_character_flag = usurpfix_pseudo_theocrat
+	}
+}
+
+# replaces the command "religion = FROMFROM" in character scopes
+usurpfix_convert_religion_to_fromfrom_effect = {
+	if = {
+		limit = {
+			NOT = { government = theocracy_government }
+		}
+		religion = FROMFROM
+	}
+	else = {
+		set_character_flag = usurpfix_pseudo_theocrat
+		set_government_type = pseudo_theocracy_government
+		religion = FROMFROM
+		set_government_type = theocracy_government
+		clr_character_flag = usurpfix_pseudo_theocrat
+	}
+}
+
+# replaces the command "religion = FROM" in character scopes
+usurpfix_convert_religion_to_from_effect = {
+	if = {
+		limit = {
+			NOT = { government = theocracy_government }
+		}
+		religion = FROM
+	}
+	else = {
+		set_character_flag = usurpfix_pseudo_theocrat
+		set_government_type = pseudo_theocracy_government
+		religion = FROM
+		set_government_type = theocracy_government
+		clr_character_flag = usurpfix_pseudo_theocrat
+	}
+}
+
+# replaces the vanilla scripted effect in MNM decisions and events (three instances)
+usurpfix_flip_to_secret_religion_effect = {
+	if = {
+		limit = {
+			NOT = { government = theocracy_government }
+		}
+		convert_to_secret_religion = yes
+		abdicate_holy_order_if_religion_changes_effect = yes
+	}
+	else = {
+		set_character_flag = usurpfix_pseudo_theocrat
+		set_government_type = pseudo_theocracy_government
+		convert_to_secret_religion = yes
+		set_government_type = theocracy_government
+		clr_character_flag = usurpfix_pseudo_theocrat
+		abdicate_holy_order_if_religion_changes_effect = yes
+	}
+}
+
+# replaces the command "become_heretic = yes" in relevant character events (two instances)
+usurpfix_become_heretic_effect = {
+	if = {
+		limit = {
+			NOT = { government = theocracy_government }
+		}
+		become_heretic = yes
+	}
+	else = {
+		set_character_flag = usurpfix_pseudo_theocrat
+		set_government_type = pseudo_theocracy_government
+		become_heretic = yes
+		set_government_type = theocracy_government
+		clr_character_flag = usurpfix_pseudo_theocrat
+	}
+}
+
+# replaces "religion = event_target:sponsoring_king" in HF_baptism_events.txt (five instances)
+usurpfix_convert_religion_to_sponsoring_king_effect = {
+	if = {
+		limit = {
+			NOT = { government = theocracy_government }
+		}
+		religion = event_target:sponsoring_king
+	}
+	else = {
+		set_character_flag = usurpfix_pseudo_theocrat
+		set_government_type = pseudo_theocracy_government
+		religion = event_target:sponsoring_king
+		set_government_type = theocracy_government
+		clr_character_flag = usurpfix_pseudo_theocrat
+	}
+}

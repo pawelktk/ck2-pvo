@@ -1,0 +1,21 @@
+trade_post = {
+	trigger = {
+		conditional_tooltip = {
+			trigger = {
+				trade_route = Europe_trade_route
+				OR = {
+					FROM = {
+						is_patrician = no
+					}
+					AND = {
+						port = no
+						FROM = {
+							is_patrician = yes
+						}
+					}
+				}
+			}
+			Europe_trade_route_post_trigger = yes
+		}
+	}
+}

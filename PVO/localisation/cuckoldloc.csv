@@ -1,0 +1,3 @@
+reveal_true_father;Reveal Real Father;;;;;;;;x
+reveal_true_father_desc;Reveal to [Root.GetTitledFirstName] that you are indeed his true father and he is part of the illustrious [From.GetOnlyDynastyName] Dynasty. This will make their inheritance of their alleged fathers titles unlikely and contested.;;;;;;;;;;x
+unclear_heritage;Dubious Heritage;;;;;;;;;;x

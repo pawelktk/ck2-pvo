@@ -1,0 +1,32 @@
+#CODE;ENGLISH;FRENCH;;;;;;;;;;;;x
+
+send_prisoner;Send a prisoner;Donner un prisonnier;;;;;;;;;;;;x
+send_prisoner_desc;Send prisoner.;Donner le prisonnier.;;;;;;;;;;;;x
+ask_prisoner;Request prisoner;Demander un prisonnier;;;;;;;;;;;;x
+ask_prisoner_desc;Request prisoner;Demander un prisonnier;;;;;;;;;;;;x
+
+###Modifiers###
+
+mark_prisoner_tag;Prisoner marked;Prisonnier marqué;;;;;;;;;;;;x
+mark_prisoner_tag_desc;Prisoner marked to send to someone.;Prisonnier marqué pour donner à quelqu'un.;;;;;;;;;;;;x
+release_;Release;Libération;;;;;;;;;;;;x
+
+###Events_Desc###
+
+EVTDESC_send_02;Do you agree to transfer a prisoner to me?;Acceptez-vous de me transférer un prisonnier ?;;;;;;;;;;;;x
+EVTDESC_send_03;I accept in exchange for a favor.;J'accepte en échange d'une faveur.;;;;;;;;;;;;x
+EVTDESC_send_04;I accept in exchange for a ransom.;J'accepte en échange d'une rançon.;;;;;;;;;;;;x
+EVTDESC_send_05;As a pledge of my respect, I offer you this prisoner, may it be useful to you.;En gage de mon respect, je vous offre ce prisonnier, puisse-t-il vous être utiles.;;;;;;;;;;;;x
+EVTDESC_send_06;I refuse your request.;Je refuser votre demande.;;;;;;;;;;;;x
+
+EVTDESC_send_09;I refuse.;Je refuse.;;;;;;;;;;;;x
+
+###Events_OPT###
+
+EVTOPT_send_0001;In exchange for a favor.;En échange d'une faveur.;;;;;;;;;;;;x
+EVTOPT_send_0002;In exchange for a ransom.;En échange d'une rançon.;;;;;;;;;;;;x
+EVTOPT_send_0003;I offer it to you.;Je vous l'offre.;;;;;;;;;;;;x
+EVTOPT_send_0004;No, I keep it.;Non, je le garde.;;;;;;;;;;;;x
+EVTOPT_send_0005;All right;D'accord.;;;;;;;;;;;;x
+EVTOPT_send_0006;I refuse.;Je refuse.;;;;;;;;;;;;x
+EVTOPT_send_0007;Release him;Libérez-le/la;;;;;;;;;;;;x

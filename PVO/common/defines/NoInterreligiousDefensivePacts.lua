@@ -1,0 +1,3 @@
+	NDefines.NDiplomacy.EVERY_DEFENSIVE_PACT_JOIN_THREAT = 1.1						-- If threat is this high, members of all defensive pacts against a target will join
+	NDefines.NDiplomacy.EVERY_DEFENSIVE_PACT_EXCEPT_HEADS_JOIN_THREAT = 1.1		-- If threat is this high, members of all defensive pacts against a target will join, except religious heads that only joins when their own group is attacked
+	NDefines.NDiplomacy.OTHER_DEFENSIVE_PACT_JOIN_THREAT = 1.1						-- If threat is this high, other religious groups band together when attacked, if it's lower every defensive pact acts on it's own

@@ -359,6 +359,7 @@ possessed = { # Highly event driven
 	
 	sex_appeal_opinion = -10
 	same_opinion = 5
+    bori_opinion = 10
 	
 	ai_rationality = -40
 	
@@ -694,6 +695,9 @@ crusader = {
 		shaddai
 		gondi_shahansha
 		kailash_guardian
+        child_of_garki_baba
+        shield_of_roog
+        heir_of_dihya
 	}
 	
 	martial = 2
@@ -824,7 +828,7 @@ clubfooted = {
 	female_insult_adj = INSULT_LIMPING
 }
 harelip = {
-	birth = 20 # EMF
+	birth = 15 # EMF
 	inherit_chance = 1
 
 	sex_appeal_opinion = -10
@@ -854,7 +858,7 @@ hunchback = {
 	female_insult_adj = INSULT_CROOKED
 }
 lisp = {
-	birth = 25 # EMF
+	birth = 20 # EMF
 	inherit_chance = 1
 
 	sex_appeal_opinion = -5
@@ -869,13 +873,15 @@ lisp = {
 	child_insult_adj = INSULT_STUPID
 }
 stutter = {
-	birth = 25 # EMF
+	birth = 20 # EMF
 	inherit_chance = 1
 
 	same_opinion = 5
 
 	diplomacy = -1
 
+	ruler_designer_cost = -4
+	
 	male_insult_adj = INSULT_STUTTERING
 	female_insult_adj = INSULT_STUTTERING
 	child_insult_adj = INSULT_STUPID
@@ -1923,6 +1929,7 @@ zealous = {
 		sympathy_zoroastrianism
 		sympathy_judaism
 		sympathy_indian
+        sympathy_african
 	}
 	
 	martial = 2

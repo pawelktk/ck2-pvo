@@ -1,0 +1,33 @@
+title_stable_master = {
+	
+	is_high_prio = no
+	realm_in_name = yes
+	is_unique = yes
+	show_as_title = yes
+	
+	dignity = 0.10
+	attribute = stewardship
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.1
+	monthly_prestige = 0.15
+	
+	allowed_to_grant = {
+		any_courtier = { is_stable_master_trigger = yes }
+	}
+	
+	allowed_to_hold = {
+		is_stable_master_trigger = yes
+		NOT = { trait = in_hiding }
+		NOT = { trait = incapable }
+		prisoner = no
+	}
+	
+
+	gain_effect = {}
+	lose_effect = {}
+	death_effect = {
+		liege = { character_event = { id = csmm.009 days = 1 } }
+	}
+}

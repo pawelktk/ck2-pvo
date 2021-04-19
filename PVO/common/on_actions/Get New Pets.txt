@@ -1,0 +1,6 @@
+#character
+on_yearly_pulse = {
+	events = {
+		HF.12400 # get new eagle
+		HF.12401 # get new dog
+	}

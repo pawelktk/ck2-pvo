@@ -1,0 +1,7 @@
+player_rank_up_to_warrior;
+player_rank_up_to_warrior_desc; Rank up to Warrior
+player_rank_up_to_veteran;
+player_rank_up_to_veteran_desc; Rank Up to Veteran
+player_rank_up_to_hero;
+player_rank_up_to_hero_desc;  Rank up to Hero
+

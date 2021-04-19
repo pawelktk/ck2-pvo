@@ -1,0 +1,39 @@
+Scandinav_trade_route_post_trigger = {
+	custom_tooltip = {
+		text = Scandinav_trade_route_province_desc
+		hidden_tooltip = {
+			OR = {
+			province_id = 290   # Uppland
+			province_id = 301	# Gotland
+			province_id = 272	# Vingulsmark
+			province_id = 303   # Skane
+			province_id = 391   # Nordland
+			province_id = 274   # Bergenshus
+			province_id = 281   # Angermanland
+			province_id = 414   # Novgorod
+			province_id = 547   # Kiev
+			province_id = 536   # Halych
+			province_id = 378   # Reval
+			province_id = 1646  # Odessa
+			province_id = 1596  # Riga
+			province_id = 496   # Byzantion
+			province_id = 510   # Costania
+			province_id = 610   # Bolghar
+			province_id = 582   # Vladimir
+			province_id = 496   # Byzantion
+			province_id = 368   # Danzig
+			province_id = 262   # Lubeck
+			province_id = 78    # Brugge
+			province_id = 82	# Sticht
+			province_id = 57    # York
+			province_id = 619	# Saray
+			province_id = 527   # Krakow
+			province_id = 11    # Dublin
+			province_id = 14	# Desmond
+			province_id = 41	# Buchan
+			province_id = 49	# Carrick
+			province_id = 848	# Bremen
+			}
+		}
+	}
+}

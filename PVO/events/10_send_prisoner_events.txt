@@ -1,0 +1,734 @@
+namespace = send
+
+character_event = { # Demande
+	id = send.01
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { letter_event = { id = send.02 } }
+	}
+}
+character_event = { # Donne
+	id = send.07
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = send.08 } }
+	}
+}
+
+#Donne
+character_event = {
+	id = send.08
+	desc = EVTDESC_send_05
+	portrait = FROMFROMFROM
+	
+	is_triggered_only = yes
+
+	option = { # Accept
+		name = EXCELLENT
+		FROMFROMFROM = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		hidden_tooltip = {
+		    FROMFROMFROM = {
+			    any_courtier = {
+			        limit = { 
+			            has_character_modifier = mark_prisoner_tag
+			        }
+					imprison = no
+				    imprison = ROOT
+				    remove_character_modifier = mark_prisoner_tag
+			    }
+		    }
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = { # Liberation
+		name = EVTOPT_send_0007
+		FROMFROMFROM = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		hidden_tooltip = {
+		    FROMFROMFROM = {
+			    any_courtier = {
+			        limit = { 
+			            has_character_modifier = mark_prisoner_tag
+			        }
+					imprison = no
+					opinion = { modifier = release_ who = ROOT years = 5 }
+				    remove_character_modifier = mark_prisoner_tag
+			    }
+		    }
+		}
+	}
+	
+	option = { # Refuse
+		name = EVTOPT_send_0006
+		FROMFROMFROM = { letter_event = { id = send.09 days = 3 } }
+		hidden_tooltip = {
+		    FROMFROMFROM = {
+			    any_courtier = {
+			        limit = { 
+			            has_character_modifier = mark_prisoner_tag
+			        }
+				    remove_character_modifier = mark_prisoner_tag
+			    }
+		    }
+		}
+	}
+}
+
+# Demande
+letter_event = {
+	id = send.02
+	desc = EVTDESC_send_02
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+
+	option = { # Echance d'une faveur
+		name = EVTOPT_send_0001
+		FROM = { letter_event = { id = send.03 days = 3 } }
+		ROOT = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 100
+				owes_favor_to = FROM
+			}
+			modifier = {
+				factor = -105
+				holds_favor_on = FROM
+			}
+		}
+	}
+	option = { # Echange d'argent
+		name = EVTOPT_send_0002
+		FROM = { letter_event = { id = send.04 days = 3 } }
+		ROOT = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 100
+				wealth <= 0
+			}
+		}
+    }
+	option = { # Offert
+		name = EVTOPT_send_0003
+		FROM = { letter_event = { id = send.05 days = 3 } }
+		ROOT = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		ai_chance = {
+			factor = 0.1
+			modifier = {
+				factor = 65
+				is_friend = FROM
+			}
+			modifier = {
+				factor = -65
+				wealth <= 0
+			}
+		}
+	}
+	option = { # Refuse
+		name = EVTOPT_send_0004
+		FROM = { letter_event = { id = send.06 days = 3 } }
+		ai_chance = {
+			factor = 0.1
+			modifier = {
+				factor = 200
+				is_rival = FROM
+			}
+			modifier = {
+				factor = -200
+				wealth <= 0
+			}
+		}
+    }
+}
+
+# Echance d'une faveur
+letter_event = {
+	id = send.03
+	desc = EVTDESC_send_03
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_send_0005
+		FROM = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		if = {
+                limit = {
+            	    FROM = {
+			            owes_favor_to = ROOT
+			        }
+            	}
+            	remove_favor = FROM
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+        }
+			
+			else = {
+            	reverse_add_favor = FROM
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+	}
+	
+	option = {
+		name = EVTOPT_send_0007
+		FROM = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		if = {
+                limit = {
+            	    FROM = {
+			            owes_favor_to = ROOT
+			        }
+            	}
+            	remove_favor = FROM
+				FROM = {
+			        any_courtier = {
+			            limit = { 
+			                has_character_modifier = mark_prisoner_tag
+			            }
+				    	imprison = no
+				        hidden_tooltip = { 
+						    opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+						}
+			        }
+		        }
+        }
+			
+			else = {
+            	reverse_add_favor = FROM
+				FROM = {
+			        any_courtier = {
+			            limit = { 
+			                has_character_modifier = mark_prisoner_tag
+			            }
+				    	imprison = no
+						hidden_tooltip = {
+						    opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+						}
+			        }
+		        }
+            }
+	}
+	
+	option = {
+		name = CURSES
+		hidden_tooltip = {
+		    FROM = {
+		    	    any_courtier = {
+		    	        limit = { 
+		    	            has_character_modifier = mark_prisoner_tag
+		    	        }
+		    		    remove_character_modifier = mark_prisoner_tag
+		    	    }
+		    }
+		}
+	}
+}
+
+# Echange d'argent
+letter_event = {
+	id = send.04
+	desc = EVTDESC_send_04
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_send_0005
+		FROM = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		    if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = BARON
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -50 }
+				FROM = { wealth = 50 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = COUNT
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -150 }
+				FROM = { wealth = 150 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = DUKE
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -250 }
+				FROM = { wealth = 250 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = KING
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -370 }
+				FROM = { wealth = 370 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = EMPEROR
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -510 }
+				FROM = { wealth = 510 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			else = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							NOT = { tier = BARON }
+							NOT = { tier = COUNT }
+							NOT = { tier = DUKE }
+							NOT = { tier = KING }
+							NOT = { tier = EMPEROR }
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -25 }
+				FROM = { wealth = 25 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+				            imprison = ROOT
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+	}
+	
+	option = {
+		name = EVTOPT_send_0007
+		FROM = {
+			any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			}
+		}
+		    if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = BARON
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -50 }
+				FROM = { wealth = 50 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+							opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = COUNT
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -150 }
+				FROM = { wealth = 150 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+							opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = DUKE
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -250 }
+				FROM = { wealth = 250 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+							opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = KING
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -370 }
+				FROM = { wealth = 370 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+							opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			if = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							tier = EMPEROR
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -510 }
+				FROM = { wealth = 510 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+							opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+			
+			else = {
+                limit = {
+            	    FROM = {
+			            any_courtier = {
+			                has_character_modifier = mark_prisoner_tag
+			        	    prisoner = yes
+							NOT = { tier = BARON }
+							NOT = { tier = COUNT }
+							NOT = { tier = DUKE }
+							NOT = { tier = KING }
+							NOT = { tier = EMPEROR }
+			            }
+			        }
+            	}
+            	ROOT = { wealth = -25 }
+				FROM = { wealth = 25 }
+				hidden_tooltip = {
+				    FROM = {
+			            any_courtier = {
+			                limit = { 
+			                    has_character_modifier = mark_prisoner_tag
+			                }
+				        	imprison = no
+							opinion = { modifier = release_ who = ROOT years = 5 }
+				            remove_character_modifier = mark_prisoner_tag
+			            }
+		            }
+				}
+            }
+	}
+	
+	option = {
+		name = CURSES
+		hidden_tooltip = {
+		    FROM = {
+		    	any_courtier = {
+		    	    limit = { 
+		    	        has_character_modifier = mark_prisoner_tag
+		    	    }
+		    		remove_character_modifier = mark_prisoner_tag
+		        }
+		    }
+		}
+	}
+}
+
+# Offert
+letter_event = {
+	id = send.05
+	desc = EVTDESC_send_05
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		hidden_tooltip = {
+		    FROM = {
+			    any_courtier = {
+			        limit = { 
+			            has_character_modifier = mark_prisoner_tag
+			        }
+					imprison = no
+				    imprison = ROOT
+				    remove_character_modifier = mark_prisoner_tag
+			    }
+		    }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_send_0007
+		FROM = {
+	        any_courtier = {
+			    limit = { 
+			        has_character_modifier = mark_prisoner_tag
+			    }
+			    imprison = no
+			    opinion = { modifier = release_ who = ROOT years = 5 }
+			    hidden_tooltip = { remove_character_modifier = mark_prisoner_tag }
+			}
+		}
+	}
+}
+
+# Refuse
+letter_event = {
+	id = send.06
+	desc = EVTDESC_send_06
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CURSES
+		hidden_tooltip = {
+		    FROM = {
+			    any_courtier = {
+			        limit = { 
+			            has_character_modifier = mark_prisoner_tag
+			        }
+				    remove_character_modifier = mark_prisoner_tag
+			    }
+		    }
+		}
+	}
+}
+
+#Confirmation
+letter_event = {
+	id = send.09
+	desc = EVTDESC_send_09
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CURSES
+	}
+}
