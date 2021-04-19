@@ -8,3 +8,5 @@
 	NDefines.NEconomy.PATRICIAN_INHERITANCE_FROM_RELATIVE_MULT = 1	-- When a Patrician inherits the wealth of a non-Patrician relative, this multiplier determines the part he actually gets
 	NDefines.NEconomy.FORT_CONSUMED_IN_SETTLEMENT_CONTRUCTION = 0		-- If set to 1 then fort holdings are consumed by the construction of another holding in the province while giving a discount to the construction cost in return.
 
+	NDefines.NCharacter.TREASURY_CHANCE_TO_DISAPPEAR_STANDARD = 0	 	-- Chances that artifacts disappear on inheritance
+	NDefines.NCharacter.TREASURY_CHANCE_TO_DISAPPEAR_NO_HEIR = 0		-- Chances that artifacts disappear on inheritance when the dying character doesn't have an heir
