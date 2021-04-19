@@ -1,0 +1,39 @@
+purchase_claims_cost = {
+	name = "RULE_PURCHASE_CLAIMS_COST"
+	group = "RULE_GROUP_PC"
+	option = {
+		name = cheap
+		text = "PC_CHEAP"
+		desc = "PC_CHEAP_DESC"
+	}
+	option = {
+		name = moderate
+		text = "PC_MODERATE"
+		desc = "PC_MODERATE_DESC"
+	}
+	option = {
+		name = expensive
+		text = "PC_EXPENSIVE"
+		desc = "PC_EXPENSIVE_DESC"
+	}
+}
+
+purchase_claims_tier = {
+	name = "RULE_PURCHASE_CLAIMS_TIER"
+	group = "RULE_GROUP_PC"
+	option = {
+		name = county
+		text = "PC_COUNT"
+		desc = "PC_COUNT_DESC"
+	}
+	option = {
+		name = duchy
+		text = "PC_DUKE"
+		desc = "PC_DUKE_DESC"
+	}
+	option = {
+		name = kingdom
+		text = "PC_KING"
+		desc = "PC_KING_DESC"
+	}
+}

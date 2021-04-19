@@ -1,0 +1,142 @@
+title_decisions = { 
+
+    claim_cheap_county = {
+		filter = all
+		
+		from_potential = {
+			ai = no
+			has_game_rule = { name = purchase_claims_cost value = cheap }
+		}
+		potential = {
+            is_titular = no
+            temporary = no
+            tier = COUNT
+            has_holder = yes
+            holder_scope = { ai = yes }
+		}
+		allow = {
+			FROM = { 
+			    NOT = { has_claim = ROOT }
+			    wealth = 200
+				prestige = 100
+			    piety = 50
+			}
+		}
+		effect = {
+
+			add_claim = FROM
+			FROM = { wealth = -200 }
+			FROM = { prestige = -100 }
+			FROM = { piety = -50 }
+
+			ROOT = {
+				holder_scope = {
+	                opinion = {
+						modifier = opinion_purchased_claim
+						who = FROM
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+    }
+
+    claim_cheap_duchy = {
+		filter = all
+		
+		from_potential = {
+			ai = no
+			has_game_rule = { name = purchase_claims_cost value = cheap }
+			OR = {
+				has_game_rule = { name = purchase_claims_tier value = duchy }
+				has_game_rule = { name = purchase_claims_tier value = kingdom }
+			}
+
+		}
+		potential = {
+            is_titular = no
+            temporary = no
+            tier = DUKE
+            has_holder = yes
+            holder_scope = { ai = yes }
+		}
+		allow = {
+			FROM = { 
+			    NOT = { has_claim = ROOT }
+			    wealth = 600
+				prestige = 300
+			    piety = 100
+			}
+		}
+		effect = {
+
+			add_claim = FROM
+			FROM = { wealth = -600 }
+			FROM = { prestige = -300 }
+			FROM = { piety = -100 }
+
+			ROOT = {
+				holder_scope = {
+	                opinion = {
+						modifier = opinion_purchased_claim
+						who = FROM
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+    }
+
+    claim_cheap_kingdom = {
+		filter = all
+		
+		from_potential = {
+			ai = no
+			has_game_rule = { name = purchase_claims_cost value = cheap }
+			has_game_rule = { name = purchase_claims_tier value = kingdom }
+		}
+		potential = {
+            is_titular = no
+            temporary = no
+            tier = KING
+            has_holder = yes
+            holder_scope = { ai = yes }
+		}
+		allow = {
+			FROM = { 
+			    NOT = { has_claim = ROOT }
+			    wealth = 2000
+				prestige = 1000
+			    piety = 250
+			}
+		}
+		effect = {
+
+			add_claim = FROM
+            FROM = { wealth = -2000 }
+			FROM = { prestige = -1000 }
+			FROM = { piety = -250 }
+
+			ROOT = {
+				holder_scope = {
+	                opinion = {
+						modifier = opinion_purchased_claim
+						who = FROM
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+    }
+
+
+}

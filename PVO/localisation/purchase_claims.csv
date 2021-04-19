@@ -1,0 +1,29 @@
+claim_cheap_county;Purchase Claim;;;;;;;;;;;;;x
+claim_cheap_county_desc;Purchase a claim on this county.;;;;;;;;;;;;;x
+
+claim_cheap_duchy;Purchase Claim;;;;;;;;;;;;;x
+claim_cheap_duchy_desc;Purchase a claim on this duchy.;;;;;;;;;;;;;x
+
+claim_cheap_kingdom;Purchase Claim;;;;;;;;;;;;;x
+claim_cheap_kingdom_desc;Purchase a claim on this kingdom.;;;;;;;;;;;;;x
+
+claim_moderate_county;Purchase Claim;;;;;;;;;;;;;x
+claim_moderate_county_desc;Purchase a claim on this county.;;;;;;;;;;;;;x
+
+claim_moderate_duchy;Purchase Claim;;;;;;;;;;;;;x
+claim_moderate_duchy_desc;Purchase a claim on this duchy.;;;;;;;;;;;;;x
+
+claim_moderate_kingdom;Purchase Claim;;;;;;;;;;;;;x
+claim_moderate_kingdom_desc;Purchase a claim on this kingdom.;;;;;;;;;;;;;x
+
+claim_expensive_county;Purchase Claim;;;;;;;;;;;;;x
+claim_expensive_county_desc;Purchase a claim on this county.;;;;;;;;;;;;;x
+
+claim_expensive_duchy;Purchase Claim;;;;;;;;;;;;;x
+claim_expensive_duchy_desc;Purchase a claim on this duchy.;;;;;;;;;;;;;x
+
+claim_expensive_kingdom;Purchase Claim;;;;;;;;;;;;;x
+claim_expensive_kingdom_desc;Purchase a claim on this kingdom.;;;;;;;;;;;;;x
+
+
+opinion_purchased_claim;Purchased a claim to my lands;;;;;;;;;;;;;x

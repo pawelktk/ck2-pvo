@@ -1,0 +1,4 @@
+opinion_purchased_claim = {
+	opinion = -20
+	months = 60
+}

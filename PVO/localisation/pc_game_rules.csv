@@ -1,0 +1,21 @@
+RULE_PURCHASE_CLAIMS_COST;§BPurchase Claims:§! Pricing;;;;;;;;;;;;;x
+RULE_PURCHASE_CLAIMS_TIER;§BPurchase Claims:§! Highest Tier;;;;;;;;;;;;;x
+RULE_GROUP_PC;Purchase Claims;;;;;;;;;;;;;x
+
+PC_CHEAP;Cheap;;;;;;;;;;;;;x
+PC_CHEAP_DESC;The cost of purchasing a claim is low.;;;;;;;;;;;;;x
+
+PC_MODERATE;Moderate;;;;;;;;;;;;;x
+PC_MODERATE_DESC;The cost of purchasing a claim is medium.;;;;;;;;;;;;;x
+
+PC_EXPENSIVE;Expensive;;;;;;;;;;;;;x
+PC_EXPENSIVE_DESC;The cost of purchasing a claim is high.;;;;;;;;;;;;;x
+
+PC_COUNT;County;;;;;;;;;;;;x
+PC_COUNT_DESC;You can only purchase county claims.;;;;;;;;;;;;;x
+
+PC_DUKE;Duchy;;;;;;;;;;;;;x
+PC_DUKE_DESC;You can purchase county and duchy claims.;;;;;;;;;;;;;x
+
+PC_KING;Kingdom;;;;;;;;;;;;;x
+PC_KING_DESC;You can purchase county, duchy and kingdom claims.;;;;;;;;;;;;;x
