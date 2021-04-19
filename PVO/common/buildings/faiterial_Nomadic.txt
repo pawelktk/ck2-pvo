@@ -1,0 +1,99 @@
+nomad = {
+	
+	no_f_trade_camp = {
+		desc = no_f_trade_camp_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		gold_cost = 204
+		build_time = 120
+		
+		tax_income = 2.4
+		
+		ai_creation_factor = 97
+		extra_tech_building_start = 1
+		
+	}
+	
+	no_f_trade_hall = {
+		desc = no_f_trade_hall_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		prerequisites = { no_trade_hall }
+		gold_cost = 204
+		build_time = 250
+		
+		tax_income = 2.4
+		
+		ai_creation_factor = 97
+		extra_tech_building_start = 1
+		
+	}
+	
+	no_f_drinking_tents = {
+		desc = no_f_drinking_tents_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 90
+		build_time = 140
+		tax_income = 1.0
+		
+		ai_creation_factor = 80
+		extra_tech_building_start = 5
+		
+	}
+		
+	no_f_tavern_tents = {
+		desc = no_f_tavern_tents_desc
+		upgrades_from = no_f_drinking_tents
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 160
+		build_time = 150
+		tax_income = 1.4
+		
+		ai_creation_factor = 80
+		extra_tech_building_start = 5
+		
+	}
+	
+	no_f_road_tolls= (
+		desc = no_f_road_tolls_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 100
+		build_time = 60
+		tax_income = 0.2
+		
+		ai_creation_factor = 60
+		extra_tech_building_start = 3
+		
+	}
+	
+	no_f_scout_outpost= (
+		desc = no_f_scout_outpost_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 180
+		build_time = 90
+		fort_level = 0.2
+		
+		ai_creation_factor = 71
+		extra_tech_building_start = 4
+		
+	}
+
+	no_f_brawling_arena= (
+		desc = no_f_brawling_arena_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 200
+		build_time = 120
+		light_infantry = 60
+		
+		ai_creation_factor = 59
+		extra_tech_building_start = 4
+		
+	}
+
+	no_f_hunting_grounds= (
+		desc = no_f_hunting_grounds_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 210
+		build_time = 130
+		archers = 60
+		
+		ai_creation_factor = 55
+		extra_tech_building_start = 5

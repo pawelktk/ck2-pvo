@@ -1,0 +1,48 @@
+hospital = {
+	hs_f_treatment_camps = {
+		potential = {
+			has_dlc = "Reapers"
+		}
+		desc = hs_f_treatment_camps_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		gold_cost = 150
+		build_time = 300
+		ai_creation_factor = 56
+		
+		disease_defence = 0.05
+		
+		extra_tech_building_start = 10.0 
+	}
+	
+	hs_f_treatment_clinics = {
+		potential = {
+			has_dlc = "Reapers"
+		}
+		upgrades_from = hs_f_treatment_camps
+		desc = hs_f_treatment_clinics_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		gold_cost = 200
+		build_time = 305
+		ai_creation_factor = 48
+		
+		disease_defence = 0.05
+		
+		extra_tech_building_start = 10.0 
+	}
+	
+	hs_f_cremation_site = {
+		potential = {
+			has_dlc = "Reapers"
+		}
+		desc = hs_f_cremation_site_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		gold_cost = 200
+		build_time = 305
+		ai_creation_factor = 78
+		
+		disease_defence = 0.05
+		
+		extra_tech_building_start = 10.0 
+	}
+	
+	

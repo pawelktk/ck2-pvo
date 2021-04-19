@@ -1,0 +1,152 @@
+city = {
+	ct_f_tavern = {
+		desc = ct_f_tavern_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 350
+		build_time = 480
+		tax_income = 3.6
+		
+		ai_creation_factor = 80
+		extra_tech_building_start = 5
+	
+	}
+	
+	ct_f_prison = {
+		desc = ct_f_prison_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 250
+		build_time = 480
+		liege_opinion = 5
+		arrest_chance_modifier = 0.25
+		local_revolt_risk = -0.05
+		
+		ai_creation_factor = 67
+		extra_tech_building_start = 5
+	
+	}
+	
+	
+	ct_f_armory = [
+		desc = ct_f_armory_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 150
+		build_time = 420
+		garrison_growth = 0.1
+		garrison_size = 0.2
+		
+		ai_creation_factor = 79
+		extra_tech_building_start = 5
+	
+	}
+	
+	ct_f_blacksmith = {
+		desc = ct_f_blacksmith_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 200
+		build_time = 240
+		archers = 50
+		light_infantry = 50
+		
+		ai_creation_factor = 97
+		extra_tech_building_start = 5
+	
+	}
+	
+	ct_f_farm_1 = {
+		desc = ct_f_farm_1_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 120
+		build_time = 60
+		tax_income = 2.4
+		
+		ai_creation_factor = 59
+		extra_tech_building_start = 5
+	
+	}
+	
+	ct_f_farm_2 = {
+		desc = ct_f_farm_2_desc
+		upgrades_from = ct_farm_1
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 140
+		build_time = 110
+		tax_income = 3.6
+		
+		ai_creation_factor = 76
+		extra_tech_building_start = 5
+	
+	}
+	ct_f_brothel = {
+		desc = ct_f_brothel_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 240
+		build_time = 450
+		tax_income = 4.8
+		
+		ai_creation_factor = 69
+		extra_tech_building_start = 5
+	
+	}
+	
+	ct_f_lighthouse = (
+		port = yes
+		desc = ct_f_lighthouse_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 150
+		build_time = 130
+		tax_income = 1.2
+		galleys_perc = 0.15
+		
+		ai_creation_factor = 56
+		extra_tech_building_start = 5
+	
+	}
+	
+	ct_f_artist_guild = {
+		desc = ct_f_artist_guild_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
+		build_cost = 200
+		build_time = 300
+		culture_techpoints = 0.2
+		liege_prestige = 0.1
+		
+		ai_creation_factor = 52
+		extra_tech_building_start = 4
+	
+	}
+	
+	ct_f_household_banners = {
+		desc = ct_f_household_banners_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		build_cost = 50
+		build_time = 40
+		liege_prestige = 0.2
+		
+		
+		ai_creation_factor = 42
+		extra_tech_building_start = 6
+	
+	}
+	
+	ct_f_road_tolls= (
+		desc = ct_f_road_tolls_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 100
+		build_time = 60
+		tax_income = 0.2
+		
+		ai_creation_factor = 60
+		extra_tech_building_start = 3
+	
+	}
+	
+	ct_f_gallows= (
+		desc = ct_f_gallows_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 140
+		build_time = 70
+		local_revolt_risk = -0.05
+		
+		ai_creation_factor = 68
+		extra_tech_building_start = 2
+	

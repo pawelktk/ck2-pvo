@@ -1,0 +1,90 @@
+family_palace = {
+
+	ms_f_courtyard = {
+		desc = ms_f_courtyard_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 100
+		build_time = 60
+		monthly_character_prestige = 0.1
+		
+		ai_creation_factor = 80
+		extra_tech_building_start = 5
+	
+	}
+	
+	ms_f_fountain = {
+		desc = ms_f_fountain_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 120
+		build_time = 60
+		monthly_character_prestige = 0.1
+		upgrades_from = ms_courtyard
+		
+		ai_creation_factor = 60
+		extra_tech_building_start = 5
+	
+	}
+	
+	ms_f_minor_investments = {
+		desc = ms_f_minor_investments_desc
+		trigger = { TECH_TRADE_PRACTICES = 2   }
+		build_cost = 200
+		build_time = 10
+		
+		tax_income = 3.6
+		
+		ai_creation_factor = 68
+		extra_tech_building_start = 5
+	
+	}
+	
+	ms_f_large_investments = {
+		desc = ms_f_large_investments_desc
+		upgrades_from = ms_f_minor_investments
+		trigger = { TECH_TRADE_PRACTICES = 4   }
+		build_cost = 300
+		build_time = 10
+		
+		tax_income = 4.8
+		
+		ai_creation_factor = 68
+		extra_tech_building_start = 5
+	
+	}
+	
+	ms_f_family_tomb = {
+		desc = ms_f_family_tomb_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0   }
+		build_cost = 140
+		build_time = 120
+		
+		liege_piety = 0.2
+		
+		ai_creation_factor = 73
+		extra_tech_building_start = 5
+	
+	}
+	
+	ms_f_guards_hall = {
+		desc = ms_f_guards_hall_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1   }
+		build_cost = 200
+		build_time = 150
+		garrison_size = 0.5
+		
+		ai_creation_factor = 78
+		extra_tech_building_start = 5
+	
+	}
+	
+	ms_f_soldier_hall = {
+		desc = ms_f_soldier_hall_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1   }
+		build_cost = 200
+		build_time = 150
+		levy_size = 0.5
+		
+		ai_creation_factor = 79
+		extra_tech_building_start = 5
+	
+	}

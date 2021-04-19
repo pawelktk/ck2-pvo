@@ -1,0 +1,269 @@
+castle = {
+	
+
+	
+	ca_f_citadel = {
+		desc = ca_f_citadel_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3  }
+		build_cost = 1500
+		build_time = 480
+		
+		fort_level = 1.0
+		retinuesize = 100
+		military_techpoints = 0.3
+		fort_level = 1
+		
+		ai_creation_factor = 25
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_blacksmith = {
+		desc = ca_f_blacksmith_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 350
+		build_time = 480
+		military_techpoints = 0.1
+		retinuesize = 200
+		
+		ai_creation_factor = 57
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_courtyard = {
+		desc = ca_f_courtyard_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 350
+		build_time = 480
+		culture_techpoints = 0.1
+		liege_prestige = 0.2
+		
+		ai_creation_factor = 57
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_tavern = {
+		desc = ca_f_tavern_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 350
+		build_time = 480
+		tax_income = 3.6
+		economy_techpoints = 0.1
+		
+		ai_creation_factor = 57
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_moat = {
+		desc = ca_f_moat_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 200
+		prerequisites = { ca_wall_1 }
+		build_time = 240
+		fort_level = 0.5
+		
+		ai_creation_factor = 90
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_well = {
+		desc = ca_f_well_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 200
+		build_time = 240
+		siege_defence = 0.15
+		
+		ai_creation_factor = 60
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_drydock = {
+		port = yes
+		desc = ca_f_drydock_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 250
+		build_time = 300
+		galleys_perc = 0.1
+		
+		ai_creation_factor = 78
+		extra_tech_building_start = 5
+	}
+	
+	ca_f_crenellations = {
+		desc = ca_f_crenellations_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 275
+		build_time = 120
+		fort_level = 0.5
+		prerequisites = { ca_wall_1 }
+		
+		ai_creation_factor = 99
+		extra_tech_building_start = 5
+		
+	}
+	
+	ca_f_re_gate = {
+		desc = ca_f_re_gate_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3  }
+		build_cost = 275
+		build_time = 440
+		siege_defence = 0.15
+		prerequisites = { ca_wall_1 }
+		
+		
+		ai_creation_factor = 50
+		extra_tech_building_start = 5
+		
+	}
+	
+	ca_f_fireplace = {
+		desc = ca_f_fireplace_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 120
+		build_time = 80
+		liege_prestige = 0.1
+		
+		
+		ai_creation_factor = 78
+		extra_tech_building_start = 5
+		
+	}
+	
+	ca_f_dungeon = {
+		desc = ca_f_dungeon_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 200
+		build_time = 320
+		liege_prestige = 0.2
+		local_revolt_risk = -0.05
+		
+		ai_creation_factor = 67
+		extra_tech_building_start = 5
+		
+	}
+	
+	ca_f_war_room = {
+		desc = ca_f_war_room_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
+		build_cost = 220
+		build_time = 60
+		levy_reinforce_rate = 0.1
+		
+		ai_creation_factor = 58
+		extra_tech_building_start = 5
+		
+	}
+	
+	ca_f_oil = {
+		desc = ca_f_oil_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 275
+		build_time = 440
+		siege_defence = 0.15
+		fort_level = 0.5
+		prerequisites = { ca_wall_2 }
+		
+		
+		ai_creation_factor = 50
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_throne = {
+		desc = ca_f_throne_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 275
+		build_time = 440
+		liege_prestige = 0.5
+		
+		
+		ai_creation_factor = 50
+		extra_tech_building_start = 5
+	
+	}
+	
+	ca_f_re_gate_2 = {
+		desc = ca_f_re_gate_2_desc
+		upgrades_from = ca_f_re_gate
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3  }
+		build_cost = 250
+		build_time = 300
+		siege_defence = 0.3
+		fort_level = 0.2
+		prerequisites = { ca_wall_2 }
+		
+		
+		ai_creation_factor = 50
+		extra_tech_building_start = 5
+		
+	}
+	
+	
+	ca_f_ballista_mounts = {
+		desc = ca_f_ballista_mounts_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3  }
+		build_cost = 200
+		build_time = 300
+		siege_defence = 0.2
+		prerequisites = { ca_wall_3 }
+		
+		
+		ai_creation_factor = 46
+		extra_tech_building_start = 6
+	
+	}
+	
+	ca_f_trebuchet_emplacement = {
+		desc = ca_f_trebuchet_emplacement_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
+		build_cost = 250
+		build_time = 300
+		siege_defence = 0.8
+		prerequisites = { ca_f_ballista_mounts }
+		
+		
+		ai_creation_factor = 42
+		extra_tech_building_start = 6
+	
+	}
+	
+	ca_f_household_banners = {
+		desc = ca_f_household_banners_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		build_cost = 50
+		build_time = 40
+		liege_prestige = 0.2
+		
+		
+		ai_creation_factor = 42
+		extra_tech_building_start = 6
+	
+	}
+	
+	ca_f_road_tolls= (
+		desc = ca_f_road_tolls_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 100
+		build_time = 60
+		tax_income = 0.2
+		
+		ai_creation_factor = 60
+		extra_tech_building_start = 3
+	
+	}
+	
+	ca_f_gallows= (
+		desc = ca_f_gallows_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2  }
+		build_cost = 140
+		build_time = 70
+		local_revolt_risk = -0.05
+		
+		ai_creation_factor = 68
+		extra_tech_building_start = 2
+	

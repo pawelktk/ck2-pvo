@@ -1,0 +1,144 @@
+tribal = {	
+
+	tb_f_sacred_ground = {
+		desc = tb_f_sacred_ground_desc
+		
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 40
+		build_time = 10
+		liege_piety = 0.1
+		
+		ai_creation_factor = 80
+		extra_tech_building_start = 5
+	}
+	
+	tb_f_ancesteral_stones = {
+		desc = tb_f_ancesteral_stones_desc
+		
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 80
+		build_time = 60
+		culture_techpoints = 0.1
+		
+		ai_creation_factor = 74
+		extra_tech_building_start = 5
+	}
+	
+	tb_f_slave_trader = {
+		desc = tb_f_slave_trader_desc
+		
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 50
+		build_time = 40
+		tax_income = 2.4
+		
+		ai_creation_factor = 60
+		extra_tech_building_start = 5
+	}
+	
+	tb_f_chieftans_hall = {
+		desc = tb_f_chieftans_hall_desc
+		
+		prerequisites = { tb_hillfort_1 }
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 70
+		build_time = 120
+		liege_prestige = 0.2
+		
+		ai_creation_factor = 78
+		extra_tech_building_start = 5
+	}
+	
+	tb_f_kings_hall = {
+		desc = tb_f_kings_hall_desc
+		
+		upgrades_from = tb_f_chieftans_hall
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 80
+		build_time = 100
+		liege_prestige = 0.2
+		
+		ai_creation_factor = 63
+		extra_tech_building_start = 5
+	}
+	
+	tb_f_spiked_ditch = {
+		desc = tb_f_spiked_ditch_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 100
+		build_time = 80
+		fort_level = 0.5
+		
+		ai_creation_factor = 68
+		extra_tech_building_start = 2
+	}
+	
+	tb_f_gathering_spot = {
+		desc = tb_f_gathering_spot_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0  }
+		build_cost = 20
+		build_time = 50
+		retinuesize = 100
+		
+		ai_creation_factor = 78
+		extra_tech_building_start = 1
+	}
+	
+	tb_f_household_banners = {
+		desc = tb_f_household_banners_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		build_cost = 50
+		build_time = 40
+		liege_prestige = 0.2
+		
+		
+		ai_creation_factor = 42
+		extra_tech_building_start = 6
+	
+	}
+	
+	tb_f_road_tolls= (
+		desc = tb_f_road_tolls_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 100
+		build_time = 60
+		tax_income = 0.2
+		
+		ai_creation_factor = 60
+		extra_tech_building_start = 3
+		
+	}
+	
+	tb_f_scout_outpost= (
+		desc = tb_f_scout_outpost_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 180
+		build_time = 90
+		fort_level = 0.2
+		
+		ai_creation_factor = 71
+		extra_tech_building_start = 4
+		
+	}
+
+	tb_f_brawling_arena= (
+		desc = tb_f_brawling_arena_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 200
+		build_time = 120
+		light_infantry = 60
+		
+		ai_creation_factor = 59
+		extra_tech_building_start = 4
+		
+	}
+
+	tb_f_hunting_grounds= (
+		desc = tb_f_hunting_grounds_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1  }
+		build_cost = 210
+		build_time = 130
+		archers = 60
+		
+		ai_creation_factor = 55
+		extra_tech_building_start = 5

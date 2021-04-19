@@ -1,0 +1,32 @@
+temple = {
+
+	tp_f_grave = {
+		desc = tp_f_grave_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		build_cost = 120
+		build_time = 30
+		liege_opinion = 5
+		liege_piety = 0.1
+		
+		ai_creation_factor = 79
+		extra_tech_building_start = 5
+	
+	}
+	
+	tp_f_soup_kitchen = {
+		desc = tp_f_soup_kitchen_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		build_cost = 20
+		build_time = 70
+		liege_opinion = 5
+		tax_income = -0.2
+		local_revolt_risk = -0.05
+		
+		ai_creation_factor = 79
+		extra_tech_building_start = 5
+	
+	}
+	
+	
+
+	

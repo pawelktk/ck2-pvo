@@ -1,0 +1,56 @@
+trade_post = {
+
+	tp_f_warehouse = {
+		port = yes
+		desc = tp_f_warehouse_desc
+		trigger = { TECH_TRADE_PRACTICES = 0 }
+		gold_cost = 240
+		build_time = 240
+		ai_creation_factor = 95
+		
+		tradevalue = 0.2
+		
+		extra_tech_building_start = 10.0 
+	}
+
+	tp_f_navy_supplies = {
+		port = yes
+		desc = tp_f_navy_supplies_desc
+		trigger = { TECH_TRADE_PRACTICES = 0 }
+		gold_cost = 360
+		build_time = 300
+		ai_creation_factor = 95
+		tradevalue = 0.2
+		
+		extra_tech_building_start = 10.0 
+	}
+	
+	tp_f_merchant_hall = {
+		potential = {
+			port = yes
+			FROM = {
+				is_patrician = yes
+			}
+		}
+		desc = tp_f_merchant_hall_desc
+		trigger = { TECH_TRADE_PRACTICES = 1 }
+		gold_cost = 210
+		build_time = 220
+		ai_creation_factor = 76
+		tradevalue = 0.4
+		
+		extra_tech_building_start = 10.0 
+	}
+	
+	tp_f_ballista_emplacement = {
+		port = yes
+		desc = tp_f_ballista_emplacement_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
+		gold_cost = 320
+		build_time = 310
+		fort_level = 1.0
+		
+		ai_creation_factor = 46
+		extra_tech_building_start = 10.0 
+	}
+	
