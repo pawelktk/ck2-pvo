@@ -1,0 +1,7 @@
+on_birth = {
+
+	events = {
+	
+	MT.9000 
+}
+}
