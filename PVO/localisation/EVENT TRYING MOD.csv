@@ -1,0 +1,15 @@
+#CODE;ENGLISH;;;x
+EVTT_djd.1010;In need of training.;;;x
+EVTDESC_djd.1010;My liege has asked for my help training his commanders, but it seems like he also needs it.;;;x
+EVTOPT_djd.1010;I'll do my best.;;;x
+EVTT_djd.1011;Breakthrough;;;x
+EVTDESC_djd.1011;It has taken some time, but with the help of my marshal I am now much more assured in my ability to command.;;;x
+EVTOPTA_djd.1011;They will know that I am the LORD, when I take vengeance on them.;;;x
+EVTOPTB_djd.1011;Occupation is the surest way to victory.;;;x
+EVTOPTC_djd.1011;An organized army is an efficent army.;;;x
+EVTOPTD_djd.1011;Men will kneel before my might.;;;x
+EVTT_djd.0001;What is this?;;;x
+EVTDESC_djd.0001;This is a trial;;;x
+EVTOPTA_djd.0001;It worked!;;;x
+EVTOPTB_djd.0001; It still worked!;;;x
+
