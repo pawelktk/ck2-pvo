@@ -1,0 +1,16 @@
+namespace = mofi
+character_event = {
+	id = mofi.0001
+	hide_window = yes
+	is_triggered_only = yes
+	
+	has_character_flag = wrote_magnum_opus
+	
+	trigger = {
+		had_character_flag = { flag = wrote_magnum_opus days = 21900 }
+	}
+	
+	immediate = {
+		clr_character_flag = wrote_magnum_opus
+	}
+}
