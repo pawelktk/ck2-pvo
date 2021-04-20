@@ -1,29 +1,29 @@
 the_dynast_king_trait = {
-    ruler_designer_cost = -50
+    ruler_designer_cost = -100
     hidden = yes
 }
 
-the_dynast_queen_trait = {
-    ruler_designer_cost = -50
-    hidden = yes
-}
+#the_dynast_queen_trait = {
+#    ruler_designer_cost = -50
+#    hidden = yes
+#}
 
-the_dynast_prince_trait = {
-    ruler_designer_cost = -25
-    hidden = yes
-}
+#the_dynast_prince_trait = {
+#    ruler_designer_cost = -25
+#    hidden = yes
+#}
+#
+#the_dynast_princess_trait = {
+#    ruler_designer_cost = -25
+#    hidden = yes
+#}
 
-the_dynast_princess_trait = {
-    ruler_designer_cost = -25
-    hidden = yes
-}
-
-the_dynast_lord_trait = {
-    ruler_designer_cost = -10
-    hidden = yes
-}
-
-the_dynast_lady_trait = {
-    ruler_designer_cost = -10
-    hidden = yes
-}
+#the_dynast_lord_trait = {
+#    ruler_designer_cost = -10
+#    hidden = yes
+#}
+#
+#the_dynast_lady_trait = {
+#    ruler_designer_cost = -10
+#    hidden = yes
+#}
