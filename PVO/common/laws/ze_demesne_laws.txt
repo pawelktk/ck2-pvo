@@ -667,7 +667,7 @@ laws = {
 			NOT = { holder_scope = { is_theocracy = yes } }
 			NOT = { holder_scope = { is_tribal = yes } }
 			NOT = { holder_scope = { is_nomadic = yes } }
-			#NOT = { holder_scope = { is_republic = yes } }
+			NOT = { holder_scope = { is_republic = yes } }
 			NOT = { holder_scope = { is_theocracy = yes } }
 		}
 		ai_will_do = { factor = 0 }
@@ -710,7 +710,7 @@ laws = {
 			NOT = { holder_scope = { is_theocracy = yes } }
 			NOT = { holder_scope = { is_tribal = yes } }
 			NOT = { holder_scope = { is_nomadic = yes } }
-			#NOT = { holder_scope = { is_republic = yes } }
+			NOT = { holder_scope = { is_republic = yes } }
 			NOT = { holder_scope = { is_theocracy = yes } }
 		}
 		ai_will_do = {
@@ -784,7 +784,7 @@ laws = {
 			NOT = { holder_scope = { is_theocracy = yes } }
 			NOT = { holder_scope = { is_tribal = yes } }
 			NOT = { holder_scope = { is_nomadic = yes } }
-			#NOT = { holder_scope = { is_republic = yes } }
+			NOT = { holder_scope = { is_republic = yes } }
 			NOT = { holder_scope = { is_theocracy = yes } }
 		}
 		ai_will_do = {
