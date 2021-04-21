@@ -14,3 +14,12 @@
 	
 	NDefines.NCharacter.MAX_WARDS_PER_GUARDIAN = 64
 	NDefines.NCharacter.COURT_SIZE_CHILD_PENALTY_THRESHOLD =999
+	
+	
+	NDefines.NCouncil.COUNCIL_REJECTED_LAW_TIMEOUT = 5							-- How many years the timeout for a law is when council reject the law change
+	NDefines.NCouncil.COUNCIL_REJECTED_CROWN_LAW_TIMEOUT = 2
+	
+	
+	NDefines.NTitle.NORMAL_LAW_CHANGE_COUNCIL_MONTHS = 40,
+	NDefines.NTitle.NORMAL_LAW_CHANGE_ABSOLUTISM_MONTHS = 60,
+	NDefines.NTitle.CROWN_LAW_CHANGE_MONTHS = 300,
