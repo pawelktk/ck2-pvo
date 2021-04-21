@@ -1,0 +1,29 @@
+character_event = {
+	id = 9191919
+	desc = "EVTDESC9191919"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+
+	trigger = {
+		government = republic_government
+		OR{
+		liege = {
+			NOT = { culture = ROOT }
+		}
+		liege = {
+			NOT = { religion = ROOT }
+		}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA9191919"
+		liege = {
+				reverse_culture = ROOT
+			}
+			liege = {
+				reverse_religion = ROOT
+			}
+	}
+}
